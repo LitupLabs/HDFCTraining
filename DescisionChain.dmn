@@ -112,7 +112,7 @@
     <informationRequirement id="_DDE241E4-8E95-4C66-9B71-5164F836D8CD">
       <requiredDecision href="#_52E9B56E-21C1-4BE1-80A6-2030ECB37F85" />
     </informationRequirement>
-    <decisionTable id="_B08A39C3-D080-4907-B7FF-BFC2C056E7E7" typeRef="Riskcategory" hitPolicy="UNIQUE" label="Risk Category">
+    <decisionTable id="_B08A39C3-D080-4907-B7FF-BFC2C056E7E7" typeRef="Riskcategory" hitPolicy="FIRST" label="Risk Category">
       <input id="_D5818627-ED55-4D9C-BA60-69B46113A99E">
         <inputExpression id="_8D1216BC-BAD6-4AF5-8566-867F5CEA71C2" typeRef="number">
           <text>EMI  RATIO</text>
