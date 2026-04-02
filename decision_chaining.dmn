@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_533D7AB8-1F16-48C8-8502-8C463C741A76" id="_8F0CF9ED-28F8-48C2-8E7C-40CB63458B22" name="DMN_D34D5E62-5EA1-46E4-A80C-9861F6B35613" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_23D3A330-0A1F-40C7-9D28-E3767D78E508" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_D1C8012E-48AC-4982-925B-5EEAE0722937" name="existingEMIs" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_0DFBCCAF-2DCD-4E5E-A6BD-918E7695E4C2" name="monthlyIncome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_F7B0059B-FC77-4491-9926-F81B498C8366" name="otherIncome" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_A1B848FF-BD3F-40AB-841A-32649B38EBA0" name="Loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_FB52872D-7ACB-47BC-92BA-217837D2CB08" name="interestType" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
