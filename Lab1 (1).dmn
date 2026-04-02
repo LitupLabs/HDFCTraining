@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8C3C1AAB-F55A-45A2-9A9A-C7E5D665BBB3" id="_6B817734-4E9E-4B5C-936E-B600323EEE0A" name="DMN_C2E82D2D-3460-4848-82A6-A8B7208A177D">
+  <itemDefinition id="_C9C24E90-4D17-49C4-AB12-2F6E44E73301" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_D8D7D226-0C6D-44CE-8AF4-6FED6545BAC0" name="existingEMIs" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_7F5B8190-7E23-4CC9-B9C6-9CDA768B54DD" name="monthlyIncome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_9F86719D-9493-4292-A143-D93291792BC3" name="Loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_6C1B633C-98A2-4F5A-B74C-1199F4C68565" name="amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_237D3F7D-113F-495A-8F1B-4AF68E85DB4F" name="tenure" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_0F495059-4B25-4855-8579-22F0631FB064" name="CustomerApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_B59331C7-B5BE-4155-886E-C36A9028756E" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Financials</typeRef>
+    </itemComponent>
+    <itemComponent id="_292F4BE8-2A6E-4DE5-A64C-0D8F7E61EED7" name="loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Loan</typeRef>
+    </itemComponent>
+    <itemComponent id="_D9931576-5585-49DA-B2D6-ABEDDDEA7CB7" name="name" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_9BBF2743-2BEB-47E0-9DB7-3B7B6375994A" name="age" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_11915C79-0253-411C-9A48-A61B29360100" name="id" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_DC2FD5A1-0C97-4F9E-9073-B652DC454B2C" name="creditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="Is Eligible" id="_AC00605F-6244-45D5-8294-D209EB8D413D">
+    <variable id="_C1DD6BA8-F6DE-44F4-B639-4EC9195D8DFB" typeRef="boolean" name="Is Eligible" />
+    <informationRequirement id="_D84F3582-2664-4AF5-8DBE-15F40E7FAC94">
+      <requiredInput href="#_AE69FA78-F33F-4D0E-A01C-12B703C84DC2" />
+    </informationRequirement>
+    <literalExpression id="_0A8BB417-3352-4DEA-96B9-A9FFD1D4DCEB" typeRef="boolean" label="Is Eligible">
+      <text>CustomerApplication.loan.tenure &lt;=20 and  CustomerApplication.financials.monthlyIncome &gt; 30000 and CustomerApplication.creditScore &gt; 650</text>
+    </literalExpression>
+  </decision>
+  <inputData name="CustomerApplication" id="_AE69FA78-F33F-4D0E-A01C-12B703C84DC2">
+    <variable name="CustomerApplication" id="_E03503A0-C66A-4AC7-ABEE-14CF170D08FC" typeRef="CustomerApplication" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_6B58405B-9160-4BB2-AFD5-83DDA48B784B" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_0A8BB417-3352-4DEA-96B9-A9FFD1D4DCEB">
+            <kie:width>753</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_61EA78EC-AA2A-4640-9BC4-9E1926061F01" dmnElementRef="_AE69FA78-F33F-4D0E-A01C-12B703C84DC2" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="300" width="200" height="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_84AE0CC7-120C-4617-8D99-3951731775CA" dmnElementRef="_AC00605F-6244-45D5-8294-D209EB8D413D" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="100" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_F910761A-952B-44A2-99F9-F86F736EC927-AUTO-TARGET" dmnElementRef="_D84F3582-2664-4AF5-8DBE-15F40E7FAC94" sourceElement="_61EA78EC-AA2A-4640-9BC4-9E1926061F01" targetElement="_84AE0CC7-120C-4617-8D99-3951731775CA">
+        <di:waypoint x="200" y="350" />
+        <di:waypoint x="180" y="140" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
