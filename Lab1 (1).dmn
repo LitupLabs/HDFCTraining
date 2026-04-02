@@ -58,14 +58,14 @@
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_61EA78EC-AA2A-4640-9BC4-9E1926061F01" dmnElementRef="_AE69FA78-F33F-4D0E-A01C-12B703C84DC2" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="100" y="300" width="200" height="100" />
+        <dc:Bounds x="100" y="240" width="200" height="100" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_84AE0CC7-120C-4617-8D99-3951731775CA" dmnElementRef="_AC00605F-6244-45D5-8294-D209EB8D413D" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="100" y="100" width="160" height="80" />
+        <dc:Bounds x="100" y="100" width="200" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_F910761A-952B-44A2-99F9-F86F736EC927-AUTO-TARGET" dmnElementRef="_D84F3582-2664-4AF5-8DBE-15F40E7FAC94" sourceElement="_61EA78EC-AA2A-4640-9BC4-9E1926061F01" targetElement="_84AE0CC7-120C-4617-8D99-3951731775CA">
-        <di:waypoint x="200" y="350" />
-        <di:waypoint x="180" y="140" />
+        <di:waypoint x="200" y="290" />
+        <di:waypoint x="200" y="140" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
