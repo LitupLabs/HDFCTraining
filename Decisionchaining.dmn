@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_AD7FB237-CFCD-434B-9A0E-DE6B1FF7CDAA" id="_B2F6E718-CD04-4DEB-8F1C-5E0DBEB34471" name="DMN_7CF595C9-5CA2-4A9E-BD77-DB44B82E9C94" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_121D4C75-110F-43FE-8BE6-8B138B26FF6C" name="LoanOffer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_B65D6206-D459-4C56-804C-B572DBAF930D" name="decision" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_65D2B102-38DA-4197-86DB-39ADD6FF5F6B" name="interestRate" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+</definitions>
