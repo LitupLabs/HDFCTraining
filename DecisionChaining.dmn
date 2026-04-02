@@ -86,4 +86,90 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="Total Income" id="_2A7B87F6-E024-4AA1-A8BB-D91884E29E68">
+    <variable name="Total Income" id="_076F4C34-E3F9-4256-8BFF-076030C86F42" typeRef="number" />
+    <informationRequirement id="_EECBBE67-AF2B-49F4-9749-283CD48AD963">
+      <requiredInput href="#_11E158E2-D876-4068-B458-BFFCE09573A2" />
+    </informationRequirement>
+    <literalExpression id="_E6E33DDC-A61B-4C30-878F-9415E494D75E" typeRef="number" label="Total Income">
+      <text>LoanApplication.financials.monthlyIncome + sum(LoanApplication.financials.otherIncomes)</text>
+    </literalExpression>
+  </decision>
+  <decision name="EMI Ratio" id="_9B4AF435-DFF1-416B-9397-FADC9F3B6BA4">
+    <variable name="EMI Ratio" id="_981A1373-BD60-4E9F-ACBA-69BE499A665B" typeRef="number" />
+    <informationRequirement id="_D64F5C91-3C41-4476-A98E-A2EBBD0D6CD9">
+      <requiredDecision href="#_2A7B87F6-E024-4AA1-A8BB-D91884E29E68" />
+    </informationRequirement>
+    <informationRequirement id="_EFD85F35-21C3-4865-8931-42A24B7A0900">
+      <requiredInput href="#_11E158E2-D876-4068-B458-BFFCE09573A2" />
+    </informationRequirement>
+    <literalExpression id="_42DD3471-A25D-46CB-BD2B-2B161927A9EC" typeRef="number" label="EMI Ratio">
+      <text>LoanApplication.financials.existingEMIs / Total Income</text>
+    </literalExpression>
+  </decision>
+  <decision name="Risk Category" id="_731E4B1C-CD98-43DD-A501-89CDE69725A2">
+    <variable name="Risk Category" id="_DC8E1A84-74F7-4D9F-A5DE-4F081D31D019" typeRef="RiskCategory" />
+    <informationRequirement id="_2327E5D6-BE1B-4100-B02A-8D6C94B71D82">
+      <requiredDecision href="#_9B4AF435-DFF1-416B-9397-FADC9F3B6BA4" />
+    </informationRequirement>
+  </decision>
+  <inputData name="LoanApplication" id="_11E158E2-D876-4068-B458-BFFCE09573A2">
+    <variable name="LoanApplication" id="_5976D443-826E-43DF-9578-2D90BFB2D199" typeRef="LoanApplication" />
+  </inputData>
+  <textAnnotation id="_66B3627A-6BA5-4969-AB2B-11F93C548122">
+    <text>This decision node is calculating the total income of the applicant</text>
+  </textAnnotation>
+  <association id="_E4FA92FE-14F3-45EA-8593-E98376F78B4B" associationDirection="Both">
+    <sourceRef href="#_2A7B87F6-E024-4AA1-A8BB-D91884E29E68" />
+    <targetRef href="#_66B3627A-6BA5-4969-AB2B-11F93C548122" />
+  </association>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_09D041BE-6A98-4FEC-9C7B-1271A8AB38CC" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_E6E33DDC-A61B-4C30-878F-9415E494D75E">
+            <kie:width>732</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_42DD3471-A25D-46CB-BD2B-2B161927A9EC">
+            <kie:width>738</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_BBA4FA78-E518-4AE4-9018-86F6A17BEB91" dmnElementRef="_11E158E2-D876-4068-B458-BFFCE09573A2" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="180" y="200" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_3371B688-5920-4BA4-994C-AF3E307776A8" dmnElementRef="_2A7B87F6-E024-4AA1-A8BB-D91884E29E68" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="520" y="200" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_CD683615-F0AD-4014-B91C-721CD9ACE1F6" dmnElementRef="_66B3627A-6BA5-4969-AB2B-11F93C548122" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="840" y="100" width="200" height="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_DAAC329A-D97C-4EC8-982B-98334F910571" dmnElementRef="_9B4AF435-DFF1-416B-9397-FADC9F3B6BA4" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="540" y="60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_591C5556-DDAB-4FD4-B06A-62480E7A92CA" dmnElementRef="_731E4B1C-CD98-43DD-A501-89CDE69725A2" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="240" y="80" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_2C5027A6-9354-4B7A-9B46-667F1294B91E" dmnElementRef="_EECBBE67-AF2B-49F4-9749-283CD48AD963" sourceElement="_BBA4FA78-E518-4AE4-9018-86F6A17BEB91" targetElement="_3371B688-5920-4BA4-994C-AF3E307776A8">
+        <di:waypoint x="260" y="240" />
+        <di:waypoint x="600" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_7D06E44D-CE8C-48F4-91F6-6A85BFDCD397-AUTO-TARGET" dmnElementRef="_E4FA92FE-14F3-45EA-8593-E98376F78B4B" sourceElement="_3371B688-5920-4BA4-994C-AF3E307776A8" targetElement="_CD683615-F0AD-4014-B91C-721CD9ACE1F6">
+        <di:waypoint x="600" y="240" />
+        <di:waypoint x="940" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_6250FCA2-3563-4B09-8109-87C078DCA8C7" dmnElementRef="_D64F5C91-3C41-4476-A98E-A2EBBD0D6CD9" sourceElement="_3371B688-5920-4BA4-994C-AF3E307776A8" targetElement="_DAAC329A-D97C-4EC8-982B-98334F910571">
+        <di:waypoint x="600" y="240" />
+        <di:waypoint x="620" y="100" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_34AC695A-2D85-4141-90C4-BFCF7F7A693C" dmnElementRef="_EFD85F35-21C3-4865-8931-42A24B7A0900" sourceElement="_BBA4FA78-E518-4AE4-9018-86F6A17BEB91" targetElement="_DAAC329A-D97C-4EC8-982B-98334F910571">
+        <di:waypoint x="260" y="240" />
+        <di:waypoint x="620" y="100" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_CC888742-9658-4928-9F6D-51FF6455A658" dmnElementRef="_2327E5D6-BE1B-4100-B02A-8D6C94B71D82" sourceElement="_DAAC329A-D97C-4EC8-982B-98334F910571" targetElement="_591C5556-DDAB-4FD4-B06A-62480E7A92CA">
+        <di:waypoint x="620" y="100" />
+        <di:waypoint x="320" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
