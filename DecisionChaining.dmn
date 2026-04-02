@@ -107,6 +107,12 @@
       <text>LoanApplication.financials.monthlyIncome + sum(LoanApplication.financials.otherIncomes)</text>
     </literalExpression>
   </decision>
+  <decision name="Risk Catagory" id="_86F21BE4-06FF-4410-91D0-513AC7A701D3">
+    <variable name="Risk Catagory" id="_C85D2404-C602-4342-AE37-660774E4815C" typeRef="RiskCategory" />
+    <informationRequirement id="_31E5F8D7-B52D-4F4A-A91E-6DFB312A1C0E">
+      <requiredDecision href="#_2B2424AF-66A1-4242-A8C8-A362E8BB16DB" />
+    </informationRequirement>
+  </decision>
   <inputData name="LoanApplication" id="_83A12C82-B151-456C-BEC8-D019ABFDF870">
     <variable name="LoanApplication" id="_47EE4241-2F89-4B54-B461-39CE123FA72E" typeRef="LoanApplication" />
   </inputData>
@@ -131,6 +137,9 @@
       <dmndi:DMNShape id="_16F9AE5A-5A81-4887-A4DA-84436BE30BCD" dmnElementRef="_217F8B81-E1CF-45A4-9021-CA0274D8600C" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="380" y="200" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_04F69E7B-FE28-4377-A2E6-A30932D9D7F1" dmnElementRef="_86F21BE4-06FF-4410-91D0-513AC7A701D3" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="140" y="80" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_F6AA73EE-FA97-40CC-B862-8993DB061FF2" dmnElementRef="_A0A83D7D-D94D-490B-A7F3-A42888B54DAB" sourceElement="_4AB669A9-A43C-4E67-8417-950D2F1863B7" targetElement="_9F4D12CA-85D6-4E01-80EE-9B09FDEB1E53">
         <di:waypoint x="200" y="240" />
         <di:waypoint x="380" y="120" />
@@ -142,6 +151,10 @@
       <dmndi:DMNEdge id="_0C344B70-D634-4129-8814-188BCFF36EEB" dmnElementRef="_631D275E-8558-4A1B-9244-DEDE4117F81F" sourceElement="_16F9AE5A-5A81-4887-A4DA-84436BE30BCD" targetElement="_9F4D12CA-85D6-4E01-80EE-9B09FDEB1E53">
         <di:waypoint x="460" y="240" />
         <di:waypoint x="460" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_37B94BFD-F988-4622-9C31-7087F0A56093" dmnElementRef="_31E5F8D7-B52D-4F4A-A91E-6DFB312A1C0E" sourceElement="_9F4D12CA-85D6-4E01-80EE-9B09FDEB1E53" targetElement="_04F69E7B-FE28-4377-A2E6-A30932D9D7F1">
+        <di:waypoint x="460" y="120" />
+        <di:waypoint x="300" y="120" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
