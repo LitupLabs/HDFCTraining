@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_533D7AB8-1F16-48C8-8502-8C463C741A76" id="_8F0CF9ED-28F8-48C2-8E7C-40CB63458B22" name="DMN_D34D5E62-5EA1-46E4-A80C-9861F6B35613" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_4011B8C6-9B92-430D-A9BB-141AE412E12E" name="customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_B40A4B2C-7D17-4351-93E4-F982CBD7C904" name="creditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_C0D11CC5-18C0-4E05-B225-AF372454BA1C" name="age" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_E2C6AEF5-EAC3-4301-94EE-9EF5A7EC47FB" name="name" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_FF31446D-FFA5-4B08-8233-F967AB0FAF81" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_6B5C1966-304C-4DB8-AEDE-4F04D03A1653" name="loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Loan</typeRef>
+    </itemComponent>
+    <itemComponent id="_A21914A3-694F-4CC6-B902-C8FFB4A1C304" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Financials</typeRef>
+    </itemComponent>
+    <itemComponent id="_5D5A3479-D6EE-4C6E-B813-325762A7E224" name="riskFactors" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>RiskFactor</typeRef>
+    </itemComponent>
+    <itemComponent id="_B8DAC654-477E-4039-8523-9F2B975F6E23" name="collaterals" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Collateral</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_9FA96AC6-64B1-4574-9903-30BAB1943B7F" name="RiskCategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>string</typeRef>
     <allowedValues id="_40433405-2FF5-47FF-A497-0C84EBB87F41" kie:constraintType="enumeration">
@@ -15,6 +40,9 @@
     </itemComponent>
     <itemComponent id="_F7B0059B-FC77-4491-9926-F81B498C8366" name="otherIncome" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
+      <allowedValues id="_958F6C89-0D53-462E-B286-0609F74FEA76" kie:constraintType="expression">
+        <text>&gt;=0</text>
+      </allowedValues>
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_A1B848FF-BD3F-40AB-841A-32649B38EBA0" name="Loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
