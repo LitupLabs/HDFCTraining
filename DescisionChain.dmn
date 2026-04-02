@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_2E0E1F6C-323C-4895-9AFF-6BD441110783" id="_2CA07E85-EDCB-4A50-8955-718A3FED6262" name="DMN_7463B9FD-DC8F-4976-82E6-41E32CA0E749" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_24E47527-720E-4671-8858-C4FBC8CD65B5" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_108D880E-5064-418C-89EC-DA9670F0F13A" name="Name" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_79AF67E1-1D0D-4570-8586-9714A10A47C8" name="Age" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_944C477E-0963-4A71-BF9E-62A1308EA394" name="Creditscore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_BBBF5DA1-EC3F-450B-9DD4-5B7D5B845A14" name="Loanapplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_27263EF2-9506-4E38-B62D-65C17EEC8C7C" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Customer</typeRef>
+    </itemComponent>
+    <itemComponent id="_0D75CA7B-6E43-45DA-964D-2CA4B0EBD605" name="Loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Loan</typeRef>
+    </itemComponent>
+    <itemComponent id="_5426893A-EA83-496C-ABF8-3D301DEEDE66" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Financials</typeRef>
+    </itemComponent>
+    <itemComponent id="_758CF447-FAD3-40B7-A472-23CEF782C7B1" name="collaterals" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>collaterals</typeRef>
+    </itemComponent>
+    <itemComponent id="_3D528A41-3CA0-466B-91E0-B8C38F32CFC0" name="riskfactors" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Riskfactors</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_046D570F-A629-4A27-8FEB-3F063D211940" name="Riskcategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>string</typeRef>
+    <allowedValues id="_42F4487B-FEE0-436E-9EDC-FD91CA8662D3" kie:constraintType="enumeration">
+      <text>&quot;HIGH&quot;, &quot;MEDIUM&quot;, &quot;LOW&quot;</text>
+    </allowedValues>
+  </itemDefinition>
+  <itemDefinition id="_AA8D5A49-0BB3-4F93-A4DF-EADFEDD33E9E" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_54B97C7C-03DB-4BD4-9C18-DFC67343DE27" name="Monthlyincome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_33A8D58D-F284-48E6-B642-1D23A53DE85A" name="existingEMI" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_310963EE-3C5E-4079-BC89-01C4AB3D977C" name="Otherincomes" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_DE6470BB-4ABD-454F-B39A-531F844B9FF8" name="Loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_E66EB963-C89E-4431-A23B-CCABDF76A421" name="amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
