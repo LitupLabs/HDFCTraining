@@ -86,4 +86,19 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
+  <inputData name="LoanApplication" id="_499B0A0A-129B-451D-BE63-396C30208A78">
+    <variable name="LoanApplication" id="_E0CD52C3-79FD-4BF3-A77E-7A22B68FF00C" typeRef="LoanApplication" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_4478D9E3-ED70-4E2A-B3E0-FF953DC7DE78" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_EBD848BB-1F0C-4EF5-BFC6-7CE593C98141" dmnElementRef="_499B0A0A-129B-451D-BE63-396C30208A78" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="280" y="100" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
