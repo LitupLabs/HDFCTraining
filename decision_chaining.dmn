@@ -86,6 +86,15 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="Total Income" id="_1A8EC393-1D65-45BA-A986-C0EE714DA5B1">
+    <variable name="Total Income" id="_F0331BF5-F40A-4194-8F55-427F4C1ECB5A" typeRef="number" />
+    <informationRequirement id="_EAFEE031-40AA-4C3E-B8C9-F33AD756A4A8">
+      <requiredInput href="#_499B0A0A-129B-451D-BE63-396C30208A78" />
+    </informationRequirement>
+    <literalExpression id="_7E5630BF-3F09-46BC-BAC4-F9DF5C3D4959" typeRef="number" label="Total Income">
+      <text>LoanApplication.financials.monthlyIncome + sum(LoanApplication.financials.otherIncome)</text>
+    </literalExpression>
+  </decision>
   <inputData name="LoanApplication" id="_499B0A0A-129B-451D-BE63-396C30208A78">
     <variable name="LoanApplication" id="_E0CD52C3-79FD-4BF3-A77E-7A22B68FF00C" typeRef="LoanApplication" />
   </inputData>
@@ -93,12 +102,21 @@
     <dmndi:DMNDiagram id="_4478D9E3-ED70-4E2A-B3E0-FF953DC7DE78" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths />
+          <kie:ComponentWidths dmnElementRef="_7E5630BF-3F09-46BC-BAC4-F9DF5C3D4959">
+            <kie:width>1189</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_EBD848BB-1F0C-4EF5-BFC6-7CE593C98141" dmnElementRef="_499B0A0A-129B-451D-BE63-396C30208A78" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="280" y="100" width="160" height="80" />
+        <dc:Bounds x="112" y="292" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_C1C23DED-7C7D-44B3-A7C7-677655B96FCD" dmnElementRef="_1A8EC393-1D65-45BA-A986-C0EE714DA5B1" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="112" y="112" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_7A3D3CC4-15AD-49D9-B56F-C5BC938DA53D" dmnElementRef="_EAFEE031-40AA-4C3E-B8C9-F33AD756A4A8" sourceElement="_EBD848BB-1F0C-4EF5-BFC6-7CE593C98141" targetElement="_C1C23DED-7C7D-44B3-A7C7-677655B96FCD">
+        <di:waypoint x="192" y="292" />
+        <di:waypoint x="192" y="192" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
