@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_AD7FB237-CFCD-434B-9A0E-DE6B1FF7CDAA" id="_B2F6E718-CD04-4DEB-8F1C-5E0DBEB34471" name="DMN_7CF595C9-5CA2-4A9E-BD77-DB44B82E9C94" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_91E7DDD8-6354-40F9-8886-0AA2F12D85B5" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_CE55A600-6451-4640-9CAB-07A82194A0C0" name="riskFactors" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>RiskFactors</typeRef>
+    </itemComponent>
+    <itemComponent id="_E563477A-0DFB-4833-82D9-C695187097CC" name="collaterals" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Collaterals</typeRef>
+    </itemComponent>
+    <itemComponent id="_44B59C37-70F0-4B86-9B2F-F07C5E300222" name="finacials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Financials</typeRef>
+    </itemComponent>
+    <itemComponent id="_AC4C0946-1D43-4315-8085-582BDC59903C" name="loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Loan</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_CDAB4CCE-8877-4350-99C0-03CA1C91085A" name="RiskCategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>string</typeRef>
     <allowedValues id="_A89AA6B1-7A61-43E4-9EA6-F28843735EF2" kie:constraintType="enumeration">
