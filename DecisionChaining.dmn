@@ -31,7 +31,7 @@
   <itemDefinition id="_292809AC-1E64-473C-8EE7-BFC88DD7D9C6" name="RiskCategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>string</typeRef>
     <allowedValues id="_A3BD4165-6C32-42F3-8EA5-D4379848FD93" kie:constraintType="enumeration">
-      <text>&quot;MEDIUM&quot;, &quot;HIGH&quot;, &quot;LOW&quot;</text>
+      <text>&quot;HIGH&quot;, &quot;MEDIUM&quot;, &quot;LOW&quot;</text>
     </allowedValues>
   </itemDefinition>
   <itemDefinition id="_6C66557A-0C72-448C-A785-5DE8C9500F7B" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -112,7 +112,7 @@
     <informationRequirement id="_2327E5D6-BE1B-4100-B02A-8D6C94B71D82">
       <requiredDecision href="#_9B4AF435-DFF1-416B-9397-FADC9F3B6BA4" />
     </informationRequirement>
-    <decisionTable id="_4497A5DA-D434-4E19-BEC9-C72F244CCDB0" typeRef="RiskCategory" hitPolicy="RULE ORDER" label="Risk Category">
+    <decisionTable id="_4497A5DA-D434-4E19-BEC9-C72F244CCDB0" typeRef="RiskCategory" hitPolicy="OUTPUT ORDER" label="Risk Category">
       <input id="_860ACBF5-D874-4682-895A-2F0C24B585D7">
         <inputExpression id="_79B748E3-1331-4770-B7C0-FA1C13E39E94" typeRef="number">
           <text>EMI Ratio</text>
