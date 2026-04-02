@@ -92,26 +92,84 @@
     <informationRequirement id="_5A60EFE6-4BDA-4571-AD02-105E1BD43550">
       <requiredInput href="#_490DE456-F5B2-4E6E-A53B-1A0EC1F2C8D6" />
     </informationRequirement>
+    <literalExpression id="_0278338E-27F4-4947-B1F0-88C418D3568D" typeRef="number" label="Total Income">
+      <text>LoanApplication.financials.monthlyIncome + sum(LoanApplication.financials.otherIncomes)</text>
+    </literalExpression>
+  </decision>
+  <decision name="EMI Ration" id="_A3F3CC4F-3222-4F71-AE45-7B21AFB1D9B2">
+    <variable name="EMI Ration" id="_C54C0FCD-F512-4C41-B2FA-DEA78E067044" typeRef="number" />
+    <informationRequirement id="_FECDAE93-11AA-439D-AF68-1CDD771390D6">
+      <requiredInput href="#_490DE456-F5B2-4E6E-A53B-1A0EC1F2C8D6" />
+    </informationRequirement>
+    <informationRequirement id="_CCB8611F-D9CC-406E-A0DC-D958401C9A7E">
+      <requiredDecision href="#_B72925F7-106F-4133-A6E8-736D0BE40F3C" />
+    </informationRequirement>
+    <literalExpression id="_7B908C72-F93D-4CE8-B899-2E7689820871" typeRef="number" label="EMI Ration">
+      <text>LoanApplication.financials.existingEMIs / Total Income</text>
+    </literalExpression>
+  </decision>
+  <decision name="Risk Category" id="_0AC24382-2427-4E6F-9AD0-727C666F07DF">
+    <variable name="Risk Category" id="_1AD808B2-1A45-4EC1-8354-6EA15934FE98" typeRef="RiskCategory" />
+    <informationRequirement id="_636C5978-0B51-4DBF-B25F-532AA16BB8EB">
+      <requiredDecision href="#_A3F3CC4F-3222-4F71-AE45-7B21AFB1D9B2" />
+    </informationRequirement>
   </decision>
   <inputData name="LoanApplication" id="_490DE456-F5B2-4E6E-A53B-1A0EC1F2C8D6">
     <variable name="LoanApplication" id="_BDF5619A-3A4E-4225-9ADA-4D9703260E14" typeRef="LoanApplication" />
   </inputData>
+  <textAnnotation id="_FD573AA3-3240-47D7-A55A-991E6BCFA7DD">
+    <text>this decision node js is calculating the total income of the applicant</text>
+  </textAnnotation>
+  <association id="_26033091-AEE7-4108-863C-01842126AC01" associationDirection="Both">
+    <sourceRef href="#_B72925F7-106F-4133-A6E8-736D0BE40F3C" />
+    <targetRef href="#_FD573AA3-3240-47D7-A55A-991E6BCFA7DD" />
+  </association>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_3DD39127-58CA-44B1-979D-959D33F2646B" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths />
+          <kie:ComponentWidths dmnElementRef="_0278338E-27F4-4947-B1F0-88C418D3568D">
+            <kie:width>793</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7B908C72-F93D-4CE8-B899-2E7689820871">
+            <kie:width>812</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_BBEB1CAD-C825-4C35-9D8F-DE348EAF2174" dmnElementRef="_490DE456-F5B2-4E6E-A53B-1A0EC1F2C8D6" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="300" y="0" width="160" height="80" />
+        <dc:Bounds x="220" y="60" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_537DF9EF-B683-45DF-A9F0-31257FA70AA3" dmnElementRef="_B72925F7-106F-4133-A6E8-736D0BE40F3C" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="640" y="20" width="160" height="80" />
+        <dc:Bounds x="460" y="60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_74BA6505-582E-4874-BFA5-BFBF3E85EF0F" dmnElementRef="_FD573AA3-3240-47D7-A55A-991E6BCFA7DD" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="780" y="20" width="200" height="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_962BFD26-1A88-453F-B3AA-A7F17EC5AA35" dmnElementRef="_A3F3CC4F-3222-4F71-AE45-7B21AFB1D9B2" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="460" y="-80" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_32AD3369-9195-4B65-BE5A-14B46EFA2B5C" dmnElementRef="_0AC24382-2427-4E6F-9AD0-727C666F07DF" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="180" y="-120" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_61688AFC-2DB0-4A50-973B-58014EB49FAD" dmnElementRef="_5A60EFE6-4BDA-4571-AD02-105E1BD43550" sourceElement="_BBEB1CAD-C825-4C35-9D8F-DE348EAF2174" targetElement="_537DF9EF-B683-45DF-A9F0-31257FA70AA3">
-        <di:waypoint x="380" y="40" />
-        <di:waypoint x="640" y="60" />
+        <di:waypoint x="300" y="100" />
+        <di:waypoint x="460" y="100" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_F49FA8DB-D8BD-4241-8AC2-754A28A8BDC5-AUTO-TARGET" dmnElementRef="_26033091-AEE7-4108-863C-01842126AC01" sourceElement="_537DF9EF-B683-45DF-A9F0-31257FA70AA3" targetElement="_74BA6505-582E-4874-BFA5-BFBF3E85EF0F">
+        <di:waypoint x="540" y="100" />
+        <di:waypoint x="880" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_45AD9C80-9F1B-4397-9251-7D0FD14D5169" dmnElementRef="_FECDAE93-11AA-439D-AF68-1CDD771390D6" sourceElement="_BBEB1CAD-C825-4C35-9D8F-DE348EAF2174" targetElement="_962BFD26-1A88-453F-B3AA-A7F17EC5AA35">
+        <di:waypoint x="300" y="100" />
+        <di:waypoint x="460" y="-40" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_1A0639E3-69F7-4D5D-8FBD-E391183889D4" dmnElementRef="_CCB8611F-D9CC-406E-A0DC-D958401C9A7E" sourceElement="_537DF9EF-B683-45DF-A9F0-31257FA70AA3" targetElement="_962BFD26-1A88-453F-B3AA-A7F17EC5AA35">
+        <di:waypoint x="540" y="100" />
+        <di:waypoint x="540" y="0" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_C39F7194-71B1-4D3A-A2A7-E3E99F1D4021" dmnElementRef="_636C5978-0B51-4DBF-B25F-532AA16BB8EB" sourceElement="_962BFD26-1A88-453F-B3AA-A7F17EC5AA35" targetElement="_32AD3369-9195-4B65-BE5A-14B46EFA2B5C">
+        <di:waypoint x="540" y="-40" />
+        <di:waypoint x="340" y="-80" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
