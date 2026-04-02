@@ -144,10 +144,10 @@
       </rule>
       <rule id="_FACB5F5E-99E5-452D-AB3E-B85ABD3442C9">
         <inputEntry id="_42FF7E78-5480-43CD-8F0A-3DF8957E2FAE">
-          <text></text>
+          <text>&gt; .5</text>
         </inputEntry>
         <outputEntry id="_44C178CF-240B-41F1-B708-0C154377968F">
-          <text></text>
+          <text>&quot;HIGH&quot;</text>
         </outputEntry>
         <annotationEntry>
           <text></text>
