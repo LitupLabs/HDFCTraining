@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_2E0E1F6C-323C-4895-9AFF-6BD441110783" id="_2CA07E85-EDCB-4A50-8955-718A3FED6262" name="DMN_7463B9FD-DC8F-4976-82E6-41E32CA0E749" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_DE6470BB-4ABD-454F-B39A-531F844B9FF8" name="Loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E66EB963-C89E-4431-A23B-CCABDF76A421" name="amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_016794A3-0C5F-4D12-BE4D-2EDE5A3141E9" name="tenure" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_9F62033C-790C-4CA0-9A57-E2D11C705F8E" name="type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_A2D9FCFC-4C7C-4121-9667-138F037ADFD5" name="Interesttype" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_FB35CED8-A369-4CD7-B523-3AB1EC2607F6" name="collaterals" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_63759AC5-C837-4A9A-97AA-C87253A6E47A" name="Type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_C565BA01-6509-4290-9E8D-3CB61EFB36E7" name="Value" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_D4345585-6C44-480F-83E0-9466A5B881DF" name="isverified" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_D9B0507E-BADD-488A-9F9F-840387D41940" name="Riskfactors" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F6F126B4-0F86-45A9-BA37-8FBBBAB05A5E" name="hascriminalrecords" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_AF1507C9-4841-4D59-A2A5-37D325A3A562" name="ispoliticallyconnected" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_B450167A-58FE-4616-8221-C806A907B1F1" name="loanoffer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_B5B2AFED-C506-4ABE-B3B1-B1C0E6401420" name="interestrate" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_1C945C6B-B391-410A-B1EF-F111A8EEF13F" name="Decision" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+</definitions>
