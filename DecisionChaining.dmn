@@ -112,6 +112,48 @@
     <informationRequirement id="_2327E5D6-BE1B-4100-B02A-8D6C94B71D82">
       <requiredDecision href="#_9B4AF435-DFF1-416B-9397-FADC9F3B6BA4" />
     </informationRequirement>
+    <decisionTable id="_4497A5DA-D434-4E19-BEC9-C72F244CCDB0" typeRef="RiskCategory" hitPolicy="UNIQUE" label="Risk Category">
+      <input id="_860ACBF5-D874-4682-895A-2F0C24B585D7">
+        <inputExpression id="_79B748E3-1331-4770-B7C0-FA1C13E39E94" typeRef="number">
+          <text>EMI Ratio</text>
+        </inputExpression>
+      </input>
+      <output id="_5ECAE2F6-23E8-4EEB-87BB-694A4E8E4C26" typeRef="RiskCategory" />
+      <annotation name="Annotations" />
+      <rule id="_87B4C3FB-BBA2-4C65-BF58-24E6681A3228">
+        <inputEntry id="_04693479-5969-4933-81E8-539E17C98DE5">
+          <text>&lt;= .3</text>
+        </inputEntry>
+        <outputEntry id="_61857970-928E-4453-9378-8A197AF49A35">
+          <text>&quot;LOW&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_95CA2813-AB77-4418-85D0-C8780A661CAB">
+        <inputEntry id="_D8BFFC7B-E335-485B-B2C0-981FE8E99FA6">
+          <text>(.3 .. .5]</text>
+        </inputEntry>
+        <outputEntry id="_C8C34D2F-8456-4A38-A244-E0BE02692AFC">
+          <text>&quot;MEDIUM&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_B337D718-D192-413A-8FF9-F5AA227DCCF7">
+        <inputEntry id="_D4809A4C-8E69-43EC-A281-C4F731061C71">
+          <text>&gt; .5</text>
+        </inputEntry>
+        <outputEntry id="_8A1E0D08-13AB-42FF-B9F4-EC3C37091162">
+          <text>&quot;HIGH&quot;</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
   </decision>
   <inputData name="LoanApplication" id="_11E158E2-D876-4068-B458-BFFCE09573A2">
     <variable name="LoanApplication" id="_5976D443-826E-43DF-9578-2D90BFB2D199" typeRef="LoanApplication" />
@@ -132,6 +174,12 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_42DD3471-A25D-46CB-BD2B-2B161927A9EC">
             <kie:width>738</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4497A5DA-D434-4E19-BEC9-C72F244CCDB0">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>210</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
