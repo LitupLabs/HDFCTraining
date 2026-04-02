@@ -91,6 +91,9 @@
     <informationRequirement id="_C5176340-1812-437C-8D83-0C9B71771B86">
       <requiredInput href="#_83A12C82-B151-456C-BEC8-D019ABFDF870" />
     </informationRequirement>
+    <literalExpression id="_A370689A-6D18-46E3-93DE-B0BB833718CA" typeRef="number" label="Total Income">
+      <text>LoanApplication.financials.monthlyIncome + sum(LoanApplication.financials.otherIncomes)</text>
+    </literalExpression>
   </decision>
   <inputData name="LoanApplication" id="_83A12C82-B151-456C-BEC8-D019ABFDF870">
     <variable name="LoanApplication" id="_47EE4241-2F89-4B54-B461-39CE123FA72E" typeRef="LoanApplication" />
@@ -99,7 +102,9 @@
     <dmndi:DMNDiagram id="_FFB3EB33-592B-453A-8354-86CB3CEB5A0A" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths />
+          <kie:ComponentWidths dmnElementRef="_A370689A-6D18-46E3-93DE-B0BB833718CA">
+            <kie:width>951</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_4AB669A9-A43C-4E67-8417-950D2F1863B7" dmnElementRef="_83A12C82-B151-456C-BEC8-D019ABFDF870" isCollapsed="false" isListedInputData="false">
