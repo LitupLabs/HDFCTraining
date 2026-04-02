@@ -133,7 +133,7 @@
       </rule>
       <rule id="_58E2D38F-C776-4238-9D73-14F2B89DB138">
         <inputEntry id="_0236F97F-F871-4CAD-928E-179C1ED9AE1C">
-          <text>[.3 .. .5]</text>
+          <text>(.3 .. .5]</text>
         </inputEntry>
         <outputEntry id="_E50297BC-224C-4F5A-9048-F9AAD0C813F3">
           <text>&quot;MEDIUM&quot;</text>
