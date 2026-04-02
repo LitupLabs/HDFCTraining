@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_533D7AB8-1F16-48C8-8502-8C463C741A76" id="_8F0CF9ED-28F8-48C2-8E7C-40CB63458B22" name="DMN_D34D5E62-5EA1-46E4-A80C-9861F6B35613" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_9286BBCD-CB2E-4B88-9640-75523205FCD8" name="Collateral" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_81D091D3-2D9B-4D9B-BA4E-319D6BCE4079" name="isVerified" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_21A38A5D-43B8-469A-9037-71D492ACBEC7" name="value" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_0F6A2A4B-EEAE-4C2D-935B-874807B5249C" name="type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_B678BA6A-D79D-4D92-B2DF-BF9D74596A78" name="RiskFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_F11458B4-5117-461F-9037-180CB5FD693D" name="hasCriminalRecord" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>boolean</typeRef>
