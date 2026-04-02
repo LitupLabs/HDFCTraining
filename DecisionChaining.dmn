@@ -86,15 +86,6 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="New Decision" id="_DCF4CC85-83CB-401E-8E0D-3C64E2F2A70E">
-    <variable id="_035219A1-C0B6-4409-B689-67E82D9187F8" name="New Decision" />
-    <informationRequirement id="_510A64AF-B977-432C-A6A4-2E8D6501A395">
-      <requiredInput href="#_89F4E397-602E-48F3-B60B-FE141F0D8A76" />
-    </informationRequirement>
-  </decision>
-  <inputData name="New Input Data" id="_89F4E397-602E-48F3-B60B-FE141F0D8A76">
-    <variable name="New Input Data" id="_BB6BD2B8-3676-4E26-A877-E304B5EB99F5" />
-  </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_FFB3EB33-592B-453A-8354-86CB3CEB5A0A" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -102,16 +93,6 @@
           <kie:ComponentWidths />
         </kie:ComponentsWidthsExtension>
       </di:extension>
-      <dmndi:DMNShape id="_31020C02-3396-4CA7-ADF7-5E691E7A052B" dmnElementRef="_89F4E397-602E-48F3-B60B-FE141F0D8A76" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="100" y="300" width="160" height="80" />
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="_9A7A690F-B5B8-4574-924A-3D0BD568D5A4" dmnElementRef="_DCF4CC85-83CB-401E-8E0D-3C64E2F2A70E" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="100" y="100" width="160" height="80" />
-      </dmndi:DMNShape>
-      <dmndi:DMNEdge id="_5D8E21B8-ED76-4A91-ADD3-8E9FAE07F5EB-AUTO-TARGET" dmnElementRef="_510A64AF-B977-432C-A6A4-2E8D6501A395" sourceElement="_31020C02-3396-4CA7-ADF7-5E691E7A052B" targetElement="_9A7A690F-B5B8-4574-924A-3D0BD568D5A4">
-        <di:waypoint x="180" y="340" />
-        <di:waypoint x="180" y="140" />
-      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
