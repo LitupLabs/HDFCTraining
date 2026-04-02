@@ -26,10 +26,10 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_1C91746F-17BC-4C52-A446-878393BA40E5" name="RiskFactors" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_3A8DBF71-07A4-49A7-9604-0D98C08B6E40" name="isPilticallyConnected" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_3A8DBF71-07A4-49A7-9604-0D98C08B6E40" name="isPoliticallyConnected" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>boolean</typeRef>
     </itemComponent>
-    <itemComponent id="_0D2A74DF-4615-4778-83D0-8A5891142CB1" name="hsdCriminalRecord" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_0D2A74DF-4615-4778-83D0-8A5891142CB1" name="hadCriminalRecord" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>boolean</typeRef>
     </itemComponent>
   </itemDefinition>
