@@ -86,6 +86,12 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="Total Income" id="_AC2FA89D-93AA-43E3-B864-5EDABAED8382">
+    <variable name="Total Income" id="_27834EF7-6EF0-433E-9527-F71CE2429A28" typeRef="number" />
+    <informationRequirement id="_C5176340-1812-437C-8D83-0C9B71771B86">
+      <requiredInput href="#_83A12C82-B151-456C-BEC8-D019ABFDF870" />
+    </informationRequirement>
+  </decision>
   <inputData name="LoanApplication" id="_83A12C82-B151-456C-BEC8-D019ABFDF870">
     <variable name="LoanApplication" id="_47EE4241-2F89-4B54-B461-39CE123FA72E" typeRef="LoanApplication" />
   </inputData>
@@ -97,8 +103,15 @@
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_4AB669A9-A43C-4E67-8417-950D2F1863B7" dmnElementRef="_83A12C82-B151-456C-BEC8-D019ABFDF870" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="480" y="200" width="160" height="80" />
+        <dc:Bounds x="120" y="200" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_EC52D70F-29E1-44C3-A8F1-09608F541E14" dmnElementRef="_AC2FA89D-93AA-43E3-B864-5EDABAED8382" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="340" y="200" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_97AAAA1E-D530-421F-B5F9-487D2F87535F" dmnElementRef="_C5176340-1812-437C-8D83-0C9B71771B86" sourceElement="_4AB669A9-A43C-4E67-8417-950D2F1863B7" targetElement="_EC52D70F-29E1-44C3-A8F1-09608F541E14">
+        <di:waypoint x="200" y="240" />
+        <di:waypoint x="340" y="240" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
