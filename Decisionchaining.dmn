@@ -7,7 +7,7 @@
     <itemComponent id="_FB064B06-4215-479E-BBDC-C62910B6A22D" name="existingEMIs" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_154BA344-D367-4EFC-B22E-47D0A33B9CE1" name="otherIncomes" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_154BA344-D367-4EFC-B22E-47D0A33B9CE1" name="otherIncomes" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
