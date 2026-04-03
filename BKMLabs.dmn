@@ -105,6 +105,11 @@
             <text>monthlyIncome + sum(LoanApplication.financials.otherIncomes)</text>
           </literalExpression>
         </contextEntry>
+        <contextEntry id="_72009C4E-1281-4F9B-B2D7-940D52ADDF2A">
+          <literalExpression id="_A0621C4A-4CF4-4A5A-9AB6-B0A8CCE3EADF" label="Return">
+            <text>totalIncome - LoanApplication.financials.existingEMIs</text>
+          </literalExpression>
+        </contextEntry>
       </context>
     </encapsulatedLogic>
   </businessKnowledgeModel>
@@ -126,6 +131,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_3C1755DA-5164-4514-A0BF-B6C1258CB542">
             <kie:width>535</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A0621C4A-4CF4-4A5A-9AB6-B0A8CCE3EADF">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
