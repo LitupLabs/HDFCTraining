@@ -25,13 +25,15 @@
       <typeRef>Applicant</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="EMIs" id="_0085B809-1220-42C2-B2D2-CFBD73160E6E">
-    <variable name="EMIs" id="_05CEA7EE-2039-478A-8A40-C3FB5BB352CC" />
+  <decision name="EMIsLst" id="_0085B809-1220-42C2-B2D2-CFBD73160E6E">
+    <variable name="EMIsLst" id="_05CEA7EE-2039-478A-8A40-C3FB5BB352CC" typeRef="EMIs" />
     <informationRequirement id="_3D2A1607-E278-45C9-8B9E-1AB3790EF165">
       <requiredInput href="#_E20652AB-5296-426C-A085-EBE57E31BA6F" />
     </informationRequirement>
-    <list id="_47236BC9-CF3F-41D7-AFF7-1A450F772CDD" label="EMIs">
-      <expression id="_AB017CF4-E67F-41D8-BAC4-B1FA27B8F955" />
+    <list id="_47236BC9-CF3F-41D7-AFF7-1A450F772CDD" label="EMIsLst" typeRef="EMIs">
+      <literalExpression id="_245B7ED0-8304-4D88-B6AB-623264C8463B" typeRef="EMIs" label="Expression Name">
+        <text>for emi in LoanApplication.loans.emi return emi</text>
+      </literalExpression>
     </list>
   </decision>
   <inputData name="LoanApplication" id="_E20652AB-5296-426C-A085-EBE57E31BA6F">
@@ -40,7 +42,11 @@
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_1717C00E-680F-4003-BFC8-08CCF21D5715" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
-        <kie:ComponentsWidthsExtension />
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_245B7ED0-8304-4D88-B6AB-623264C8463B">
+            <kie:width>631</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_9A15C48D-494F-4DBA-BE5D-0F79A5EC5C77" dmnElementRef="_E20652AB-5296-426C-A085-EBE57E31BA6F" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="360" y="360" width="160" height="80" />
