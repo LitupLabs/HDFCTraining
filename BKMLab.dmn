@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_174E9765-46CF-472E-8B2F-FE153296459C" id="_F0063BDB-0C85-4D7F-970C-5E36D752EED4" name="DMN_15697E49-10B1-4972-9D18-B2412CD5BB21" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_1FBBB80D-49F8-4244-9CD7-9218B1F3007B" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_3A5C99A8-BECA-40A3-84C8-BA5E450E2258" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Financials</typeRef>
+    </itemComponent>
+    <itemComponent id="_596D5E9E-A0A3-436F-9A9F-AC8D4F422FC3" name="customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Customer</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_1758E69F-063C-4357-AFF8-E53252A77C83" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_1D78F64A-B83F-456C-86A1-CF6719C5660B" name="segment" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_61BBE958-9B7E-4B10-87B2-4F2CBDFE6EE4" name="creditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_9AFCC735-510E-4AB7-81AD-0EC396E62B2C" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_ACCD418B-6E33-4B39-87D5-BF80BB8FC8B0" name="otherIncomes" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_A9E01563-0411-45BF-AD68-C68D7942DCD4" name="existingEMIs" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <businessKnowledgeModel name="CreditRiskScore" id="_1902B0FB-1216-4BB1-9C88-A7495488A6C9">
+    <variable name="CreditRiskScore" id="_04C3F33E-9084-4BC7-B8B0-6B00EE0029D1" />
+  </businessKnowledgeModel>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_B3BCEF2C-50C0-490A-B02B-580CE7E72B17" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_E8144340-11F9-4A7A-BD54-9E411341A1C9" dmnElementRef="_1902B0FB-1216-4BB1-9C88-A7495488A6C9" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="300" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
