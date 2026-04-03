@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_4BEE51B7-BDB3-4BA5-AB4A-5CAD305026AA" id="_9260CEEF-00F0-46D3-A4FD-C727EFB8FBFF" name="DMN_92DE8D34-F12C-4BEB-971F-B7E5EC8F3863" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
-  <itemDefinition id="_82BAE5D0-CC83-4E24-8F18-FEDBED9A6F28" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_4BEE51B7-BDB3-4BA5-AB4A-5CAD305026AA" id="_9260CEEF-00F0-46D3-A4FD-C727EFB8FBFF" name="DMN_92DE8D34-F12C-4BEB-971F-B7E5EC8F3863">
+  <itemDefinition id="_82BAE5D0-CC83-4E24-8F18-FEDBED9A6F28" name="EMIs" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_7530286B-11E8-4A4F-A8A5-49EA42BB65C5" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_7343C39A-3EF0-4906-A389-A5030325532A" name="age" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
@@ -31,7 +31,7 @@
       <requiredInput href="#_E20652AB-5296-426C-A085-EBE57E31BA6F" />
     </informationRequirement>
     <list id="_47236BC9-CF3F-41D7-AFF7-1A450F772CDD" label="EMIs">
-      <expression />
+      <expression id="_AB017CF4-E67F-41D8-BAC4-B1FA27B8F955" />
     </list>
   </decision>
   <inputData name="LoanApplication" id="_E20652AB-5296-426C-A085-EBE57E31BA6F">
@@ -40,8 +40,7 @@
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_1717C00E-680F-4003-BFC8-08CCF21D5715" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
-        <kie:ComponentsWidthsExtension>
-        </kie:ComponentsWidthsExtension>
+        <kie:ComponentsWidthsExtension />
       </di:extension>
       <dmndi:DMNShape id="_9A15C48D-494F-4DBA-BE5D-0F79A5EC5C77" dmnElementRef="_E20652AB-5296-426C-A085-EBE57E31BA6F" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="360" y="360" width="160" height="80" />
