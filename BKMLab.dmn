@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_63D65A81-8093-4859-A9C5-6FB5E923C380" id="_4A172B0D-71B7-4314-9527-0286ADEC212A" name="DMN_9004295B-1712-4C47-BDEF-F1F0C1C4C424" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_9BE69A4E-695D-486A-B2A4-5F24922CD717" name="LoanAppliaction" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_5871FEC4-9391-4E30-8F77-38ECE8E78A53" name="Customers" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Customer</typeRef>
+    </itemComponent>
+    <itemComponent id="_4CD4B601-CA8C-4701-B2CB-76221CF025C1" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Finacials</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_68262C73-B237-4708-97C2-F91DB270BE02" name="Finacials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  </itemDefinition>
+  <itemDefinition id="_4C342EF9-047C-4FDD-94F6-0F3AD7AF15C0" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_846DAE6C-AD99-4045-8535-94C9AB0612B1" name="Segment" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_B8FEFBDC-78D6-4342-818A-D6C377E973D7" name="CreditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <businessKnowledgeModel name="Calculate Risk Score" id="_DB91EB6A-9435-4AD7-9E09-6FA9BC1D5B3E">
+    <variable name="Calculate Risk Score" id="_334A55E3-0E47-42E7-92C9-24290E7A6F36" typeRef="number" />
+    <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_412DCDB3-6A62-410A-88C6-939C871AE48B" kind="FEEL">
+      <formalParameter id="_976FBF49-CEA6-41A9-B8CA-BFD86A80BF83" name="LoanAppliaction" typeRef="LoanAppliaction" />
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_0178A377-6841-4DEC-AF3A-83B8CCB61AB2" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_90FF4409-DB67-47A1-A8E7-20011CFD118D" dmnElementRef="_DB91EB6A-9435-4AD7-9E09-6FA9BC1D5B3E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="120" y="160" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
