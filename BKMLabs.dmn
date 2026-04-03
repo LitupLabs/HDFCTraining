@@ -30,8 +30,9 @@
       <formalParameter id="_491D7077-2B95-4B27-9B63-271280030B82" name="LoanApllication" typeRef="LoanApplication" />
       <decisionTable id="_A88D79A2-C4D7-4519-B8DA-DE0BE3FFDD2B" typeRef="number" hitPolicy="UNIQUE" label="Return">
         <input id="_4376BCDE-34FB-4953-94B9-C81CF14F0626">
-          <inputExpression id="_6A793EDB-2B75-4476-A4C5-1E3A9ED06445">
-            <text>Input-1</text>
+          <inputExpression id="_6A793EDB-2B75-4476-A4C5-1E3A9ED06445" typeRef="number">
+            <text>LoanApplication.customer.creditScore
+ </text>
           </inputExpression>
         </input>
         <output id="_22CE4A82-42C7-46D8-AE0B-353F4A923450" />
