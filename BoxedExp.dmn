@@ -36,6 +36,15 @@
       </literalExpression>
     </list>
   </decision>
+  <decision name="TotalAmount" id="_3660AB90-37AE-48D9-BF95-DCEAB1CA6F12">
+    <variable name="TotalAmount" id="_D29613A9-CEAC-44A1-9161-78E31A15CDF8" />
+    <informationRequirement id="_C4F00BCC-8A49-4B00-8E5A-8CD71D692001">
+      <requiredDecision href="#_BCC99723-828C-4E33-8196-41D02F4E8330" />
+    </informationRequirement>
+    <informationRequirement id="_6BC8C4F0-009D-4568-BB45-1152BCCF143F">
+      <requiredInput href="#_DB32883F-CD2C-4B8A-B941-3815D39A664C" />
+    </informationRequirement>
+  </decision>
   <inputData name="LoanApplication" id="_DB32883F-CD2C-4B8A-B941-3815D39A664C">
     <variable name="LoanApplication" id="_361AB56D-7DD2-46DC-AD4B-F461455C9803" typeRef="LoanApplication" />
   </inputData>
@@ -54,9 +63,20 @@
       <dmndi:DMNShape id="_F8EB9F3A-1F8A-4630-A6AD-E89D7F6D80B1" dmnElementRef="_BCC99723-828C-4E33-8196-41D02F4E8330" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="420" y="-60" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_DCA1B738-0677-4980-97F1-126D5894B4BB" dmnElementRef="_3660AB90-37AE-48D9-BF95-DCEAB1CA6F12" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="800" y="-100" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_3E3FDB01-91ED-4E4B-BBB2-0FD1AC12BD72" dmnElementRef="_50141E22-6699-41EC-993A-BE79DBC64FB9" sourceElement="_9C4AA18A-AA8D-4360-93A3-037DFAF59FBE" targetElement="_F8EB9F3A-1F8A-4630-A6AD-E89D7F6D80B1">
         <di:waypoint x="500" y="180" />
         <di:waypoint x="500" y="20" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_BEEEEBD5-D9F9-44A4-BE5D-083D52EA8B7C" dmnElementRef="_C4F00BCC-8A49-4B00-8E5A-8CD71D692001" sourceElement="_F8EB9F3A-1F8A-4630-A6AD-E89D7F6D80B1" targetElement="_DCA1B738-0677-4980-97F1-126D5894B4BB">
+        <di:waypoint x="500" y="-20" />
+        <di:waypoint x="800" y="-60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_9BDD2153-16E1-4CE0-BCEE-044E4007F019" dmnElementRef="_6BC8C4F0-009D-4568-BB45-1152BCCF143F" sourceElement="_9C4AA18A-AA8D-4360-93A3-037DFAF59FBE" targetElement="_DCA1B738-0677-4980-97F1-126D5894B4BB">
+        <di:waypoint x="500" y="180" />
+        <di:waypoint x="880" y="-20" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
