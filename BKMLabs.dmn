@@ -56,11 +56,19 @@
     <conditional id="_1E19EB21-DCE0-44E0-A6D1-312910663782" typeRef="boolean" label="Financial Eligibility">
       <if id="_892EDDAF-A6E3-4846-B92A-DB017736CBC8">
         <literalExpression id="_D419699B-EBD4-4DBE-A2D6-31369ECE3202" label="Expression Name">
-          <text>Calculate Financial Strength()</text>
+          <text>Calculate Financial Strength() &gt; 30000</text>
         </literalExpression>
       </if>
-      <then id="_790CAE20-54E6-4495-8D60-23FDEA7BD7CB" />
-      <else id="_6554E32D-4976-4A1F-A522-61DA3024B731" />
+      <then id="_790CAE20-54E6-4495-8D60-23FDEA7BD7CB">
+        <literalExpression id="_97D336D8-6AB0-4CB3-A6E0-88C20436B9A4" label="Expression Name">
+          <text>true</text>
+        </literalExpression>
+      </then>
+      <else id="_6554E32D-4976-4A1F-A522-61DA3024B731">
+        <literalExpression id="_E895A724-C5CE-4334-BDE0-03ECEB52E312" label="Expression Name">
+          <text>false</text>
+        </literalExpression>
+      </else>
     </conditional>
   </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_C0039D6E-74A3-4320-A3CB-1E2224AC0711">
@@ -179,6 +187,12 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_D419699B-EBD4-4DBE-A2D6-31369ECE3202">
             <kie:width>423</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_97D336D8-6AB0-4CB3-A6E0-88C20436B9A4">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E895A724-C5CE-4334-BDE0-03ECEB52E312">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
