@@ -50,9 +50,9 @@
           <text>LoanApplication.loans</text>
         </literalExpression>
       </in>
-      <return id="_6CC11AC2-69B0-4BDD-A3B3-F4BD41836F30">
+      <return id="_4D7683CD-88DC-42C9-9EF2-AA973F89A24E">
         <literalExpression id="_2D1E7CC8-22AA-4367-A46D-BFF49A183DD6" label="Expression Name">
-          <text>LoanApplication.loans.emi*LoanApplication.loans.tenure</text>
+          <text>loan.emi*loan.tenure</text>
         </literalExpression>
       </return>
     </for>
