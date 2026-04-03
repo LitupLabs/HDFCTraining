@@ -101,6 +101,15 @@
     <informationRequirement id="_20849DF0-645D-4AC7-85A4-A4AEEDCBF7AA">
       <requiredDecision href="#_DA7B136D-FF98-4886-B049-684BEB7C1E36" />
     </informationRequirement>
+    <conditional id="_7A27BB07-6B54-4B4D-A3E8-27AF5F00AFAA" typeRef="string" label="LoanApproval">
+      <if id="_3F8325FC-6E5B-4DEA-8D23-C4EF1E829A25">
+        <literalExpression id="_23C0D219-A300-4A1A-A7E6-8513D79544C8" label="Expression Name">
+          <text>Risk Category !</text>
+        </literalExpression>
+      </if>
+      <then id="_EDC46AFB-3C8B-43D1-8F97-9BEC3853C73E" />
+      <else id="_DF57977C-7EC0-45A3-9CCE-FF5B18367F94" />
+    </conditional>
   </decision>
   <businessKnowledgeModel name="New BKM" id="_A52C7ECE-90EB-4580-BB93-840A2BB4DFFB">
     <variable name="New BKM" id="_325603F3-FE69-4C78-820F-67A5CA1345AF" />
@@ -208,6 +217,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_AF5E3561-27E4-4685-8B44-C274119AB916">
             <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_23C0D219-A300-4A1A-A7E6-8513D79544C8">
+            <kie:width>793</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
