@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_60D956FF-75DC-4C70-99B3-17119D254EBD" id="_167C32FE-4FFE-477D-A322-7C621F082329" name="DMN_EDFA287C-0077-4713-96AC-11F32B6BD083" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
-  <itemDefinition id="_01A17FAC-3FD1-476D-B941-82F8D20A20A8" name="loans" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_118D62FC-1970-4D51-BD7E-D0F34595D6B6" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E30DBF65-BCC6-44B4-8A9E-D46FD4E27F73" name="age" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_535584C9-41D4-44B8-9756-E8706EAA9007" name="creditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_9A52EE9F-9FA9-4A3E-943E-9410DE70EAEC" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_2D124AEA-7FE3-4EFD-A381-89F39F62C056" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Applicant</typeRef>
+    </itemComponent>
+    <itemComponent id="_354A1345-CE53-49F6-B122-4CB890BD85AF" name="loans" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>loan</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_01A17FAC-3FD1-476D-B941-82F8D20A20A8" name="loan" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <description></description>
     <itemComponent id="_E773C313-D47D-4F20-AD83-03EF4ABE5864" name="amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
@@ -9,4 +25,31 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="EMIslist" id="_1E7AB9FE-44B4-468E-9689-04E8C1F65137">
+    <variable name="EMIslist" id="_7FD2389B-65BA-4151-A326-CA95B40DD88A" />
+    <literalExpression id="_85511BA2-7D91-4522-B531-F1F1F7A214E2" label="EMIslist">
+      <text>for emi in LoanApplication.loans.emi return emi
+ </text>
+    </literalExpression>
+  </decision>
+  <inputData name="LoanApplication" id="_DF0C3780-BCCA-4F65-81C0-293E15A4DC70">
+    <variable name="LoanApplication" id="_228589BF-1237-4DE3-9234-9245C258DA34" typeRef="LoanApplication" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_1FEA65A8-69D1-415A-A38B-8865105F9A7B" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_85511BA2-7D91-4522-B531-F1F1F7A214E2">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_CAEAC52F-66E0-477D-BA1B-5DEFB7FC60C2" dmnElementRef="_DF0C3780-BCCA-4F65-81C0-293E15A4DC70" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9062B978-DA09-4A12-95AC-04EFBA147D4B" dmnElementRef="_1E7AB9FE-44B4-468E-9689-04E8C1F65137" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="660" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
