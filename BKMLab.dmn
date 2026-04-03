@@ -30,21 +30,54 @@
       <formalParameter id="_E9492A73-6A6B-40DA-B2D6-38C0D55D61DF" name="Loanapplication" typeRef="LoanApplication" />
       <decisionTable id="_F19002D3-CFC8-4D88-8FF7-49B8B4A73477" typeRef="number" hitPolicy="UNIQUE" label="Return">
         <input id="_4C97A7B3-0792-4063-B61B-C5CBD0AB190B">
-          <inputExpression id="_60280907-4C95-4DF8-A751-9B500D9EA5A2" typeRef="&lt;Undefined&gt;">
-            <text>Loanapplication.</text>
+          <inputExpression id="_60280907-4C95-4DF8-A751-9B500D9EA5A2" typeRef="number">
+            <text>Loanapplication.customer.creditScore</text>
           </inputExpression>
         </input>
         <output id="_F987745D-4E9F-4389-8F18-E0BB94BC6977" />
         <annotation name="Annotations" />
         <rule id="_A37CF89B-8F29-42AD-8F15-B701AA28DB4B">
           <inputEntry id="_69BB36C4-6F61-4F8D-99E4-E6A05240ABF6">
-            <text>-</text>
+            <text>&lt; 0</text>
           </inputEntry>
           <outputEntry id="_0CD2B622-6846-453B-89F2-C4402F2885D0">
             <text></text>
           </outputEntry>
           <annotationEntry>
             <text>// Your annotations here</text>
+          </annotationEntry>
+        </rule>
+        <rule id="_BD92953F-D92A-4F99-B4A7-07B7DD4B73B4">
+          <inputEntry id="_269230DC-BB3E-4CBA-8018-CFBA537FC110">
+            <text>[0 .. 650]</text>
+          </inputEntry>
+          <outputEntry id="_C77D52D4-F9A4-4EEC-9B6D-15E0E3627091">
+            <text></text>
+          </outputEntry>
+          <annotationEntry>
+            <text></text>
+          </annotationEntry>
+        </rule>
+        <rule id="_C42BD410-F6EE-48DF-9999-5468FCA03082">
+          <inputEntry id="_2FBACE39-F9BF-4279-95EC-B34D145D561B">
+            <text>[650 .. 780]</text>
+          </inputEntry>
+          <outputEntry id="_3F7E6086-4686-4628-B4E0-0CDA624126A7">
+            <text></text>
+          </outputEntry>
+          <annotationEntry>
+            <text></text>
+          </annotationEntry>
+        </rule>
+        <rule id="_8D665D0E-89DC-49EF-AE91-7256DA757FC4">
+          <inputEntry id="_F51D1ED7-D66E-4552-8A8F-A6ADAEE480F4">
+            <text>&gt; 780</text>
+          </inputEntry>
+          <outputEntry id="_11AB7069-CB04-4CA7-BE37-D98E5BD756D2">
+            <text></text>
+          </outputEntry>
+          <annotationEntry>
+            <text></text>
           </annotationEntry>
         </rule>
       </decisionTable>
@@ -56,9 +89,9 @@
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_F19002D3-CFC8-4D88-8FF7-49B8B4A73477">
             <kie:width>60</kie:width>
+            <kie:width>479</kie:width>
             <kie:width>118</kie:width>
-            <kie:width>118</kie:width>
-            <kie:width>240</kie:width>
+            <kie:width>485</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
