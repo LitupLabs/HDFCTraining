@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_7876F41F-B78E-437E-913A-9BBABB50460C" id="_DBE94080-8FBD-40D0-A1EC-BE5F64D49705" name="DMN_3B4F7CDB-A024-4D1F-B605-5700206A8D1C" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_7876F41F-B78E-437E-913A-9BBABB50460C" id="_DBE94080-8FBD-40D0-A1EC-BE5F64D49705" name="DMN_3B4F7CDB-A024-4D1F-B605-5700206A8D1C">
   <itemDefinition id="_12DD98A0-7958-4CF3-87C6-4E3E81537EF0" name="riskcategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>string</typeRef>
     <allowedValues id="_5AC34CD2-5F4C-4664-B21F-68188D404044" kie:constraintType="enumeration">
@@ -44,6 +44,58 @@
     <literalExpression id="_4A9B7EB5-DACE-4440-8918-596BFF18D99B" typeRef="riskcategory" label="risk category">
       <text>if calculate risk score() &lt;= 2 then &quot;HIGH&quot; else if calculate risk score() = 3 then &quot;MEDIUM&quot; else &quot;LOW&quot;</text>
     </literalExpression>
+  </decision>
+  <decision name="financial eligibilty" id="_858A5628-6DDC-41B3-BD59-A128EFFE0291">
+    <variable name="financial eligibilty" id="_76A51E2B-0BF8-4793-A45F-6B488F59145C" typeRef="boolean" />
+    <informationRequirement id="_A7AF535B-FD91-4D0E-8A21-256E60814DA6">
+      <requiredInput href="#_E64716F9-8BC7-4FE1-BE32-1B5D0D6364AF" />
+    </informationRequirement>
+    <knowledgeRequirement id="_87894526-5FBB-4C2B-B2A6-398901263553">
+      <requiredKnowledge href="#_6BD405C9-8FBF-4FED-99D1-AA6F9BF85C13" />
+    </knowledgeRequirement>
+    <conditional id="_EAF3D1AC-A5FF-472D-ABE1-C885B76E395C" typeRef="boolean" label="financial eligibilty">
+      <if id="_AAAF1684-2DF6-4E39-A690-99BC2D0984DB">
+        <literalExpression id="_ACF53D76-4A31-4DE3-9AB4-204D8D7B1A2E" label="Expression Name">
+          <text>calculate financial strength() &gt; 30000</text>
+        </literalExpression>
+      </if>
+      <then id="_1E72024C-D4A6-46CF-8339-A8D8BE573629">
+        <literalExpression id="_CC43709E-4287-4BDF-BEB4-F74A55CC24BF" label="Expression Name">
+          <text>true</text>
+        </literalExpression>
+      </then>
+      <else id="_C7031BD5-2906-4B2F-8CF2-570275100F5B">
+        <literalExpression id="_910CCC22-1B8D-4980-A399-EC98CD82661C" label="Expression Name">
+          <text>false</text>
+        </literalExpression>
+      </else>
+    </conditional>
+  </decision>
+  <decision name="loan approval" id="_14AF68A8-0969-41BC-A023-DFE188EF9D7F">
+    <variable name="loan approval" id="_BCE677C8-1FD0-46E4-B703-92ACE7A4316F" typeRef="boolean" />
+    <informationRequirement id="_A25F443A-B044-446E-ADE2-D0B751233894">
+      <requiredDecision href="#_C1C4CB5B-61C3-4DAC-ADA1-13B49ABB4C37" />
+    </informationRequirement>
+    <informationRequirement id="_83AB395B-F76D-4906-A238-00D5727BAB02">
+      <requiredDecision href="#_858A5628-6DDC-41B3-BD59-A128EFFE0291" />
+    </informationRequirement>
+    <conditional id="_3FC0943C-21F4-4DD6-9A71-FFF0CB90685B" typeRef="boolean" label="loan approval">
+      <if id="_0278F37E-E51F-406A-9436-CAA4B9BE8B89">
+        <literalExpression id="_B8A72F7B-DCB1-4676-93FF-C4C26C66D486" label="Expression Name">
+          <text>risk category !=&quot;HIGH&quot; and financial eligibility = true</text>
+        </literalExpression>
+      </if>
+      <then id="_70C192F4-5F93-4B0A-B274-9909512914F7">
+        <literalExpression id="_338D84E9-CEEF-4D1E-ADAE-F8ACCE9193B1" label="Expression Name">
+          <text>&quot;loan is approved since vyour risk category is not HIGH and financial stats are permissible&quot;</text>
+        </literalExpression>
+      </then>
+      <else id="_0B2F20CB-A9F9-4F93-BCA2-2BE7EA2F81E1">
+        <literalExpression id="_CCBA8962-2E0F-458C-8CAC-947FBBA33F8D" label="Expression Name">
+          <text>&quot;loan is rejected because your risk category is&quot; + risk category + &quot;and your financial strength is&quot; + financial eligibility</text>
+        </literalExpression>
+      </else>
+    </conditional>
   </decision>
   <businessKnowledgeModel name="calculate risk score" id="_05D4BCF0-5BE5-4498-A38E-0D42E6DC7FEE">
     <variable name="calculate risk score" id="_E9E153F4-343A-4817-9414-8E9DDF1CA2F2" />
@@ -134,9 +186,6 @@
   <inputData name="loanapplication" id="_E64716F9-8BC7-4FE1-BE32-1B5D0D6364AF">
     <variable name="loanapplication" id="_463880CE-AA75-48C6-9847-079F3413904A" typeRef="loanapplication" />
   </inputData>
-  <inputData name="financial eliglibilty" id="_0A29E379-D2AD-4401-8072-C68CAB054C34">
-    <variable name="financial eliglibilty" id="_C708857F-AD36-4F57-939E-7F8E54F3554D" />
-  </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_2C4EBDEC-A34D-49EC-9110-7B3CD7EF5C58" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -162,6 +211,24 @@
           <kie:ComponentWidths dmnElementRef="_4A9B7EB5-DACE-4440-8918-596BFF18D99B">
             <kie:width>990</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_ACF53D76-4A31-4DE3-9AB4-204D8D7B1A2E">
+            <kie:width>856</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CC43709E-4287-4BDF-BEB4-F74A55CC24BF">
+            <kie:width>856</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_910CCC22-1B8D-4980-A399-EC98CD82661C">
+            <kie:width>856</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B8A72F7B-DCB1-4676-93FF-C4C26C66D486">
+            <kie:width>816</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_338D84E9-CEEF-4D1E-ADAE-F8ACCE9193B1">
+            <kie:width>816</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CCBA8962-2E0F-458C-8CAC-947FBBA33F8D">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_40999625-E644-4828-8512-28180BEA747D" dmnElementRef="_05D4BCF0-5BE5-4498-A38E-0D42E6DC7FEE" isCollapsed="false" isListedInputData="false">
@@ -176,8 +243,11 @@
       <dmndi:DMNShape id="_F3A1D28C-8FC8-44DB-B8C7-367F09AB76D1" dmnElementRef="_C1C4CB5B-61C3-4DAC-ADA1-13B49ABB4C37" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="620" y="80" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="_08D625A7-6C6D-4FF6-A0C0-3EF6C723A9BA" dmnElementRef="_0A29E379-D2AD-4401-8072-C68CAB054C34" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="960" y="200" width="160" height="80" />
+      <dmndi:DMNShape id="_AE0AEDF4-2CC1-4EEC-BCF3-996E5FA47400" dmnElementRef="_858A5628-6DDC-41B3-BD59-A128EFFE0291" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1040" y="240" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_FEFF3D7C-4245-41E2-A58F-227569348100" dmnElementRef="_14AF68A8-0969-41BC-A023-DFE188EF9D7F" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1020" y="80" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_8CE6ED38-8593-4344-ADDB-FEB95711A18C" dmnElementRef="_7EAFD303-343D-4791-A81C-16B29D9B7C4C" sourceElement="_B7ACD3B6-3D2E-4957-8AEB-7BDF21BF726A" targetElement="_F3A1D28C-8FC8-44DB-B8C7-367F09AB76D1">
         <di:waypoint x="280" y="260" />
@@ -186,6 +256,22 @@
       <dmndi:DMNEdge id="_2706A8BF-370D-4EE5-BB7D-2B354212B396" dmnElementRef="_DD5D81A9-33DF-4C21-BB8F-D485840DFC4A" sourceElement="_40999625-E644-4828-8512-28180BEA747D" targetElement="_F3A1D28C-8FC8-44DB-B8C7-367F09AB76D1">
         <di:waypoint x="300" y="120" />
         <di:waypoint x="700" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_4B8CE1C7-18E4-40C7-8418-4C491852FA57" dmnElementRef="_A7AF535B-FD91-4D0E-8A21-256E60814DA6" sourceElement="_B7ACD3B6-3D2E-4957-8AEB-7BDF21BF726A" targetElement="_AE0AEDF4-2CC1-4EEC-BCF3-996E5FA47400">
+        <di:waypoint x="280" y="260" />
+        <di:waypoint x="1120" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_2DD1A5C2-218E-46AB-87F9-D42CD0AA9F6E" dmnElementRef="_87894526-5FBB-4C2B-B2A6-398901263553" sourceElement="_3A37FF9D-8CD6-4B92-A459-390537624236" targetElement="_AE0AEDF4-2CC1-4EEC-BCF3-996E5FA47400">
+        <di:waypoint x="600" y="340" />
+        <di:waypoint x="1120" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_EFD2E1E3-9ECC-4E36-BD8A-293A7E6DF3CF" dmnElementRef="_A25F443A-B044-446E-ADE2-D0B751233894" sourceElement="_F3A1D28C-8FC8-44DB-B8C7-367F09AB76D1" targetElement="_FEFF3D7C-4245-41E2-A58F-227569348100">
+        <di:waypoint x="700" y="120" />
+        <di:waypoint x="1100" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_6772F85D-A1CC-452B-A7CC-E77D2F852C96" dmnElementRef="_83AB395B-F76D-4906-A238-00D5727BAB02" sourceElement="_AE0AEDF4-2CC1-4EEC-BCF3-996E5FA47400" targetElement="_FEFF3D7C-4245-41E2-A58F-227569348100">
+        <di:waypoint x="1120" y="280" />
+        <di:waypoint x="1100" y="120" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
