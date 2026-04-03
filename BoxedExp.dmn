@@ -10,6 +10,9 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_E07A22BF-7AEE-45F0-A3F1-C6A9C24927F8" name="Loan" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_2DC41B2B-0461-4160-AA6F-81D44F6064B5" name="tenure" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
     <itemComponent id="_53BC281A-B527-4FCB-8C10-615063B79CBF" name="emi" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
