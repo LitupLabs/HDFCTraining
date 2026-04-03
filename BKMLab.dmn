@@ -17,6 +17,9 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_DC4BDEC0-2E2C-417B-8205-1E67B92E6A68" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_CDDFD319-98DB-4220-BFAE-9E0238D8FBAC" name="monthlyIncome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
     <itemComponent id="_8FDA1C5F-32E0-4B05-B0E5-AA0DD96C3CF1" name="existingEMIs" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
@@ -83,6 +86,20 @@
       </decisionTable>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Financial Strength" id="_5CE0153E-AFFC-4E2A-A418-237A6B9CEAC6">
+    <variable name="Calculate Financial Strength" id="_1C63D41C-3816-4955-A224-91375048CEC5" typeRef="number" />
+    <encapsulatedLogic label="Calculate Financial Strength" typeRef="number" id="_48E14B4C-F9E8-4BE2-BD50-3C3D6AC607EF" kind="FEEL">
+      <formalParameter id="_CDAB1399-3771-4FEA-A4AC-888E0FB8604B" name="LoanApplication" typeRef="LoanApplication" />
+      <context id="_AA2F7398-9E99-4A4C-BC6D-ABF239FA66E1" typeRef="number" label="Return">
+        <contextEntry id="_1FEA1D95-14E6-4848-B567-7A61B3CC5230">
+          <variable id="_DBA90BB0-1A0F-40E9-A326-BE1D80490586" name="monthlyIncome" typeRef="number" />
+          <literalExpression id="_0E025932-F1A6-4AD9-9E40-8F09F4EA9096" typeRef="number" label="monthlyIncome">
+            <text>LoanApplication.financials.monthlyIncome</text>
+          </literalExpression>
+        </contextEntry>
+      </context>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_9F8F8A7F-5FDF-42C5-9E5E-698CA796DE59" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -93,10 +110,19 @@
             <kie:width>118</kie:width>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AA2F7398-9E99-4A4C-BC6D-ABF239FA66E1">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0E025932-F1A6-4AD9-9E40-8F09F4EA9096">
+            <kie:width>543</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_17DE3043-1997-49E3-994D-2360FE27A54C" dmnElementRef="_51F2AB96-6DAC-45CD-8F62-18E7B319AF75" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="260" y="-40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_72E696DC-16AE-4F20-827A-5E556EADF2F5" dmnElementRef="_5CE0153E-AFFC-4E2A-A418-237A6B9CEAC6" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="520" y="160" width="160" height="80" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
