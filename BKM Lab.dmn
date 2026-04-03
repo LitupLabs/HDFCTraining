@@ -88,6 +88,36 @@
       </decisionTable>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <businessKnowledgeModel name="Financial Strength" id="_A5C3F4A6-613D-46B4-8981-52D1290D24CA">
+    <variable name="Financial Strength" id="_FDD3ABAA-8711-4251-98C3-209B9A756CB1" typeRef="number" />
+    <encapsulatedLogic label="Financial Strength" typeRef="number" id="_4DF22A3F-3E7E-4BDA-BF41-CEB6CD2A83A6" kind="FEEL">
+      <formalParameter id="_5D7B1076-78C2-4E8C-B609-6BE9BB074B03" name="loanapplication" typeRef="LoanApplication" />
+      <context id="_969FBB59-F5C6-4CDF-AEDB-7A52E9D648CB" typeRef="number" label="Return">
+        <contextEntry id="_8A788C6D-E2B7-4DFB-9A76-553FECAE6ABC">
+          <variable id="_B79A0C27-2C54-464F-9DB6-CECF776BF366" name="MonthlyIncome" typeRef="number" />
+          <literalExpression id="_B2B6D83E-7B8E-45A4-B165-CA2B54D49051" typeRef="number" label="MonthlyIncome">
+            <text>LoanApplication.financials.monthlyIncome</text>
+          </literalExpression>
+        </contextEntry>
+        <contextEntry id="_7A1E0A5D-5DE0-4554-A9AA-1437AAE37587">
+          <variable id="_30F53F95-590D-43CE-AE0E-F7E51A84E7EE" name="totalincome">
+            <description></description>
+          </variable>
+          <literalExpression id="_D33C3D1E-45E3-4BB9-9884-54BBD598F636" label="totalincome">
+            <text>monthlyIncome + sum(LoanApplication.financials.otherIncomes)</text>
+          </literalExpression>
+        </contextEntry>
+        <contextEntry id="_F2865668-A2B2-4978-BDD1-B5FE19A6E2D9">
+          <variable id="_415F6253-EC17-4BE5-A775-733848522BD9" name="TotalIncome" typeRef="number">
+            <description></description>
+          </variable>
+          <literalExpression id="_F75BF90A-0D83-45D4-90CD-42DC51D81CDD" typeRef="number" label="TotalIncome">
+            <text>totalIncome - LoanApplication.financials.existingEMIs</text>
+          </literalExpression>
+        </contextEntry>
+      </context>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_E3DCBF01-E14B-4982-A7E6-C85F6BD9EFFE" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -98,10 +128,25 @@
             <kie:width>118</kie:width>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_969FBB59-F5C6-4CDF-AEDB-7A52E9D648CB">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B2B6D83E-7B8E-45A4-B165-CA2B54D49051">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D33C3D1E-45E3-4BB9-9884-54BBD598F636">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F75BF90A-0D83-45D4-90CD-42DC51D81CDD">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3E7C3941-70BD-4C45-A0EE-A0322BCCBF2A" dmnElementRef="_4EB231EE-3AE7-4164-AB46-1531226425BA" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="280" y="160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_59D943E7-045D-4862-B7C9-BB693C13F4A3" dmnElementRef="_A5C3F4A6-613D-46B4-8981-52D1290D24CA" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="660" y="220" width="160" height="80" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
