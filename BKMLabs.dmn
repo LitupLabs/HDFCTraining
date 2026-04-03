@@ -28,13 +28,38 @@
     <variable name="Calculate Risk Score" id="_79E82A4C-87E1-463F-9013-D92005AC8292" typeRef="number" />
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_00EA0BB0-34BC-400E-BD92-991B017F7130" kind="FEEL">
       <formalParameter id="_491D7077-2B95-4B27-9B63-271280030B82" name="LoanApllication" typeRef="LoanApplication" />
+      <decisionTable id="_A88D79A2-C4D7-4519-B8DA-DE0BE3FFDD2B" typeRef="number" hitPolicy="UNIQUE" label="Return">
+        <input id="_4376BCDE-34FB-4953-94B9-C81CF14F0626">
+          <inputExpression id="_6A793EDB-2B75-4476-A4C5-1E3A9ED06445">
+            <text>Input-1</text>
+          </inputExpression>
+        </input>
+        <output id="_22CE4A82-42C7-46D8-AE0B-353F4A923450" />
+        <annotation name="Annotations" />
+        <rule id="_92921989-E9BD-4242-95FF-405816537FED">
+          <inputEntry id="_9222547D-0859-4B41-9AF7-BCD1B46255F7">
+            <text>-</text>
+          </inputEntry>
+          <outputEntry id="_577CB10A-61C5-4802-A19C-3E9DFA4AF9E0">
+            <text></text>
+          </outputEntry>
+          <annotationEntry>
+            <text>// Your annotations here</text>
+          </annotationEntry>
+        </rule>
+      </decisionTable>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_D2C940B0-3E85-420E-B78E-F265DFFE63AB" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths />
+          <kie:ComponentWidths dmnElementRef="_A88D79A2-C4D7-4519-B8DA-DE0BE3FFDD2B">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_2C9FCD29-FCDC-426B-94A6-C2AA65CC67BA" dmnElementRef="_EB460485-C2E8-47C6-883C-04C2AE552191" isCollapsed="false" isListedInputData="false">
