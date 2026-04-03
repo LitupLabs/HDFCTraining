@@ -92,7 +92,7 @@
       </then>
       <else id="_BD4F3E3A-80EF-414C-B7A6-2E3CD53C1F92">
         <literalExpression id="_423A4E2C-479D-4017-874D-3512EEE0CB7D" label="Expression Name">
-          <text>&quot;Loan is rejected because you Risk Category is &quot; + Risk Category + &quot; and your financial strength is &quot; + Financial Eligibility</text>
+          <text>&quot;Loan is rejected because you Risk Category is &quot; + Risk Category + &quot; and your financial strength is &quot; + string(Financial Eligibility)</text>
         </literalExpression>
       </else>
     </conditional>
