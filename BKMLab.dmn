@@ -31,7 +31,7 @@
       <decisionTable id="_F19002D3-CFC8-4D88-8FF7-49B8B4A73477" typeRef="number" hitPolicy="UNIQUE" label="Return">
         <input id="_4C97A7B3-0792-4063-B61B-C5CBD0AB190B">
           <inputExpression id="_60280907-4C95-4DF8-A751-9B500D9EA5A2" typeRef="number">
-            <text>Loanapplication.customer.creditScore</text>
+            <text>Loanapplication.Customer.creditScore</text>
           </inputExpression>
         </input>
         <output id="_F987745D-4E9F-4389-8F18-E0BB94BC6977" />
@@ -41,7 +41,7 @@
             <text>&lt; 0</text>
           </inputEntry>
           <outputEntry id="_0CD2B622-6846-453B-89F2-C4402F2885D0">
-            <text></text>
+            <text>0</text>
           </outputEntry>
           <annotationEntry>
             <text>// Your annotations here</text>
@@ -52,7 +52,7 @@
             <text>[0 .. 650]</text>
           </inputEntry>
           <outputEntry id="_C77D52D4-F9A4-4EEC-9B6D-15E0E3627091">
-            <text></text>
+            <text>2</text>
           </outputEntry>
           <annotationEntry>
             <text></text>
@@ -63,7 +63,7 @@
             <text>[650 .. 780]</text>
           </inputEntry>
           <outputEntry id="_3F7E6086-4686-4628-B4E0-0CDA624126A7">
-            <text></text>
+            <text>3</text>
           </outputEntry>
           <annotationEntry>
             <text></text>
@@ -74,13 +74,24 @@
             <text>&gt; 780</text>
           </inputEntry>
           <outputEntry id="_11AB7069-CB04-4CA7-BE37-D98E5BD756D2">
-            <text></text>
+            <text>1</text>
           </outputEntry>
           <annotationEntry>
             <text></text>
           </annotationEntry>
         </rule>
       </decisionTable>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Financia Strngthl" id="_76FBD8D6-C150-48A2-9A60-01AED3D831DC">
+    <variable name="Calculate Financia Strngthl" id="_B436DB39-B1A3-48BD-8714-DBC792E9F6A8" typeRef="number" />
+    <encapsulatedLogic label="Calculate Financia Strngthl" typeRef="number" id="_642513F0-9040-400B-A51E-F3A8D9342BCF" kind="FEEL">
+      <formalParameter id="_7359BCA2-8CE9-4E06-8B3D-BDD471B05CB9" name="LoanApplication" typeRef="LoanApplication" />
+      <context id="_DACBB4E5-4305-498F-A220-10FCD834155F" typeRef="number" label="Return">
+        <contextEntry id="_B5E7D4BD-0CF4-4C47-B0FB-2E65A18E27F7">
+          <variable id="_6CF92751-6CA9-41FC-BE8F-13F87018889B" name="ContextEntry-1" />
+        </contextEntry>
+      </context>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <dmndi:DMNDI>
@@ -93,10 +104,16 @@
             <kie:width>118</kie:width>
             <kie:width>485</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DACBB4E5-4305-498F-A220-10FCD834155F">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_FCDE4B11-5B00-48A5-B6EE-AA243AA6FF4C" dmnElementRef="_64390EA2-E165-4FA0-862A-6EBE4EB3B913" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="300" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_13781CA1-ABF3-4CDA-B5E1-A26EF36C1B3D" dmnElementRef="_76FBD8D6-C150-48A2-9A60-01AED3D831DC" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="700" y="40" width="160" height="80" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
