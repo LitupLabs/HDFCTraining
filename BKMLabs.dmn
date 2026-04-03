@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_45869D5A-2FDA-4D18-8606-47C4EF36F5CD" id="_203AA07A-AACD-4F05-8E97-0C2A831ECC7C" name="DMN_2CE5DE40-2D5F-4CAA-A372-A8176D3C2F9B">
+  <itemDefinition id="_1F3621CB-F5D6-483B-B1BF-35DAEB902110" name="RiskCategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>string</typeRef>
+    <allowedValues id="_1DAD6C07-E11D-4DBE-A29A-909CA3DA2E63" kie:constraintType="enumeration">
+      <text>&quot;HIGH&quot;, &quot;MEDIUM&quot;, &quot;LOW&quot;</text>
+    </allowedValues>
+  </itemDefinition>
   <itemDefinition id="_626C0E06-4D3D-4BDB-8804-DE5AFF19AC1A" name="LoanApplications" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_91570977-5EDD-48A0-B477-86EF4177CBE3" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Financials</typeRef>
@@ -27,6 +33,9 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="Risk Category" id="_830252D5-8DCD-44F4-B9F9-DC8D2921ECC4">
+    <variable name="Risk Category" id="_2DFD558A-D53F-4D19-A6F6-A38C6306B60A" />
+  </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_C0039D6E-74A3-4320-A3CB-1E2224AC0711">
     <variable name="Calculate Risk Score" id="_AA87B1D4-3897-4605-9AC7-CEA05AA7E03E" typeRef="number" />
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_AFC26A61-38E3-45CA-8EA2-90156364DA94" kind="FEEL">
@@ -113,6 +122,9 @@
       </context>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <inputData name="LoanApplication" id="_B3C132A1-7075-43DA-9E85-5CF39FCBC381">
+    <variable name="LoanApplication" id="_B44BEE8F-A524-4F6C-A6E8-C55AFB7F3F48" typeRef="LoanApplications" />
+  </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_BEEE020F-C974-4280-9EAF-9E211BEF1A3A" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -142,6 +154,12 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_FE8984CE-65F5-4910-A8FE-42C4570B1624" dmnElementRef="_0C6C91E2-FC13-4DCB-9492-2E08CB767DED" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="620" y="40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_A89C2957-411A-402B-8A70-99141248D028" dmnElementRef="_B3C132A1-7075-43DA-9E85-5CF39FCBC381" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="500" y="200" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_0AAF9FBE-BDD1-4357-8D26-CF4EA0758411" dmnElementRef="_830252D5-8DCD-44F4-B9F9-DC8D2921ECC4" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="880" y="180" width="160" height="80" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
