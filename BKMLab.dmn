@@ -24,4 +24,47 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <businessKnowledgeModel name="Calculated Risk Score" id="_64390EA2-E165-4FA0-862A-6EBE4EB3B913">
+    <variable name="Calculated Risk Score" id="_9BD9152B-C42C-47D9-8784-889E81BF2164" typeRef="number" />
+    <encapsulatedLogic label="Calculated Risk Score" typeRef="number" id="_2785E559-7518-4BF0-AA8F-2472CE23B5E7" kind="FEEL">
+      <formalParameter id="_E9492A73-6A6B-40DA-B2D6-38C0D55D61DF" name="Loanapplication" typeRef="LoanApplication" />
+      <decisionTable id="_F19002D3-CFC8-4D88-8FF7-49B8B4A73477" typeRef="number" hitPolicy="UNIQUE" label="Return">
+        <input id="_4C97A7B3-0792-4063-B61B-C5CBD0AB190B">
+          <inputExpression id="_60280907-4C95-4DF8-A751-9B500D9EA5A2">
+            <text>Input-1</text>
+          </inputExpression>
+        </input>
+        <output id="_F987745D-4E9F-4389-8F18-E0BB94BC6977" />
+        <annotation name="Annotations" />
+        <rule id="_A37CF89B-8F29-42AD-8F15-B701AA28DB4B">
+          <inputEntry id="_69BB36C4-6F61-4F8D-99E4-E6A05240ABF6">
+            <text>-</text>
+          </inputEntry>
+          <outputEntry id="_0CD2B622-6846-453B-89F2-C4402F2885D0">
+            <text></text>
+          </outputEntry>
+          <annotationEntry>
+            <text>// Your annotations here</text>
+          </annotationEntry>
+        </rule>
+      </decisionTable>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_DB85B965-9CBF-401E-A979-D13B6CC00B89" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_F19002D3-CFC8-4D88-8FF7-49B8B4A73477">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_FCDE4B11-5B00-48A5-B6EE-AA243AA6FF4C" dmnElementRef="_64390EA2-E165-4FA0-862A-6EBE4EB3B913" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="300" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
