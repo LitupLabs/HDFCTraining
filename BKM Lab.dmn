@@ -104,10 +104,12 @@
     <conditional id="_7A27BB07-6B54-4B4D-A3E8-27AF5F00AFAA" typeRef="string" label="LoanApproval">
       <if id="_3F8325FC-6E5B-4DEA-8D23-C4EF1E829A25">
         <literalExpression id="_23C0D219-A300-4A1A-A7E6-8513D79544C8" label="Expression Name">
-          <text>Risk Category !</text>
+          <text>Risk Category !=&apos;HIGH&apos; and Financial Eligibility=true</text>
         </literalExpression>
       </if>
-      <then id="_EDC46AFB-3C8B-43D1-8F97-9BEC3853C73E" />
+      <then id="_EDC46AFB-3C8B-43D1-8F97-9BEC3853C73E">
+        <literalExpression id="_B6D8AD90-13E8-4032-B4B6-CDDE9B87A7E7" label="Expression Name" />
+      </then>
       <else id="_DF57977C-7EC0-45A3-9CCE-FF5B18367F94" />
     </conditional>
   </decision>
@@ -220,6 +222,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_23C0D219-A300-4A1A-A7E6-8513D79544C8">
             <kie:width>793</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B6D8AD90-13E8-4032-B4B6-CDDE9B87A7E7">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
