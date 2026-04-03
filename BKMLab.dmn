@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_5DFE780D-261A-4B66-87FB-A4E1737263AF" id="_7A925781-A245-4A9E-9641-9BB8B1BD1E12" name="DMN_1C998508-0A15-40FD-959A-9C9CA7E3E4EA" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_5DFE780D-261A-4B66-87FB-A4E1737263AF" id="_7A925781-A245-4A9E-9641-9BB8B1BD1E12" name="DMN_1C998508-0A15-40FD-959A-9C9CA7E3E4EA">
   <itemDefinition id="_596C00AF-B21C-4AE1-9822-9921832AAA87" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_AA8E45AE-C94E-4F2F-BF63-47EA5C1256C6" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Customer</typeRef>
@@ -30,8 +30,8 @@
       <formalParameter id="_E9492A73-6A6B-40DA-B2D6-38C0D55D61DF" name="Loanapplication" typeRef="LoanApplication" />
       <decisionTable id="_F19002D3-CFC8-4D88-8FF7-49B8B4A73477" typeRef="number" hitPolicy="UNIQUE" label="Return">
         <input id="_4C97A7B3-0792-4063-B61B-C5CBD0AB190B">
-          <inputExpression id="_60280907-4C95-4DF8-A751-9B500D9EA5A2">
-            <text>Input-1</text>
+          <inputExpression id="_60280907-4C95-4DF8-A751-9B500D9EA5A2" typeRef="&lt;Undefined&gt;">
+            <text>Loanapplication.</text>
           </inputExpression>
         </input>
         <output id="_F987745D-4E9F-4389-8F18-E0BB94BC6977" />
