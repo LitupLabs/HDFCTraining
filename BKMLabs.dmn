@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_45869D5A-2FDA-4D18-8606-47C4EF36F5CD" id="_203AA07A-AACD-4F05-8E97-0C2A831ECC7C" name="DMN_2CE5DE40-2D5F-4CAA-A372-A8176D3C2F9B" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_45869D5A-2FDA-4D18-8606-47C4EF36F5CD" id="_203AA07A-AACD-4F05-8E97-0C2A831ECC7C" name="DMN_2CE5DE40-2D5F-4CAA-A372-A8176D3C2F9B">
   <itemDefinition id="_626C0E06-4D3D-4BDB-8804-DE5AFF19AC1A" name="LoanApplications" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_91570977-5EDD-48A0-B477-86EF4177CBE3" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Financials</typeRef>
@@ -9,6 +9,9 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_08387B18-F830-492E-88A1-C0D06C6F06B6" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_63C26B61-7406-4919-8344-A3EA2A1BB6C0" name="monthlyIncomes" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
     <itemComponent id="_0EABB6D0-F0A2-4DA5-A7CE-6E5E4FBA8D87" name="existingEMIs" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
@@ -83,6 +86,20 @@
       </decisionTable>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Financial Strength" id="_0C6C91E2-FC13-4DCB-9492-2E08CB767DED">
+    <variable name="Calculate Financial Strength" id="_F26C47F2-7E47-4AD3-B336-8FD8ACEBCCDE" />
+    <encapsulatedLogic label="Calculate Financial Strength" id="_E45E4208-C42E-40B3-AFE3-3AE31718D0F8" kind="FEEL">
+      <formalParameter id="_6AD2BA6C-0551-4B77-9A7E-CFCA1FDD62DD" name="LoanApplication" typeRef="LoanApplications" />
+      <context id="_F3363969-6153-4BBF-9B78-B55106833588" label="Return">
+        <contextEntry id="_1C5864AC-3399-4C50-A21C-0C53E19DF37B">
+          <variable id="_C46830A3-6791-44E9-A6EF-6C46AD836708" name="monthlyIcnome" typeRef="number" />
+          <literalExpression id="_E5CACD22-1523-410D-9452-AE0C5A5BA22E" typeRef="number" label="monthlyIcnome">
+            <text>LoanApplication.financials.monthlyIncomes</text>
+          </literalExpression>
+        </contextEntry>
+      </context>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_BEEE020F-C974-4280-9EAF-9E211BEF1A3A" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -93,10 +110,19 @@
             <kie:width>118</kie:width>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F3363969-6153-4BBF-9B78-B55106833588">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E5CACD22-1523-410D-9452-AE0C5A5BA22E">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_8196574D-668D-4F09-A127-BA3A1ED3F719" dmnElementRef="_C0039D6E-74A3-4320-A3CB-1E2224AC0711" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="320" y="40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_FE8984CE-65F5-4910-A8FE-42C4570B1624" dmnElementRef="_0C6C91E2-FC13-4DCB-9492-2E08CB767DED" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="620" y="40" width="160" height="80" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
