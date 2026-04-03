@@ -47,6 +47,9 @@
   </decision>
   <decision name="Financial Eligibility" id="_62876714-FEEC-47EB-A39F-61B9FDB3A6B5">
     <variable name="Financial Eligibility" id="_D35017DA-934E-4057-87E5-8F417DD12081" typeRef="boolean" />
+    <informationRequirement id="_C7B04BF3-B0F4-46FE-868E-7DCA542A0D90">
+      <requiredInput href="#_37997244-1A8D-48B8-8CA8-A5F50A565C45" />
+    </informationRequirement>
     <knowledgeRequirement id="_5AE9CE6E-4E39-4604-B743-75C16067BDA0">
       <requiredKnowledge href="#_EC7CBA4B-6ABA-4B33-96E0-7DD6D9AD07DB" />
     </knowledgeRequirement>
@@ -220,6 +223,10 @@
       <dmndi:DMNEdge id="_D8C6A932-02D4-42DE-A5D0-4628B52885BD" dmnElementRef="_5AE9CE6E-4E39-4604-B743-75C16067BDA0" sourceElement="_29193E1B-7E0A-4799-B5AB-1FA697697A34" targetElement="_2A9312F7-7235-41C1-854F-C5D45E8920E8">
         <di:waypoint x="260" y="280" />
         <di:waypoint x="280" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_2B026377-B0A9-4FC1-876C-04DFA2EAE30E" dmnElementRef="_C7B04BF3-B0F4-46FE-868E-7DCA542A0D90" sourceElement="_9841BF6A-EB61-4DE1-8991-D0C9FA7DB60D" targetElement="_2A9312F7-7235-41C1-854F-C5D45E8920E8">
+        <di:waypoint x="560" y="300" />
+        <di:waypoint x="360" y="140" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
