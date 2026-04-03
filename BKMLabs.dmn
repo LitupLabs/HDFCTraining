@@ -53,6 +53,15 @@
     <knowledgeRequirement id="_DBEC2C34-1469-45CE-9F76-2F7B25DE370B">
       <requiredKnowledge href="#_0C6C91E2-FC13-4DCB-9492-2E08CB767DED" />
     </knowledgeRequirement>
+    <conditional id="_1E19EB21-DCE0-44E0-A6D1-312910663782" typeRef="boolean" label="Financial Eligibility">
+      <if id="_892EDDAF-A6E3-4846-B92A-DB017736CBC8">
+        <literalExpression id="_D419699B-EBD4-4DBE-A2D6-31369ECE3202" label="Expression Name">
+          <text>Calculate Financial Strength()</text>
+        </literalExpression>
+      </if>
+      <then id="_790CAE20-54E6-4495-8D60-23FDEA7BD7CB" />
+      <else id="_6554E32D-4976-4A1F-A522-61DA3024B731" />
+    </conditional>
   </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_C0039D6E-74A3-4320-A3CB-1E2224AC0711">
     <variable name="Calculate Risk Score" id="_AA87B1D4-3897-4605-9AC7-CEA05AA7E03E" typeRef="number" />
@@ -167,6 +176,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_EA3FAD1E-31AF-408D-A2F4-B83A2A1F9DF2">
             <kie:width>896</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D419699B-EBD4-4DBE-A2D6-31369ECE3202">
+            <kie:width>423</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
