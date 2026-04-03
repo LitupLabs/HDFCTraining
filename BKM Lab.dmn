@@ -56,6 +56,13 @@
   </decision>
   <decision name="Risk Category" id="_DA7B136D-FF98-4886-B049-684BEB7C1E36">
     <variable name="Risk Category" id="_E6D03BB8-2F63-4181-9204-7D8A49D7B4C4" typeRef="RiskCategory" />
+    <informationRequirement id="_2D5E7F18-6D30-4CC7-806D-6CD3946C5372">
+      <requiredInput href="#_77F93F92-0068-4B38-885A-9B6F14CB8388" />
+    </informationRequirement>
+    <literalExpression id="_A3286AAF-8AF5-483A-BF97-4B62CAF45E0F" typeRef="RiskCategory" label="Risk Category">
+      <text>if Calculate Risk Score() &lt;= 2 then &quot;HIGH&quot; else if Calculate Risk Score() = 3 then &quot;MEDIUM&quot; else &quot;LOW&quot;
+ </text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="New BKM" id="_A52C7ECE-90EB-4580-BB93-840A2BB4DFFB">
     <variable name="New BKM" id="_325603F3-FE69-4C78-820F-67A5CA1345AF" />
@@ -152,6 +159,9 @@
           <kie:ComponentWidths dmnElementRef="_F75BF90A-0D83-45D4-90CD-42DC51D81CDD">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A3286AAF-8AF5-483A-BF97-4B62CAF45E0F">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3E7C3941-70BD-4C45-A0EE-A0322BCCBF2A" dmnElementRef="_4EB231EE-3AE7-4164-AB46-1531226425BA" isCollapsed="false" isListedInputData="false">
@@ -161,11 +171,15 @@
         <dc:Bounds x="680" y="340" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_8EB6EBD6-AA51-4A7F-80A8-6DC1E1B79D0A" dmnElementRef="_77F93F92-0068-4B38-885A-9B6F14CB8388" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="320" y="320" width="160" height="80" />
+        <dc:Bounds x="300" y="320" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_FC50A76E-F947-4E77-8991-371EA6DDAC09" dmnElementRef="_DA7B136D-FF98-4886-B049-684BEB7C1E36" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="780" y="160" width="160" height="80" />
+        <dc:Bounds x="820" y="180" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_402B742F-6694-4868-B51A-24FEF2DC07BF" dmnElementRef="_2D5E7F18-6D30-4CC7-806D-6CD3946C5372" sourceElement="_8EB6EBD6-AA51-4A7F-80A8-6DC1E1B79D0A" targetElement="_FC50A76E-F947-4E77-8991-371EA6DDAC09">
+        <di:waypoint x="380" y="360" />
+        <di:waypoint x="900" y="220" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
