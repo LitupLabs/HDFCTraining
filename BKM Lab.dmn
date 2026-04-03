@@ -55,7 +55,7 @@
     </decisionTable>
   </decision>
   <decision name="Risk Category" id="_DA7B136D-FF98-4886-B049-684BEB7C1E36">
-    <variable name="Risk Category" id="_E6D03BB8-2F63-4181-9204-7D8A49D7B4C4" />
+    <variable name="Risk Category" id="_E6D03BB8-2F63-4181-9204-7D8A49D7B4C4" typeRef="RiskCategory" />
   </decision>
   <businessKnowledgeModel name="New BKM" id="_A52C7ECE-90EB-4580-BB93-840A2BB4DFFB">
     <variable name="New BKM" id="_325603F3-FE69-4C78-820F-67A5CA1345AF" />
