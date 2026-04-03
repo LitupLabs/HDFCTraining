@@ -25,4 +25,19 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <inputData name="LoanApplication" id="_DB32883F-CD2C-4B8A-B941-3815D39A664C">
+    <variable name="LoanApplication" id="_361AB56D-7DD2-46DC-AD4B-F461455C9803" typeRef="LoanApplication" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_3E1A0FFC-4897-41C7-9C57-FB863074829B" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_9C4AA18A-AA8D-4360-93A3-037DFAF59FBE" dmnElementRef="_DB32883F-CD2C-4B8A-B941-3815D39A664C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="460" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
