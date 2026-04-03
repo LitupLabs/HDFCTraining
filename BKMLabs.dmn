@@ -23,14 +23,14 @@
     <itemComponent id="_25A48605-021B-449D-9495-106D2C6D69D0" name="existingEMIs" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_2CD9D307-5245-4BC2-B0F6-F33BF8C63AE1" name="otherIncomes" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_2CD9D307-5245-4BC2-B0F6-F33BF8C63AE1" name="otherIncomes" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
   <businessKnowledgeModel name="Calculate Risk Score" id="_EB460485-C2E8-47C6-883C-04C2AE552191">
     <variable name="Calculate Risk Score" id="_79E82A4C-87E1-463F-9013-D92005AC8292" typeRef="number" />
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_00EA0BB0-34BC-400E-BD92-991B017F7130" kind="FEEL">
-      <formalParameter id="_491D7077-2B95-4B27-9B63-271280030B82" name="LoanApllication" typeRef="LoanApplication" />
+      <formalParameter id="_491D7077-2B95-4B27-9B63-271280030B82" name="LoanApplication" typeRef="LoanApplication" />
       <decisionTable id="_A88D79A2-C4D7-4519-B8DA-DE0BE3FFDD2B" typeRef="number" hitPolicy="UNIQUE" label="Return">
         <input id="_4376BCDE-34FB-4953-94B9-C81CF14F0626">
           <inputExpression id="_6A793EDB-2B75-4476-A4C5-1E3A9ED06445" typeRef="number">
@@ -90,12 +90,20 @@
   <businessKnowledgeModel name="Calculate Financial Strength" id="_EC7CBA4B-6ABA-4B33-96E0-7DD6D9AD07DB">
     <variable name="Calculate Financial Strength" id="_6A330022-A22B-46DF-80E7-529FDBC46EF5" typeRef="number" />
     <encapsulatedLogic label="Calculate Financial Strength" typeRef="number" id="_E283FC37-C50B-4C98-B2A2-4EC2800F3BE5" kind="FEEL">
-      <formalParameter id="_5CEA6842-EC5F-4847-9A96-05C8BE1CF7FF" name="LoanApllication" typeRef="LoanApplication" />
+      <formalParameter id="_5CEA6842-EC5F-4847-9A96-05C8BE1CF7FF" name="LoanApplication" typeRef="LoanApplication" />
       <context id="_D97EBD17-3B6A-47D4-9406-597BB25D5FDA" typeRef="number" label="Return">
         <contextEntry id="_08B82369-1B31-4347-8827-B5EE3B3D34DD">
           <variable id="_8CFE8D9A-6E6D-4F92-9636-BD0C257CF443" name="monthlyIncome" typeRef="number" />
           <literalExpression id="_1AADEE5B-D314-4586-A721-BDADECA85936" typeRef="number" label="monthlyIncome">
-            <text>LoanApllication</text>
+            <text>LoanApplication.financials.monthlyIncome</text>
+          </literalExpression>
+        </contextEntry>
+        <contextEntry id="_83D9088E-DE1D-4AE6-A92A-FB004C5DCF1D">
+          <variable id="_256D3F03-4699-4633-9576-247250F4CFD7" name="totalIncome" typeRef="number">
+            <description></description>
+          </variable>
+          <literalExpression id="_6E439293-0FC8-4F1A-9845-D5514EB31A64" typeRef="number" label="totalIncome">
+            <text>monthlyIncome + sum(LoanApplication.financials.otherIncomes)</text>
           </literalExpression>
         </contextEntry>
       </context>
@@ -115,6 +123,9 @@
             <kie:width>120</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_1AADEE5B-D314-4586-A721-BDADECA85936">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6E439293-0FC8-4F1A-9845-D5514EB31A64">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
