@@ -38,13 +38,46 @@
         <annotation name="Annotations" />
         <rule id="_92921989-E9BD-4242-95FF-405816537FED">
           <inputEntry id="_9222547D-0859-4B41-9AF7-BCD1B46255F7">
-            <text>-</text>
+            <text>&lt; 0</text>
           </inputEntry>
           <outputEntry id="_577CB10A-61C5-4802-A19C-3E9DFA4AF9E0">
-            <text></text>
+            <text>0</text>
           </outputEntry>
           <annotationEntry>
             <text>// Your annotations here</text>
+          </annotationEntry>
+        </rule>
+        <rule id="_E3124C61-F101-40F4-A49C-50380E277149">
+          <inputEntry id="_8AA51843-2F6E-45F7-85AD-0BA91B2DAE67">
+            <text>[0 .. 650]</text>
+          </inputEntry>
+          <outputEntry id="_BCC79B1C-50A7-47A1-AF54-28647147E66C">
+            <text>2</text>
+          </outputEntry>
+          <annotationEntry>
+            <text></text>
+          </annotationEntry>
+        </rule>
+        <rule id="_6C003CA7-F5AB-451E-8526-99064965BA5E">
+          <inputEntry id="_EFD70DAC-B18C-4516-9AFB-07565A3471FF">
+            <text>(650 .. 750]</text>
+          </inputEntry>
+          <outputEntry id="_51C35E6E-2F3B-4B26-96F0-3ABB27136B1C">
+            <text>3</text>
+          </outputEntry>
+          <annotationEntry>
+            <text></text>
+          </annotationEntry>
+        </rule>
+        <rule id="_840B9258-6C14-4698-8792-2C7733DD394F">
+          <inputEntry id="_DC2753BC-090A-49F3-9AFC-1E7E1F1DA9EC">
+            <text>&gt; 750</text>
+          </inputEntry>
+          <outputEntry id="_604FFB24-67E1-43ED-8D67-94FD54D76E5B">
+            <text>4</text>
+          </outputEntry>
+          <annotationEntry>
+            <text></text>
           </annotationEntry>
         </rule>
       </decisionTable>
