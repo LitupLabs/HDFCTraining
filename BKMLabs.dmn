@@ -45,6 +45,15 @@
       <text>if Calculate Risk Score() &lt;= 2 then &quot;HIGH&quot; else if Calculate Risk Score() = 3 then &quot;MEDIUM&quot; else &quot;LOW&quot;</text>
     </literalExpression>
   </decision>
+  <decision name="Financial Eligibility" id="_93FF8E52-9911-44E2-9C57-B2E1242A6964">
+    <variable name="Financial Eligibility" id="_2B7C95FC-5FA5-4735-849A-B25DBCC57732" typeRef="boolean" />
+    <informationRequirement id="_0033EA87-2539-4199-A32E-6F547DA95C33">
+      <requiredInput href="#_B3C132A1-7075-43DA-9E85-5CF39FCBC381" />
+    </informationRequirement>
+    <knowledgeRequirement id="_DBEC2C34-1469-45CE-9F76-2F7B25DE370B">
+      <requiredKnowledge href="#_0C6C91E2-FC13-4DCB-9492-2E08CB767DED" />
+    </knowledgeRequirement>
+  </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_C0039D6E-74A3-4320-A3CB-1E2224AC0711">
     <variable name="Calculate Risk Score" id="_AA87B1D4-3897-4605-9AC7-CEA05AA7E03E" typeRef="number" />
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_AFC26A61-38E3-45CA-8EA2-90156364DA94" kind="FEEL">
@@ -165,13 +174,16 @@
         <dc:Bounds x="320" y="40" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_FE8984CE-65F5-4910-A8FE-42C4570B1624" dmnElementRef="_0C6C91E2-FC13-4DCB-9492-2E08CB767DED" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="640" y="160" width="160" height="80" />
+        <dc:Bounds x="480" y="260" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_A89C2957-411A-402B-8A70-99141248D028" dmnElementRef="_B3C132A1-7075-43DA-9E85-5CF39FCBC381" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="280" y="200" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_0AAF9FBE-BDD1-4357-8D26-CF4EA0758411" dmnElementRef="_830252D5-8DCD-44F4-B9F9-DC8D2921ECC4" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="640" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_71EDADA5-1B6B-4951-B174-DDCDDEC01099" dmnElementRef="_93FF8E52-9911-44E2-9C57-B2E1242A6964" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="800" y="120" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_849535F3-941C-4710-B0E9-16E52FDAD0CC" dmnElementRef="_AC776883-1490-4FDE-8634-269B1E7F9E51" sourceElement="_A89C2957-411A-402B-8A70-99141248D028" targetElement="_0AAF9FBE-BDD1-4357-8D26-CF4EA0758411">
         <di:waypoint x="360" y="240" />
@@ -180,6 +192,14 @@
       <dmndi:DMNEdge id="_89749297-7957-42FE-B7D8-FDD550D2B805" dmnElementRef="_CA76AE04-04B4-4980-8DF7-254C9D5B85BE" sourceElement="_8196574D-668D-4F09-A127-BA3A1ED3F719" targetElement="_0AAF9FBE-BDD1-4357-8D26-CF4EA0758411">
         <di:waypoint x="400" y="80" />
         <di:waypoint x="640" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_27DE68A0-1CCD-4CD4-9C77-1314BDD0FDB4" dmnElementRef="_0033EA87-2539-4199-A32E-6F547DA95C33" sourceElement="_A89C2957-411A-402B-8A70-99141248D028" targetElement="_71EDADA5-1B6B-4951-B174-DDCDDEC01099">
+        <di:waypoint x="360" y="240" />
+        <di:waypoint x="800" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_6D295271-24A7-43AE-BE2A-065D69146D0D" dmnElementRef="_DBEC2C34-1469-45CE-9F76-2F7B25DE370B" sourceElement="_FE8984CE-65F5-4910-A8FE-42C4570B1624" targetElement="_71EDADA5-1B6B-4951-B174-DDCDDEC01099">
+        <di:waypoint x="560" y="300" />
+        <di:waypoint x="880" y="200" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
