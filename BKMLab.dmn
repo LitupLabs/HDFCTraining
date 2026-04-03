@@ -71,6 +71,32 @@
       </else>
     </conditional>
   </decision>
+  <decision name="Loan approval" id="_E09D5E10-A53B-417D-A513-8BCE4E07811A">
+    <variable name="Loan approval" id="_A76B9497-DE66-4848-B3F8-CD4CB3D36365" typeRef="string" />
+    <informationRequirement id="_E63AE8AC-6ECE-4023-8776-657F3F662BA4">
+      <requiredDecision href="#_8BAE4C3D-8710-4BA1-96B8-5A1F3CD5B7DA" />
+    </informationRequirement>
+    <informationRequirement id="_5AA3AFC7-A57A-49DF-B114-8447B0848614">
+      <requiredDecision href="#_8A7D59B7-E256-442F-966C-E1A950B98520" />
+    </informationRequirement>
+    <conditional id="_2C04F651-5457-4947-9C4B-550FEEC64296" typeRef="string" label="Loan approval">
+      <if id="_1E514B8E-6078-47C4-A19A-1D0E1E5E0369">
+        <literalExpression id="_A4B971C4-CBC6-45F4-A636-5CA8EF64A3F2" label="Expression Name">
+          <text>Risk Category != &quot;HIGH&quot; and Financial Eligibility = true</text>
+        </literalExpression>
+      </if>
+      <then id="_9E0B79EA-3EB7-41E3-8EC1-C3D92E9BCA57">
+        <literalExpression id="_5CB0D284-DBD7-494F-9787-A886D425E3B1" label="Expression Name">
+          <text>&quot;Loan is Approved since the risk category is not high and Financial Eligibility is permissible&quot;</text>
+        </literalExpression>
+      </then>
+      <else id="_2F6F1727-7B1A-40A9-B720-966D9F5B68C3">
+        <literalExpression id="_18073A1D-A487-49E6-B5B9-BCBF626E4FFE" label="Expression Name">
+          <text>&quot;Loan is Rejected due to  the risk category is&quot; + Risk Category  + &quot;and financial Eligibility is &quot; + string(Financial Eligibility)</text>
+        </literalExpression>
+      </else>
+    </conditional>
+  </decision>
   <businessKnowledgeModel name="Calculated Risk Score" id="_64390EA2-E165-4FA0-862A-6EBE4EB3B913">
     <variable name="Calculated Risk Score" id="_9BD9152B-C42C-47D9-8784-889E81BF2164" typeRef="number" />
     <encapsulatedLogic label="Calculated Risk Score" typeRef="number" id="_2785E559-7518-4BF0-AA8F-2472CE23B5E7" kind="FEEL">
@@ -133,12 +159,12 @@
   <businessKnowledgeModel name="Calculate Financia Strngth" id="_76FBD8D6-C150-48A2-9A60-01AED3D831DC">
     <variable name="Calculate Financia Strngth" id="_B436DB39-B1A3-48BD-8714-DBC792E9F6A8" typeRef="number" />
     <encapsulatedLogic label="Calculate Financia Strngth" typeRef="number" id="_642513F0-9040-400B-A51E-F3A8D9342BCF" kind="FEEL">
-      <formalParameter id="_7359BCA2-8CE9-4E06-8B3D-BDD471B05CB9" name="LoanApplication" typeRef="LoanApplication" />
+      <formalParameter id="_7359BCA2-8CE9-4E06-8B3D-BDD471B05CB9" name="Loanapplication" typeRef="LoanApplication" />
       <context id="_DACBB4E5-4305-498F-A220-10FCD834155F" typeRef="number" label="Return">
         <contextEntry id="_B5E7D4BD-0CF4-4C47-B0FB-2E65A18E27F7">
           <variable id="_6CF92751-6CA9-41FC-BE8F-13F87018889B" name="MonthlyIncome" typeRef="number" />
           <literalExpression id="_2AB715B2-9BF4-4AA4-8EA5-F569924236DE" typeRef="number" label="MonthlyIncome">
-            <text>LoanApplication.Financials.monthlyIncomes</text>
+            <text>Loanapplication.Financials.monthlyIncomes</text>
           </literalExpression>
         </contextEntry>
         <contextEntry id="_EEAE424D-0494-409F-A9FC-24182AF388EE">
@@ -146,12 +172,12 @@
             <description></description>
           </variable>
           <literalExpression id="_B31D24D7-C5DE-4E0F-B57B-C70447B4E8E1" typeRef="number" label="TotalIncome">
-            <text>MonthlyIncome + sum( LoanApplication.Financials.otherincomes )</text>
+            <text>MonthlyIncome + sum( Loanapplication.Financials.otherincomes )</text>
           </literalExpression>
         </contextEntry>
         <contextEntry id="_7240E78F-4F19-4317-AEA5-75C11AD636C9">
           <literalExpression id="_F9C68A2E-F31E-4075-982D-6E0E8220377B" typeRef="number" label="Return">
-            <text>TotalIncome - LoanApplication.Financials.existingEMIs</text>
+            <text>TotalIncome - Loanapplication.Financials.existingEMIs</text>
           </literalExpression>
         </contextEntry>
       </context>
@@ -194,13 +220,22 @@
           <kie:ComponentWidths dmnElementRef="_2FE5A0A9-6822-4D10-8E3E-554A8E4C58A4">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A4B971C4-CBC6-45F4-A636-5CA8EF64A3F2">
+            <kie:width>891</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5CB0D284-DBD7-494F-9787-A886D425E3B1">
+            <kie:width>891</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_18073A1D-A487-49E6-B5B9-BCBF626E4FFE">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_FCDE4B11-5B00-48A5-B6EE-AA243AA6FF4C" dmnElementRef="_64390EA2-E165-4FA0-862A-6EBE4EB3B913" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="120" y="-40" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_13781CA1-ABF3-4CDA-B5E1-A26EF36C1B3D" dmnElementRef="_76FBD8D6-C150-48A2-9A60-01AED3D831DC" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="680" y="60" width="160" height="80" />
+        <dc:Bounds x="740" y="300" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_4489C046-A8E0-4790-8200-F82B6803076A" dmnElementRef="_0CC646A0-2FDA-4073-9017-897F1380F3E8" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="80" y="180" width="160" height="80" />
@@ -210,6 +245,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_A3AA87BD-7549-4697-B209-9E1BF0E7C436" dmnElementRef="_8A7D59B7-E256-442F-966C-E1A950B98520" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="460" y="160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_6579BEA5-1F7A-4CFD-969A-58A01AFB02A6" dmnElementRef="_E09D5E10-A53B-417D-A513-8BCE4E07811A" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1140" y="-40" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_A736B396-F54E-42CA-B280-3CC8AD4EF55F" dmnElementRef="_9442630F-3F96-42ED-BDDB-0E343C196262" sourceElement="_4489C046-A8E0-4790-8200-F82B6803076A" targetElement="_6389725D-1C88-4F17-A7EC-AE5AB3130112">
         <di:waypoint x="160" y="220" />
@@ -224,8 +262,16 @@
         <di:waypoint x="540" y="200" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_F87A71A0-6367-4A32-BAA1-100335F0EFDC" dmnElementRef="_08C1C16F-D602-4855-9347-198D9265A0BC" sourceElement="_13781CA1-ABF3-4CDA-B5E1-A26EF36C1B3D" targetElement="_A3AA87BD-7549-4697-B209-9E1BF0E7C436">
-        <di:waypoint x="760" y="100" />
+        <di:waypoint x="820" y="340" />
         <di:waypoint x="540" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_19380BBF-29F1-456D-BC88-4DF53E3D214C" dmnElementRef="_E63AE8AC-6ECE-4023-8776-657F3F662BA4" sourceElement="_6389725D-1C88-4F17-A7EC-AE5AB3130112" targetElement="_6579BEA5-1F7A-4CFD-969A-58A01AFB02A6">
+        <di:waypoint x="560" y="0" />
+        <di:waypoint x="1140" y="0" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_ED8C52A9-02CD-40A1-A67B-55D38BE7B4A5" dmnElementRef="_5AA3AFC7-A57A-49DF-B114-8447B0848614" sourceElement="_A3AA87BD-7549-4697-B209-9E1BF0E7C436" targetElement="_6579BEA5-1F7A-4CFD-969A-58A01AFB02A6">
+        <di:waypoint x="540" y="200" />
+        <di:waypoint x="1220" y="0" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
