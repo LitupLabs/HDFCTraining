@@ -64,6 +64,26 @@
  </text>
     </literalExpression>
   </decision>
+  <decision name="Financial Eligibility" id="_56A2CA26-11F6-440E-BCFC-624AA32C7F20">
+    <variable name="Financial Eligibility" id="_7BD1F24D-38AC-4459-9D93-62BF8815FBD0" typeRef="boolean" />
+    <conditional id="_DECE93CC-B6D2-4B0B-BEE6-33FBB7C2D16E" typeRef="boolean" label="Financial Eligibility">
+      <if id="_60CA5B1D-EC6C-4B14-8677-98F79D3AA26F">
+        <literalExpression id="_C213F5DE-241D-4388-81F7-2D356387A58C" label="Expression Name">
+          <text>Calculate Financial strength()&gt;30000</text>
+        </literalExpression>
+      </if>
+      <then id="_D4EAADBF-703D-4019-A7D4-C197B989FE80">
+        <literalExpression id="_5252206E-657F-4477-96FE-C503836ED143" label="Expression Name">
+          <text>True</text>
+        </literalExpression>
+      </then>
+      <else id="_59E9A35B-A89D-4379-B3F6-AD934E1A4803">
+        <literalExpression id="_AF5E3561-27E4-4685-8B44-C274119AB916" label="Expression Name">
+          <text>false</text>
+        </literalExpression>
+      </else>
+    </conditional>
+  </decision>
   <businessKnowledgeModel name="New BKM" id="_A52C7ECE-90EB-4580-BB93-840A2BB4DFFB">
     <variable name="New BKM" id="_325603F3-FE69-4C78-820F-67A5CA1345AF" />
   </businessKnowledgeModel>
@@ -162,10 +182,19 @@
           <kie:ComponentWidths dmnElementRef="_A3286AAF-8AF5-483A-BF97-4B62CAF45E0F">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C213F5DE-241D-4388-81F7-2D356387A58C">
+            <kie:width>409</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5252206E-657F-4477-96FE-C503836ED143">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AF5E3561-27E4-4685-8B44-C274119AB916">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3E7C3941-70BD-4C45-A0EE-A0322BCCBF2A" dmnElementRef="_4EB231EE-3AE7-4164-AB46-1531226425BA" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="280" y="160" width="160" height="80" />
+        <dc:Bounds x="300" y="160" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_59D943E7-045D-4862-B7C9-BB693C13F4A3" dmnElementRef="_A5C3F4A6-613D-46B4-8981-52D1290D24CA" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="680" y="340" width="160" height="80" />
@@ -175,6 +204,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_FC50A76E-F947-4E77-8991-371EA6DDAC09" dmnElementRef="_DA7B136D-FF98-4886-B049-684BEB7C1E36" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="820" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_DD4C0748-8A0F-4DDD-B853-DB354E848D80" dmnElementRef="_56A2CA26-11F6-440E-BCFC-624AA32C7F20" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1160" y="260" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_402B742F-6694-4868-B51A-24FEF2DC07BF" dmnElementRef="_2D5E7F18-6D30-4CC7-806D-6CD3946C5372" sourceElement="_8EB6EBD6-AA51-4A7F-80A8-6DC1E1B79D0A" targetElement="_FC50A76E-F947-4E77-8991-371EA6DDAC09">
         <di:waypoint x="380" y="360" />
