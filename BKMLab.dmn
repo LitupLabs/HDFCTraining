@@ -82,7 +82,7 @@
     <conditional id="_3FC0943C-21F4-4DD6-9A71-FFF0CB90685B" typeRef="boolean" label="loan approval">
       <if id="_0278F37E-E51F-406A-9436-CAA4B9BE8B89">
         <literalExpression id="_B8A72F7B-DCB1-4676-93FF-C4C26C66D486" label="Expression Name">
-          <text>risk category !=&quot;HIGH&quot; and financial eligibility = true</text>
+          <text>risk category !=&quot;HIGH&quot; and financial eligibilty = true</text>
         </literalExpression>
       </if>
       <then id="_70C192F4-5F93-4B0A-B274-9909512914F7">
@@ -92,7 +92,7 @@
       </then>
       <else id="_0B2F20CB-A9F9-4F93-BCA2-2BE7EA2F81E1">
         <literalExpression id="_CCBA8962-2E0F-458C-8CAC-947FBBA33F8D" label="Expression Name">
-          <text>&quot;loan is rejected because your risk category is&quot; + risk category + &quot;and your financial strength is&quot; + financial eligibility</text>
+          <text>&quot;loan is rejected because your risk category is&quot; + risk category + &quot;and your financial strength is&quot; + financial eligibilty</text>
         </literalExpression>
       </else>
     </conditional>
