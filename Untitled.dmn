@@ -42,7 +42,7 @@
       <requiredKnowledge href="#_05D4BCF0-5BE5-4498-A38E-0D42E6DC7FEE" />
     </knowledgeRequirement>
     <literalExpression id="_4A9B7EB5-DACE-4440-8918-596BFF18D99B" typeRef="riskcategory" label="risk category">
-      <text>if Calculate Risk Score() &lt;= 2 then &quot;HIGH&quot; else if Calculate Risk Score() = 3 then &quot;MEDIUM&quot; else &quot;LOW&quot;</text>
+      <text>if calculate risk score() &lt;= 2 then &quot;HIGH&quot; else if calculate risk score() = 3 then &quot;MEDIUM&quot; else &quot;LOW&quot;</text>
     </literalExpression>
   </decision>
   <businessKnowledgeModel name="calculate risk score" id="_05D4BCF0-5BE5-4498-A38E-0D42E6DC7FEE">
