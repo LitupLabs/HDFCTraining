@@ -36,6 +36,17 @@
         </input>
         <output id="_DFD16394-D90D-46BA-BE8D-531A5BDD40F5" />
         <annotation name="Annotations" />
+        <rule id="_972CED08-CD2C-4A9B-96CF-D82F17D095F0">
+          <inputEntry id="_DEEC3F7F-7FDD-4B07-9C6F-E65B227C7AA6">
+            <text>&lt; 0</text>
+          </inputEntry>
+          <outputEntry id="_B6FBCA7A-AD03-4B6C-BB6C-DD300703C0BB">
+            <text>0</text>
+          </outputEntry>
+          <annotationEntry>
+            <text></text>
+          </annotationEntry>
+        </rule>
         <rule id="_BE1BF8C2-9848-4985-AE56-23FBE6E0192E">
           <inputEntry id="_03CF83DC-EEC7-4F2F-A00A-F8DEF609D626">
             <text>[0 .. 650]</text>
