@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_4E43F2A7-A40B-44A1-B6A2-701528077428" id="_CC903423-8757-44C8-A375-6F57C707AFD3" name="DMN_66E8357E-7DC5-4FB5-BF1D-EC08CAD57519" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_9D95FCA0-DD14-44C0-946B-14055F833BB3" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_06D6191E-9901-44FF-A728-1281B30CFCD9" name="LoanOffer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_4F7BBBF0-A424-49BE-A503-40AC8AFCEFBD" name="decision" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_5A170BBB-A6AD-4A9E-B626-E2E7673F91B2" name="InterestRate" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_BC31C787-1733-4762-8AF9-E6D0CF95AC6C" name="RiskFactors" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_62E902BA-F0B8-4E5D-93A4-042A128E9555" name="hadCriminalRec" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_5D1CBBDC-8DE9-4296-ABF8-CEAC74CD5C4F" name="ispoliticallyconn" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_146957D2-8D16-47CA-A3C3-C3EC7CD1EC4C" name="Loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_D00AE7FC-D247-4E05-8E83-03EBF820373A" name="tenure" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
