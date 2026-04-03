@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_5DFE780D-261A-4B66-87FB-A4E1737263AF" id="_7A925781-A245-4A9E-9641-9BB8B1BD1E12" name="DMN_1C998508-0A15-40FD-959A-9C9CA7E3E4EA" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_6BE2EF16-E888-4700-B436-74BB67017835" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+</definitions>
