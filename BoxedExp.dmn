@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_60D956FF-75DC-4C70-99B3-17119D254EBD" id="_167C32FE-4FFE-477D-A322-7C621F082329" name="DMN_EDFA287C-0077-4713-96AC-11F32B6BD083" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_01A17FAC-3FD1-476D-B941-82F8D20A20A8" name="loans" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <description></description>
+    <itemComponent id="_E773C313-D47D-4F20-AD83-03EF4ABE5864" name="amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_3BB986C6-003B-42B0-80AB-C585EDCFD159" name="emi" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+</definitions>
