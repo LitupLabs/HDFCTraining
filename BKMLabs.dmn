@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_1DC71102-6BDC-4948-9FCE-F955113592CD" id="_AC9F0540-291A-4AF3-9CF8-9C81E2024B80" name="DMN_476A974D-0530-42CD-B499-AAAF4E42B7A7" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_CEC0A5DF-C8B5-4810-A2DB-21F2D2A21A76" name="RiskCategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>string</typeRef>
+    <allowedValues id="_0CB8B43B-EBDF-42E2-81C9-A08F8959EC55" kie:constraintType="enumeration">
+      <text>&quot;HIGH&quot;, &quot;MEDIUM&quot;, &quot;LOW&quot;</text>
+    </allowedValues>
+  </itemDefinition>
   <itemDefinition id="_F207AA30-F0AB-456E-95C2-FB691A687CFC" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_EA9722B5-122F-4638-B45F-13B5E54AB255" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Financials</typeRef>
@@ -114,6 +120,9 @@
       </context>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <inputData name="LoanApplication" id="_37997244-1A8D-48B8-8CA8-A5F50A565C45">
+    <variable name="LoanApplication" id="_075EF7A2-DEC3-407C-8822-D0473D3787BD" typeRef="LoanApplication" />
+  </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_D2C940B0-3E85-420E-B78E-F265DFFE63AB" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -139,10 +148,13 @@
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_2C9FCD29-FCDC-426B-94A6-C2AA65CC67BA" dmnElementRef="_EB460485-C2E8-47C6-883C-04C2AE552191" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="400" y="60" width="160" height="80" />
+        <dc:Bounds x="200" y="20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_29193E1B-7E0A-4799-B5AB-1FA697697A34" dmnElementRef="_EC7CBA4B-6ABA-4B33-96E0-7DD6D9AD07DB" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="580" y="160" width="160" height="80" />
+        <dc:Bounds x="420" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9841BF6A-EB61-4DE1-8991-D0C9FA7DB60D" dmnElementRef="_37997244-1A8D-48B8-8CA8-A5F50A565C45" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="180" y="160" width="160" height="80" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
