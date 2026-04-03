@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_7619516C-D538-4866-9118-2E2269E32FD1" id="_5B0C8F3D-D2E0-433F-8236-3BB1DC2F07C0" name="DMN_1CF8CE58-6C01-4BA4-AA0A-8456E4377CD6" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_60E09D6F-6EDB-4260-B476-622287070732" name="EMIs" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_D38CBCBF-B0C6-4C39-9FAE-3835257FD370" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_3CBE664D-37F8-4524-B2F5-930D11259320" name="creditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
@@ -24,4 +25,39 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="EMIslist" id="_F59BD6F3-C04A-411A-8081-EC6E04180CF7">
+    <variable name="EMIslist" id="_CDC9AC97-DB05-404F-B5C9-D16713747CE6" typeRef="EMIs" />
+    <informationRequirement id="_FAE93C84-1B1C-4E46-921A-B0A2E7DC5B00">
+      <requiredInput href="#_D5F1E0ED-68A7-480E-8DC8-613B74447B51" />
+    </informationRequirement>
+    <list id="_4362505F-BB4A-4576-A33C-9AD246BC682E" typeRef="EMIs" label="EMIslist">
+      <literalExpression id="_EBDDE98C-5534-4AF4-9A99-3E91C08197C5" typeRef="EMIs" label="Expression Name">
+        <text>for emi in LaonApplication.loans.emi return emi</text>
+      </literalExpression>
+    </list>
+  </decision>
+  <inputData name="LaonApplication" id="_D5F1E0ED-68A7-480E-8DC8-613B74447B51">
+    <variable name="LaonApplication" id="_D6BF6E48-F360-4676-8B20-BC65E4E7E7AE" typeRef="LoanApplication" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_F699C104-A415-43A6-92C9-23BE7A89C56E" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_EBDDE98C-5534-4AF4-9A99-3E91C08197C5">
+            <kie:width>562</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_A48559DC-907D-43AC-8A40-070B31A6B143" dmnElementRef="_D5F1E0ED-68A7-480E-8DC8-613B74447B51" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="360" y="80" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_23ED29A4-68A1-4C94-96CF-138D69DAA12E" dmnElementRef="_F59BD6F3-C04A-411A-8081-EC6E04180CF7" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="360" y="-40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_6B613D22-EF69-4AB6-A019-F819A43517C0" dmnElementRef="_FAE93C84-1B1C-4E46-921A-B0A2E7DC5B00" sourceElement="_A48559DC-907D-43AC-8A40-070B31A6B143" targetElement="_23ED29A4-68A1-4C94-96CF-138D69DAA12E">
+        <di:waypoint x="440" y="120" />
+        <di:waypoint x="440" y="40" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
