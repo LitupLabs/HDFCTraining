@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_3ACCC83D-B79B-4FC9-9744-33B566B1E6BD" id="_4068C221-2CCA-4505-B96E-2776878DF942" name="DMN_269F2003-27A1-4B12-BDB2-243322C7A830" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <decision name="number_raw_input" id="_130E1566-16AB-4A90-B5DC-FCB020B1C95C">
+    <variable name="number_raw_input" id="_FA319EE8-296A-4891-B385-5E3A388B4443" typeRef="number" />
+    <informationRequirement id="_2C31C219-BC12-4693-AB75-0EAD4F4601B0">
+      <requiredInput href="#_FAAA82EB-739F-4102-BE15-07352DD8F245" />
+    </informationRequirement>
+    <literalExpression id="_960607F6-D995-4734-87CA-3BDFA79216A4" typeRef="number" label="number_raw_input">
+      <text>num</text>
+    </literalExpression>
+  </decision>
+  <inputData name="raw_input" id="_FAAA82EB-739F-4102-BE15-07352DD8F245">
+    <variable name="raw_input" id="_B66BF57B-2E2A-405A-8DC5-90AA23D34DB7" typeRef="string" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_1E4E732D-AFBD-438E-86BA-E3550D8564B1" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_960607F6-D995-4734-87CA-3BDFA79216A4">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_3D54E073-7AC8-440A-B0D2-0974EC7F140C" dmnElementRef="_FAAA82EB-739F-4102-BE15-07352DD8F245" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_C66EC9AE-9DF9-4BDB-BAF7-FF280702A821" dmnElementRef="_130E1566-16AB-4A90-B5DC-FCB020B1C95C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="-20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_3D5A2080-AF72-48DA-B465-5EDE8AFD87E3" dmnElementRef="_2C31C219-BC12-4693-AB75-0EAD4F4601B0" sourceElement="_3D54E073-7AC8-440A-B0D2-0974EC7F140C" targetElement="_C66EC9AE-9DF9-4BDB-BAF7-FF280702A821">
+        <di:waypoint x="460" y="200" />
+        <di:waypoint x="460" y="20" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
