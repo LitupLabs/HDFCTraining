@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_7619516C-D538-4866-9118-2E2269E32FD1" id="_5B0C8F3D-D2E0-433F-8236-3BB1DC2F07C0" name="DMN_1CF8CE58-6C01-4BA4-AA0A-8456E4377CD6" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_5795A5A1-FDB6-43E8-A2C6-21D1E8595236" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_B341187F-1E66-4832-A36F-ABC3FD1F229B" name="loans" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Loans</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_CF24FE1E-0511-4AFE-8207-729857DED528" name="Loans" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E9943D98-E4E7-461B-B5CA-9DC44B67B3DF" name="emi" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_195A27A9-0533-409B-A34D-C9C4FC236B5B" name="amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+</definitions>
