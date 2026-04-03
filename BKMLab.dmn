@@ -113,6 +113,9 @@
       </context>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <inputData name="Loan Application" id="_0CC646A0-2FDA-4073-9017-897F1380F3E8">
+    <variable name="Loan Application" id="_820154DB-D689-4D6D-8F74-2A076B8C09BB" typeRef="LoanApplication" />
+  </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_DB85B965-9CBF-401E-A979-D13B6CC00B89" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -138,10 +141,13 @@
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_FCDE4B11-5B00-48A5-B6EE-AA243AA6FF4C" dmnElementRef="_64390EA2-E165-4FA0-862A-6EBE4EB3B913" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="300" y="20" width="160" height="80" />
+        <dc:Bounds x="420" y="-20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_13781CA1-ABF3-4CDA-B5E1-A26EF36C1B3D" dmnElementRef="_76FBD8D6-C150-48A2-9A60-01AED3D831DC" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="700" y="40" width="160" height="80" />
+        <dc:Bounds x="720" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_4489C046-A8E0-4790-8200-F82B6803076A" dmnElementRef="_0CC646A0-2FDA-4073-9017-897F1380F3E8" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="340" y="120" width="160" height="80" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
