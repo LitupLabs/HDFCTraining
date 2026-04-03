@@ -41,7 +41,7 @@
             <text>[0 .. 650]</text>
           </inputEntry>
           <outputEntry id="_CA39E747-0AA1-4692-9092-861D483D69AD">
-            <text></text>
+            <text>2</text>
           </outputEntry>
           <annotationEntry>
             <text>// Your annotations here</text>
@@ -52,7 +52,7 @@
             <text>(650 .. 750]</text>
           </inputEntry>
           <outputEntry id="_4EB44838-7818-4E66-B97B-660120CE2989">
-            <text></text>
+            <text>3</text>
           </outputEntry>
           <annotationEntry>
             <text></text>
@@ -63,7 +63,7 @@
             <text>&gt; 750 </text>
           </inputEntry>
           <outputEntry id="_1B0627C3-C338-45BD-A893-1B463D4CFE3A">
-            <text></text>
+            <text>4</text>
           </outputEntry>
           <annotationEntry>
             <text></text>
