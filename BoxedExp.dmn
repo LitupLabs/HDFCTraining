@@ -25,6 +25,17 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="EMIsList" id="_BCC99723-828C-4E33-8196-41D02F4E8330">
+    <variable name="EMIsList" id="_855E481F-785C-41C6-B8CB-22AC19AEF147" typeRef="EMIs" />
+    <informationRequirement id="_50141E22-6699-41EC-993A-BE79DBC64FB9">
+      <requiredInput href="#_DB32883F-CD2C-4B8A-B941-3815D39A664C" />
+    </informationRequirement>
+    <list id="_B4384C89-8850-4C87-853C-AFDA13E726EA" typeRef="EMIs" label="EMIsList">
+      <literalExpression id="_4EA8A880-B0FE-4650-852C-0486B2B6C169" typeRef="EMIs" label="Expression Name">
+        <text>for emi in LoanApplication.loans.emi return emi </text>
+      </literalExpression>
+    </list>
+  </decision>
   <inputData name="LoanApplication" id="_DB32883F-CD2C-4B8A-B941-3815D39A664C">
     <variable name="LoanApplication" id="_361AB56D-7DD2-46DC-AD4B-F461455C9803" typeRef="LoanApplication" />
   </inputData>
@@ -32,12 +43,21 @@
     <dmndi:DMNDiagram id="_3E1A0FFC-4897-41C7-9C57-FB863074829B" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths />
+          <kie:ComponentWidths dmnElementRef="_4EA8A880-B0FE-4650-852C-0486B2B6C169">
+            <kie:width>757</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_9C4AA18A-AA8D-4360-93A3-037DFAF59FBE" dmnElementRef="_DB32883F-CD2C-4B8A-B941-3815D39A664C" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="460" y="20" width="160" height="80" />
+        <dc:Bounds x="420" y="140" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_F8EB9F3A-1F8A-4630-A6AD-E89D7F6D80B1" dmnElementRef="_BCC99723-828C-4E33-8196-41D02F4E8330" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="420" y="-60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_3E3FDB01-91ED-4E4B-BBB2-0FD1AC12BD72" dmnElementRef="_50141E22-6699-41EC-993A-BE79DBC64FB9" sourceElement="_9C4AA18A-AA8D-4360-93A3-037DFAF59FBE" targetElement="_F8EB9F3A-1F8A-4630-A6AD-E89D7F6D80B1">
+        <di:waypoint x="500" y="180" />
+        <di:waypoint x="500" y="20" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
