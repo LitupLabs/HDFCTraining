@@ -93,6 +93,15 @@
       </else>
     </conditional>
   </decision>
+  <decision name="LoanApproval" id="_29EFA9AE-4137-483E-BF71-2E8C00B11A94">
+    <variable name="LoanApproval" id="_18CE412E-E49D-4264-BB25-5E197E56E9B7" typeRef="string" />
+    <informationRequirement id="_5A6CEE5F-B873-4B49-9F72-B40E8EDC5194">
+      <requiredDecision href="#_56A2CA26-11F6-440E-BCFC-624AA32C7F20" />
+    </informationRequirement>
+    <informationRequirement id="_20849DF0-645D-4AC7-85A4-A4AEEDCBF7AA">
+      <requiredDecision href="#_DA7B136D-FF98-4886-B049-684BEB7C1E36" />
+    </informationRequirement>
+  </decision>
   <businessKnowledgeModel name="New BKM" id="_A52C7ECE-90EB-4580-BB93-840A2BB4DFFB">
     <variable name="New BKM" id="_325603F3-FE69-4C78-820F-67A5CA1345AF" />
   </businessKnowledgeModel>
@@ -217,6 +226,9 @@
       <dmndi:DMNShape id="_DD4C0748-8A0F-4DDD-B853-DB354E848D80" dmnElementRef="_56A2CA26-11F6-440E-BCFC-624AA32C7F20" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1160" y="260" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_862FE562-97B3-452F-BCF5-56603BB2B63E" dmnElementRef="_29EFA9AE-4137-483E-BF71-2E8C00B11A94" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1200" y="80" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_402B742F-6694-4868-B51A-24FEF2DC07BF" dmnElementRef="_2D5E7F18-6D30-4CC7-806D-6CD3946C5372" sourceElement="_8EB6EBD6-AA51-4A7F-80A8-6DC1E1B79D0A" targetElement="_FC50A76E-F947-4E77-8991-371EA6DDAC09">
         <di:waypoint x="380" y="360" />
         <di:waypoint x="900" y="220" />
@@ -232,6 +244,14 @@
       <dmndi:DMNEdge id="_F5D9F88D-92B5-41BF-BD73-9F0AC81C051D" dmnElementRef="_3E9C3E57-8692-4DEC-8B38-0CD698BE726F" sourceElement="_8EB6EBD6-AA51-4A7F-80A8-6DC1E1B79D0A" targetElement="_DD4C0748-8A0F-4DDD-B853-DB354E848D80">
         <di:waypoint x="380" y="360" />
         <di:waypoint x="1240" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_19029DA3-20AC-4A43-9BDC-0EA4872C3844" dmnElementRef="_5A6CEE5F-B873-4B49-9F72-B40E8EDC5194" sourceElement="_DD4C0748-8A0F-4DDD-B853-DB354E848D80" targetElement="_862FE562-97B3-452F-BCF5-56603BB2B63E">
+        <di:waypoint x="1240" y="300" />
+        <di:waypoint x="1280" y="80" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_D8E1097C-A07A-4FF1-AED3-D53EC6393232" dmnElementRef="_20849DF0-645D-4AC7-85A4-A4AEEDCBF7AA" sourceElement="_FC50A76E-F947-4E77-8991-371EA6DDAC09" targetElement="_862FE562-97B3-452F-BCF5-56603BB2B63E">
+        <di:waypoint x="900" y="220" />
+        <di:waypoint x="1280" y="120" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
