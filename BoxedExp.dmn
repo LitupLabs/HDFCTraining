@@ -9,7 +9,7 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_5795A5A1-FDB6-43E8-A2C6-21D1E8595236" name="LoanApplication" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_5795A5A1-FDB6-43E8-A2C6-21D1E8595236" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_9C42BE56-9CE4-49A2-A01B-9AEA88BBF1D3" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Applicant</typeRef>
     </itemComponent>
@@ -17,8 +17,8 @@
       <typeRef>Loans</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_CF24FE1E-0511-4AFE-8207-729857DED528" name="Loans" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_E9943D98-E4E7-461B-B5CA-9DC44B67B3DF" name="emi" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_CF24FE1E-0511-4AFE-8207-729857DED528" name="Loans" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E9943D98-E4E7-461B-B5CA-9DC44B67B3DF" name="emi" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
     <itemComponent id="_195A27A9-0533-409B-A34D-C9C4FC236B5B" name="amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
