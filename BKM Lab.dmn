@@ -51,9 +51,9 @@
   <businessKnowledgeModel name="New BKM" id="_A52C7ECE-90EB-4580-BB93-840A2BB4DFFB">
     <variable name="New BKM" id="_325603F3-FE69-4C78-820F-67A5CA1345AF" />
   </businessKnowledgeModel>
-  <businessKnowledgeModel name="CreditScore" id="_4EB231EE-3AE7-4164-AB46-1531226425BA">
-    <variable name="CreditScore" id="_6F99F38D-412D-4622-A870-80F09BB8F10B" typeRef="number" />
-    <encapsulatedLogic label="CreditScore" typeRef="number" id="_4B0A9433-9CC0-472E-A445-CAA2BEDB4C64" kind="FEEL">
+  <businessKnowledgeModel name="Caluclate Risk Score" id="_4EB231EE-3AE7-4164-AB46-1531226425BA">
+    <variable name="Caluclate Risk Score" id="_6F99F38D-412D-4622-A870-80F09BB8F10B" typeRef="number" />
+    <encapsulatedLogic label="Caluclate Risk Score" typeRef="number" id="_4B0A9433-9CC0-472E-A445-CAA2BEDB4C64" kind="FEEL">
       <formalParameter id="_DF9422EF-F074-4F48-B40F-AED5477E3852" name="loanapplication" typeRef="LoanApplication" />
       <decisionTable id="_69933955-806D-4F77-AB01-97388503D66F" typeRef="number" hitPolicy="UNIQUE" label="Return">
         <input id="_929FA1F6-52F9-468C-80EE-752FC6B1BCF3">
@@ -88,9 +88,9 @@
       </decisionTable>
     </encapsulatedLogic>
   </businessKnowledgeModel>
-  <businessKnowledgeModel name="Financial Strength" id="_A5C3F4A6-613D-46B4-8981-52D1290D24CA">
-    <variable name="Financial Strength" id="_FDD3ABAA-8711-4251-98C3-209B9A756CB1" typeRef="number" />
-    <encapsulatedLogic label="Financial Strength" typeRef="number" id="_4DF22A3F-3E7E-4BDA-BF41-CEB6CD2A83A6" kind="FEEL">
+  <businessKnowledgeModel name="Clacuate Financial Strength" id="_A5C3F4A6-613D-46B4-8981-52D1290D24CA">
+    <variable name="Clacuate Financial Strength" id="_FDD3ABAA-8711-4251-98C3-209B9A756CB1" typeRef="number" />
+    <encapsulatedLogic label="Clacuate Financial Strength" typeRef="number" id="_4DF22A3F-3E7E-4BDA-BF41-CEB6CD2A83A6" kind="FEEL">
       <formalParameter id="_5D7B1076-78C2-4E8C-B609-6BE9BB074B03" name="loanapplication" typeRef="LoanApplication" />
       <context id="_969FBB59-F5C6-4CDF-AEDB-7A52E9D648CB" typeRef="number" label="Return">
         <contextEntry id="_8A788C6D-E2B7-4DFB-9A76-553FECAE6ABC">
@@ -118,6 +118,9 @@
       </context>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <inputData name="LoanApplication" id="_77F93F92-0068-4B38-885A-9B6F14CB8388">
+    <variable name="LoanApplication" id="_41F09A10-AE90-421E-8CBD-B082857698EA" typeRef="string" />
+  </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_E3DCBF01-E14B-4982-A7E6-C85F6BD9EFFE" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -147,6 +150,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_59D943E7-045D-4862-B7C9-BB693C13F4A3" dmnElementRef="_A5C3F4A6-613D-46B4-8981-52D1290D24CA" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="660" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_8EB6EBD6-AA51-4A7F-80A8-6DC1E1B79D0A" dmnElementRef="_77F93F92-0068-4B38-885A-9B6F14CB8388" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="320" y="320" width="160" height="80" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
