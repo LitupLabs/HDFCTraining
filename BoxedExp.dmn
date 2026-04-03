@@ -37,13 +37,25 @@
     </list>
   </decision>
   <decision name="TotalAmount" id="_3660AB90-37AE-48D9-BF95-DCEAB1CA6F12">
-    <variable name="TotalAmount" id="_D29613A9-CEAC-44A1-9161-78E31A15CDF8" />
+    <variable name="TotalAmount" id="_D29613A9-CEAC-44A1-9161-78E31A15CDF8" typeRef="number" />
     <informationRequirement id="_C4F00BCC-8A49-4B00-8E5A-8CD71D692001">
       <requiredDecision href="#_BCC99723-828C-4E33-8196-41D02F4E8330" />
     </informationRequirement>
     <informationRequirement id="_6BC8C4F0-009D-4568-BB45-1152BCCF143F">
       <requiredInput href="#_DB32883F-CD2C-4B8A-B941-3815D39A664C" />
     </informationRequirement>
+    <for id="_C7DD376E-7B01-4107-BEB3-DDC685C6E9FE" typeRef="number" label="TotalAmount" iteratorVariable="loan">
+      <in id="_E7458DE8-4DF7-4114-9C22-B66A36344562">
+        <literalExpression id="_5AFF5E0F-A549-48CC-B54B-BA2CE39A1F66" label="Expression Name">
+          <text>LoanApplication.loans</text>
+        </literalExpression>
+      </in>
+      <return id="_6CC11AC2-69B0-4BDD-A3B3-F4BD41836F30">
+        <literalExpression id="_2D1E7CC8-22AA-4367-A46D-BFF49A183DD6" label="Expression Name">
+          <text>LoanApplication.loans.emi*LoanApplication.loans.tenure</text>
+        </literalExpression>
+      </return>
+    </for>
   </decision>
   <inputData name="LoanApplication" id="_DB32883F-CD2C-4B8A-B941-3815D39A664C">
     <variable name="LoanApplication" id="_361AB56D-7DD2-46DC-AD4B-F461455C9803" typeRef="LoanApplication" />
@@ -54,6 +66,12 @@
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_4EA8A880-B0FE-4650-852C-0486B2B6C169">
             <kie:width>757</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5AFF5E0F-A549-48CC-B54B-BA2CE39A1F66">
+            <kie:width>530</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_2D1E7CC8-22AA-4367-A46D-BFF49A183DD6">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
