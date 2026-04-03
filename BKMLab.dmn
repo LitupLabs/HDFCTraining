@@ -23,7 +23,7 @@
     <itemComponent id="_8FDA1C5F-32E0-4B05-B0E5-AA0DD96C3CF1" name="existingEMIs" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_8E13B397-CF8E-4618-9DB0-D74C302C68CB" name="otherIncomes" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_8E13B397-CF8E-4618-9DB0-D74C302C68CB" name="otherIncomes" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
@@ -97,6 +97,14 @@
             <text>LoanApplication.financials.monthlyIncome</text>
           </literalExpression>
         </contextEntry>
+        <contextEntry id="_BF8902D5-1D47-479E-869C-4A29BFC1FE47">
+          <variable id="_EAD04C66-B3C1-4AA3-9757-6FEC69A0D8C8" name="totalIncome" typeRef="number">
+            <description></description>
+          </variable>
+          <literalExpression id="_510FABB7-C006-4BF1-A4BE-69CBCA8995A8" typeRef="number" label="totalIncome">
+            <text>monthlyIncome + sum(LoanApplication.financials.otherIncomes)</text>
+          </literalExpression>
+        </contextEntry>
       </context>
     </encapsulatedLogic>
   </businessKnowledgeModel>
@@ -115,6 +123,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_0E025932-F1A6-4AD9-9E40-8F09F4EA9096">
             <kie:width>543</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_510FABB7-C006-4BF1-A4BE-69CBCA8995A8">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
