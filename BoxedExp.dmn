@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_4BEE51B7-BDB3-4BA5-AB4A-5CAD305026AA" id="_9260CEEF-00F0-46D3-A4FD-C727EFB8FBFF" name="DMN_92DE8D34-F12C-4BEB-971F-B7E5EC8F3863" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_82BAE5D0-CC83-4E24-8F18-FEDBED9A6F28" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_7530286B-11E8-4A4F-A8A5-49EA42BB65C5" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_7343C39A-3EF0-4906-A389-A5030325532A" name="age" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
@@ -24,4 +25,34 @@
       <typeRef>Applicant</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="EMIs" id="_0085B809-1220-42C2-B2D2-CFBD73160E6E">
+    <variable name="EMIs" id="_05CEA7EE-2039-478A-8A40-C3FB5BB352CC" />
+    <informationRequirement id="_3D2A1607-E278-45C9-8B9E-1AB3790EF165">
+      <requiredInput href="#_E20652AB-5296-426C-A085-EBE57E31BA6F" />
+    </informationRequirement>
+    <list id="_47236BC9-CF3F-41D7-AFF7-1A450F772CDD" label="EMIs">
+      <expression />
+    </list>
+  </decision>
+  <inputData name="LoanApplication" id="_E20652AB-5296-426C-A085-EBE57E31BA6F">
+    <variable name="LoanApplication" id="_CEFF40C3-4C36-4853-8161-9708309246BF" typeRef="LoanApplication" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_1717C00E-680F-4003-BFC8-08CCF21D5715" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_9A15C48D-494F-4DBA-BE5D-0F79A5EC5C77" dmnElementRef="_E20652AB-5296-426C-A085-EBE57E31BA6F" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="360" y="360" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_93EE64B1-EABC-4B60-B755-938F22F598FD" dmnElementRef="_0085B809-1220-42C2-B2D2-CFBD73160E6E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="400" y="200" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_9CB997FD-D781-4971-B0FE-6FDFDF4D046E" dmnElementRef="_3D2A1607-E278-45C9-8B9E-1AB3790EF165" sourceElement="_9A15C48D-494F-4DBA-BE5D-0F79A5EC5C77" targetElement="_93EE64B1-EABC-4B60-B755-938F22F598FD">
+        <di:waypoint x="440" y="400" />
+        <di:waypoint x="480" y="240" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
