@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_4E43F2A7-A40B-44A1-B6A2-701528077428" id="_CC903423-8757-44C8-A375-6F57C707AFD3" name="DMN_66E8357E-7DC5-4FB5-BF1D-EC08CAD57519" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_146957D2-8D16-47CA-A3C3-C3EC7CD1EC4C" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_49EFD2F6-3096-4338-BD73-DFFDCAD7C42F" name="Coallaterals" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_78661B41-B831-4044-A94C-C01410911595" name="Isverified" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_D53AF47F-B15A-46C1-993F-FE23D90E6A9C" name="Value" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_4C53FD7F-58E3-4971-8EA7-7C1086FC372B" name="Type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_15665A2E-2673-4923-A91F-59C56EC48F71" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_BF844026-0A77-4457-AE87-B662F1825024" name="MonthlyIncome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
