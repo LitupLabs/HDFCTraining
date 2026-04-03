@@ -36,8 +36,8 @@
       </literalExpression>
     </list>
   </decision>
-  <inputData name="LaonApplication" id="_D5F1E0ED-68A7-480E-8DC8-613B74447B51">
-    <variable name="LaonApplication" id="_D6BF6E48-F360-4676-8B20-BC65E4E7E7AE" typeRef="LoanApplication" />
+  <inputData name="LoanApplication" id="_D5F1E0ED-68A7-480E-8DC8-613B74447B51">
+    <variable name="LoanApplication" id="_D6BF6E48-F360-4676-8B20-BC65E4E7E7AE" typeRef="LoanApplication" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_F699C104-A415-43A6-92C9-23BE7A89C56E" name="Default DRD" useAlternativeInputDataShape="false">
