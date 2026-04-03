@@ -41,6 +41,9 @@
     <knowledgeRequirement id="_A27F45DA-57EF-4554-B38D-E93360BB23A4">
       <requiredKnowledge href="#_EB460485-C2E8-47C6-883C-04C2AE552191" />
     </knowledgeRequirement>
+    <literalExpression id="_5CF60559-5826-4217-B663-5EC68177A1C6" typeRef="RiskCategory" label="Risk Category">
+      <text>if Calculate Risk Score() &lt;= 2 then &quot;HIGH&quot; else if Calculate Risk Score() = 3 then &quot;MEDIUM&quot; else &quot;LOW&quot;</text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_EB460485-C2E8-47C6-883C-04C2AE552191">
     <variable name="Calculate Risk Score" id="_79E82A4C-87E1-463F-9013-D92005AC8292" typeRef="number" />
@@ -153,6 +156,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_5BDA4E3B-F0A7-4B8D-A37B-29CCAF665ACE">
             <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5CF60559-5826-4217-B663-5EC68177A1C6">
+            <kie:width>983</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
