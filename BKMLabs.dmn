@@ -84,6 +84,17 @@
       </decisionTable>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Financial Strength" id="_EC7CBA4B-6ABA-4B33-96E0-7DD6D9AD07DB">
+    <variable name="Calculate Financial Strength" id="_6A330022-A22B-46DF-80E7-529FDBC46EF5" typeRef="number" />
+    <encapsulatedLogic label="Calculate Financial Strength" typeRef="number" id="_E283FC37-C50B-4C98-B2A2-4EC2800F3BE5" kind="FEEL">
+      <formalParameter id="_5CEA6842-EC5F-4847-9A96-05C8BE1CF7FF" name="LoanApllication" typeRef="LoanApplication" />
+      <context id="_D97EBD17-3B6A-47D4-9406-597BB25D5FDA" typeRef="number" label="Return">
+        <contextEntry id="_08B82369-1B31-4347-8827-B5EE3B3D34DD">
+          <variable id="_8CFE8D9A-6E6D-4F92-9636-BD0C257CF443" name="ContextEntry-1" />
+        </contextEntry>
+      </context>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_D2C940B0-3E85-420E-B78E-F265DFFE63AB" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -94,10 +105,16 @@
             <kie:width>118</kie:width>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D97EBD17-3B6A-47D4-9406-597BB25D5FDA">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_2C9FCD29-FCDC-426B-94A6-C2AA65CC67BA" dmnElementRef="_EB460485-C2E8-47C6-883C-04C2AE552191" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="400" y="60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_29193E1B-7E0A-4799-B5AB-1FA697697A34" dmnElementRef="_EC7CBA4B-6ABA-4B33-96E0-7DD6D9AD07DB" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="860" y="60" width="160" height="80" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
