@@ -43,9 +43,6 @@
   </decision>
   <decision name="totalamount" id="_12905ACF-5A81-41A9-8EE8-3284DB68A577">
     <variable name="totalamount" id="_2DEB9BAF-9879-49AE-9116-DD07C88F8016" />
-    <informationRequirement id="_09BDF727-8AF3-438B-890D-1FCE461578E3">
-      <requiredDecision href="#_9F376078-3D51-46C4-A11F-1D2620D8C774" />
-    </informationRequirement>
     <informationRequirement id="_537358D7-B791-476A-9CC3-3878875CA4B1">
       <requiredInput href="#_7FA7ACF5-4259-4390-948F-FBC887FA7E5A" />
     </informationRequirement>
@@ -55,15 +52,33 @@
           <text>loan application.loans</text>
         </literalExpression>
       </in>
-      <return id="_F4444EC5-CD07-4489-8F06-2BB505F2B5B8">
+      <return id="_2399FDFE-E1BD-4382-B62A-680B95158FC4">
         <literalExpression id="_B542A72F-AC3A-41A2-9977-7512684D977E" label="Expression Name">
-          <text>loan application.loans.emi*loan application.loans.tenure</text>
+          <text>loan.emi*loan.tenure</text>
         </literalExpression>
       </return>
     </for>
   </decision>
+  <decision name="highvalueemi" id="_12B3E643-3EFA-4678-9EE0-9AD7494036A0">
+    <variable name="highvalueemi" id="_0C2C75F5-EC9C-4549-AB50-438BC73487C3" />
+    <informationRequirement id="_D3E0E105-77DC-46D8-8C8F-716CD03F6AEE">
+      <requiredDecision href="#_9F376078-3D51-46C4-A11F-1D2620D8C774" />
+    </informationRequirement>
+    <informationRequirement id="_C69869ED-A3C6-41A1-B96A-D7FE797FF77A">
+      <requiredInput href="#_E7C3F0A9-E2E9-4380-87EA-0F73177DF1C7" />
+    </informationRequirement>
+    <for id="_FB0E9E99-0BC2-439F-BEBF-1D937C811F28" label="highvalueemi" iteratorVariable="emi">
+      <in id="_20CC9492-437C-43B5-B83D-3E0C15960BA6">
+        <literalExpression id="_5228F78D-C390-412C-B1F7-836091D9D96C" label="Expression Name" />
+      </in>
+      <return id="_C6504822-9E25-4D85-84A5-823D499B9EDB" />
+    </for>
+  </decision>
   <inputData name="loan application" id="_7FA7ACF5-4259-4390-948F-FBC887FA7E5A">
     <variable name="loan application" id="_4609B2F4-10BA-4E13-ABFD-D4AC2763CF2E" typeRef="loanapplication" />
+  </inputData>
+  <inputData name="count" id="_E7C3F0A9-E2E9-4380-87EA-0F73177DF1C7">
+    <variable name="count" id="_1D7E3E4E-7389-49CC-8D73-97E051605C2E" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_3E843E91-E0E2-430E-BA23-7043DC5703F3" name="Default DRD" useAlternativeInputDataShape="false">
@@ -78,6 +93,9 @@
           <kie:ComponentWidths dmnElementRef="_B542A72F-AC3A-41A2-9977-7512684D977E">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5228F78D-C390-412C-B1F7-836091D9D96C">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_D4D51C99-E594-4FFD-8C6D-98DC7C8091C1" dmnElementRef="_7FA7ACF5-4259-4390-948F-FBC887FA7E5A" isCollapsed="false" isListedInputData="false">
@@ -87,19 +105,29 @@
         <dc:Bounds x="140" y="80" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_706FA90C-5702-4BDD-B831-1D6A4840E308" dmnElementRef="_12905ACF-5A81-41A9-8EE8-3284DB68A577" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="380" y="180" width="160" height="80" />
+        <dc:Bounds x="500" y="80" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_35FEC542-E788-416D-BF0E-07ABDCA6469F" dmnElementRef="_12B3E643-3EFA-4678-9EE0-9AD7494036A0" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="360" y="-40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_B303D676-8CCF-484E-8FD0-1B6284000A08" dmnElementRef="_E7C3F0A9-E2E9-4380-87EA-0F73177DF1C7" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="140" y="-60" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_3BDA5A8F-EFCB-4285-9FED-9A7D9DEE36F2" dmnElementRef="_6C759F35-3624-44A9-9F8B-F1D7B6A12FF9" sourceElement="_D4D51C99-E594-4FFD-8C6D-98DC7C8091C1" targetElement="_77FFFB4C-E2ED-4808-868E-BF4896BFBF8D">
         <di:waypoint x="220" y="280" />
         <di:waypoint x="220" y="160" />
       </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_5DE18F9B-54D1-4A1E-B1EE-3CE9E3728D62" dmnElementRef="_09BDF727-8AF3-438B-890D-1FCE461578E3" sourceElement="_77FFFB4C-E2ED-4808-868E-BF4896BFBF8D" targetElement="_706FA90C-5702-4BDD-B831-1D6A4840E308">
-        <di:waypoint x="220" y="120" />
-        <di:waypoint x="460" y="220" />
-      </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_CB406383-4A83-4D45-8AEE-902DAAC4A29D" dmnElementRef="_537358D7-B791-476A-9CC3-3878875CA4B1" sourceElement="_D4D51C99-E594-4FFD-8C6D-98DC7C8091C1" targetElement="_706FA90C-5702-4BDD-B831-1D6A4840E308">
         <di:waypoint x="220" y="280" />
-        <di:waypoint x="460" y="220" />
+        <di:waypoint x="580" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_F4F1A679-EF00-4B8E-BC85-54751A15C921" dmnElementRef="_D3E0E105-77DC-46D8-8C8F-716CD03F6AEE" sourceElement="_77FFFB4C-E2ED-4808-868E-BF4896BFBF8D" targetElement="_35FEC542-E788-416D-BF0E-07ABDCA6469F">
+        <di:waypoint x="220" y="120" />
+        <di:waypoint x="440" y="40" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_D64995A4-CECC-4E30-A4FB-7D66F9B12742" dmnElementRef="_C69869ED-A3C6-41A1-B96A-D7FE797FF77A" sourceElement="_B303D676-8CCF-484E-8FD0-1B6284000A08" targetElement="_35FEC542-E788-416D-BF0E-07ABDCA6469F">
+        <di:waypoint x="220" y="-20" />
+        <di:waypoint x="440" y="0" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
