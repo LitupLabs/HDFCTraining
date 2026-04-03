@@ -33,6 +33,15 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="Risk Category" id="_E5FC2307-A89C-4823-9EFA-A58904338617">
+    <variable name="Risk Category" id="_892D4678-69B0-40C8-B72B-69E9B4A6E277" typeRef="RiskCategory" />
+    <informationRequirement id="_815C2886-F5EB-48A7-9604-443FB4980B26">
+      <requiredInput href="#_37997244-1A8D-48B8-8CA8-A5F50A565C45" />
+    </informationRequirement>
+    <knowledgeRequirement id="_A27F45DA-57EF-4554-B38D-E93360BB23A4">
+      <requiredKnowledge href="#_EB460485-C2E8-47C6-883C-04C2AE552191" />
+    </knowledgeRequirement>
+  </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_EB460485-C2E8-47C6-883C-04C2AE552191">
     <variable name="Calculate Risk Score" id="_79E82A4C-87E1-463F-9013-D92005AC8292" typeRef="number" />
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_00EA0BB0-34BC-400E-BD92-991B017F7130" kind="FEEL">
@@ -148,14 +157,25 @@
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_2C9FCD29-FCDC-426B-94A6-C2AA65CC67BA" dmnElementRef="_EB460485-C2E8-47C6-883C-04C2AE552191" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="200" y="20" width="160" height="80" />
+        <dc:Bounds x="692" y="292" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_29193E1B-7E0A-4799-B5AB-1FA697697A34" dmnElementRef="_EC7CBA4B-6ABA-4B33-96E0-7DD6D9AD07DB" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="420" y="120" width="160" height="80" />
+        <dc:Bounds x="112" y="112" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_9841BF6A-EB61-4DE1-8991-D0C9FA7DB60D" dmnElementRef="_37997244-1A8D-48B8-8CA8-A5F50A565C45" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="180" y="160" width="160" height="80" />
+        <dc:Bounds x="472" y="292" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_DA25DC9A-3146-4715-8369-80CE9F2FFBEC" dmnElementRef="_E5FC2307-A89C-4823-9EFA-A58904338617" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="472" y="112" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_0D5CD07C-8FA8-4CBA-B2F2-2484AD777A71" dmnElementRef="_815C2886-F5EB-48A7-9604-443FB4980B26" sourceElement="_9841BF6A-EB61-4DE1-8991-D0C9FA7DB60D" targetElement="_DA25DC9A-3146-4715-8369-80CE9F2FFBEC">
+        <di:waypoint x="552" y="292" />
+        <di:waypoint x="552" y="192" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_F59608B3-6DFA-4C8D-B6FA-B4A355D825CD" dmnElementRef="_A27F45DA-57EF-4554-B38D-E93360BB23A4" sourceElement="_2C9FCD29-FCDC-426B-94A6-C2AA65CC67BA" targetElement="_DA25DC9A-3146-4715-8369-80CE9F2FFBEC">
+        <di:waypoint x="772" y="292" />
+        <di:waypoint x="552" y="192" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
