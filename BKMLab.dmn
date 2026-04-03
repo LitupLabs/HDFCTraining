@@ -134,6 +134,9 @@
   <inputData name="loanapplication" id="_E64716F9-8BC7-4FE1-BE32-1B5D0D6364AF">
     <variable name="loanapplication" id="_463880CE-AA75-48C6-9847-079F3413904A" typeRef="loanapplication" />
   </inputData>
+  <inputData name="financial eliglibilty" id="_0A29E379-D2AD-4401-8072-C68CAB054C34">
+    <variable name="financial eliglibilty" id="_C708857F-AD36-4F57-939E-7F8E54F3554D" />
+  </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_2C4EBDEC-A34D-49EC-9110-7B3CD7EF5C58" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -165,13 +168,16 @@
         <dc:Bounds x="220" y="80" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_3A37FF9D-8CD6-4B92-A459-390537624236" dmnElementRef="_6BD405C9-8FBF-4FED-99D1-AA6F9BF85C13" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="580" y="220" width="160" height="80" />
+        <dc:Bounds x="520" y="300" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_B7ACD3B6-3D2E-4957-8AEB-7BDF21BF726A" dmnElementRef="_E64716F9-8BC7-4FE1-BE32-1B5D0D6364AF" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="200" y="220" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_F3A1D28C-8FC8-44DB-B8C7-367F09AB76D1" dmnElementRef="_C1C4CB5B-61C3-4DAC-ADA1-13B49ABB4C37" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="620" y="80" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_08D625A7-6C6D-4FF6-A0C0-3EF6C723A9BA" dmnElementRef="_0A29E379-D2AD-4401-8072-C68CAB054C34" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="960" y="200" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_8CE6ED38-8593-4344-ADDB-FEB95711A18C" dmnElementRef="_7EAFD303-343D-4791-A81C-16B29D9B7C4C" sourceElement="_B7ACD3B6-3D2E-4957-8AEB-7BDF21BF726A" targetElement="_F3A1D28C-8FC8-44DB-B8C7-367F09AB76D1">
         <di:waypoint x="280" y="260" />
