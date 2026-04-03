@@ -9,6 +9,9 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_5795A5A1-FDB6-43E8-A2C6-21D1E8595236" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_9C42BE56-9CE4-49A2-A01B-9AEA88BBF1D3" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Applicant</typeRef>
+    </itemComponent>
     <itemComponent id="_B341187F-1E66-4832-A36F-ABC3FD1F229B" name="loans" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Loans</typeRef>
     </itemComponent>
