@@ -32,7 +32,7 @@
     </informationRequirement>
     <list id="_4362505F-BB4A-4576-A33C-9AD246BC682E" typeRef="EMIs" label="EMIslist">
       <literalExpression id="_EBDDE98C-5534-4AF4-9A99-3E91C08197C5" typeRef="EMIs" label="Expression Name">
-        <text>for emi in LaonApplication.loans.emi return emi</text>
+        <text>for emi in LoanApplication.loans.emi return emi</text>
       </literalExpression>
     </list>
   </decision>
