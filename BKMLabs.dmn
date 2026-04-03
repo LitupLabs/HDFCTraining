@@ -92,8 +92,8 @@
       <formalParameter id="_6AD2BA6C-0551-4B77-9A7E-CFCA1FDD62DD" name="LoanApplication" typeRef="LoanApplications" />
       <context id="_F3363969-6153-4BBF-9B78-B55106833588" label="Return">
         <contextEntry id="_1C5864AC-3399-4C50-A21C-0C53E19DF37B">
-          <variable id="_C46830A3-6791-44E9-A6EF-6C46AD836708" name="monthlyIcnome" typeRef="number" />
-          <literalExpression id="_E5CACD22-1523-410D-9452-AE0C5A5BA22E" typeRef="number" label="monthlyIcnome">
+          <variable id="_C46830A3-6791-44E9-A6EF-6C46AD836708" name="monthlyIncome" typeRef="number" />
+          <literalExpression id="_E5CACD22-1523-410D-9452-AE0C5A5BA22E" typeRef="number" label="monthlyIncome">
             <text>LoanApplication.financials.monthlyIncome</text>
           </literalExpression>
         </contextEntry>
