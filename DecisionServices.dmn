@@ -69,6 +69,12 @@
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Financial Eligiblity" id="_3B362740-FA93-4927-B45A-5C17DC872077">
+    <variable name="Calculate Financial Eligiblity" id="_C3A256F7-8999-46BD-846A-99FEA3D47734" typeRef="number" />
+    <encapsulatedLogic label="Calculate Financial Eligiblity" typeRef="number" id="_181F1D1A-BE5F-42AE-A900-D6225061FC85" kind="FEEL">
+      <formalParameter id="_3B223583-E51B-4706-B22D-05E85915584D" name="p-1" />
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <inputData name="LoanApplication" id="_10E7857D-7028-44EC-B016-ADD5041FE82F">
     <variable name="LoanApplication" id="_FE58FFA3-5374-4012-8295-C535EBDAF334" typeRef="LoanApplication" />
   </inputData>
@@ -108,6 +114,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_98DED59D-8860-4072-8B32-99BE61A12939" dmnElementRef="_26717DFC-E3C2-4678-8809-39FDA1A32FDA" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="60" y="500" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_16586567-BAC3-4A94-A4B3-E530E3DE31FC" dmnElementRef="_3B362740-FA93-4927-B45A-5C17DC872077" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="880" y="480" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9EC4077B-5C01-4BFA-9AEF-A1CBF82740C2-AUTO-TARGET" dmnElementRef="_76D11302-BD3F-4080-A3EF-4D266EB9B5B4" sourceElement="_4955E5FE-5ACA-4963-B10C-87F2E65E1125" targetElement="_E8AB1F67-1E5E-47B4-B610-2E3099FF7441">
         <di:waypoint x="540" y="460" />
