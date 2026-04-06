@@ -75,6 +75,18 @@
       <text>risk category != &quot;HIGH&quot; and financial eligibility = true</text>
     </literalExpression>
   </decision>
+  <decision name="callds" id="_6A1128A9-6933-4B52-B1FC-22BF68D2C592">
+    <variable name="callds" id="_EB68B121-AE31-4648-BE2F-62718D28C75A" typeRef="boolean" />
+    <informationRequirement id="_6A32290C-6A1C-498C-9B22-8F70BCD1B7D9">
+      <requiredInput href="#_AFD8DD60-57D1-4F1A-AFB8-BC66004DC1C7" />
+    </informationRequirement>
+    <knowledgeRequirement id="_632DE5E0-E484-4699-A1BC-64E5E874336F">
+      <requiredKnowledge href="#_D9B9CF57-7A6B-4302-B330-2A0715200C26" />
+    </knowledgeRequirement>
+    <literalExpression id="_CDA133CF-EB7A-4AF3-8D88-28B4748BCD3D" typeRef="boolean" label="callds">
+      <text>loan decision service(loanapplication)</text>
+    </literalExpression>
+  </decision>
   <businessKnowledgeModel name="calcuate risk score" id="_387A0FFB-3856-4220-B16C-6493B80DB193">
     <variable name="calcuate risk score" id="_8DE532F7-E64B-4351-90DA-CA9532162E6A" typeRef="number" />
     <encapsulatedLogic label="calcuate risk score" typeRef="number" id="_16785391-A909-43AB-BE05-A4DB0292ED70" kind="FEEL">
@@ -93,8 +105,8 @@
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
-  <inputData name="loan application" id="_AFD8DD60-57D1-4F1A-AFB8-BC66004DC1C7">
-    <variable name="loan application" id="_F88AF9B9-D9CF-466A-9F72-D45870131413" typeRef="loanapplication" />
+  <inputData name="loanapplication" id="_AFD8DD60-57D1-4F1A-AFB8-BC66004DC1C7">
+    <variable name="loanapplication" id="_F88AF9B9-D9CF-466A-9F72-D45870131413" typeRef="loanapplication" />
   </inputData>
   <decisionService name="loan decision service" id="_D9B9CF57-7A6B-4302-B330-2A0715200C26">
     <variable name="loan decision service" id="_361334F3-097B-4BF2-95D1-FF0CBCE73B80" typeRef="boolean" />
@@ -120,6 +132,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_14155EC0-A7D0-440F-BC62-ED99ACC7198B">
             <kie:width>864</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CDA133CF-EB7A-4AF3-8D88-28B4748BCD3D">
+            <kie:width>874</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -147,6 +162,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_B6C3474F-080A-4BF5-BF56-AA784C3B0274" dmnElementRef="_FD6B9CAB-356A-40EB-AF25-E12538E4EF60" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="600" y="360" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_92CBAA90-7420-40A8-B06A-2F1ABC334C5C" dmnElementRef="_6A1128A9-6933-4B52-B1FC-22BF68D2C592" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="820" y="540" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_78B86A75-195D-431F-8DD6-5CD0E6CD19EC-AUTO-TARGET" dmnElementRef="_449B3D70-65CF-4933-8A99-B31C3E1C41D2" sourceElement="_DD162A1A-E2F8-422D-B832-3274B5BF34AE" targetElement="_15EF0533-E855-4196-9ACF-2DE2554DEA49">
         <di:waypoint x="590" y="140" />
@@ -183,6 +201,14 @@
       <dmndi:DMNEdge id="_CBC655A2-9DF0-488E-8197-BF999128D3E3" dmnElementRef="_ACB49BE6-BE5D-4ED6-B53A-DEFE98F84CB3" sourceElement="_B6C3474F-080A-4BF5-BF56-AA784C3B0274" targetElement="_86369468-21A0-41D9-9C80-69EC9DDA2C0F">
         <di:waypoint x="680" y="400" />
         <di:waypoint x="500" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_A9FB08E9-BE72-4766-8778-49671B2CB33D" dmnElementRef="_632DE5E0-E484-4699-A1BC-64E5E874336F" sourceElement="_DD162A1A-E2F8-422D-B832-3274B5BF34AE" targetElement="_92CBAA90-7420-40A8-B06A-2F1ABC334C5C">
+        <di:waypoint x="590" y="140" />
+        <di:waypoint x="900" y="580" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_E8326833-59FC-4CD3-93EC-F79749090BC9" dmnElementRef="_6A32290C-6A1C-498C-9B22-8F70BCD1B7D9" sourceElement="_08101761-D68A-40DD-9847-A019044EEE4D" targetElement="_92CBAA90-7420-40A8-B06A-2F1ABC334C5C">
+        <di:waypoint x="440" y="400" />
+        <di:waypoint x="820" y="580" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
