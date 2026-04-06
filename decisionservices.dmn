@@ -40,12 +40,15 @@
     </knowledgeRequirement>
   </decision>
   <decision name="financial eligibility" id="_807154A9-3038-43A4-85A7-1B6340260B75">
-    <variable id="_AD0080DF-656F-41B7-BDA3-E37EFDB4EDA5" name="financial eligibility" />
+    <variable id="_AD0080DF-656F-41B7-BDA3-E37EFDB4EDA5" typeRef="number" name="financial eligibility" />
     <informationRequirement id="_87E5A5B5-6AC6-476C-9953-131DC2A78BFA">
       <requiredInput href="#_AFD8DD60-57D1-4F1A-AFB8-BC66004DC1C7" />
     </informationRequirement>
     <knowledgeRequirement id="_3D3E4735-416E-47D1-80E3-DD00B933C091">
       <requiredKnowledge href="#_D9B9CF57-7A6B-4302-B330-2A0715200C26" />
+    </knowledgeRequirement>
+    <knowledgeRequirement id="_ACB49BE6-BE5D-4ED6-B53A-DEFE98F84CB3">
+      <requiredKnowledge href="#_FD6B9CAB-356A-40EB-AF25-E12538E4EF60" />
     </knowledgeRequirement>
   </decision>
   <decision name="loan approval" id="_8F99CD02-17AD-419E-9526-2883568FB1E4">
@@ -155,6 +158,10 @@
       <dmndi:DMNEdge id="_065EE9A0-599F-4499-86D5-788439B0F117" dmnElementRef="_84F65C48-6442-4F28-93F4-F38966AF30E0" sourceElement="_CD4A0F7E-B19F-41FE-8346-98D2C6D21CD6" targetElement="_15EF0533-E855-4196-9ACF-2DE2554DEA49">
         <di:waypoint x="0" y="440" />
         <di:waypoint x="240" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_CBC655A2-9DF0-488E-8197-BF999128D3E3" dmnElementRef="_ACB49BE6-BE5D-4ED6-B53A-DEFE98F84CB3" sourceElement="_B6C3474F-080A-4BF5-BF56-AA784C3B0274" targetElement="_86369468-21A0-41D9-9C80-69EC9DDA2C0F">
+        <di:waypoint x="920" y="500" />
+        <di:waypoint x="500" y="240" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
