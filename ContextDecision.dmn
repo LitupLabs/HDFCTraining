@@ -16,6 +16,9 @@
     <informationRequirement id="_B3010994-2950-457B-BEA1-82EB0BB098C3">
       <requiredInput href="#_CCBE3063-7E0F-4238-84C8-397EE15C499D" />
     </informationRequirement>
+    <knowledgeRequirement id="_49E28747-AFC3-4030-915A-AECFCA7CB6CC">
+      <requiredKnowledge href="#_7050B9FD-BE51-461C-AFB6-DBD196335FDF" />
+    </knowledgeRequirement>
     <context id="_DBAE4036-77BF-47EF-A70D-644869B0595B" typeRef="number" label="EMI Calculation">
       <contextEntry id="_60641108-6BC1-4F01-855C-660263BE8F2E">
         <variable id="_1F17C804-02CD-43C8-AB76-8D8F7C461D0E" name="principal" typeRef="number" />
@@ -54,6 +57,13 @@
       </contextEntry>
     </context>
   </decision>
+  <businessKnowledgeModel name="Calculate Rate" id="_7050B9FD-BE51-461C-AFB6-DBD196335FDF">
+    <variable name="Calculate Rate" id="_0F7A9FD7-0AB1-42C6-BB6C-C8ECEE7732FB" typeRef="number" />
+    <encapsulatedLogic label="Calculate Rate" typeRef="number" id="_380BCA1D-F187-4456-8D74-F5123F18BF6A" kind="FEEL">
+      <formalParameter id="_D3BD8B6B-3DF0-42FB-A499-7BDACC798F71" name="Loan" typeRef="Loan" />
+      <literalExpression id="_11ECF2BF-6D9B-4268-BEF0-EEA9AFA0ABE3" typeRef="number" label="Return" />
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <inputData name="Loan" id="_CCBE3063-7E0F-4238-84C8-397EE15C499D">
     <variable name="Loan" id="_BF17666F-E5C4-4FD2-BD51-66BD245E8918" typeRef="Loan" />
   </inputData>
@@ -79,6 +89,9 @@
           <kie:ComponentWidths dmnElementRef="_487A7EBF-F766-44D9-B2E6-4B864310766E">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_11ECF2BF-6D9B-4268-BEF0-EEA9AFA0ABE3">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_620E438B-A9A2-4831-883D-591315804E48" dmnElementRef="_843C415A-C9D9-482E-8D7F-36C6A332F2D5" isCollapsed="false" isListedInputData="false">
@@ -87,9 +100,16 @@
       <dmndi:DMNShape id="_22160917-2300-4346-A83F-D1060FCA4E11" dmnElementRef="_CCBE3063-7E0F-4238-84C8-397EE15C499D" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="300" y="320" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_C90B0891-A638-4E50-81A9-16CB0FD4F5B3" dmnElementRef="_7050B9FD-BE51-461C-AFB6-DBD196335FDF" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="660" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_813A9B47-E53E-41FD-ACE1-36B637220B87" dmnElementRef="_B3010994-2950-457B-BEA1-82EB0BB098C3" sourceElement="_22160917-2300-4346-A83F-D1060FCA4E11" targetElement="_620E438B-A9A2-4831-883D-591315804E48">
         <di:waypoint x="380" y="360" />
         <di:waypoint x="380" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_2874A3A6-AF73-4D3F-A125-72E58D08C87A" dmnElementRef="_49E28747-AFC3-4030-915A-AECFCA7CB6CC" sourceElement="_C90B0891-A638-4E50-81A9-16CB0FD4F5B3" targetElement="_620E438B-A9A2-4831-883D-591315804E48">
+        <di:waypoint x="740" y="260" />
+        <di:waypoint x="460" y="200" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
