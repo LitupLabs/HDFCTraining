@@ -11,20 +11,74 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="New Decision" id="_02584B52-29CC-4310-93AC-17303CFB0023">
-    <variable id="_8584332A-0F08-4803-8CF3-3703D87F99D3" name="New Decision" />
+  <decision name="EMICalculation" id="_02584B52-29CC-4310-93AC-17303CFB0023">
+    <variable id="_8584332A-0F08-4803-8CF3-3703D87F99D3" typeRef="number" name="EMICalculation" />
     <informationRequirement id="_95715522-C8C5-41C6-A6EC-F14073144BC3">
       <requiredInput href="#_D4EB6B42-9CC0-4F8D-92BF-576A377537FA" />
     </informationRequirement>
+    <context id="_30E2DAC7-93F4-43E2-B771-28DE27ED4D8E" typeRef="number" label="EMICalculation">
+      <contextEntry id="_AA340F80-E2B0-4F69-A607-B139CD61E34B">
+        <variable id="_2625D6B6-6130-4657-827C-1E5AD9449BCC" name="principal" typeRef="number" />
+        <literalExpression id="_419CD83E-9E1C-4E0C-B82C-4DE5CF40F225" typeRef="number" label="principal">
+          <text>Loan.amount</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_C6D63E01-F1DF-4BE6-8A76-7D83D438DDE5">
+        <variable id="_5AA40F5F-7746-4D66-9FAA-0E882080F739" name="rate" typeRef="number">
+          <description></description>
+        </variable>
+        <literalExpression id="_AA8E3B04-6AAD-4D9D-920E-ECD6D60D15A6" typeRef="number" label="rate">
+          <text>Loan.interestRate / 12</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_4285E2B6-31CF-487E-B76A-F5A48E080899">
+        <variable id="_28475AD1-B5AB-42AF-A02B-758D305952F9" name="tenure" typeRef="number">
+          <description></description>
+        </variable>
+        <literalExpression id="_FBC5FAE8-DB1E-4435-9C3B-9E26CEA40D7B" typeRef="number" label="tenure">
+          <text>Loan.tenure</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_6CC7CBF0-AB23-4BB3-8187-4D4E600872AA">
+        <variable id="_25FBCC4A-1516-448B-83A4-4E0FDFDB943D" name="emi" typeRef="number">
+          <description></description>
+        </variable>
+        <literalExpression id="_BE9F62D1-8180-4478-8982-5D575560F77D" typeRef="number" label="emi">
+          <text>(principal * rate) / (1 - (1 + rate) ** (-tenure))</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_3752F98A-535A-44FB-AFC8-B8F4276D224F">
+        <literalExpression id="_311C70EB-DE91-4A45-B36B-04039CDB35EB" typeRef="number" label="EMICalculation">
+          <text>emi</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
   </decision>
-  <inputData name="New Input Data" id="_D4EB6B42-9CC0-4F8D-92BF-576A377537FA">
-    <variable name="New Input Data" id="_3EA5A611-28D4-4FBE-98C0-C03358A8DF7E" />
+  <inputData name="Loan" id="_D4EB6B42-9CC0-4F8D-92BF-576A377537FA">
+    <variable name="Loan" id="_3EA5A611-28D4-4FBE-98C0-C03358A8DF7E" typeRef="Loan" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_40ADE027-2CD5-452D-8EE2-FC2A5C53882B" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths />
+          <kie:ComponentWidths dmnElementRef="_30E2DAC7-93F4-43E2-B771-28DE27ED4D8E">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_419CD83E-9E1C-4E0C-B82C-4DE5CF40F225">
+            <kie:width>318</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AA8E3B04-6AAD-4D9D-920E-ECD6D60D15A6">
+            <kie:width>318</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_FBC5FAE8-DB1E-4435-9C3B-9E26CEA40D7B">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BE9F62D1-8180-4478-8982-5D575560F77D">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_311C70EB-DE91-4A45-B36B-04039CDB35EB">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_678FCC14-DFF2-45B9-8450-EF235590BE38" dmnElementRef="_D4EB6B42-9CC0-4F8D-92BF-576A377537FA" isCollapsed="false" isListedInputData="false">
