@@ -66,8 +66,26 @@
       <requiredDecision href="#_0085B809-1220-42C2-B2D2-CFBD73160E6E" />
     </informationRequirement>
     <literalExpression id="_35B9CD0E-A3C2-4163-A2C5-C005775C5DD0" typeRef="EMIs" label="EMIsCalculation">
-      <text>for emi in EMIsLst return emi * 1.1</text>
+      <text>for emi in EMIsLst return emi</text>
     </literalExpression>
+  </decision>
+  <decision name="HighValueLoans" id="_5622D94D-7AF1-45EF-BDAF-D337667E4336">
+    <variable name="HighValueLoans" id="_0A7299F2-3940-4DCB-B5AD-A0B5614C6EC6" typeRef="Loan" />
+    <informationRequirement id="_A8961FBA-43AD-4F68-91C9-F1FC36C90506">
+      <requiredInput href="#_E20652AB-5296-426C-A085-EBE57E31BA6F" />
+    </informationRequirement>
+    <filter id="_1B18C261-6E41-4145-8DF6-AFC37F2A9A07" typeRef="Loan" label="HighValueLoans">
+      <in id="_AA3CE260-10B6-4F20-9748-7ACBC8DEC990">
+        <literalExpression id="_B966E0DA-33CB-4BCE-AF0B-4E746FBF0C66" label="Expression Name">
+          <text>LoanApplication.loans</text>
+        </literalExpression>
+      </in>
+      <match id="_B8BD7BB6-0287-443B-A6C6-D14974044FBB">
+        <literalExpression id="_6BCC277E-D9AA-402D-BAA2-1E7C36A865C8" label="Expression Name">
+          <text>item.emi &gt; 100</text>
+        </literalExpression>
+      </match>
+    </filter>
   </decision>
   <inputData name="LoanApplication" id="_E20652AB-5296-426C-A085-EBE57E31BA6F">
     <variable name="LoanApplication" id="_CEFF40C3-4C36-4853-8161-9708309246BF" typeRef="LoanApplication" />
@@ -88,6 +106,12 @@
           <kie:ComponentWidths dmnElementRef="_35B9CD0E-A3C2-4163-A2C5-C005775C5DD0">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B966E0DA-33CB-4BCE-AF0B-4E746FBF0C66">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6BCC277E-D9AA-402D-BAA2-1E7C36A865C8">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_9A15C48D-494F-4DBA-BE5D-0F79A5EC5C77" dmnElementRef="_E20652AB-5296-426C-A085-EBE57E31BA6F" isCollapsed="false" isListedInputData="false">
@@ -102,6 +126,9 @@
       <dmndi:DMNShape id="_C8BAC30E-B1C5-46EF-8EDC-4A0C26F38C0A" dmnElementRef="_7EA59B26-F0E2-45D5-B357-65F939468451" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="120" y="200" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_85941003-0A44-4168-AF09-DAD41B69BB6C" dmnElementRef="_5622D94D-7AF1-45EF-BDAF-D337667E4336" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="780" y="400" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9CB997FD-D781-4971-B0FE-6FDFDF4D046E" dmnElementRef="_3D2A1607-E278-45C9-8B9E-1AB3790EF165" sourceElement="_9A15C48D-494F-4DBA-BE5D-0F79A5EC5C77" targetElement="_93EE64B1-EABC-4B60-B755-938F22F598FD">
         <di:waypoint x="440" y="400" />
         <di:waypoint x="480" y="240" />
@@ -113,6 +140,10 @@
       <dmndi:DMNEdge id="_B5E2E665-6286-485C-B126-F0CDF66D30FE" dmnElementRef="_70E2635F-19E3-43B6-9A6E-2695DB525F4E" sourceElement="_93EE64B1-EABC-4B60-B755-938F22F598FD" targetElement="_C8BAC30E-B1C5-46EF-8EDC-4A0C26F38C0A">
         <di:waypoint x="480" y="240" />
         <di:waypoint x="200" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_F8390151-ADCC-4716-BE31-7B3FAC4671A5" dmnElementRef="_A8961FBA-43AD-4F68-91C9-F1FC36C90506" sourceElement="_9A15C48D-494F-4DBA-BE5D-0F79A5EC5C77" targetElement="_85941003-0A44-4168-AF09-DAD41B69BB6C">
+        <di:waypoint x="440" y="400" />
+        <di:waypoint x="860" y="440" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
