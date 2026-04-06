@@ -88,7 +88,7 @@
     <encapsulatedLogic label="Calculate Financial Eligiblity" typeRef="number" id="_A782A24E-C54B-4CB8-A616-52F3843AD0BE" kind="FEEL">
       <formalParameter id="_C0A265F6-6ACE-4C3F-B878-26226F348BFF" name="LoanApplication" typeRef="LoanApplication" />
       <literalExpression id="_8C0A8351-63A7-436A-A3F7-FA275EF5D73A" typeRef="number" label="Return">
-        <text>LoanApplication.Financials.monthlyIncomes + Sum(LoanApplication.Financials.otherincomes) -  LoanApplication.Financials.existingEMIs</text>
+        <text>LoanApplication.Financials.monthlyIncomes + sum( LoanApplication.Financials.otherincomes ) -  LoanApplication.Financials.existingEMIs</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
@@ -110,7 +110,7 @@
             <kie:width>739</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_8C0A8351-63A7-436A-A3F7-FA275EF5D73A">
-            <kie:width>871</kie:width>
+            <kie:width>997</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C0D8699A-3503-4C4C-8707-C1D2A5E0449A">
             <kie:width>954</kie:width>
