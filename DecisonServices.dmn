@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_BBED3D2C-A6B0-4E29-A513-ACD59985656E" id="_00E49491-9CEB-4292-B2EC-6D689525DC36" name="DMN_6D24A05E-735C-4494-9438-78C5CC18853E">
+  <itemDefinition id="_2ABC82E4-1758-47EF-AAB2-AF4D72A20E21" name="Finacials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_C573F34A-CD8C-42A1-881A-A79F8F563396" name="MontlyIncome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_F3DB3E6E-F1C3-4553-B246-A8E6575CA9F8" name="OtherIncomes" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_88A9F104-F9E1-4D37-9754-D888C68AA05C" name="ExistingEmis" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_269B3D3E-1AA0-423F-8220-EA6F1E6981EF" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_446D6BE3-10A3-4C85-9045-D803F2038E9D" name="Segment" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_2F86882A-D147-4B57-B55D-680A55EAB9C6" name="CreditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_E32171FF-ED62-47B2-8ABB-A596F63A8276" name="LoanAppliaction" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_532DD109-6E2B-4138-B89D-71C666BFFA3C" name="Customers" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Customer</typeRef>
+    </itemComponent>
+    <itemComponent id="_BE5B98EC-1522-4910-B9D9-CB02919EED2D" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Finacials</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_DF6C64BE-6E4F-4BE2-A8F3-43775338FDB7" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+</definitions>
