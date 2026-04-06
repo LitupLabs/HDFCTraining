@@ -27,4 +27,23 @@
       <typeRef>Financials</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decisionService name="Loan Decision Service" id="_AE47CFD1-BCD5-4C86-8CB2-31B5F9362897">
+    <variable name="Loan Decision Service" id="_B039E204-B424-45B5-86F0-FE41DDFADD49" />
+  </decisionService>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_7693A3F9-910B-4802-A1B5-E122C47FB089" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_CC3490B1-65C1-43A4-8927-6C0DBF79D722" dmnElementRef="_AE47CFD1-BCD5-4C86-8CB2-31B5F9362897" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="320" y="60" width="320" height="320" />
+        <dmndi:DMNDecisionServiceDividerLine id="_9E0D894F-CEE6-4BE0-9547-A0000B8062B4">
+          <di:waypoint x="320" y="220" />
+          <di:waypoint x="640" y="220" />
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
