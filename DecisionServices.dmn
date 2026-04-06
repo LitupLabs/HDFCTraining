@@ -74,6 +74,18 @@ else &quot;HIGH&quot;</text>
       <text>Risk Category!= &quot;HIGH&quot; and Financial Eligiblity = true</text>
     </literalExpression>
   </decision>
+  <decision name="CallDS" id="_A137A318-240E-4A26-9061-AC38D77F5F4E">
+    <variable name="CallDS" id="_DF1751E6-D841-41A5-B121-F253D0656B9A" typeRef="boolean" />
+    <informationRequirement id="_25528F98-47AA-4E94-BBD6-B4431E14D25A">
+      <requiredInput href="#_F0246DE3-22A8-4FE8-AA3F-18A0314C7F98" />
+    </informationRequirement>
+    <knowledgeRequirement id="_0A91EDEA-43C8-469A-B5C8-A25BA7BC6533">
+      <requiredKnowledge href="#_499A8801-C2D9-4DB3-96C1-463778FAE57A" />
+    </knowledgeRequirement>
+    <literalExpression id="_7C2EB009-39EF-4F84-9014-42B17E6C21A3" typeRef="boolean" label="CallDS">
+      <text>Loan Decision Service(LoanApplication)</text>
+    </literalExpression>
+  </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_766F0EC3-5EF9-4899-AA86-F5317FF1C277">
     <variable name="Calculate Risk Score" id="_9DE96624-0E97-4CD5-B00D-7A7DB4C5C62A" typeRef="number" />
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_0FBC3692-D026-4355-9B05-49CD4CA9D3A8" kind="FEEL">
@@ -121,6 +133,9 @@ else &quot;HIGH&quot;</text>
           <kie:ComponentWidths dmnElementRef="_6BF9F593-0621-41DB-B294-E2A481A749B3">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7C2EB009-39EF-4F84-9014-42B17E6C21A3">
+            <kie:width>478</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_A6AE4E4A-1D36-4451-B49D-F9247FDA73E8" dmnElementRef="_499A8801-C2D9-4DB3-96C1-463778FAE57A" isCollapsed="false" isListedInputData="false">
@@ -140,13 +155,16 @@ else &quot;HIGH&quot;</text>
         <dc:Bounds x="820" y="20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_5D218EAF-9A2F-4F51-8E59-8637FB331C0E" dmnElementRef="_F0246DE3-22A8-4FE8-AA3F-18A0314C7F98" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="300" y="440" width="160" height="80" />
+        <dc:Bounds x="280" y="400" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_6441E002-23F2-45C6-9D45-A8D19085FC03" dmnElementRef="_766F0EC3-5EF9-4899-AA86-F5317FF1C277" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="-100" y="160" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_40FA700A-C314-4D0C-A96B-091F20680B0D" dmnElementRef="_2DEFEF6A-FDDB-48CE-915B-F38F6792AB03" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1460" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9DDB997D-B6A8-40D2-A14E-6A6D63C01A29" dmnElementRef="_A137A318-240E-4A26-9061-AC38D77F5F4E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="140" y="20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_AF50CFDF-0CB2-44B2-8311-7BDADFB3A0D1-AUTO-TARGET" dmnElementRef="_DC9566EF-036D-4694-A38A-3D6834F41487" sourceElement="_A6AE4E4A-1D36-4451-B49D-F9247FDA73E8" targetElement="_C4CACCD6-CEF4-4977-AC46-F3D5AE40732A">
         <di:waypoint x="890" y="160" />
@@ -169,11 +187,11 @@ else &quot;HIGH&quot;</text>
         <di:waypoint x="900" y="60" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_916B5DD6-C968-4244-B373-183AF0FBDF5A" dmnElementRef="_DFF2B32C-E2E8-44F4-9F78-7DD4AFF9CBED" sourceElement="_5D218EAF-9A2F-4F51-8E59-8637FB331C0E" targetElement="_1BBDEB8A-EAFD-4102-A873-A2348F6317E2">
-        <di:waypoint x="380" y="480" />
+        <di:waypoint x="360" y="440" />
         <di:waypoint x="1020" y="220" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_8E1D6B6C-F583-47D1-87AC-896150A7479D" dmnElementRef="_FA8F848A-1BF2-4C1E-82B4-B5CFBD077FE3" sourceElement="_5D218EAF-9A2F-4F51-8E59-8637FB331C0E" targetElement="_C4CACCD6-CEF4-4977-AC46-F3D5AE40732A">
-        <di:waypoint x="380" y="480" />
+        <di:waypoint x="360" y="440" />
         <di:waypoint x="780" y="220" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_646EDED2-1622-4A22-A2DE-B7BD734E4561" dmnElementRef="_348AB02E-FD50-4D39-A807-26A11041F899" sourceElement="_6441E002-23F2-45C6-9D45-A8D19085FC03" targetElement="_C4CACCD6-CEF4-4977-AC46-F3D5AE40732A">
@@ -183,6 +201,14 @@ else &quot;HIGH&quot;</text>
       <dmndi:DMNEdge id="_F2CE5EAE-99A9-42C1-B369-AB552CDEFB88" dmnElementRef="_4FF03EDE-1048-4D4B-90A6-BA2E63DFB3BE" sourceElement="_40FA700A-C314-4D0C-A96B-091F20680B0D" targetElement="_1BBDEB8A-EAFD-4102-A873-A2348F6317E2">
         <di:waypoint x="1540" y="260" />
         <di:waypoint x="1020" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_0BA3444F-5446-4C05-A712-AC10A0A77E37" dmnElementRef="_0A91EDEA-43C8-469A-B5C8-A25BA7BC6533" sourceElement="_A6AE4E4A-1D36-4451-B49D-F9247FDA73E8" targetElement="_9DDB997D-B6A8-40D2-A14E-6A6D63C01A29">
+        <di:waypoint x="890" y="160" />
+        <di:waypoint x="220" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_DDED565D-BFFA-407E-BBBD-0510FDC9F8D0" dmnElementRef="_25528F98-47AA-4E94-BBD6-B4431E14D25A" sourceElement="_5D218EAF-9A2F-4F51-8E59-8637FB331C0E" targetElement="_9DDB997D-B6A8-40D2-A14E-6A6D63C01A29">
+        <di:waypoint x="360" y="440" />
+        <di:waypoint x="220" y="60" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
