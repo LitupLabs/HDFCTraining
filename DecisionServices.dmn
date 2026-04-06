@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_5187B8C5-0FA7-4939-A4F5-B0AC1840FEA9" id="_B43179FF-7CAC-4388-8B7C-D2E399DBC0AF" name="DMN_7559201A-FE59-4C58-9D58-598CAF768267">
+  <itemDefinition id="_162D2ACA-77E4-49A2-8D09-52A12EDCF628" name="boo" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_82CE73D4-219C-466B-84A7-4B466464AECD" name="RiskCategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>string</typeRef>
     <allowedValues id="_A8690E1A-A719-46FC-94D2-E4B7EB84BA20" kie:constraintType="enumeration">
@@ -63,18 +64,18 @@
       <text>Calculate Financial Eligiblity() &gt; 30000</text>
     </literalExpression>
   </decision>
-  <decision name="Loan Approval" id="_41BC1933-6A98-4F07-9882-5914CDE1601E">
-    <variable id="_38D7625E-A614-49E3-9F52-059DBE1DE328" name="Loan Approval" typeRef="boolean" />
-    <informationRequirement id="_6DC8BFF5-77F7-45A3-9CD2-24B75C0A3234">
-      <requiredDecision href="#_B0E10C2F-F606-4227-90B0-FE6A974CEA2E" />
-    </informationRequirement>
-    <informationRequirement id="_A3832354-3208-49F5-BBC2-4E9504DB52EB">
+  <decision name="Loan Approval" id="_3E80AC58-194F-4B4B-A067-98DB42E459E1">
+    <variable id="_78CD0DD4-481A-465A-9AF9-46382A8E3769" typeRef="boolean" name="Loan Approval" />
+    <informationRequirement id="_D795C8AB-5811-4158-8D42-09ADA33093CA">
       <requiredDecision href="#_13536F26-56C3-4441-BB52-F6BA7F63FADB" />
     </informationRequirement>
-    <knowledgeRequirement id="_9AF9FD86-9A49-478D-85CA-A8D9CD1D6CA0">
+    <informationRequirement id="_4C75A98B-C7B4-47B2-A15B-B2211C578C62">
+      <requiredDecision href="#_B0E10C2F-F606-4227-90B0-FE6A974CEA2E" />
+    </informationRequirement>
+    <knowledgeRequirement id="_459A07E4-C43A-48AB-802A-04E0A632FACE">
       <requiredKnowledge href="#_CE2D1719-5E02-40E3-A508-8E43BDBA4017" />
     </knowledgeRequirement>
-    <literalExpression id="_4847F39A-7CA1-4C76-B8F1-DBEC1D8BECD9" typeRef="boolean" label="Loan Approval">
+    <literalExpression id="_EEBEBEF2-97A1-4FE2-A6AC-B793E71972B9" typeRef="boolean" label="Loan Approval">
       <text>Risk Category != &quot;HIGH&quot; and Financial Eligibility = true</text>
     </literalExpression>
   </decision>
@@ -115,14 +116,14 @@
           <kie:ComponentWidths dmnElementRef="_34A4C30E-7529-49D5-9093-D41C0F90DCF8">
             <kie:width>634</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_4847F39A-7CA1-4C76-B8F1-DBEC1D8BECD9">
-            <kie:width>694</kie:width>
-          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_D28367B6-A6AF-485C-A063-945379C78F0D">
             <kie:width>911</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A9934C00-E243-41CA-B4F9-93C683DC7A6D">
             <kie:width>765</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_EEBEBEF2-97A1-4FE2-A6AC-B793E71972B9">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -139,9 +140,6 @@
       <dmndi:DMNShape id="_3AA7C9BF-19C4-42EB-8CFD-956DCCC8C496" dmnElementRef="_B0E10C2F-F606-4227-90B0-FE6A974CEA2E" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="600" y="500" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="_3631EBC0-5D94-40FE-8FFD-FB4DF939FEF2" dmnElementRef="_41BC1933-6A98-4F07-9882-5914CDE1601E" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="460" y="340" width="160" height="80" />
-      </dmndi:DMNShape>
       <dmndi:DMNShape id="_49CF66D3-E034-4ED7-80A7-792C56187E67" dmnElementRef="_10E7857D-7028-44EC-B016-ADD5041FE82F" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="460" y="640" width="160" height="80" />
       </dmndi:DMNShape>
@@ -151,6 +149,9 @@
       <dmndi:DMNShape id="_16586567-BAC3-4A94-A4B3-E530E3DE31FC" dmnElementRef="_3B362740-FA93-4927-B45A-5C17DC872077" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="900" y="500" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_5C62CB48-3A93-47EF-92D2-76F54EEE9B33" dmnElementRef="_3E80AC58-194F-4B4B-A067-98DB42E459E1" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="460" y="340" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9EC4077B-5C01-4BFA-9AEF-A1CBF82740C2-AUTO-TARGET" dmnElementRef="_76D11302-BD3F-4080-A3EF-4D266EB9B5B4" sourceElement="_4955E5FE-5ACA-4963-B10C-87F2E65E1125" targetElement="_E8AB1F67-1E5E-47B4-B610-2E3099FF7441">
         <di:waypoint x="540" y="460" />
         <di:waypoint x="380" y="540" />
@@ -158,19 +159,6 @@
       <dmndi:DMNEdge id="_2D92FC75-044B-4FFE-8B88-AC8A828BC70D-AUTO-TARGET" dmnElementRef="_C5686D55-137E-4752-9454-2A70063765B3" sourceElement="_4955E5FE-5ACA-4963-B10C-87F2E65E1125" targetElement="_3AA7C9BF-19C4-42EB-8CFD-956DCCC8C496">
         <di:waypoint x="540" y="460" />
         <di:waypoint x="680" y="540" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_097D655C-3268-4A42-974B-AE3A974357AE-AUTO-TARGET" dmnElementRef="_9AF9FD86-9A49-478D-85CA-A8D9CD1D6CA0" sourceElement="_4955E5FE-5ACA-4963-B10C-87F2E65E1125" targetElement="_3631EBC0-5D94-40FE-8FFD-FB4DF939FEF2">
-        <di:waypoint x="540" y="460" />
-        <di:waypoint x="540" y="380" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_1567B5A2-E0C0-4C7D-9897-7619B9D89F87" dmnElementRef="_6DC8BFF5-77F7-45A3-9CD2-24B75C0A3234" sourceElement="_3AA7C9BF-19C4-42EB-8CFD-956DCCC8C496" targetElement="_3631EBC0-5D94-40FE-8FFD-FB4DF939FEF2">
-        <di:waypoint x="680" y="540" />
-        <di:waypoint x="620" y="480" />
-        <di:waypoint x="540" y="420" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_3D72CA8F-1A2F-4CFF-AC48-0AC221C913C5" dmnElementRef="_A3832354-3208-49F5-BBC2-4E9504DB52EB" sourceElement="_E8AB1F67-1E5E-47B4-B610-2E3099FF7441" targetElement="_3631EBC0-5D94-40FE-8FFD-FB4DF939FEF2">
-        <di:waypoint x="380" y="540" />
-        <di:waypoint x="540" y="420" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_C9593AAB-D3F9-46F7-9AEC-40FD971CD12D" dmnElementRef="_CE9EC495-41FF-4FB8-9B34-5F32A5C02A45" sourceElement="_49CF66D3-E034-4ED7-80A7-792C56187E67" targetElement="_3AA7C9BF-19C4-42EB-8CFD-956DCCC8C496">
         <di:waypoint x="540" y="680" />
@@ -187,6 +175,18 @@
       <dmndi:DMNEdge id="_EA424E9D-BC67-45A6-A423-7D2EC579F8BF" dmnElementRef="_9AB6C3B2-3B16-4E82-9AE8-0122E30F956F" sourceElement="_16586567-BAC3-4A94-A4B3-E530E3DE31FC" targetElement="_3AA7C9BF-19C4-42EB-8CFD-956DCCC8C496">
         <di:waypoint x="980" y="540" />
         <di:waypoint x="760" y="540" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_8FC2E4CE-383A-485B-89FC-86FE37410963-AUTO-TARGET" dmnElementRef="_459A07E4-C43A-48AB-802A-04E0A632FACE" sourceElement="_4955E5FE-5ACA-4963-B10C-87F2E65E1125" targetElement="_5C62CB48-3A93-47EF-92D2-76F54EEE9B33">
+        <di:waypoint x="540" y="460" />
+        <di:waypoint x="540" y="380" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_9646847D-FAD4-44F0-AD8D-B190A55E37DB" dmnElementRef="_D795C8AB-5811-4158-8D42-09ADA33093CA" sourceElement="_E8AB1F67-1E5E-47B4-B610-2E3099FF7441" targetElement="_5C62CB48-3A93-47EF-92D2-76F54EEE9B33">
+        <di:waypoint x="380" y="540" />
+        <di:waypoint x="540" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_02D776D3-DBCA-4197-9C0A-B0D6F85802AC" dmnElementRef="_4C75A98B-C7B4-47B2-A15B-B2211C578C62" sourceElement="_3AA7C9BF-19C4-42EB-8CFD-956DCCC8C496" targetElement="_5C62CB48-3A93-47EF-92D2-76F54EEE9B33">
+        <di:waypoint x="680" y="540" />
+        <di:waypoint x="540" y="420" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
