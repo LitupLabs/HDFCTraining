@@ -46,7 +46,7 @@
     </knowledgeRequirement>
   </decision>
   <decision name="Financial Eligibility" id="_B0E10C2F-F606-4227-90B0-FE6A974CEA2E">
-    <variable id="_0E2F61C8-5DE0-4012-AB78-24BE0BC9BCE7" name="Financial Eligibility" typeRef="number" />
+    <variable id="_0E2F61C8-5DE0-4012-AB78-24BE0BC9BCE7" name="Financial Eligibility" typeRef="boolean" />
     <informationRequirement id="_CE9EC495-41FF-4FB8-9B34-5F32A5C02A45">
       <requiredInput href="#_10E7857D-7028-44EC-B016-ADD5041FE82F" />
     </informationRequirement>
