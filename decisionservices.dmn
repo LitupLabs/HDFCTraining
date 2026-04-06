@@ -9,6 +9,9 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_DBB1AF23-6E11-4B19-B4F3-2C07A7D223BE" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_79FE6741-06F6-44BE-9D59-9A6538C76CB6" name="otherincomes" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
     <itemComponent id="_EEC6744E-1A78-41C5-B817-FF071BBA980D" name="monthlyincome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
