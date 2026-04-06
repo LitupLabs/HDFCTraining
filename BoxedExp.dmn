@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_4BEE51B7-BDB3-4BA5-AB4A-5CAD305026AA" id="_9260CEEF-00F0-46D3-A4FD-C727EFB8FBFF" name="DMN_92DE8D34-F12C-4BEB-971F-B7E5EC8F3863">
   <itemDefinition id="_2162F520-CDE2-4DD6-8E19-C06EB9746B57" name="Totalamount" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
-  <itemDefinition id="_82BAE5D0-CC83-4E24-8F18-FEDBED9A6F28" name="EMIs" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_82BAE5D0-CC83-4E24-8F18-FEDBED9A6F28" name="EMIs" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>Any</typeRef>
+  </itemDefinition>
   <itemDefinition id="_7530286B-11E8-4A4F-A8A5-49EA42BB65C5" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_7343C39A-3EF0-4906-A389-A5030325532A" name="age" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
@@ -63,30 +65,9 @@
     <informationRequirement id="_70E2635F-19E3-43B6-9A6E-2695DB525F4E">
       <requiredDecision href="#_0085B809-1220-42C2-B2D2-CFBD73160E6E" />
     </informationRequirement>
-    <for id="_77BA3406-1023-4298-B1F4-6C74513B32B6" typeRef="EMIs" label="EMIsCalculation" iteratorVariable="emi">
-      <in id="_274DFA67-B544-4D99-8B0C-539A981F531A">
-        <list id="_0BCF772C-E6E8-4B09-B5D0-419509D28DCF" label="Expression Name">
-          <literalExpression id="_14186466-4791-4AA2-8258-99DDAFB2B490" label="Expression Name">
-            <text>EMIsLst</text>
-          </literalExpression>
-        </list>
-      </in>
-      <return id="_229A7FD0-E19D-434D-A170-46C2BBAD1E8D">
-        <context id="_B75929F9-6B51-4A0F-96E3-E3833C59F119" label="Expression Name">
-          <contextEntry id="_C09F2769-89A9-4841-8E86-1F7B316BC2B8">
-            <variable id="_50DD540C-D34A-45EE-A45A-1C07A17149DA" name="emi_value" typeRef="number" />
-            <literalExpression id="_E3D56F57-41E7-4963-926F-179EE1B1E494" typeRef="number" label="emi_value">
-              <text>emi * 1.1</text>
-            </literalExpression>
-          </contextEntry>
-          <contextEntry id="_1CBD1E90-FFE3-47DB-ADD6-4772AA0A7DD7">
-            <literalExpression id="_10451C0C-53A6-440C-A8D8-78D9E8F009DD" label="Expression Name">
-              <text>emi_value</text>
-            </literalExpression>
-          </contextEntry>
-        </context>
-      </return>
-    </for>
+    <literalExpression id="_35B9CD0E-A3C2-4163-A2C5-C005775C5DD0" typeRef="EMIs" label="EMIsCalculation">
+      <text>for emi in EMIsLst return emi * 1.1</text>
+    </literalExpression>
   </decision>
   <inputData name="LoanApplication" id="_E20652AB-5296-426C-A085-EBE57E31BA6F">
     <variable name="LoanApplication" id="_CEFF40C3-4C36-4853-8161-9708309246BF" typeRef="LoanApplication" />
@@ -104,16 +85,7 @@
           <kie:ComponentWidths dmnElementRef="_7808117E-1CF1-4031-B21A-DD13420A4EBB">
             <kie:width>715</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_14186466-4791-4AA2-8258-99DDAFB2B490">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_B75929F9-6B51-4A0F-96E3-E3833C59F119">
-            <kie:width>120</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_E3D56F57-41E7-4963-926F-179EE1B1E494">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_10451C0C-53A6-440C-A8D8-78D9E8F009DD">
+          <kie:ComponentWidths dmnElementRef="_35B9CD0E-A3C2-4163-A2C5-C005775C5DD0">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
