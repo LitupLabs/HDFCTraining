@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_BBED3D2C-A6B0-4E29-A513-ACD59985656E" id="_00E49491-9CEB-4292-B2EC-6D689525DC36" name="DMN_6D24A05E-735C-4494-9438-78C5CC18853E">
-  <itemDefinition id="_2ABC82E4-1758-47EF-AAB2-AF4D72A20E21" name="Finacials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_C573F34A-CD8C-42A1-881A-A79F8F563396" name="MontlyIncome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_2ABC82E4-1758-47EF-AAB2-AF4D72A20E21" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_C573F34A-CD8C-42A1-881A-A79F8F563396" name="montlyIncome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_F3DB3E6E-F1C3-4553-B246-A8E6575CA9F8" name="OtherIncomes" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F3DB3E6E-F1C3-4553-B246-A8E6575CA9F8" name="otherIncomes" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_88A9F104-F9E1-4D37-9754-D888C68AA05C" name="ExistingEmis" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_88A9F104-F9E1-4D37-9754-D888C68AA05C" name="existingEMIs" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_269B3D3E-1AA0-423F-8220-EA6F1E6981EF" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_269B3D3E-1AA0-423F-8220-EA6F1E6981EF" name="customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_446D6BE3-10A3-4C85-9045-D803F2038E9D" name="Segment" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
-    <itemComponent id="_2F86882A-D147-4B57-B55D-680A55EAB9C6" name="CreditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_2F86882A-D147-4B57-B55D-680A55EAB9C6" name="creditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_E32171FF-ED62-47B2-8ABB-A596F63A8276" name="LoanAppliaction" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_532DD109-6E2B-4138-B89D-71C666BFFA3C" name="Customers" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>Customer</typeRef>
+    <itemComponent id="_532DD109-6E2B-4138-B89D-71C666BFFA3C" name="customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>customer</typeRef>
     </itemComponent>
     <itemComponent id="_BE5B98EC-1522-4910-B9D9-CB02919EED2D" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>Finacials</typeRef>
+      <typeRef>financials</typeRef>
     </itemComponent>
   </itemDefinition>
   <decision name="Risk Category" id="_4433BD9A-3E38-4147-98C4-E5CCDDFB9F9E">
-    <variable id="_F74757D6-9F05-4E81-BA68-7F19CAC275AC" typeRef="number" name="Risk Category" />
+    <variable id="_F74757D6-9F05-4E81-BA68-7F19CAC275AC" typeRef="string" name="Risk Category" />
     <informationRequirement id="_20EC77AD-A813-472E-93DD-0FD046070E1C">
       <requiredInput href="#_DDFCA00B-1E90-451D-A2B0-1931E87EA1A2" />
     </informationRequirement>
@@ -38,9 +38,12 @@
     <knowledgeRequirement id="_FE9D2CFC-7F2A-462F-A061-C239744CD89B">
       <requiredKnowledge href="#_FD892B72-42F4-47BF-AC88-92E7885BB2A3" />
     </knowledgeRequirement>
+    <literalExpression id="_0A9DB772-5794-4CE1-9589-A2ECBA639316" typeRef="string" label="Risk Category">
+      <text>if Calculate Risk Score() = 3 then &quot;HIGH&quot; else if Calculate Risk Score() = 2 then &quot;MEDIUM&quot; else &quot;LOW&quot;</text>
+    </literalExpression>
   </decision>
   <decision name="Financial Eligibility" id="_DEB0DC3E-CF50-458C-ABBB-9353051DBA0D">
-    <variable id="_1FB7B953-9D66-4B18-9935-29DD95B4E208" typeRef="number" name="Financial Eligibility" />
+    <variable id="_1FB7B953-9D66-4B18-9935-29DD95B4E208" typeRef="boolean" name="Financial Eligibility" />
     <informationRequirement id="_45F2EC9B-D1D2-4C8A-8D2B-AAA657B02525">
       <requiredInput href="#_DDFCA00B-1E90-451D-A2B0-1931E87EA1A2" />
     </informationRequirement>
@@ -50,6 +53,9 @@
     <knowledgeRequirement id="_87FCB5B5-6F23-4742-AB80-6D569794962D">
       <requiredKnowledge href="#_F6BC9316-B8FE-4EA0-A49E-EC2BD110B795" />
     </knowledgeRequirement>
+    <literalExpression id="_8D25E1B8-66DF-47E1-8098-276ED12D5133" typeRef="boolean" label="Financial Eligibility">
+      <text>Calculate Financial Eligibility() &gt; 30000</text>
+    </literalExpression>
   </decision>
   <decision name="Loan Approval" id="_CFD0AC48-1628-48B9-AB41-7F9AEB38FBA8">
     <variable id="_0F88975A-DBA8-43AB-B9C5-1ED895D0C626" typeRef="boolean" name="Loan Approval" />
@@ -69,9 +75,9 @@
   <businessKnowledgeModel name="Calculate Risk Score" id="_FD892B72-42F4-47BF-AC88-92E7885BB2A3">
     <variable name="Calculate Risk Score" id="_26A40631-9AEE-4A80-AACF-D06ACC88F2E8" typeRef="number" />
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_44CA927B-0B66-485D-BBB0-A3A8093EDEAE" kind="FEEL">
-      <formalParameter id="_40728BA6-B80F-4993-8A86-B357EB9026C1" name="loanAppliaction" typeRef="LoanAppliaction" />
+      <formalParameter id="_40728BA6-B80F-4993-8A86-B357EB9026C1" name="LoanAppliaction" typeRef="LoanAppliaction" />
       <literalExpression id="_7D1148C3-B46C-4064-BCE7-5C63F7EAE8DE" typeRef="number" label="Return">
-        <text>if loanAppliaction.customer.creditScore &gt;= 750 then 3 else if loanAppliaction.customer.creditScore &gt;= 650 then 2 else 1</text>
+        <text>if LoanAppliaction.customer.creditScore &gt;= 750 then 3 else if LoanAppliaction.customer.creditScore &gt;= 650 then 2 else 1</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
@@ -85,7 +91,7 @@
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="LoanApplication" id="_DDFCA00B-1E90-451D-A2B0-1931E87EA1A2">
-    <variable name="LoanApplication" id="_9D61C750-5826-47DD-B7D7-33657AE451A4" />
+    <variable name="LoanApplication" id="_9D61C750-5826-47DD-B7D7-33657AE451A4" typeRef="LoanAppliaction" />
   </inputData>
   <decisionService name="Loan Decison Service" id="_32144BDC-846E-4222-B8E1-71D8BC71360B">
     <variable name="Loan Decison Service" id="_7A6A7A24-9C65-4D6C-9930-2C535FA330DE" />
@@ -105,6 +111,12 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A7A9A6E7-5458-4342-B4A2-4C391F84113C">
             <kie:width>593</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0A9DB772-5794-4CE1-9589-A2ECBA639316">
+            <kie:width>818</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8D25E1B8-66DF-47E1-8098-276ED12D5133">
+            <kie:width>424</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
