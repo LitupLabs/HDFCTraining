@@ -72,7 +72,10 @@
   <businessKnowledgeModel name="Calculate Financial Eligiblity" id="_3B362740-FA93-4927-B45A-5C17DC872077">
     <variable name="Calculate Financial Eligiblity" id="_C3A256F7-8999-46BD-846A-99FEA3D47734" typeRef="number" />
     <encapsulatedLogic label="Calculate Financial Eligiblity" typeRef="number" id="_181F1D1A-BE5F-42AE-A900-D6225061FC85" kind="FEEL">
-      <formalParameter id="_3B223583-E51B-4706-B22D-05E85915584D" name="p-1" />
+      <formalParameter id="_3B223583-E51B-4706-B22D-05E85915584D" name="LoanApplication" typeRef="LoanApplication" />
+      <literalExpression id="_34A4C30E-7529-49D5-9093-D41C0F90DCF8" typeRef="number" label="Return">
+        <text>LoanApplication.financials.monthlyIncome + sum(LoanApplication.financials.otherIncome) - LoanApplication.financials.existingEMIs</text>
+      </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="LoanApplication" id="_10E7857D-7028-44EC-B016-ADD5041FE82F">
@@ -90,6 +93,9 @@
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_27E1EDD8-06B1-4BAE-B71F-8FC19731A0D8">
             <kie:width>787</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_34A4C30E-7529-49D5-9093-D41C0F90DCF8">
+            <kie:width>634</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
