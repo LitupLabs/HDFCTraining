@@ -38,6 +38,9 @@
     <knowledgeRequirement id="_84F65C48-6442-4F28-93F4-F38966AF30E0">
       <requiredKnowledge href="#_387A0FFB-3856-4220-B16C-6493B80DB193" />
     </knowledgeRequirement>
+    <literalExpression id="_EC4EA2B2-92EB-478B-B268-5A1493908A0D" typeRef="string" label="risk category">
+      <text>if calcuate risk score() = 3 then &quot;HIGH&quot; else if calcuate risk score() = 2 then &quot;MEDIUM&quot; else &quot;LOW&quot;</text>
+    </literalExpression>
   </decision>
   <decision name="financial eligibility" id="_807154A9-3038-43A4-85A7-1B6340260B75">
     <variable id="_AD0080DF-656F-41B7-BDA3-E37EFDB4EDA5" typeRef="boolean" name="financial eligibility" />
@@ -50,6 +53,9 @@
     <knowledgeRequirement id="_ACB49BE6-BE5D-4ED6-B53A-DEFE98F84CB3">
       <requiredKnowledge href="#_FD6B9CAB-356A-40EB-AF25-E12538E4EF60" />
     </knowledgeRequirement>
+    <literalExpression id="_14155EC0-A7D0-440F-BC62-ED99ACC7198B" typeRef="boolean" label="financial eligibility">
+      <text>calculate financial eligibilty() &gt; 30000</text>
+    </literalExpression>
   </decision>
   <decision name="loan approval" id="_8F99CD02-17AD-419E-9526-2883568FB1E4">
     <variable id="_980B9AE1-CA15-497D-9D8B-F6FF0088E8D9" typeRef="boolean" name="loan approval" />
@@ -80,15 +86,15 @@
     <encapsulatedLogic label="calculate financial eligibilty" typeRef="number" id="_6124C7CB-3B17-49C8-AADC-45C89CD0784E" kind="FEEL">
       <formalParameter id="_5EF0F390-165D-4CCD-BA17-FF9A7B0F031E" name="loan application" typeRef="loanapplication" />
       <literalExpression id="_837FA535-1C27-4DF2-89E2-CA938236FA11" typeRef="number" label="Return">
-        <text>loan application.financials.monthlyincome + sum(loan application.financials.otherincome) - loan application.financials.existingEMIs</text>
+        <text>loan application.financials.monthlyincome + sum(loan application.financials.otherincome) - loan application.financials.existingemis</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="loan application" id="_AFD8DD60-57D1-4F1A-AFB8-BC66004DC1C7">
-    <variable name="loan application" id="_F88AF9B9-D9CF-466A-9F72-D45870131413" />
+    <variable name="loan application" id="_F88AF9B9-D9CF-466A-9F72-D45870131413" typeRef="loanapplication" />
   </inputData>
   <decisionService name="loan decision service" id="_D9B9CF57-7A6B-4302-B330-2A0715200C26">
-    <variable name="loan decision service" id="_361334F3-097B-4BF2-95D1-FF0CBCE73B80" />
+    <variable name="loan decision service" id="_361334F3-097B-4BF2-95D1-FF0CBCE73B80" typeRef="boolean" />
     <outputDecision href="#_8F99CD02-17AD-419E-9526-2883568FB1E4" />
     <inputDecision href="#_C08217D1-8BD0-40F6-BE5D-C328171BCFD7" />
     <inputDecision href="#_807154A9-3038-43A4-85A7-1B6340260B75" />
@@ -101,10 +107,16 @@
             <kie:width>737</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_837FA535-1C27-4DF2-89E2-CA938236FA11">
-            <kie:width>874</kie:width>
+            <kie:width>1236</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_63C6E8A2-996D-47B4-A7AD-408D186D79C7">
             <kie:width>975</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_EC4EA2B2-92EB-478B-B268-5A1493908A0D">
+            <kie:width>1097</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_14155EC0-A7D0-440F-BC62-ED99ACC7198B">
+            <kie:width>864</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
