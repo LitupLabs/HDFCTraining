@@ -44,6 +44,9 @@
     <knowledgeRequirement id="_817C9DB4-DCBC-41EE-99D8-4D113C21F102">
       <requiredKnowledge href="#_26717DFC-E3C2-4678-8809-39FDA1A32FDA" />
     </knowledgeRequirement>
+    <literalExpression id="_D28367B6-A6AF-485C-A063-945379C78F0D" typeRef="number" label="Risk Category">
+      <text>if Calculate Risk Score() = 3 then &quot;HIGH&quot; else if Calculate Risk Score() = 2 then &quot;MEDIUM&quot;</text>
+    </literalExpression>
   </decision>
   <decision name="Financial Eligibility" id="_B0E10C2F-F606-4227-90B0-FE6A974CEA2E">
     <variable id="_0E2F61C8-5DE0-4012-AB78-24BE0BC9BCE7" name="Financial Eligibility" typeRef="boolean" />
@@ -111,6 +114,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_4847F39A-7CA1-4C76-B8F1-DBEC1D8BECD9">
             <kie:width>694</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D28367B6-A6AF-485C-A063-945379C78F0D">
+            <kie:width>911</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
