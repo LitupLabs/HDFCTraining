@@ -78,7 +78,7 @@
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_9279D148-1CD7-490E-935B-3F8236E90B50" kind="FEEL">
       <formalParameter id="_32A96358-A123-47C5-A243-8FC94431B673" name="LoanApplication" typeRef="LoanApplication" />
       <literalExpression id="_63C6B1B9-90A6-457E-81D0-B7AE25DA010D" typeRef="number" label="Return">
-        <text>if LoanApplication.customer.creditScore &gt;= 750 then 3 else if LoanApplication.customer.creditScore &gt;= 650 then 2 else 1
+        <text>if LoanApplication.Customer.creditScore &gt;= 750 then 3 else if LoanApplication.Customer.creditScore &gt;= 650 then 2 else 1
  </text>
       </literalExpression>
     </encapsulatedLogic>
