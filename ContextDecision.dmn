@@ -11,14 +11,14 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="New Decision" id="_139D5B51-2F4A-4D73-9789-5F9E5DBFD1C3">
-    <variable name="New Decision" id="_12E054A1-8187-4976-A15E-2EB68F4551F0" />
+  <decision name="EMI Calculation" id="_139D5B51-2F4A-4D73-9789-5F9E5DBFD1C3">
+    <variable name="EMI Calculation" id="_12E054A1-8187-4976-A15E-2EB68F4551F0" typeRef="number" />
     <informationRequirement id="_B8E10821-8221-4537-8D05-50BAC226EE7D">
       <requiredInput href="#_4AD901BB-682A-4529-BB9B-B0B15E5129DE" />
     </informationRequirement>
   </decision>
-  <inputData name="New Input Data" id="_4AD901BB-682A-4529-BB9B-B0B15E5129DE">
-    <variable name="New Input Data" id="_E92E9034-C460-4A65-8243-F17642D0F58E" />
+  <inputData name="Loan" id="_4AD901BB-682A-4529-BB9B-B0B15E5129DE">
+    <variable name="Loan" id="_E92E9034-C460-4A65-8243-F17642D0F58E" typeRef="Loan" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_0993A5AF-535C-4923-A4F6-057F10E97D95" name="Default DRD" useAlternativeInputDataShape="false">
