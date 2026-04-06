@@ -55,7 +55,7 @@
     </context>
   </decision>
   <inputData name="loan" id="_B8A5A819-9603-49D4-AB2E-A079AC76D732">
-    <variable name="loan" id="_0DFDEC48-09BE-4ED2-AAC7-CD27E566A20F" />
+    <variable name="loan" id="_0DFDEC48-09BE-4ED2-AAC7-CD27E566A20F" typeRef="loan" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_CE9CBA6C-AE1F-481D-8414-7C346F8AE573" name="Default DRD" useAlternativeInputDataShape="false">
