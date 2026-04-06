@@ -28,7 +28,7 @@
     </itemComponent>
   </itemDefinition>
   <decision name="risk category" id="_C08217D1-8BD0-40F6-BE5D-C328171BCFD7">
-    <variable id="_718EA6AC-A69A-4274-AC5A-E0DBEADAB8E2" typeRef="number" name="risk category" />
+    <variable id="_718EA6AC-A69A-4274-AC5A-E0DBEADAB8E2" typeRef="string" name="risk category" />
     <informationRequirement id="_91280674-D0BC-4543-A31A-AF475199FB37">
       <requiredInput href="#_AFD8DD60-57D1-4F1A-AFB8-BC66004DC1C7" />
     </informationRequirement>
@@ -40,7 +40,7 @@
     </knowledgeRequirement>
   </decision>
   <decision name="financial eligibility" id="_807154A9-3038-43A4-85A7-1B6340260B75">
-    <variable id="_AD0080DF-656F-41B7-BDA3-E37EFDB4EDA5" typeRef="number" name="financial eligibility" />
+    <variable id="_AD0080DF-656F-41B7-BDA3-E37EFDB4EDA5" typeRef="boolean" name="financial eligibility" />
     <informationRequirement id="_87E5A5B5-6AC6-476C-9953-131DC2A78BFA">
       <requiredInput href="#_AFD8DD60-57D1-4F1A-AFB8-BC66004DC1C7" />
     </informationRequirement>
@@ -52,7 +52,7 @@
     </knowledgeRequirement>
   </decision>
   <decision name="loan approval" id="_8F99CD02-17AD-419E-9526-2883568FB1E4">
-    <variable id="_980B9AE1-CA15-497D-9D8B-F6FF0088E8D9" name="loan approval" />
+    <variable id="_980B9AE1-CA15-497D-9D8B-F6FF0088E8D9" typeRef="boolean" name="loan approval" />
     <informationRequirement id="_EDEDD5CA-02CB-4188-8352-00E510DC1374">
       <requiredDecision href="#_C08217D1-8BD0-40F6-BE5D-C328171BCFD7" />
     </informationRequirement>
@@ -62,6 +62,9 @@
     <knowledgeRequirement id="_B0C94082-FD48-4CC9-B66F-7FB3DA756649">
       <requiredKnowledge href="#_D9B9CF57-7A6B-4302-B330-2A0715200C26" />
     </knowledgeRequirement>
+    <literalExpression id="_63C6E8A2-996D-47B4-A7AD-408D186D79C7" typeRef="boolean" label="loan approval">
+      <text>risk category != &quot;HIGH&quot; and financial eligibility = true</text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="calcuate risk score" id="_387A0FFB-3856-4220-B16C-6493B80DB193">
     <variable name="calcuate risk score" id="_8DE532F7-E64B-4351-90DA-CA9532162E6A" typeRef="number" />
@@ -99,6 +102,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_837FA535-1C27-4DF2-89E2-CA938236FA11">
             <kie:width>874</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_63C6E8A2-996D-47B4-A7AD-408D186D79C7">
+            <kie:width>975</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
