@@ -28,7 +28,7 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Risk Category" id="_BEF0B63D-4B12-4290-9FCA-0B56E9CD6572">
-    <variable name="Risk Category" id="_55B0D8F5-3616-4465-A1D4-C53B424F1143" typeRef="number" />
+    <variable name="Risk Category" id="_55B0D8F5-3616-4465-A1D4-C53B424F1143" typeRef="string" />
     <knowledgeRequirement id="_FB1FF02E-3123-416F-BAA3-83DB17329B9B">
       <requiredKnowledge href="#_4494F048-F0DB-4B7E-8855-5B41E1349CAB" />
     </knowledgeRequirement>
@@ -37,7 +37,7 @@
     </knowledgeRequirement>
   </decision>
   <decision name="Financial Eligibility" id="_223C323E-795F-407B-B30B-AE0DD00637E7">
-    <variable name="Financial Eligibility" id="_93F52625-BAE4-4392-9133-6550E84B38E4" typeRef="number" />
+    <variable name="Financial Eligibility" id="_93F52625-BAE4-4392-9133-6550E84B38E4" typeRef="boolean" />
     <knowledgeRequirement id="_C7934224-5D33-407C-82A5-2D5137198852">
       <requiredKnowledge href="#_4494F048-F0DB-4B7E-8855-5B41E1349CAB" />
     </knowledgeRequirement>
@@ -53,6 +53,9 @@
     <knowledgeRequirement id="_D083BC29-044D-454B-A89F-AF775869AD21">
       <requiredKnowledge href="#_4494F048-F0DB-4B7E-8855-5B41E1349CAB" />
     </knowledgeRequirement>
+    <literalExpression id="_14A33CBC-4CB9-4F2D-9ACF-F142E2C33E61" typeRef="boolean" label="Loan Approval">
+      <text>Risk Category != &quot;HIGH&quot; and Financial Eligibility = true</text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_2C026960-6F44-4192-BB63-074E5F0BFA4D">
     <variable name="Calculate Risk Score" id="_534BC409-A899-4E7D-9BE5-E91E45ADFB18" typeRef="number" />
@@ -87,6 +90,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_850F34E4-8DEB-4719-9198-5DDFB60E0782">
             <kie:width>697</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_14A33CBC-4CB9-4F2D-9ACF-F142E2C33E61">
+            <kie:width>756</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
