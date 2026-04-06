@@ -39,9 +39,9 @@
       <requiredKnowledge href="#_766F0EC3-5EF9-4899-AA86-F5317FF1C277" />
     </knowledgeRequirement>
     <literalExpression id="_E3B8B6DA-A55A-48DC-B84B-485EA4CDDE1D" typeRef="string" label="Risk Category">
-      <text>if Calculate Risk Score() = 3 then &quot;HIGH&quot;
+      <text>if Calculate Risk Score() = 3 then &quot;LOW&quot;
 else if Calculate Risk Score () = 2 then &quot;MEDIUM&quot;
-else &quot;LOW&quot;</text>
+else &quot;HIGH&quot;</text>
     </literalExpression>
   </decision>
   <decision name="Financial Eligiblity" id="_ECE36F1E-E0E6-4BDE-8362-A02EA95CEDD3">
@@ -77,23 +77,23 @@ else &quot;LOW&quot;</text>
   <businessKnowledgeModel name="Calculate Risk Score" id="_766F0EC3-5EF9-4899-AA86-F5317FF1C277">
     <variable name="Calculate Risk Score" id="_9DE96624-0E97-4CD5-B00D-7A7DB4C5C62A" typeRef="number" />
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_0FBC3692-D026-4355-9B05-49CD4CA9D3A8" kind="FEEL">
-      <formalParameter id="_C3B46288-B908-4063-88D0-2C2B810AC112" name="loanApplication" typeRef="LoanApplication" />
+      <formalParameter id="_C3B46288-B908-4063-88D0-2C2B810AC112" name="LoanApplication" typeRef="LoanApplication" />
       <literalExpression id="_EDFA7AB7-C181-48DD-BD32-803CD91DE3DD" typeRef="number" label="Return">
-        <text>if loanApplication.customer.creditScore &gt;= 750 then 3 else if loanApplication.customer.creditScore &gt;= 650 then 2 else 1</text>
+        <text>if LoanApplication.customer.creditScore &gt;= 750 then 3 else if LoanApplication.customer.creditScore &gt;= 650 then 2 else 1</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <businessKnowledgeModel name="Calculate Financial Eligiblity" id="_2DEFEF6A-FDDB-48CE-915B-F38F6792AB03">
     <variable name="Calculate Financial Eligiblity" id="_B872EA1A-9FBA-4C71-BBC7-5A86ACB2DF00" typeRef="number" />
     <encapsulatedLogic label="Calculate Financial Eligiblity" typeRef="number" id="_715E5974-AD85-4647-B46C-A97E6A061A3C" kind="FEEL">
-      <formalParameter id="_315D148A-5964-4262-ACAB-CC41665F8733" name="loanApplication" typeRef="LoanApplication" />
+      <formalParameter id="_315D148A-5964-4262-ACAB-CC41665F8733" name="LoanApplication" typeRef="LoanApplication" />
       <literalExpression id="_7F8AE6FD-61E1-46E8-99A7-81FF613BC400" typeRef="number" label="Return">
-        <text>loanApplication.financials.monthlyIncome + sum(loanApplication.financials.otherIncomes) - loanApplication.financials.existingEMIs</text>
+        <text>LoanApplication.financials.monthlyIncome + sum(LoanApplication.financials.otherIncomes) - LoanApplication.financials.existingEMIs</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="LoanApplication" id="_F0246DE3-22A8-4FE8-AA3F-18A0314C7F98">
-    <variable name="LoanApplication" id="_2EBA894F-656B-4F41-AEA3-B56C7C7ACF45" />
+    <variable name="LoanApplication" id="_2EBA894F-656B-4F41-AEA3-B56C7C7ACF45" typeRef="LoanApplication" />
   </inputData>
   <decisionService name="Loan Decision Service" id="_499A8801-C2D9-4DB3-96C1-463778FAE57A">
     <variable name="Loan Decision Service" id="_45EB0875-911A-4927-9C2A-5F8DA204F7CD" />
