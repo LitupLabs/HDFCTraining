@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_087E8468-05CF-4EC2-803A-580CAAED67C4" id="_2739AAB8-CCF1-40BC-A229-0E69DAEC98F0" name="DMN_26B018FB-44DE-47BF-AEAD-911565C20E19">
+  <itemDefinition id="_021FD2BD-06BF-449B-9F4B-D95BF136A649" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_57CE14B6-7DA7-4A64-A4B4-0D1F33ADFFB5" name="segment" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_7D77ED03-27E0-43E6-861E-3D255728C33B" name="creditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_F7075F4F-D349-4549-87BF-869F3A07ED82" name="LoanApplications" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_811EC190-F761-412A-A805-DCF405591E89" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Financials</typeRef>
