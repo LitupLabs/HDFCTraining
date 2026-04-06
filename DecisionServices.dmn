@@ -53,6 +53,9 @@
     <knowledgeRequirement id="_88C16376-B049-4241-9114-90295B218D28">
       <requiredKnowledge href="#_2AC69564-1D72-4AB9-9BC0-5939F71DA065" />
     </knowledgeRequirement>
+    <literalExpression id="_DD3FABAA-4F09-48A9-B7C6-2AAE5B239A3B" typeRef="boolean" label="Financial Eligibility">
+      <text>Calculate Financial Eligibility() &gt; 30000</text>
+    </literalExpression>
   </decision>
   <decision name="Loan Approval" id="_8B09660B-2599-4681-B601-14781A9979F1">
     <variable name="Loan Approval" id="_54CF1DAC-C18C-4CF3-B8DA-42D2B33CD96F" typeRef="boolean" />
@@ -91,7 +94,7 @@
     <variable name="LoanApplication" id="_16BCC492-DE87-4F5E-9592-1B700D29F9E2" typeRef="LoanApplications" />
   </inputData>
   <decisionService name="Loan Decision Service" id="_4494F048-F0DB-4B7E-8855-5B41E1349CAB">
-    <variable name="Loan Decision Service" id="_AFA25015-E6AA-4BBA-8EB5-D5894195B770" />
+    <variable name="Loan Decision Service" id="_AFA25015-E6AA-4BBA-8EB5-D5894195B770" typeRef="boolean" />
     <outputDecision href="#_8B09660B-2599-4681-B601-14781A9979F1" />
     <encapsulatedDecision href="#_223C323E-795F-407B-B30B-AE0DD00637E7" />
     <encapsulatedDecision href="#_BEF0B63D-4B12-4290-9FCA-0B56E9CD6572" />
@@ -112,6 +115,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_0E125615-7DF8-4D32-9F9A-9F9E2D29A223">
             <kie:width>1078</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DD3FABAA-4F09-48A9-B7C6-2AAE5B239A3B">
+            <kie:width>816</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
