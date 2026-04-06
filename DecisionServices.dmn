@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_588D7E2C-C1D9-44AC-BA43-D1DD308368A9" id="_907CB271-1496-45FA-91DC-FD3806B213E5" name="DMN_88265A7B-1EE4-425F-962A-54CBD86CCBA8">
+  <itemDefinition id="_61DB2D75-5B68-4D4A-8926-A83E90DE3EFE" name="Financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_C081718B-60DB-4DA5-A689-22CF334F9F48" name="monthlyIncome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_C736AF7D-D5EC-4C30-B02B-28A51E3F8235" name="existingEMIs" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_96A83889-C771-40C1-8587-36563C001A9B" name="otherIncomes" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_90E5B616-6D8F-4B3E-8AC1-2470D82F7E94" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_9DCA7B23-3549-4F9E-80BC-F37FE7243436" name="segment" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_9A72B6A4-3A74-4D92-A897-44C9E83F7BAD" name="creditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_360DF717-6BC1-4D5F-BCB1-960161D96A75" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_35360227-75A9-44D0-AADF-DC8A955FB2D1" name="customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Customer</typeRef>
+    </itemComponent>
+    <itemComponent id="_997737D5-84B0-4369-9803-8EE4A2696B61" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Financials</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="Risk Category" id="_FD1E1864-020E-4A8B-852C-310009064304">
+    <variable id="_97DC3771-7EB9-4B57-A999-76122B197BB0" typeRef="number" name="Risk Category" />
+    <informationRequirement id="_FA8F848A-1BF2-4C1E-82B4-B5CFBD077FE3">
+      <requiredInput href="#_F0246DE3-22A8-4FE8-AA3F-18A0314C7F98" />
+    </informationRequirement>
+    <knowledgeRequirement id="_DC9566EF-036D-4694-A38A-3D6834F41487">
+      <requiredKnowledge href="#_499A8801-C2D9-4DB3-96C1-463778FAE57A" />
+    </knowledgeRequirement>
+    <knowledgeRequirement id="_348AB02E-FD50-4D39-A807-26A11041F899">
+      <requiredKnowledge href="#_766F0EC3-5EF9-4899-AA86-F5317FF1C277" />
+    </knowledgeRequirement>
+  </decision>
+  <decision name="Financial Eligiblity" id="_ECE36F1E-E0E6-4BDE-8362-A02EA95CEDD3">
+    <variable id="_60531B94-1BA8-4197-B349-314EBA45DB66" typeRef="number" name="Financial Eligiblity" />
+    <informationRequirement id="_DFF2B32C-E2E8-44F4-9F78-7DD4AFF9CBED">
+      <requiredInput href="#_F0246DE3-22A8-4FE8-AA3F-18A0314C7F98" />
+    </informationRequirement>
+    <knowledgeRequirement id="_1A6B5F86-115C-4446-9DBB-08C3BD8F8EC0">
+      <requiredKnowledge href="#_499A8801-C2D9-4DB3-96C1-463778FAE57A" />
+    </knowledgeRequirement>
+    <knowledgeRequirement id="_4FF03EDE-1048-4D4B-90A6-BA2E63DFB3BE">
+      <requiredKnowledge href="#_2DEFEF6A-FDDB-48CE-915B-F38F6792AB03" />
+    </knowledgeRequirement>
+  </decision>
+  <decision name="Loan Approval" id="_71AED9E5-DFB0-4921-A8EC-8D888762BEF0">
+    <variable id="_7D427C00-2E18-4522-B396-9C23DD8E055A" name="Loan Approval" />
+    <informationRequirement id="_246DAF6F-5CDA-43FF-9854-B86C81D34924">
+      <requiredDecision href="#_FD1E1864-020E-4A8B-852C-310009064304" />
+    </informationRequirement>
+    <informationRequirement id="_CB01D66F-1A7D-43DA-AED4-23B891A23FAC">
+      <requiredDecision href="#_ECE36F1E-E0E6-4BDE-8362-A02EA95CEDD3" />
+    </informationRequirement>
+    <knowledgeRequirement id="_6FB359B8-24DF-4594-BC7E-4B017CDFBA30">
+      <requiredKnowledge href="#_499A8801-C2D9-4DB3-96C1-463778FAE57A" />
+    </knowledgeRequirement>
+  </decision>
+  <businessKnowledgeModel name="Calculate Risk Score" id="_766F0EC3-5EF9-4899-AA86-F5317FF1C277">
+    <variable name="Calculate Risk Score" id="_9DE96624-0E97-4CD5-B00D-7A7DB4C5C62A" typeRef="number" />
+    <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_0FBC3692-D026-4355-9B05-49CD4CA9D3A8" kind="FEEL">
+      <formalParameter id="_C3B46288-B908-4063-88D0-2C2B810AC112" name="loanApplication" typeRef="LoanApplication" />
+      <literalExpression id="_EDFA7AB7-C181-48DD-BD32-803CD91DE3DD" typeRef="number" label="Return">
+        <text>if loanApplication.customer.creditScore &gt;= 750 then 3 else if loanApplication.customer.creditScore &gt;= 650 then 2 else 1</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Financial Eligiblity" id="_2DEFEF6A-FDDB-48CE-915B-F38F6792AB03">
+    <variable name="Calculate Financial Eligiblity" id="_B872EA1A-9FBA-4C71-BBC7-5A86ACB2DF00" typeRef="number" />
+    <encapsulatedLogic label="Calculate Financial Eligiblity" typeRef="number" id="_715E5974-AD85-4647-B46C-A97E6A061A3C" kind="FEEL">
+      <formalParameter id="_315D148A-5964-4262-ACAB-CC41665F8733" name="loanApplication" typeRef="LoanApplication" />
+      <literalExpression id="_7F8AE6FD-61E1-46E8-99A7-81FF613BC400" typeRef="number" label="Return">
+        <text>loanApplication.financials.monthlyIncome + sum(loanApplication.financials.otherIncomes) - loanApplication.financials.existingEMIs</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <inputData name="LoanApplication" id="_F0246DE3-22A8-4FE8-AA3F-18A0314C7F98">
+    <variable name="LoanApplication" id="_2EBA894F-656B-4F41-AEA3-B56C7C7ACF45" />
+  </inputData>
+  <decisionService name="Loan Decision Service" id="_499A8801-C2D9-4DB3-96C1-463778FAE57A">
+    <variable name="Loan Decision Service" id="_45EB0875-911A-4927-9C2A-5F8DA204F7CD" />
+    <outputDecision href="#_71AED9E5-DFB0-4921-A8EC-8D888762BEF0" />
+    <encapsulatedDecision href="#_FD1E1864-020E-4A8B-852C-310009064304" />
+    <encapsulatedDecision href="#_ECE36F1E-E0E6-4BDE-8362-A02EA95CEDD3" />
+    <inputData href="#_F0246DE3-22A8-4FE8-AA3F-18A0314C7F98" />
+  </decisionService>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_3067B852-6754-48C8-BBFD-48E2C91F45F2" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_EDFA7AB7-C181-48DD-BD32-803CD91DE3DD">
+            <kie:width>1037</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7F8AE6FD-61E1-46E8-99A7-81FF613BC400">
+            <kie:width>1279</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_A6AE4E4A-1D36-4451-B49D-F9247FDA73E8" dmnElementRef="_499A8801-C2D9-4DB3-96C1-463778FAE57A" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="580" y="-40" width="620" height="400" />
+        <dmndi:DMNDecisionServiceDividerLine id="_D58379E8-0943-4F90-82AB-CAF2081806BE">
+          <di:waypoint x="580" y="120" />
+          <di:waypoint x="900" y="120" />
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_C4CACCD6-CEF4-4977-AC46-F3D5AE40732A" dmnElementRef="_FD1E1864-020E-4A8B-852C-310009064304" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="700" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_1BBDEB8A-EAFD-4102-A873-A2348F6317E2" dmnElementRef="_ECE36F1E-E0E6-4BDE-8362-A02EA95CEDD3" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="940" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_7C529D40-1F2A-4A6E-868E-DE8BA967CF14" dmnElementRef="_71AED9E5-DFB0-4921-A8EC-8D888762BEF0" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="820" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_5D218EAF-9A2F-4F51-8E59-8637FB331C0E" dmnElementRef="_F0246DE3-22A8-4FE8-AA3F-18A0314C7F98" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="300" y="440" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_6441E002-23F2-45C6-9D45-A8D19085FC03" dmnElementRef="_766F0EC3-5EF9-4899-AA86-F5317FF1C277" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="-100" y="160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_40FA700A-C314-4D0C-A96B-091F20680B0D" dmnElementRef="_2DEFEF6A-FDDB-48CE-915B-F38F6792AB03" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1380" y="340" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_AF50CFDF-0CB2-44B2-8311-7BDADFB3A0D1-AUTO-TARGET" dmnElementRef="_DC9566EF-036D-4694-A38A-3D6834F41487" sourceElement="_A6AE4E4A-1D36-4451-B49D-F9247FDA73E8" targetElement="_C4CACCD6-CEF4-4977-AC46-F3D5AE40732A">
+        <di:waypoint x="890" y="160" />
+        <di:waypoint x="780" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_B52CC626-7F4A-44CD-BF72-F4AE8B750E04-AUTO-TARGET" dmnElementRef="_1A6B5F86-115C-4446-9DBB-08C3BD8F8EC0" sourceElement="_A6AE4E4A-1D36-4451-B49D-F9247FDA73E8" targetElement="_1BBDEB8A-EAFD-4102-A873-A2348F6317E2">
+        <di:waypoint x="890" y="160" />
+        <di:waypoint x="1020" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_7A82991C-034A-47B7-8EA0-445904B0DF3C-AUTO-TARGET" dmnElementRef="_6FB359B8-24DF-4594-BC7E-4B017CDFBA30" sourceElement="_A6AE4E4A-1D36-4451-B49D-F9247FDA73E8" targetElement="_7C529D40-1F2A-4A6E-868E-DE8BA967CF14">
+        <di:waypoint x="890" y="160" />
+        <di:waypoint x="900" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_570110FF-F866-47DC-BA04-C8C408305DD5" dmnElementRef="_246DAF6F-5CDA-43FF-9854-B86C81D34924" sourceElement="_C4CACCD6-CEF4-4977-AC46-F3D5AE40732A" targetElement="_7C529D40-1F2A-4A6E-868E-DE8BA967CF14">
+        <di:waypoint x="780" y="220" />
+        <di:waypoint x="900" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_E9A23F94-6086-4B8E-A968-58A937833ED9" dmnElementRef="_CB01D66F-1A7D-43DA-AED4-23B891A23FAC" sourceElement="_1BBDEB8A-EAFD-4102-A873-A2348F6317E2" targetElement="_7C529D40-1F2A-4A6E-868E-DE8BA967CF14">
+        <di:waypoint x="1020" y="220" />
+        <di:waypoint x="900" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_916B5DD6-C968-4244-B373-183AF0FBDF5A" dmnElementRef="_DFF2B32C-E2E8-44F4-9F78-7DD4AFF9CBED" sourceElement="_5D218EAF-9A2F-4F51-8E59-8637FB331C0E" targetElement="_1BBDEB8A-EAFD-4102-A873-A2348F6317E2">
+        <di:waypoint x="380" y="480" />
+        <di:waypoint x="1020" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_8E1D6B6C-F583-47D1-87AC-896150A7479D" dmnElementRef="_FA8F848A-1BF2-4C1E-82B4-B5CFBD077FE3" sourceElement="_5D218EAF-9A2F-4F51-8E59-8637FB331C0E" targetElement="_C4CACCD6-CEF4-4977-AC46-F3D5AE40732A">
+        <di:waypoint x="380" y="480" />
+        <di:waypoint x="780" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_646EDED2-1622-4A22-A2DE-B7BD734E4561" dmnElementRef="_348AB02E-FD50-4D39-A807-26A11041F899" sourceElement="_6441E002-23F2-45C6-9D45-A8D19085FC03" targetElement="_C4CACCD6-CEF4-4977-AC46-F3D5AE40732A">
+        <di:waypoint x="-20" y="200" />
+        <di:waypoint x="780" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_F2CE5EAE-99A9-42C1-B369-AB552CDEFB88" dmnElementRef="_4FF03EDE-1048-4D4B-90A6-BA2E63DFB3BE" sourceElement="_40FA700A-C314-4D0C-A96B-091F20680B0D" targetElement="_1BBDEB8A-EAFD-4102-A873-A2348F6317E2">
+        <di:waypoint x="1460" y="380" />
+        <di:waypoint x="1020" y="220" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
