@@ -86,7 +86,7 @@
     <encapsulatedLogic label="calculate financial eligibilty" typeRef="number" id="_6124C7CB-3B17-49C8-AADC-45C89CD0784E" kind="FEEL">
       <formalParameter id="_5EF0F390-165D-4CCD-BA17-FF9A7B0F031E" name="loan application" typeRef="loanapplication" />
       <literalExpression id="_837FA535-1C27-4DF2-89E2-CA938236FA11" typeRef="number" label="Return">
-        <text>loan application.financials.monthlyincome + sum(loan application.financials.otherincome) - loan application.financials.existingemis</text>
+        <text>loan application.financials.monthlyincome + sum(loan application.financials.otherincomes) - loan application.financials.existingemis</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
