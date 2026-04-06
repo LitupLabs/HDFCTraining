@@ -28,7 +28,7 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Risk Category" id="_BEF0B63D-4B12-4290-9FCA-0B56E9CD6572">
-    <variable name="Risk Category" id="_55B0D8F5-3616-4465-A1D4-C53B424F1143" />
+    <variable name="Risk Category" id="_55B0D8F5-3616-4465-A1D4-C53B424F1143" typeRef="number" />
     <knowledgeRequirement id="_FB1FF02E-3123-416F-BAA3-83DB17329B9B">
       <requiredKnowledge href="#_4494F048-F0DB-4B7E-8855-5B41E1349CAB" />
     </knowledgeRequirement>
