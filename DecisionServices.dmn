@@ -28,7 +28,7 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Risk Category" id="_13536F26-56C3-4441-BB52-F6BA7F63FADB">
-    <variable id="_8EB62B1D-65D4-4566-A2AA-D05EEA959156" name="Risk Category" />
+    <variable id="_8EB62B1D-65D4-4566-A2AA-D05EEA959156" typeRef="number" name="Risk Category" />
     <informationRequirement id="_E5C98C7A-CD9F-4B2A-9D6D-57B2820D90FD">
       <requiredInput href="#_10E7857D-7028-44EC-B016-ADD5041FE82F" />
     </informationRequirement>
@@ -70,7 +70,7 @@
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="LoanApplication" id="_10E7857D-7028-44EC-B016-ADD5041FE82F">
-    <variable name="LoanApplication" id="_FE58FFA3-5374-4012-8295-C535EBDAF334" />
+    <variable name="LoanApplication" id="_FE58FFA3-5374-4012-8295-C535EBDAF334" typeRef="LoanApplication" />
   </inputData>
   <decisionService name="Loan Decision Service" id="_CE2D1719-5E02-40E3-A508-8E43BDBA4017">
     <variable name="Loan Decision Service" id="_8FE70154-67F0-43D2-8F6F-CE63A2C1F716" />
@@ -123,6 +123,7 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_1567B5A2-E0C0-4C7D-9897-7619B9D89F87" dmnElementRef="_6DC8BFF5-77F7-45A3-9CD2-24B75C0A3234" sourceElement="_3AA7C9BF-19C4-42EB-8CFD-956DCCC8C496" targetElement="_3631EBC0-5D94-40FE-8FFD-FB4DF939FEF2">
         <di:waypoint x="680" y="540" />
+        <di:waypoint x="620" y="480" />
         <di:waypoint x="540" y="420" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_3D72CA8F-1A2F-4CFF-AC48-0AC221C913C5" dmnElementRef="_A3832354-3208-49F5-BBC2-4E9504DB52EB" sourceElement="_E8AB1F67-1E5E-47B4-B610-2E3099FF7441" targetElement="_3631EBC0-5D94-40FE-8FFD-FB4DF939FEF2">
