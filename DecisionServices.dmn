@@ -28,7 +28,7 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Risk Category" id="_FD1E1864-020E-4A8B-852C-310009064304">
-    <variable id="_97DC3771-7EB9-4B57-A999-76122B197BB0" typeRef="number" name="Risk Category" />
+    <variable id="_97DC3771-7EB9-4B57-A999-76122B197BB0" typeRef="string" name="Risk Category" />
     <informationRequirement id="_FA8F848A-1BF2-4C1E-82B4-B5CFBD077FE3">
       <requiredInput href="#_F0246DE3-22A8-4FE8-AA3F-18A0314C7F98" />
     </informationRequirement>
@@ -38,9 +38,14 @@
     <knowledgeRequirement id="_348AB02E-FD50-4D39-A807-26A11041F899">
       <requiredKnowledge href="#_766F0EC3-5EF9-4899-AA86-F5317FF1C277" />
     </knowledgeRequirement>
+    <literalExpression id="_E3B8B6DA-A55A-48DC-B84B-485EA4CDDE1D" typeRef="string" label="Risk Category">
+      <text>if Calculate Risk Score() = 3 then &quot;HIGH&quot;
+else if Calculate Risk Score () = 2 then &quot;MEDIUM&quot;
+else &quot;LOW&quot;</text>
+    </literalExpression>
   </decision>
   <decision name="Financial Eligiblity" id="_ECE36F1E-E0E6-4BDE-8362-A02EA95CEDD3">
-    <variable id="_60531B94-1BA8-4197-B349-314EBA45DB66" typeRef="number" name="Financial Eligiblity" />
+    <variable id="_60531B94-1BA8-4197-B349-314EBA45DB66" typeRef="boolean" name="Financial Eligiblity" />
     <informationRequirement id="_DFF2B32C-E2E8-44F4-9F78-7DD4AFF9CBED">
       <requiredInput href="#_F0246DE3-22A8-4FE8-AA3F-18A0314C7F98" />
     </informationRequirement>
@@ -50,9 +55,12 @@
     <knowledgeRequirement id="_4FF03EDE-1048-4D4B-90A6-BA2E63DFB3BE">
       <requiredKnowledge href="#_2DEFEF6A-FDDB-48CE-915B-F38F6792AB03" />
     </knowledgeRequirement>
+    <literalExpression id="_6BF9F593-0621-41DB-B294-E2A481A749B3" typeRef="boolean" label="Financial Eligiblity">
+      <text>Calculate Financial Eligiblity () &gt; 30000</text>
+    </literalExpression>
   </decision>
   <decision name="Loan Approval" id="_71AED9E5-DFB0-4921-A8EC-8D888762BEF0">
-    <variable id="_7D427C00-2E18-4522-B396-9C23DD8E055A" name="Loan Approval" />
+    <variable id="_7D427C00-2E18-4522-B396-9C23DD8E055A" name="Loan Approval" typeRef="boolean" />
     <informationRequirement id="_246DAF6F-5CDA-43FF-9854-B86C81D34924">
       <requiredDecision href="#_FD1E1864-020E-4A8B-852C-310009064304" />
     </informationRequirement>
@@ -62,6 +70,9 @@
     <knowledgeRequirement id="_6FB359B8-24DF-4594-BC7E-4B017CDFBA30">
       <requiredKnowledge href="#_499A8801-C2D9-4DB3-96C1-463778FAE57A" />
     </knowledgeRequirement>
+    <literalExpression id="_74DB7268-C43F-402C-839D-7BF210150308" typeRef="boolean" label="Loan Approval">
+      <text>Risk Category!= &quot;HIGH&quot; and Financial Eligiblity = true</text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_766F0EC3-5EF9-4899-AA86-F5317FF1C277">
     <variable name="Calculate Risk Score" id="_9DE96624-0E97-4CD5-B00D-7A7DB4C5C62A" typeRef="number" />
@@ -101,6 +112,15 @@
           <kie:ComponentWidths dmnElementRef="_7F8AE6FD-61E1-46E8-99A7-81FF613BC400">
             <kie:width>1279</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_74DB7268-C43F-402C-839D-7BF210150308">
+            <kie:width>665</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E3B8B6DA-A55A-48DC-B84B-485EA4CDDE1D">
+            <kie:width>574</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6BF9F593-0621-41DB-B294-E2A481A749B3">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_A6AE4E4A-1D36-4451-B49D-F9247FDA73E8" dmnElementRef="_499A8801-C2D9-4DB3-96C1-463778FAE57A" isCollapsed="false" isListedInputData="false">
@@ -126,7 +146,7 @@
         <dc:Bounds x="-100" y="160" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_40FA700A-C314-4D0C-A96B-091F20680B0D" dmnElementRef="_2DEFEF6A-FDDB-48CE-915B-F38F6792AB03" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="1380" y="340" width="160" height="80" />
+        <dc:Bounds x="1460" y="220" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_AF50CFDF-0CB2-44B2-8311-7BDADFB3A0D1-AUTO-TARGET" dmnElementRef="_DC9566EF-036D-4694-A38A-3D6834F41487" sourceElement="_A6AE4E4A-1D36-4451-B49D-F9247FDA73E8" targetElement="_C4CACCD6-CEF4-4977-AC46-F3D5AE40732A">
         <di:waypoint x="890" y="160" />
@@ -161,7 +181,7 @@
         <di:waypoint x="780" y="220" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_F2CE5EAE-99A9-42C1-B369-AB552CDEFB88" dmnElementRef="_4FF03EDE-1048-4D4B-90A6-BA2E63DFB3BE" sourceElement="_40FA700A-C314-4D0C-A96B-091F20680B0D" targetElement="_1BBDEB8A-EAFD-4102-A873-A2348F6317E2">
-        <di:waypoint x="1460" y="380" />
+        <di:waypoint x="1540" y="260" />
         <di:waypoint x="1020" y="220" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
