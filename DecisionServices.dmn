@@ -27,8 +27,15 @@
       <typeRef>Financials</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="Risk Category" id="_057D8ACB-8A77-478B-A632-A29394CC080C">
+    <variable id="_CB298FC6-5232-4523-8DDD-A1950E76BD05" name="Risk Category" />
+    <knowledgeRequirement id="_5CA11495-1121-4349-BC6A-731901DD26E8">
+      <requiredKnowledge href="#_AE47CFD1-BCD5-4C86-8CB2-31B5F9362897" />
+    </knowledgeRequirement>
+  </decision>
   <decisionService name="Loan Decision Service" id="_AE47CFD1-BCD5-4C86-8CB2-31B5F9362897">
     <variable name="Loan Decision Service" id="_B039E204-B424-45B5-86F0-FE41DDFADD49" />
+    <encapsulatedDecision href="#_057D8ACB-8A77-478B-A632-A29394CC080C" />
   </decisionService>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_7693A3F9-910B-4802-A1B5-E122C47FB089" name="Default DRD" useAlternativeInputDataShape="false">
@@ -44,6 +51,13 @@
           <di:waypoint x="440" y="-700" />
         </dmndi:DMNDecisionServiceDividerLine>
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_6DC1F737-22D9-4518-9FE9-9EA3EFC47894" dmnElementRef="_057D8ACB-8A77-478B-A632-A29394CC080C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="180" y="-660" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_C7C6BD4B-C13D-4026-B913-5386473F26EE-AUTO-TARGET" dmnElementRef="_5CA11495-1121-4349-BC6A-731901DD26E8" sourceElement="_CC3490B1-65C1-43A4-8927-6C0DBF79D722" targetElement="_6DC1F737-22D9-4518-9FE9-9EA3EFC47894">
+        <di:waypoint x="410" y="-690" />
+        <di:waypoint x="260" y="-620" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
