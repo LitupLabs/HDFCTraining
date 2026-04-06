@@ -38,10 +38,10 @@
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_CC3490B1-65C1-43A4-8927-6C0DBF79D722" dmnElementRef="_AE47CFD1-BCD5-4C86-8CB2-31B5F9362897" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="460" y="0" width="660" height="380" />
+        <dc:Bounds x="120" y="-860" width="580" height="340" />
         <dmndi:DMNDecisionServiceDividerLine id="_9E0D894F-CEE6-4BE0-9547-A0000B8062B4">
-          <di:waypoint x="460" y="160" />
-          <di:waypoint x="780" y="160" />
+          <di:waypoint x="120" y="-700" />
+          <di:waypoint x="440" y="-700" />
         </dmndi:DMNDecisionServiceDividerLine>
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
