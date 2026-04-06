@@ -74,6 +74,36 @@
       <return id="_C6504822-9E25-4D85-84A5-823D499B9EDB" />
     </for>
   </decision>
+  <decision name="emiscalculation" id="_1CDD84CE-AF53-4062-A909-01EAF7399B3A">
+    <variable name="emiscalculation" id="_445A88DE-6C44-4636-9D60-B2EE336B2045" typeRef="emis" />
+    <informationRequirement id="_7A82F22D-6DCD-4BDB-9E6F-9DCF5661EAE2">
+      <requiredDecision href="#_9F376078-3D51-46C4-A11F-1D2620D8C774" />
+    </informationRequirement>
+    <for id="_F32F3EDD-F720-4252-B90E-84AD7A8A99B1" typeRef="emis" label="emiscalculation" iteratorVariable="emi">
+      <in id="_12BBAD70-D4CF-4022-AD6D-E61CA3E5A475">
+        <literalExpression id="_D1BEFC9F-0C55-43C6-BEE4-3342FD614BAE" label="Expression Name">
+          <text>emislist</text>
+        </literalExpression>
+      </in>
+      <return id="_F8E97819-C0CA-4CD4-AAF6-5F893FAC3830">
+        <context id="_ACE246AC-C05C-4B32-8DAD-E0FDE491BDB1" label="Expression Name">
+          <contextEntry id="_A00D7E1A-E0F1-4205-9E5E-71443762E665">
+            <variable id="_40A5AC36-3E26-41C4-BC7F-BC4F0DA4F1D9" name="emi" typeRef="number">
+              <description></description>
+            </variable>
+            <literalExpression id="_9C5A0C79-9988-43CF-ACAE-B40070337D2E" typeRef="number" label="emi">
+              <text>emi* 1.1</text>
+            </literalExpression>
+          </contextEntry>
+          <contextEntry id="_ED4F44E2-6C5D-45FB-9139-CA21B4CF66BB">
+            <literalExpression id="_8C4B22AE-EE9B-4C46-B0B2-CE310689AA5D" label="Expression Name">
+              <text>value</text>
+            </literalExpression>
+          </contextEntry>
+        </context>
+      </return>
+    </for>
+  </decision>
   <inputData name="loan application" id="_7FA7ACF5-4259-4390-948F-FBC887FA7E5A">
     <variable name="loan application" id="_4609B2F4-10BA-4E13-ABFD-D4AC2763CF2E" typeRef="loanapplication" />
   </inputData>
@@ -96,6 +126,18 @@
           <kie:ComponentWidths dmnElementRef="_5228F78D-C390-412C-B1F7-836091D9D96C">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D1BEFC9F-0C55-43C6-BEE4-3342FD614BAE">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_ACE246AC-C05C-4B32-8DAD-E0FDE491BDB1">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9C5A0C79-9988-43CF-ACAE-B40070337D2E">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8C4B22AE-EE9B-4C46-B0B2-CE310689AA5D">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_D4D51C99-E594-4FFD-8C6D-98DC7C8091C1" dmnElementRef="_7FA7ACF5-4259-4390-948F-FBC887FA7E5A" isCollapsed="false" isListedInputData="false">
@@ -113,6 +155,9 @@
       <dmndi:DMNShape id="_B303D676-8CCF-484E-8FD0-1B6284000A08" dmnElementRef="_E7C3F0A9-E2E9-4380-87EA-0F73177DF1C7" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="140" y="-60" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_152A34AC-DE2F-4ABC-80F8-D24038F1DF41" dmnElementRef="_1CDD84CE-AF53-4062-A909-01EAF7399B3A" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="-20" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_3BDA5A8F-EFCB-4285-9FED-9A7D9DEE36F2" dmnElementRef="_6C759F35-3624-44A9-9F8B-F1D7B6A12FF9" sourceElement="_D4D51C99-E594-4FFD-8C6D-98DC7C8091C1" targetElement="_77FFFB4C-E2ED-4808-868E-BF4896BFBF8D">
         <di:waypoint x="220" y="280" />
         <di:waypoint x="220" y="160" />
@@ -128,6 +173,10 @@
       <dmndi:DMNEdge id="_D64995A4-CECC-4E30-A4FB-7D66F9B12742" dmnElementRef="_C69869ED-A3C6-41A1-B96A-D7FE797FF77A" sourceElement="_B303D676-8CCF-484E-8FD0-1B6284000A08" targetElement="_35FEC542-E788-416D-BF0E-07ABDCA6469F">
         <di:waypoint x="220" y="-20" />
         <di:waypoint x="440" y="0" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_DAF6040C-DB21-4DDA-BFF8-9B4796B3F707" dmnElementRef="_7A82F22D-6DCD-4BDB-9E6F-9DCF5661EAE2" sourceElement="_77FFFB4C-E2ED-4808-868E-BF4896BFBF8D" targetElement="_152A34AC-DE2F-4ABC-80F8-D24038F1DF41">
+        <di:waypoint x="220" y="120" />
+        <di:waypoint x="60" y="220" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
