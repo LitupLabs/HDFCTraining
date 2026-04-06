@@ -92,7 +92,7 @@
     <encapsulatedLogic label="Calculate Financial Eligiblity" typeRef="number" id="_181F1D1A-BE5F-42AE-A900-D6225061FC85" kind="FEEL">
       <formalParameter id="_3B223583-E51B-4706-B22D-05E85915584D" name="LoanApplication" typeRef="LoanApplication" />
       <literalExpression id="_34A4C30E-7529-49D5-9093-D41C0F90DCF8" typeRef="number" label="Return">
-        <text>LoanApplication.financials.monthlyIncome + sum(LoanApplication.financials.otherIncome) - LoanApplication.financials.existingEMIs</text>
+        <text>LoanApplication.financials.monthlyIncome + sum(LoanApplication.financials.otherIncomes) - LoanApplication.financials.existingEMIs</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
@@ -100,7 +100,7 @@
     <variable name="LoanApplication" id="_FE58FFA3-5374-4012-8295-C535EBDAF334" typeRef="LoanApplication" />
   </inputData>
   <decisionService name="Loan Decision Service" id="_CE2D1719-5E02-40E3-A508-8E43BDBA4017">
-    <variable name="Loan Decision Service" id="_8FE70154-67F0-43D2-8F6F-CE63A2C1F716" />
+    <variable name="Loan Decision Service" id="_8FE70154-67F0-43D2-8F6F-CE63A2C1F716" typeRef="boolean" />
     <encapsulatedDecision href="#_B0E10C2F-F606-4227-90B0-FE6A974CEA2E" />
     <encapsulatedDecision href="#_13536F26-56C3-4441-BB52-F6BA7F63FADB" />
     <inputData href="#_10E7857D-7028-44EC-B016-ADD5041FE82F" />
