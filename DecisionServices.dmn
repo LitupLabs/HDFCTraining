@@ -27,10 +27,4 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_2EC97956-2C2B-4DFE-AC7A-C0D54A0CA626" name="RiskCategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <typeRef>string</typeRef>
-    <allowedValues id="_90DDD7BE-7854-4B7D-A7E7-0BE633E62AED" kie:constraintType="enumeration">
-      <text>&quot;HIGH&quot;, &quot;MEDIUM&quot;, &quot;LOW&quot;</text>
-    </allowedValues>
-  </itemDefinition>
 </definitions>
