@@ -34,7 +34,7 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Risk Category" id="_13536F26-56C3-4441-BB52-F6BA7F63FADB">
-    <variable id="_8EB62B1D-65D4-4566-A2AA-D05EEA959156" typeRef="number" name="Risk Category" />
+    <variable id="_8EB62B1D-65D4-4566-A2AA-D05EEA959156" typeRef="string" name="Risk Category" />
     <informationRequirement id="_E5C98C7A-CD9F-4B2A-9D6D-57B2820D90FD">
       <requiredInput href="#_10E7857D-7028-44EC-B016-ADD5041FE82F" />
     </informationRequirement>
@@ -44,7 +44,7 @@
     <knowledgeRequirement id="_817C9DB4-DCBC-41EE-99D8-4D113C21F102">
       <requiredKnowledge href="#_26717DFC-E3C2-4678-8809-39FDA1A32FDA" />
     </knowledgeRequirement>
-    <literalExpression id="_D28367B6-A6AF-485C-A063-945379C78F0D" typeRef="number" label="Risk Category">
+    <literalExpression id="_D28367B6-A6AF-485C-A063-945379C78F0D" typeRef="string" label="Risk Category">
       <text>if Calculate Risk Score() = 3 then &quot;HIGH&quot; else if Calculate Risk Score() = 2 then &quot;MEDIUM&quot; else &quot;LOW&quot;</text>
     </literalExpression>
   </decision>
