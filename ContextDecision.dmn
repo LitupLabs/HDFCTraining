@@ -31,7 +31,7 @@
           <description></description>
         </variable>
         <literalExpression id="_EA0386A6-F827-4E2F-9DEC-7B1E4F61BDCA" typeRef="number" label="rate">
-          <text>Calculate Rate</text>
+          <text>Calculate Rate()</text>
         </literalExpression>
       </contextEntry>
       <contextEntry id="_7A4C921C-E92C-4FBE-9CD7-F8A55C9366B1">
