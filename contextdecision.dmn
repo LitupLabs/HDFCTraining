@@ -16,6 +16,9 @@
     <informationRequirement id="_F16B989D-F55F-4260-B63B-40FEC4D7088A">
       <requiredInput href="#_B8A5A819-9603-49D4-AB2E-A079AC76D732" />
     </informationRequirement>
+    <knowledgeRequirement id="_13C7CAFB-62E9-4B22-9B5F-E1F53D8A7942">
+      <requiredKnowledge href="#_7AEE5BCC-F6C5-441A-9DB1-B676E6B435DB" />
+    </knowledgeRequirement>
     <context id="_D71376C5-B449-42E2-B7C4-714B03E0598A" typeRef="number" label="emi calculation">
       <contextEntry id="_C7654283-B9AF-4D36-A488-054E03122E50">
         <variable id="_E16B1530-E351-4EB9-B1C5-C6FE88DDC223" name="principal" typeRef="number" />
@@ -54,6 +57,11 @@
       </contextEntry>
     </context>
   </decision>
+  <businessKnowledgeModel name="calculate rate" id="_7AEE5BCC-F6C5-441A-9DB1-B676E6B435DB">
+    <variable name="calculate rate" id="_282F9782-CEF2-4623-AA3E-D163DF54EF18" typeRef="number" />
+    <encapsulatedLogic id="_0CA803D8-38A4-4959-8162-6D465C1F894D" kind="FEEL" label="calculate rate" typeRef="number">
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <inputData name="loan" id="_B8A5A819-9603-49D4-AB2E-A079AC76D732">
     <variable name="loan" id="_0DFDEC48-09BE-4ED2-AAC7-CD27E566A20F" typeRef="loan" />
   </inputData>
@@ -87,9 +95,16 @@
       <dmndi:DMNShape id="_AFE8EFCF-F52C-4896-962C-82198E76A7DD" dmnElementRef="_B8A5A819-9603-49D4-AB2E-A079AC76D732" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="420" y="240" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_25D0F2B9-088D-4132-925D-3C7DEB3C2A22" dmnElementRef="_7AEE5BCC-F6C5-441A-9DB1-B676E6B435DB" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="940" y="200" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_107B3C09-A63F-4BCE-8B38-5584BB7CCF62" dmnElementRef="_F16B989D-F55F-4260-B63B-40FEC4D7088A" sourceElement="_AFE8EFCF-F52C-4896-962C-82198E76A7DD" targetElement="_A630280C-A532-49B8-AD9B-18801CC9D753">
         <di:waypoint x="500" y="280" />
         <di:waypoint x="500" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_B856AF32-6264-4D5D-93B4-F6541DA4CFFE" dmnElementRef="_13C7CAFB-62E9-4B22-9B5F-E1F53D8A7942" sourceElement="_25D0F2B9-088D-4132-925D-3C7DEB3C2A22" targetElement="_A630280C-A532-49B8-AD9B-18801CC9D753">
+        <di:waypoint x="1020" y="240" />
+        <di:waypoint x="580" y="140" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
