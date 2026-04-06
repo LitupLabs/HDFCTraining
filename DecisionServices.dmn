@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_5187B8C5-0FA7-4939-A4F5-B0AC1840FEA9" id="_B43179FF-7CAC-4388-8B7C-D2E399DBC0AF" name="DMN_7559201A-FE59-4C58-9D58-598CAF768267">
+  <itemDefinition id="_82CE73D4-219C-466B-84A7-4B466464AECD" name="RiskCategory" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>string</typeRef>
+    <allowedValues id="_A8690E1A-A719-46FC-94D2-E4B7EB84BA20" kie:constraintType="enumeration">
+      <text>&quot;HIGH&quot;, &quot;MEDIUM&quot;, &quot;LOW&quot;</text>
+    </allowedValues>
+  </itemDefinition>
   <itemDefinition id="_EB08B618-5090-4361-A528-1ACF38401818" name="LoanApplication" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_83FB57E7-2924-4F85-87FE-66975ED6078D" name="financials" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Financials</typeRef>
@@ -52,7 +58,7 @@
     </knowledgeRequirement>
   </decision>
   <decision name="Loan Approval" id="_41BC1933-6A98-4F07-9882-5914CDE1601E">
-    <variable id="_38D7625E-A614-49E3-9F52-059DBE1DE328" name="Loan Approval" />
+    <variable id="_38D7625E-A614-49E3-9F52-059DBE1DE328" name="Loan Approval" typeRef="boolean" />
     <informationRequirement id="_6DC8BFF5-77F7-45A3-9CD2-24B75C0A3234">
       <requiredDecision href="#_B0E10C2F-F606-4227-90B0-FE6A974CEA2E" />
     </informationRequirement>
@@ -62,6 +68,9 @@
     <knowledgeRequirement id="_9AF9FD86-9A49-478D-85CA-A8D9CD1D6CA0">
       <requiredKnowledge href="#_CE2D1719-5E02-40E3-A508-8E43BDBA4017" />
     </knowledgeRequirement>
+    <literalExpression id="_4847F39A-7CA1-4C76-B8F1-DBEC1D8BECD9" typeRef="boolean" label="Loan Approval">
+      <text>Risk Category != &quot;HIGH&quot; and Financial Eligibility = true</text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_26717DFC-E3C2-4678-8809-39FDA1A32FDA">
     <variable name="Calculate Risk Score" id="_26612D00-6669-49B3-AB03-B05F35095041" typeRef="number" />
@@ -99,6 +108,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_34A4C30E-7529-49D5-9093-D41C0F90DCF8">
             <kie:width>634</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4847F39A-7CA1-4C76-B8F1-DBEC1D8BECD9">
+            <kie:width>694</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
