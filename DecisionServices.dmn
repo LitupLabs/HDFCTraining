@@ -75,18 +75,18 @@
   <businessKnowledgeModel name="Calculate Risk Score" id="_2C026960-6F44-4192-BB63-074E5F0BFA4D">
     <variable name="Calculate Risk Score" id="_534BC409-A899-4E7D-9BE5-E91E45ADFB18" typeRef="number" />
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_4308ED4C-D15E-4557-A03E-984585EE06BA" kind="FEEL">
-      <formalParameter id="_2FF24E1D-7939-4830-A9FA-3585191DF845" name="loanApplication" typeRef="LoanApplications" />
+      <formalParameter id="_2FF24E1D-7939-4830-A9FA-3585191DF845" name="LoanApplication" typeRef="LoanApplications" />
       <literalExpression id="_3913DA42-643E-4496-AFFE-5398F206401E" typeRef="number" label="Return">
-        <text>if loanApplication.customer.creditScore &gt;= 750 then 3 else if loanApplication.customer.creditScore &gt;= 650 then 2 else 1</text>
+        <text>if LoanApplication.customer.creditScore &gt;= 750 then 3 else if LoanApplication.customer.creditScore &gt;= 650 then 2 else 1</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <businessKnowledgeModel name="Calculate Financial Eligibility" id="_2AC69564-1D72-4AB9-9BC0-5939F71DA065">
     <variable name="Calculate Financial Eligibility" id="_3759EC12-FD30-4285-B42C-A28078A674A0" typeRef="number" />
     <encapsulatedLogic label="Calculate Financial Eligibility" typeRef="number" id="_087358FB-A302-4776-987D-1B1738FDC96B" kind="FEEL">
-      <formalParameter id="_F53753B4-1FA2-417E-BCDD-0D809BF7B8C5" name="loanApplication" typeRef="LoanApplications" />
+      <formalParameter id="_F53753B4-1FA2-417E-BCDD-0D809BF7B8C5" name="LoanApplication" typeRef="LoanApplications" />
       <literalExpression id="_850F34E4-8DEB-4719-9198-5DDFB60E0782" typeRef="number" label="Return">
-        <text>loanApplication.financials.monthlyIncome + sum(loanApplication.financials.otherIncomes) - loanApplication.financials.existingEMIs</text>
+        <text>LoanApplication.financials.monthlyIncome + sum(LoanApplication.financials.otherIncomes) - LoanApplication.financials.existingEMIs</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
