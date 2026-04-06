@@ -176,42 +176,42 @@
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_29053E1B-FB58-45E9-A236-1F61D30E1228" dmnElementRef="_39CB12AE-14EC-4E2C-A298-22D7A322EAA8" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="300" y="440" width="160" height="80" />
+        <dc:Bounds x="112" y="472" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_38E25B26-12B5-49F6-BFA5-493622A80EF9" dmnElementRef="_D3F5DDF4-6A6F-4A5F-90E0-81BDD052277F" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="200" y="220" width="160" height="80" />
+        <dc:Bounds x="332" y="292" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_D265B8D7-3D61-4AEF-B520-A5F7E9088E28" dmnElementRef="_00E86F85-70C9-466C-9F47-2EE2D9091F92" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="660" y="180" width="160" height="80" />
+        <dc:Bounds x="112" y="292" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_A72683E9-E99B-4F5A-8B54-C8BD11B7EC21" dmnElementRef="_39A3304E-5693-41B1-B77F-CCBB631FD4EA" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="460" y="100" width="160" height="80" />
+        <dc:Bounds x="552" y="112" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_A1405377-2E23-4280-AB56-B45496F7533D" dmnElementRef="_433DA8DB-444B-4C1F-AA9F-C7C892194ED8" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="200" y="100" width="160" height="80" />
+        <dc:Bounds x="552" y="472" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_4619C2D3-2EA6-40B2-AE4A-9D55E54B37CA" dmnElementRef="_2AB3E164-1011-4518-9D79-A235661FDA48" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="720" y="340" width="160" height="80" />
+        <dc:Bounds x="332" y="112" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_E007A9C1-9DBE-4397-BD78-4AF7693A0A76" dmnElementRef="_359E764D-14EA-4EA5-8BE0-AD38766C4C25" sourceElement="_29053E1B-FB58-45E9-A236-1F61D30E1228" targetElement="_38E25B26-12B5-49F6-BFA5-493622A80EF9">
-        <di:waypoint x="380" y="480" />
-        <di:waypoint x="280" y="260" />
+        <di:waypoint x="192" y="472" />
+        <di:waypoint x="412" y="372" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_7D8073D9-F548-47FB-BBF1-E58020A6C47A" dmnElementRef="_CDD342BE-E539-4591-8748-C0AFEB46C93B" sourceElement="_29053E1B-FB58-45E9-A236-1F61D30E1228" targetElement="_D265B8D7-3D61-4AEF-B520-A5F7E9088E28">
-        <di:waypoint x="380" y="480" />
-        <di:waypoint x="740" y="220" />
+        <di:waypoint x="192" y="472" />
+        <di:waypoint x="192" y="372" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_EDC44414-D3B2-4B54-B5D8-635C1060CC12" dmnElementRef="_57CBEE76-85D1-458E-A603-9201571977B2" sourceElement="_38E25B26-12B5-49F6-BFA5-493622A80EF9" targetElement="_A72683E9-E99B-4F5A-8B54-C8BD11B7EC21">
-        <di:waypoint x="280" y="260" />
-        <di:waypoint x="540" y="140" />
+        <di:waypoint x="412" y="292" />
+        <di:waypoint x="632" y="192" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_C37213DD-5787-4F78-96B2-BE355C0A69F8" dmnElementRef="_7DAED592-446E-42D7-A701-CFE11E828567" sourceElement="_A1405377-2E23-4280-AB56-B45496F7533D" targetElement="_A72683E9-E99B-4F5A-8B54-C8BD11B7EC21">
-        <di:waypoint x="280" y="140" />
-        <di:waypoint x="540" y="140" />
+        <di:waypoint x="632" y="472" />
+        <di:waypoint x="632" y="192" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_4591750D-9585-435B-B271-F5FD4CCDD52B" dmnElementRef="_60673E7B-B615-46EE-993E-4C5C7985B44F" sourceElement="_38E25B26-12B5-49F6-BFA5-493622A80EF9" targetElement="_4619C2D3-2EA6-40B2-AE4A-9D55E54B37CA">
-        <di:waypoint x="280" y="260" />
-        <di:waypoint x="720" y="380" />
+        <di:waypoint x="412" y="292" />
+        <di:waypoint x="412" y="192" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
