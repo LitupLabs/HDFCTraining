@@ -59,6 +59,9 @@
     <knowledgeRequirement id="_9AB6C3B2-3B16-4E82-9AE8-0122E30F956F">
       <requiredKnowledge href="#_3B362740-FA93-4927-B45A-5C17DC872077" />
     </knowledgeRequirement>
+    <literalExpression id="_A9934C00-E243-41CA-B4F9-93C683DC7A6D" typeRef="boolean" label="Financial Eligibility">
+      <text>Calculate Financial Eligiblity() &gt; 30000</text>
+    </literalExpression>
   </decision>
   <decision name="Loan Approval" id="_41BC1933-6A98-4F07-9882-5914CDE1601E">
     <variable id="_38D7625E-A614-49E3-9F52-059DBE1DE328" name="Loan Approval" typeRef="boolean" />
@@ -117,6 +120,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_D28367B6-A6AF-485C-A063-945379C78F0D">
             <kie:width>911</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A9934C00-E243-41CA-B4F9-93C683DC7A6D">
+            <kie:width>765</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
