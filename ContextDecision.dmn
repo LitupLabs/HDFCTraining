@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_D1FE4830-250D-4237-8270-346F6EC88C60" id="_F038D448-4131-4101-97DB-FCE333C11F18" name="DMN_972A7227-2C62-4AFA-8CF5-699E899FB321">
+  <itemDefinition id="_4D68B75C-4995-4C25-9C18-E88F030312F0" name="Loan" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E96E7D7C-3B82-4529-A6A5-E52215486D4C" name="amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_4232BC10-9FCC-459D-BD69-46F64E490B30" name="tenure" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_5232533E-03B7-46C7-B0D7-48E839C47CE4" name="interestRate" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="EMI Calculation" id="_843C415A-C9D9-482E-8D7F-36C6A332F2D5">
+    <variable name="EMI Calculation" id="_8BD1408F-2CD9-4CC7-93B6-15AEE978D6FB" typeRef="number" />
+    <informationRequirement id="_B3010994-2950-457B-BEA1-82EB0BB098C3">
+      <requiredInput href="#_CCBE3063-7E0F-4238-84C8-397EE15C499D" />
+    </informationRequirement>
+    <context id="_DBAE4036-77BF-47EF-A70D-644869B0595B" typeRef="number" label="EMI Calculation">
+      <contextEntry id="_60641108-6BC1-4F01-855C-660263BE8F2E">
+        <variable id="_1F17C804-02CD-43C8-AB76-8D8F7C461D0E" name="principal" typeRef="number" />
+        <literalExpression id="_8132DDF1-E684-42A8-AD3D-D58A2BF5F546" typeRef="number" label="principal">
+          <text>Loan.amount</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_851BDFB7-F243-49FA-BB7C-F1A5E12BB98A">
+        <variable id="_D1BAAE8D-DC67-4043-90D4-90A239F943F5" name="rate" typeRef="number">
+          <description></description>
+        </variable>
+        <literalExpression id="_6FDBD282-79B5-4F9B-A9D0-A63696A16DD7" typeRef="number" label="rate">
+          <text>Loan.interestRate / 12</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_9785A75C-0B40-49E1-B2E0-1EFD0138626B">
+        <variable id="_211E219C-6AC5-452E-957D-05F32F7238B9" name="tenure" typeRef="number">
+          <description></description>
+        </variable>
+        <literalExpression id="_EB6723FC-1FFB-450E-B8E3-43F2DB3D5DBC" typeRef="number" label="tenure">
+          <text>Loan.tenure</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_20A161B7-465E-40BF-9FB1-6DCAE9DC9E7B">
+        <variable id="_E276D44D-6BC3-4134-9228-682F19B61D8C" name="emi" typeRef="number">
+          <description></description>
+        </variable>
+        <literalExpression id="_2C0C272F-D241-4281-A11C-D7DFB339856C" typeRef="number" label="emi">
+          <text>(principal * rate ) / (1 - ( 1 + rate ) ** (-tenure))</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_CA940430-63BC-47A0-8DB4-146D705947FA">
+        <literalExpression id="_487A7EBF-F766-44D9-B2E6-4B864310766E" typeRef="number" label="EMI Calculation">
+          <text>emi</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
+  </decision>
+  <inputData name="Loan" id="_CCBE3063-7E0F-4238-84C8-397EE15C499D">
+    <variable name="Loan" id="_BF17666F-E5C4-4FD2-BD51-66BD245E8918" typeRef="Loan" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_A63330AB-7CEB-4132-80DE-0E21B994C77B" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_DBAE4036-77BF-47EF-A70D-644869B0595B">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8132DDF1-E684-42A8-AD3D-D58A2BF5F546">
+            <kie:width>497</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6FDBD282-79B5-4F9B-A9D0-A63696A16DD7">
+            <kie:width>497</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_EB6723FC-1FFB-450E-B8E3-43F2DB3D5DBC">
+            <kie:width>497</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_2C0C272F-D241-4281-A11C-D7DFB339856C">
+            <kie:width>497</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_487A7EBF-F766-44D9-B2E6-4B864310766E">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_620E438B-A9A2-4831-883D-591315804E48" dmnElementRef="_843C415A-C9D9-482E-8D7F-36C6A332F2D5" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="300" y="160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_22160917-2300-4346-A83F-D1060FCA4E11" dmnElementRef="_CCBE3063-7E0F-4238-84C8-397EE15C499D" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="300" y="320" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_813A9B47-E53E-41FD-ACE1-36B637220B87" dmnElementRef="_B3010994-2950-457B-BEA1-82EB0BB098C3" sourceElement="_22160917-2300-4346-A83F-D1060FCA4E11" targetElement="_620E438B-A9A2-4831-883D-591315804E48">
+        <di:waypoint x="380" y="360" />
+        <di:waypoint x="380" y="200" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
