@@ -37,13 +37,13 @@
     </knowledgeRequirement>
   </decision>
   <decision name="Financial Eligibility" id="_223C323E-795F-407B-B30B-AE0DD00637E7">
-    <variable name="Financial Eligibility" id="_93F52625-BAE4-4392-9133-6550E84B38E4" />
+    <variable name="Financial Eligibility" id="_93F52625-BAE4-4392-9133-6550E84B38E4" typeRef="number" />
     <knowledgeRequirement id="_C7934224-5D33-407C-82A5-2D5137198852">
       <requiredKnowledge href="#_4494F048-F0DB-4B7E-8855-5B41E1349CAB" />
     </knowledgeRequirement>
   </decision>
   <decision name="Loan Approval" id="_8B09660B-2599-4681-B601-14781A9979F1">
-    <variable name="Loan Approval" id="_54CF1DAC-C18C-4CF3-B8DA-42D2B33CD96F" />
+    <variable name="Loan Approval" id="_54CF1DAC-C18C-4CF3-B8DA-42D2B33CD96F" typeRef="boolean" />
     <informationRequirement id="_4D73B654-84B9-4F99-A290-C4690D852EC8">
       <requiredDecision href="#_BEF0B63D-4B12-4290-9FCA-0B56E9CD6572" />
     </informationRequirement>
@@ -63,6 +63,15 @@
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Financial Eligibility" id="_2AC69564-1D72-4AB9-9BC0-5939F71DA065">
+    <variable name="Calculate Financial Eligibility" id="_3759EC12-FD30-4285-B42C-A28078A674A0" typeRef="number" />
+    <encapsulatedLogic label="Calculate Financial Eligibility" typeRef="number" id="_087358FB-A302-4776-987D-1B1738FDC96B" kind="FEEL">
+      <formalParameter id="_F53753B4-1FA2-417E-BCDD-0D809BF7B8C5" name="loanApplication" typeRef="LoanApplications" />
+      <literalExpression id="_850F34E4-8DEB-4719-9198-5DDFB60E0782" typeRef="number" label="Return">
+        <text>loanApplication.financials.monthlyIncome + sum(loanApplication.financials.otherIncomes) - loanApplication.financials.existingEMIs</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <decisionService name="Loan Decision Service" id="_4494F048-F0DB-4B7E-8855-5B41E1349CAB">
     <variable name="Loan Decision Service" id="_AFA25015-E6AA-4BBA-8EB5-D5894195B770" />
     <outputDecision href="#_8B09660B-2599-4681-B601-14781A9979F1" />
@@ -75,6 +84,9 @@
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_3913DA42-643E-4496-AFFE-5398F206401E">
             <kie:width>772</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_850F34E4-8DEB-4719-9198-5DDFB60E0782">
+            <kie:width>697</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -96,6 +108,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_1F2442E3-07FB-4A1C-AD61-4BFEA1F9472F" dmnElementRef="_2C026960-6F44-4192-BB63-074E5F0BFA4D" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="0" y="-160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_B432F9B6-59D3-4B35-AECD-027261F92C69" dmnElementRef="_2AC69564-1D72-4AB9-9BC0-5939F71DA065" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1300" y="-100" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_6B4F80F2-39A2-4D23-8839-B87461417A15" dmnElementRef="_FB1FF02E-3123-416F-BAA3-83DB17329B9B" sourceElement="_0A69E5BB-EFAC-4F87-BB03-307291146F49" targetElement="_C1F6AAB3-5559-47BB-84BA-DB083636799C">
         <di:waypoint x="670" y="-80" />
