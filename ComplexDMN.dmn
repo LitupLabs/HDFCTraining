@@ -96,7 +96,7 @@
     <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_AF181F5A-3F23-4F29-A049-D34B3A51387A" kind="FEEL">
       <formalParameter id="_B18D8DDF-6C5E-4594-BD63-906D1E874951" name="Item" typeRef="Item" />
       <literalExpression id="_A1A19103-E2F9-4630-A65B-3AFF1422162A" typeRef="number" label="Return">
-        <text>Item.quantity * Item.unitPrice</text>
+        <text>if Item.quantity = null or Item.unitPrice = null then 0 else Item.quantity * Item.unitPrice</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
