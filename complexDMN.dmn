@@ -84,9 +84,9 @@
       <requiredKnowledge href="#_B085B2E7-F5E6-441F-86D5-A5F3B1EFD3C9" />
     </knowledgeRequirement>
     <for id="_B720F08A-F965-4547-A904-9BBDB6F6C008" typeRef="itemtotal" label="itemtotal" iteratorVariable="item">
-      <in id="_D5A94FA6-A1D5-4C2D-9C24-B0DCABD979D8">
+      <in id="_966EEEB6-16BB-4E46-A9D5-6C0D3671669B">
         <literalExpression id="_77F7EC21-C60A-439B-AB55-71551925AC2D" label="Expression Name">
-          <text>purchaserequest.item</text>
+          <text>purchaserequest.items</text>
         </literalExpression>
       </in>
       <return id="_6F5EF3E7-1939-43A3-B4F7-30249AC54D57">
