@@ -106,7 +106,7 @@
     </literalExpression>
   </decision>
   <decision name="eligiblevenders" id="_73FFB477-28A0-4C3F-9157-1FF52511E19D">
-    <variable name="eligiblevenders" id="_E16E84A2-6DAF-4210-91E1-9792CFA6516A" />
+    <variable name="eligiblevenders" id="_E16E84A2-6DAF-4210-91E1-9792CFA6516A" typeRef="vendorlist" />
     <informationRequirement id="_ABD8CA02-D95C-4AD3-9322-870F83447CD8">
       <requiredInput href="#_54A615ED-BE73-408E-ABD0-084AA478315E" />
     </informationRequirement>
@@ -116,7 +116,7 @@
     <knowledgeRequirement id="_54ECE063-8197-4F5C-8E3E-65829D2E3C78">
       <requiredKnowledge href="#_064B8F08-438E-4EDC-8C1F-C861C9742171" />
     </knowledgeRequirement>
-    <filter id="_5B099E63-F5A2-4FDC-9B8E-B4CF227D2225" label="eligiblevenders">
+    <filter id="_5B099E63-F5A2-4FDC-9B8E-B4CF227D2225" typeRef="vendorlist" label="eligiblevenders">
       <in id="_89C5415F-1E4E-435A-A8C6-133B83D49ACF">
         <literalExpression id="_C9E1237E-9FE4-4AD6-AE4C-60CCCE3C3E4D" label="Expression Name">
           <text>vendors</text>
