@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_9761C847-B613-47A5-A82C-4275E90879EB" id="_56120F80-BEA3-4CDE-81E4-BECEC978F35C" name="DMN_BFFC5E11-896D-48B6-9154-376386CAED5A">
+  <itemDefinition id="_DEA09CAC-4F55-4454-B1AA-E37B6B6BA148" name="PurchaseRequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_2AB6D08E-F558-481A-B9DE-6679505F6DE6" name="id" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_71624F1A-64A0-4A68-817E-808A9914920D" name="department" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_46027CAA-E035-4179-BB62-FB3145BF694C" name="totalAmount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_AE625031-A187-40B3-BBEB-EC555039C4C4" name="item" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Item</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_9A998705-0C3F-4CCA-B0BD-146FD68769F7" name="Policies" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_E90AB9FF-FA60-4C01-BB7B-2BAD3C9B8886" name="maxDeliveryDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
