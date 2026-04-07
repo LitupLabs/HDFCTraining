@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_7BB3052C-38FF-48CC-9BA4-24F78464AD29" id="_4E8BB694-1416-40E6-8150-D46A296E7BC9" name="DMN_F8FB5388-BB62-45BD-A07D-FF535E59676E" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_C31084C4-F771-4930-BBC6-4580A17483BF" name="VendorList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_23354BCD-E532-4E65-BA57-BCE924BAC709" name="vendors" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Vendor</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_9FF676AB-3FE4-4C1B-ABBA-68BC03943266" name="ItemTotal" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>number</typeRef>
   </itemDefinition>
@@ -91,6 +96,15 @@
       </return>
     </for>
   </decision>
+  <decision name="Total Procurement Cost" id="_09DC17B0-2E1C-4805-B62C-85DBB50D1F06">
+    <variable name="Total Procurement Cost" id="_4F537D0C-B967-4A5B-B396-25393F8A33BF" typeRef="number" />
+    <informationRequirement id="_02DC4215-4525-48E0-8329-181E7DD39018">
+      <requiredDecision href="#_BC5FF909-25BB-4E58-A4CF-73BCD386E0A5" />
+    </informationRequirement>
+    <literalExpression id="_377984D7-ECD9-4655-BBF9-62B2ED643B93" typeRef="number" label="Total Procurement Cost">
+      <text>sum(Item Totals)</text>
+    </literalExpression>
+  </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_8210AB07-7786-4DC3-90C9-E7A9EFF68F1E">
     <variable name="Calculate Item Total" id="_19BF7F64-4E59-4A32-AAC3-D8122832C409" typeRef="number" />
     <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_AF181F5A-3F23-4F29-A049-D34B3A51387A" kind="FEEL">
@@ -100,8 +114,21 @@
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
+  <businessKnowledgeModel name="Is Vendor Eligible" id="_31128800-42A4-4FA0-A757-33FD0D5F4B1C">
+    <variable name="Is Vendor Eligible" id="_95028976-6798-4CBE-9D36-B04C1DBE7079" />
+    <encapsulatedLogic label="Is Vendor Eligible" id="_75EF7C76-FC5A-44A8-A6A2-04AA82D88B02" kind="FEEL">
+      <formalParameter id="_DB7F3203-A046-4AAC-B829-05EC1EC7F67B" name="vendor" typeRef="Vendor" />
+      <formalParameter id="_AA64F7E2-7F2D-4067-9B4E-BA74D73772C3" name="" />
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <inputData name="PurchaseRequest" id="_6AF234AF-A793-49EE-B617-6D30E85432DD">
     <variable name="PurchaseRequest" id="_64A51E87-338F-4F44-BC32-92EF07C73628" typeRef="PurchaseRequest" />
+  </inputData>
+  <inputData name="Vendors" id="_7748D541-A2D1-4AC3-AAD1-DE64C2C96B33">
+    <variable name="Vendors" id="_53F1948E-603E-40B4-976C-14584FDCAC8E" typeRef="VendorList" />
+  </inputData>
+  <inputData name="Policies" id="_6EF9E322-1D49-4427-BE41-34A4DE5F5897">
+    <variable name="Policies" id="_48CDC6F2-5BE7-4E23-A4E0-2CBC391CE657" typeRef="Policies" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_C827E1BB-B970-4169-97F2-141EB57C6C44" name="Default DRD" useAlternativeInputDataShape="false">
@@ -116,6 +143,9 @@
           <kie:ComponentWidths dmnElementRef="_073372B6-C4C7-4361-9F09-4CE27C039388">
             <kie:width>395</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_377984D7-ECD9-4655-BBF9-62B2ED643B93">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_664893A1-0321-4312-9AED-A95EC80A516B" dmnElementRef="_6AF234AF-A793-49EE-B617-6D30E85432DD" isCollapsed="false" isListedInputData="false">
@@ -127,6 +157,18 @@
       <dmndi:DMNShape id="_AF9CF6E9-9478-4FBC-8F22-4DDE71E7A5F1" dmnElementRef="_BC5FF909-25BB-4E58-A4CF-73BCD386E0A5" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="580" y="20" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_93BBBDBA-5AFD-469E-A96C-902EA41CBCB3" dmnElementRef="_7748D541-A2D1-4AC3-AAD1-DE64C2C96B33" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="820" y="140" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_D754A6A6-7E71-4A32-8DBE-47CC0B74D5C0" dmnElementRef="_09DC17B0-2E1C-4805-B62C-85DBB50D1F06" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="820" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_583CCB2F-83A2-4C39-9BA9-98AD2362036A" dmnElementRef="_6EF9E322-1D49-4427-BE41-34A4DE5F5897" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1040" y="140" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_42969893-DE5B-4752-9070-85D29E0BC733" dmnElementRef="_31128800-42A4-4FA0-A757-33FD0D5F4B1C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1040" y="0" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_7192FC09-95A4-41D0-99FD-F4D9136E9FEB" dmnElementRef="_DAC92875-1DC1-4DFF-8E01-F81A1F53AEFC" sourceElement="_664893A1-0321-4312-9AED-A95EC80A516B" targetElement="_AF9CF6E9-9478-4FBC-8F22-4DDE71E7A5F1">
         <di:waypoint x="660" y="180" />
         <di:waypoint x="660" y="100" />
@@ -134,6 +176,10 @@
       <dmndi:DMNEdge id="_10AC7592-9B12-4451-B337-CB674ED8B555" dmnElementRef="_C35CC857-D3B6-4E9D-8D25-480C2D5047CE" sourceElement="_36E7BF61-7976-4CCE-9C36-A602F2101678" targetElement="_AF9CF6E9-9478-4FBC-8F22-4DDE71E7A5F1">
         <di:waypoint x="440" y="60" />
         <di:waypoint x="580" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_952A4DCB-EBA5-4194-B8DC-02B95148212F" dmnElementRef="_02DC4215-4525-48E0-8329-181E7DD39018" sourceElement="_AF9CF6E9-9478-4FBC-8F22-4DDE71E7A5F1" targetElement="_D754A6A6-7E71-4A32-8DBE-47CC0B74D5C0">
+        <di:waypoint x="660" y="60" />
+        <di:waypoint x="820" y="60" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
