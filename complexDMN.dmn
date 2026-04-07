@@ -79,9 +79,9 @@
       <requiredKnowledge href="#_B085B2E7-F5E6-441F-86D5-A5F3B1EFD3C9" />
     </knowledgeRequirement>
     <for id="_B720F08A-F965-4547-A904-9BBDB6F6C008" typeRef="itemtotal" label="itemtotal" iteratorVariable="item">
-      <in id="_1596AA44-F8DB-4CB7-A54E-DB0A40ADA433">
+      <in id="_D5A94FA6-A1D5-4C2D-9C24-B0DCABD979D8">
         <literalExpression id="_77F7EC21-C60A-439B-AB55-71551925AC2D" label="Expression Name">
-          <text>purchaserequest.items</text>
+          <text>purchaserequest.item</text>
         </literalExpression>
       </in>
       <return id="_6F5EF3E7-1939-43A3-B4F7-30249AC54D57">
@@ -92,11 +92,11 @@
     </for>
   </decision>
   <decision name="totalprocurementcost" id="_777285A1-8535-4856-8FBE-5B55C0544B4B">
-    <variable name="totalprocurementcost" id="_40824E13-F86A-4494-8496-82AAEEE9FD6E" />
+    <variable name="totalprocurementcost" id="_40824E13-F86A-4494-8496-82AAEEE9FD6E" typeRef="number" />
     <informationRequirement id="_19D335E0-3C96-47AC-8001-03268291479F">
       <requiredDecision href="#_360EF0EB-231F-4448-9860-A51B744329AB" />
     </informationRequirement>
-    <literalExpression id="_FB08E099-AF84-439F-AA41-6C10D4699C51" label="totalprocurementcost">
+    <literalExpression id="_FB08E099-AF84-439F-AA41-6C10D4699C51" typeRef="number" label="totalprocurementcost">
       <text>sum(itemtotal)</text>
     </literalExpression>
   </decision>
@@ -105,7 +105,7 @@
     <encapsulatedLogic label="calculateitemtotal" typeRef="number" id="_499851F2-8EB0-4622-89E2-4DF30E2B05F6" kind="FEEL">
       <formalParameter id="_ECA00901-486D-4E5B-9AF1-39FABE709A00" name="item" typeRef="item" />
       <literalExpression id="_1FA83085-73D9-4C1F-A7C7-CF355DCE7344" typeRef="number" label="Return">
-        <text>if item.quantity==null or item.unitprice == null then 0 else item.quantity * item.unitprice</text>
+        <text>if item.quantity == null or item.unitprice == null then 0 else item.quantity * item.unitprice</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
