@@ -105,8 +105,8 @@
       <text>sum(itemtotal)</text>
     </literalExpression>
   </decision>
-  <decision name="eligible venders" id="_73FFB477-28A0-4C3F-9157-1FF52511E19D">
-    <variable name="eligible venders" id="_E16E84A2-6DAF-4210-91E1-9792CFA6516A" />
+  <decision name="eligiblevenders" id="_73FFB477-28A0-4C3F-9157-1FF52511E19D">
+    <variable name="eligiblevenders" id="_E16E84A2-6DAF-4210-91E1-9792CFA6516A" />
     <informationRequirement id="_41B18BF0-EC65-4F09-A002-889AD3E4484D">
       <requiredInput href="#_D42391B6-928F-4C6B-8D06-86FEF5393BBA" />
     </informationRequirement>
