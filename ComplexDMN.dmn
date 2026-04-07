@@ -106,7 +106,7 @@
     </literalExpression>
   </decision>
   <decision name="Eligible Vendor" id="_A90EC621-738B-41B5-950A-D2B9B38117DD">
-    <variable name="Eligible Vendor" id="_2ECECBB9-8EF4-4E38-927C-30D37B04CF08" />
+    <variable name="Eligible Vendor" id="_2ECECBB9-8EF4-4E38-927C-30D37B04CF08" typeRef="VendorList" />
     <informationRequirement id="_82B1A32B-9AC5-4BFC-B5A6-2290F52B1D4F">
       <requiredInput href="#_6EF9E322-1D49-4427-BE41-34A4DE5F5897" />
     </informationRequirement>
@@ -116,7 +116,7 @@
     <knowledgeRequirement id="_296A2962-BE9C-42AE-89A3-90BD11510F9E">
       <requiredKnowledge href="#_31128800-42A4-4FA0-A757-33FD0D5F4B1C" />
     </knowledgeRequirement>
-    <filter id="_E61F88F0-F8D4-46A7-B5D7-DFB6D1269B76" label="Eligible Vendor">
+    <filter id="_E61F88F0-F8D4-46A7-B5D7-DFB6D1269B76" typeRef="VendorList" label="Eligible Vendor">
       <in id="_31F43365-E51C-499E-818B-70EE8B85C07B">
         <literalExpression id="_234FC62A-D2D7-43D2-8E3F-A1740904CC15" label="Expression Name">
           <text>Vendors</text>
@@ -146,7 +146,7 @@
       <conditional id="_21674A22-7B0C-4EA6-8049-5AA60417607D" label="Return">
         <if id="_C93D8FF8-84A2-4D69-A4BC-28576CFBE9B9">
           <literalExpression id="_5E4E8A81-AF94-4EF8-9356-EEBD65A06777" label="Expression Name">
-            <text>vendor.complianceScore &gt; policies.minComplianceScore and vendor.deliveryDays &lt;= policies.maxDeliveryDyas</text>
+            <text>vendor.complianceScore &gt; policies.minComplianceScore and vendor.deliveryDays &lt;= policies.maxDeliveryDays</text>
           </literalExpression>
         </if>
         <then id="_CD9D091D-FBA0-49FC-9E68-3CF3D5843C57">
