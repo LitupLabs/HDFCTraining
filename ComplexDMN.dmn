@@ -67,10 +67,34 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
-  <businessKnowledgeModel name="New BKM" id="_9CA8680C-FD67-4357-90B2-28CEFF64C7F0">
-    <variable name="New BKM" id="_D52082F1-14EC-4CD1-9740-DA7233FE6307" typeRef="Item" />
-    <encapsulatedLogic label="New BKM" typeRef="Item" id="_DF3E002D-D963-4120-93CA-B57ECCDF9DC7" kind="FEEL">
-      <literalExpression id="_8171DA81-A8AC-4AC1-8463-63F3ECA57FA1" label="Return" />
+  <decision name="Item Total" id="_7F0C5F2A-E2AA-4BB4-AF42-295DD249CF82">
+    <variable name="Item Total" id="_4AECC0C1-B274-4561-B148-73E71DEA90CC" />
+    <informationRequirement id="_371E0EF2-D5FE-4890-BB94-ED22F2E8D390">
+      <requiredInput href="#_F6DF58C6-5616-47B6-9013-3088843221AF" />
+    </informationRequirement>
+    <knowledgeRequirement id="_3B184B19-99F2-4B32-845F-FE3E9326C4C6">
+      <requiredKnowledge href="#_9CA8680C-FD67-4357-90B2-28CEFF64C7F0" />
+    </knowledgeRequirement>
+    <for id="_FCC89402-F4C0-4962-ACB7-923A1B651E22" label="Item Total" iteratorVariable="Item">
+      <in id="_63C5E221-6DE9-40A3-AAD3-D31C5B315C7E">
+        <literalExpression id="_A44C2ECC-22FA-45BD-8739-6B1123C676C8" label="Expression Name">
+          <text>PurchaseRequest.Item</text>
+        </literalExpression>
+      </in>
+      <return id="_24B6F6DE-C03F-404D-8EA7-593B06F7503C">
+        <literalExpression id="_B800161C-117C-4A83-84DC-5B6E2D0974AF" label="Expression Name">
+          <text>Calculate Item Total(Item)</text>
+        </literalExpression>
+      </return>
+    </for>
+  </decision>
+  <businessKnowledgeModel name="Calculate Item Total" id="_9CA8680C-FD67-4357-90B2-28CEFF64C7F0">
+    <variable name="Calculate Item Total" id="_D52082F1-14EC-4CD1-9740-DA7233FE6307" typeRef="number" />
+    <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_DF3E002D-D963-4120-93CA-B57ECCDF9DC7" kind="FEEL">
+      <formalParameter id="_0002A8F6-6D53-4452-90BC-42CE3F787B82" name="Item" typeRef="Item" />
+      <literalExpression id="_8171DA81-A8AC-4AC1-8463-63F3ECA57FA1" label="Return">
+        <text>Item.Quantity * Item.UnitPrice</text>
+      </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="PurchaseRequest" id="_F6DF58C6-5616-47B6-9013-3088843221AF">
@@ -83,6 +107,12 @@
           <kie:ComponentWidths dmnElementRef="_8171DA81-A8AC-4AC1-8463-63F3ECA57FA1">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A44C2ECC-22FA-45BD-8739-6B1123C676C8">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B800161C-117C-4A83-84DC-5B6E2D0974AF">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_AACEBDE9-B34F-4011-8C40-2ECFB03C756C" dmnElementRef="_F6DF58C6-5616-47B6-9013-3088843221AF" isCollapsed="false" isListedInputData="false">
@@ -91,6 +121,17 @@
       <dmndi:DMNShape id="_E9B10D09-1141-4CB2-9D79-BACD70CE38F2" dmnElementRef="_9CA8680C-FD67-4357-90B2-28CEFF64C7F0" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="-100" y="-100" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_68225AFA-9F91-4682-A68C-84D439ADEEB3" dmnElementRef="_7F0C5F2A-E2AA-4BB4-AF42-295DD249CF82" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="-200" y="60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_CC32C16C-96BE-448E-BDB5-6E0DAA8F032C" dmnElementRef="_371E0EF2-D5FE-4890-BB94-ED22F2E8D390" sourceElement="_AACEBDE9-B34F-4011-8C40-2ECFB03C756C" targetElement="_68225AFA-9F91-4682-A68C-84D439ADEEB3">
+        <di:waypoint x="260" y="60" />
+        <di:waypoint x="-40" y="100" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_219B0441-2E0E-446D-8676-F1FA908C8242" dmnElementRef="_3B184B19-99F2-4B32-845F-FE3E9326C4C6" sourceElement="_E9B10D09-1141-4CB2-9D79-BACD70CE38F2" targetElement="_68225AFA-9F91-4682-A68C-84D439ADEEB3">
+        <di:waypoint x="-20" y="-60" />
+        <di:waypoint x="-120" y="60" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
