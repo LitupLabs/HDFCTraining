@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_D44ACD89-9511-49A3-B4A0-69612438D78A" id="_0C60C9E0-BDC2-4CEC-8B7B-89ECA6B22DD3" name="DMN_8C3A6388-10D8-4D2F-A7F5-16F95C765BA0" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_DCD8E2AB-5250-4830-8B5C-5F5C8FEA2C3F" name="ItemTotal" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>number</typeRef>
+  </itemDefinition>
   <itemDefinition id="_ECC84FAC-89B9-49DE-B495-B33C22CDDA5D" name="PurchaseRequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_F16D3F19-5E2C-4007-AFD5-D7A63A1BF4FC" name="Item" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F16D3F19-5E2C-4007-AFD5-D7A63A1BF4FC" name="Item" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Item</typeRef>
     </itemComponent>
     <itemComponent id="_E1F39E6F-8BE0-4478-9F6B-C121A37F0370" name="Id" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -68,14 +71,14 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Item Total" id="_7F0C5F2A-E2AA-4BB4-AF42-295DD249CF82">
-    <variable name="Item Total" id="_4AECC0C1-B274-4561-B148-73E71DEA90CC" />
+    <variable name="Item Total" id="_4AECC0C1-B274-4561-B148-73E71DEA90CC" typeRef="ItemTotal" />
     <informationRequirement id="_371E0EF2-D5FE-4890-BB94-ED22F2E8D390">
       <requiredInput href="#_F6DF58C6-5616-47B6-9013-3088843221AF" />
     </informationRequirement>
     <knowledgeRequirement id="_3B184B19-99F2-4B32-845F-FE3E9326C4C6">
       <requiredKnowledge href="#_9CA8680C-FD67-4357-90B2-28CEFF64C7F0" />
     </knowledgeRequirement>
-    <for id="_FCC89402-F4C0-4962-ACB7-923A1B651E22" label="Item Total" iteratorVariable="Item">
+    <for id="_FCC89402-F4C0-4962-ACB7-923A1B651E22" typeRef="ItemTotal" label="Item Total" iteratorVariable="Item">
       <in id="_63C5E221-6DE9-40A3-AAD3-D31C5B315C7E">
         <literalExpression id="_A44C2ECC-22FA-45BD-8739-6B1123C676C8" label="Expression Name">
           <text>PurchaseRequest.Item</text>
@@ -93,7 +96,7 @@
     <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_DF3E002D-D963-4120-93CA-B57ECCDF9DC7" kind="FEEL">
       <formalParameter id="_0002A8F6-6D53-4452-90BC-42CE3F787B82" name="Item" typeRef="Item" />
       <literalExpression id="_8171DA81-A8AC-4AC1-8463-63F3ECA57FA1" label="Return">
-        <text>Item.Quantity * Item.UnitPrice</text>
+        <text>if Item.Quantity = null or Item.UnitPrice = null then 0 else Item.Quantity * Item.UnitPrice</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
@@ -105,7 +108,7 @@
       <di:extension>
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_8171DA81-A8AC-4AC1-8463-63F3ECA57FA1">
-            <kie:width>190</kie:width>
+            <kie:width>1162</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A44C2ECC-22FA-45BD-8739-6B1123C676C8">
             <kie:width>190</kie:width>
