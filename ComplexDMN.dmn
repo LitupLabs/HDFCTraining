@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_D44ACD89-9511-49A3-B4A0-69612438D78A" id="_0C60C9E0-BDC2-4CEC-8B7B-89ECA6B22DD3" name="DMN_8C3A6388-10D8-4D2F-A7F5-16F95C765BA0" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_A13F1154-B1A5-4BA1-85D3-F8B339826CF3" name="Polices" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_D947AC3C-AB31-4DF0-B6E1-0D940CD81891" name="MaxDeliveryDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_1555751E-1683-4FD5-B6B4-C0E1A79B30C7" name="MinComplainceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_367FEBE7-FBC8-4937-BF7F-CB3FBBFC002F" name="ApprovalThreshold" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_753B65BA-8609-44CE-B519-7640CE6387A3" name="Item" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_DA33FAEA-F314-4D4D-AFF5-FB714D80A584" name="UnitPrice" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_A371148A-EE45-4158-AFDF-86EEDFEE62FB" name="Quantity" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_ECB5AF6E-5E9C-4E1F-9CD2-446A4B3A758A" name="Category" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_C0297498-8775-466A-B5F4-74456BFAF7F6" name="ItemID" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_68A39152-CC11-44A0-A5AC-91424086D3D0" name="Vendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_C2C7393A-8824-460F-AC6D-D139BABB2920" name="vendorID" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_40BC9665-69B6-48D8-9AC4-1D3364FED52A" name="Rating" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_4BC1FA84-897D-43AB-A8A7-3D10E500E9D5" name="Location" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_9C45B024-DE58-4025-B357-84A5FA8DAD7A" name="ComplianceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_A300BFE2-9F11-4B32-9FB3-88009591FDE5" name="DeliveryDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_1B97C625-8B68-41E4-B231-78E1FE7E81D7" name="BasePriceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_89E07B5C-B41F-4A90-90B4-237BC3B7A686" name="FinalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_D51599AE-EEF5-4758-87C2-F9CE09143A54" name="finalcost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
