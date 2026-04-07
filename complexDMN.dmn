@@ -6,7 +6,7 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_C431A35F-49E6-4293-9877-E4A8BCB94157" name="itemtotal" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <typeRef>Any</typeRef>
+    <typeRef>number</typeRef>
   </itemDefinition>
   <itemDefinition id="_3114EB02-A30E-4BB6-8B7B-F38AA9ACE59A" name="purchaserequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_C284C5B9-9C8A-41E1-86EB-DFBAA367695D" name="id" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
