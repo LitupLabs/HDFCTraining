@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_9761C847-B613-47A5-A82C-4275E90879EB" id="_56120F80-BEA3-4CDE-81E4-BECEC978F35C" name="DMN_BFFC5E11-896D-48B6-9154-376386CAED5A">
-  <itemDefinition id="_2BF7676E-DEAC-4714-899D-15170845B28F" name="ItemTotal" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_2BF7676E-DEAC-4714-899D-15170845B28F" name="ItemTotal" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>number</typeRef>
   </itemDefinition>
   <itemDefinition id="_DEA09CAC-4F55-4454-B1AA-E37B6B6BA148" name="PurchaseRequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_2AB6D08E-F558-481A-B9DE-6679505F6DE6" name="id" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -91,11 +92,11 @@
     </for>
   </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_CBEFDCE7-F8EE-4429-BEE9-A8A3D7E6FE33">
-    <variable name="Calculate Item Total" id="_81511AC4-09A3-4F6E-AB20-F15932ADFBBF" />
-    <encapsulatedLogic label="Calculate Item Total" id="_7E734984-E1D4-49EF-941F-9292F77922ED" kind="FEEL">
+    <variable name="Calculate Item Total" id="_81511AC4-09A3-4F6E-AB20-F15932ADFBBF" typeRef="number" />
+    <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_7E734984-E1D4-49EF-941F-9292F77922ED" kind="FEEL">
       <formalParameter id="_9B000484-D534-493A-8FD2-BACE644927B2" name="item" typeRef="Item" />
       <literalExpression id="_EEA4811A-AE0B-4779-BF05-B3D6CD97920C" label="Return">
-        <text>item.quantity * item.unitPrice</text>
+        <text>item.quantity = null or item.unitPrice = null then 0 else item.quantity * item.unitPrice</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
