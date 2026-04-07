@@ -67,4 +67,27 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
+  <businessKnowledgeModel name="Calculate Item Total" id="_CBEFDCE7-F8EE-4429-BEE9-A8A3D7E6FE33">
+    <variable name="Calculate Item Total" id="_81511AC4-09A3-4F6E-AB20-F15932ADFBBF" />
+    <encapsulatedLogic label="Calculate Item Total" id="_7E734984-E1D4-49EF-941F-9292F77922ED" kind="FEEL">
+      <formalParameter id="_9B000484-D534-493A-8FD2-BACE644927B2" name="item" typeRef="Item" />
+      <literalExpression id="_EEA4811A-AE0B-4779-BF05-B3D6CD97920C" label="Return">
+        <text>item.quantity * item.unitPrice</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_0082FFE7-E6EF-4C23-BC31-5011A5F56D50" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_EEA4811A-AE0B-4779-BF05-B3D6CD97920C">
+            <kie:width>586</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_86248227-738C-4887-A578-865F8D510A40" dmnElementRef="_CBEFDCE7-F8EE-4429-BEE9-A8A3D7E6FE33" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="360" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
