@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_3E37894E-F08A-44F5-A8C6-5351C1471784" id="_530C4890-95A2-484D-9E88-00BEE2F8E3E9" name="DMN_1B24152F-F520-4D3A-B953-E3D5BB5CB9E5" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_AA2A37C0-B8CB-443B-8F68-9E9C9009F350" name="FinalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_88D40F8E-AF88-4658-87EB-E732860A3D93" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_AB0317D3-B585-48B3-A79C-7B8AD2E212A4" name="finalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+</definitions>
