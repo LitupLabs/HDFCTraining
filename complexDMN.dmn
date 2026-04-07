@@ -13,7 +13,7 @@
     <itemComponent id="_C14DB5C1-A698-47B4-B563-E20C84EF9ACB" name="totalamount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_9264D84B-581E-437C-B38D-992F6102BA18" name="items" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_9264D84B-581E-437C-B38D-992F6102BA18" name="items" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>item</typeRef>
     </itemComponent>
   </itemDefinition>
