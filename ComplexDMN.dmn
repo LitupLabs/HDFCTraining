@@ -67,4 +67,33 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
+  <businessKnowledgeModel name="Calculate Item Total" id="_8210AB07-7786-4DC3-90C9-E7A9EFF68F1E">
+    <variable name="Calculate Item Total" id="_19BF7F64-4E59-4A32-AAC3-D8122832C409" typeRef="number" />
+    <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_AF181F5A-3F23-4F29-A049-D34B3A51387A" kind="FEEL">
+      <formalParameter id="_B18D8DDF-6C5E-4594-BD63-906D1E874951" name="Item" typeRef="Item" />
+      <literalExpression id="_A1A19103-E2F9-4630-A65B-3AFF1422162A" typeRef="number" label="Return">
+        <text>Item.quantity * Item.unitPrice</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <inputData name="PurchaseRequest" id="_6AF234AF-A793-49EE-B617-6D30E85432DD">
+    <variable name="PurchaseRequest" id="_64A51E87-338F-4F44-BC32-92EF07C73628" typeRef="PurchaseRequest" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_C827E1BB-B970-4169-97F2-141EB57C6C44" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_A1A19103-E2F9-4630-A65B-3AFF1422162A">
+            <kie:width>587</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_664893A1-0321-4312-9AED-A95EC80A516B" dmnElementRef="_6AF234AF-A793-49EE-B617-6D30E85432DD" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="140" y="140" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_36E7BF61-7976-4CCE-9C36-A602F2101678" dmnElementRef="_8210AB07-7786-4DC3-90C9-E7A9EFF68F1E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="220" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
