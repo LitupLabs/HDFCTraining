@@ -97,13 +97,16 @@
     </for>
   </decision>
   <decision name="Total Procurement Cost" id="_0BC04C00-A4E2-491E-AF6F-76D0208F206E">
-    <variable name="Total Procurement Cost" id="_43085B56-0A81-449F-85F3-4194BCB8F054" />
+    <variable name="Total Procurement Cost" id="_43085B56-0A81-449F-85F3-4194BCB8F054" typeRef="number" />
     <informationRequirement id="_D1F61BE2-8B4B-4CF8-B195-3543F72432AE">
       <requiredDecision href="#_7D5AE6AB-44DA-49C2-8D12-FFBAC64208EF" />
     </informationRequirement>
+    <literalExpression id="_1846D421-F6BE-448E-B71B-99973CD127E6" typeRef="number" label="Total Procurement Cost">
+      <text>sum(Item Totals)</text>
+    </literalExpression>
   </decision>
   <decision name="Eligible Vendors" id="_953FD209-DBC1-4AB3-9E6E-06C834E2ECB1">
-    <variable name="Eligible Vendors" id="_908C8457-9D79-4C21-A062-D4333DC011C1" />
+    <variable name="Eligible Vendors" id="_908C8457-9D79-4C21-A062-D4333DC011C1" typeRef="VendorList" />
     <informationRequirement id="_9C85F3C3-B514-4953-AD8D-C5F4C051EC33">
       <requiredInput href="#_29E7779C-F91B-41E1-817C-EC7DAFECAC7B" />
     </informationRequirement>
@@ -113,7 +116,7 @@
     <knowledgeRequirement id="_C1D3AB7C-3080-49AE-B1D0-87105455C06B">
       <requiredKnowledge href="#_4A37B64F-C1E0-44A8-97DA-F08BAEAD11A4" />
     </knowledgeRequirement>
-    <filter id="_4256457D-0FF2-4F80-A5CB-00121B96A600" label="Eligible Vendors">
+    <filter id="_4256457D-0FF2-4F80-A5CB-00121B96A600" typeRef="VendorList" label="Eligible Vendors">
       <in id="_9E6AA3AE-3DDD-4BCD-A2EC-8469DEB49CBE">
         <literalExpression id="_2009F421-8F04-4049-B768-19F90606A983" label="Expression Name">
           <text>Vendors</text>
@@ -195,6 +198,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_FC7C2622-2366-4949-9FAA-03279034F4F7">
             <kie:width>438</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_1846D421-F6BE-448E-B71B-99973CD127E6">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
