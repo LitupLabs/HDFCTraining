@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_3E37894E-F08A-44F5-A8C6-5351C1471784" id="_530C4890-95A2-484D-9E88-00BEE2F8E3E9" name="DMN_1B24152F-F520-4D3A-B953-E3D5BB5CB9E5">
+  <itemDefinition id="_D544598A-8F29-4197-B096-E1C26D4AFC93" name="ItemTotal" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>number</typeRef>
+  </itemDefinition>
   <itemDefinition id="_C3B717F6-5E4A-4252-B8AA-F52B12B56AE1" name="Policies" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_615FE07F-3B61-4F63-95C1-286EA01663C4" name="approvalThreshold" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
@@ -67,8 +70,35 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="ItemTotal" id="_6425976E-C74A-468A-A45A-9923D3D1F000">
+    <variable name="ItemTotal" id="_EDFBC362-A86E-4AAD-8707-29D60C9D05A0" typeRef="ItemTotal" />
+    <informationRequirement id="_40BE3723-24DC-4600-80E1-236839494897">
+      <requiredInput href="#_EC5592E0-4861-4279-9412-E0F98CF05D7D" />
+    </informationRequirement>
+    <knowledgeRequirement id="_67877894-60DB-48FA-A0F6-6F213EA14F22">
+      <requiredKnowledge href="#_7FC0D9DA-C2D8-40F2-B0AF-D881BE2A56BB" />
+    </knowledgeRequirement>
+    <for id="_F20FB6B7-ABB4-41E2-AAD4-C84DEAB36F95" typeRef="ItemTotal" label="ItemTotal" iteratorVariable="item">
+      <in id="_F7BAEA06-E4C1-4B56-885F-A66B6ED0BB48">
+        <literalExpression id="_971EA25F-0E2C-4B9B-B7A9-6512DAB13C3D" label="Expression Name">
+          <text>PurchaseRequest.items</text>
+        </literalExpression>
+      </in>
+      <return id="_408D6719-8615-40B3-BFAF-90E0A49CC9F5">
+        <literalExpression id="_2A3BAC37-9133-461A-8CD3-842765CC6B93" label="Expression Name">
+          <text>CalItemTotal(item)</text>
+        </literalExpression>
+      </return>
+    </for>
+  </decision>
   <businessKnowledgeModel name="CalItemTotal" id="_7FC0D9DA-C2D8-40F2-B0AF-D881BE2A56BB">
     <variable name="CalItemTotal" id="_21BB93C7-CEDE-423E-A03D-442C7F7BA2EA" typeRef="number" />
+    <encapsulatedLogic label="CalItemTotal" typeRef="number" id="_AEDC34A7-0824-410D-907D-42139CFCB3E0" kind="FEEL">
+      <formalParameter id="_1A2187C6-0545-494D-B83F-1552B6E3628A" name="item" typeRef="Item" />
+      <literalExpression id="_A1B15FA2-40D6-4F93-9141-00457A7F5C44" typeRef="number" label="Return">
+        <text>item.quantity * item.unitPrice</text>
+      </literalExpression>
+    </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="PurchaseRequest" id="_EC5592E0-4861-4279-9412-E0F98CF05D7D">
     <variable name="PurchaseRequest" id="_04D4F691-6BA1-4D53-A721-BAB1867CB380" typeRef="PurchaseRequest" />
@@ -77,15 +107,34 @@
     <dmndi:DMNDiagram id="_DD2E854A-EF7D-47E8-9DD3-0C10D16FAC3E" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths />
+          <kie:ComponentWidths dmnElementRef="_971EA25F-0E2C-4B9B-B7A9-6512DAB13C3D">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A1B15FA2-40D6-4F93-9141-00457A7F5C44">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_2A3BAC37-9133-461A-8CD3-842765CC6B93">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_CDA76C2E-C905-4850-A6BB-C25CA10E10E5" dmnElementRef="_EC5592E0-4861-4279-9412-E0F98CF05D7D" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="400" y="160" width="160" height="80" />
+        <dc:Bounds x="332" y="292" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_570671A3-97A1-46E9-B4F0-7AB5E4EC142D" dmnElementRef="_7FC0D9DA-C2D8-40F2-B0AF-D881BE2A56BB" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="380" y="-20" width="160" height="80" />
+        <dc:Bounds x="112" y="292" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_A2498D2F-8B53-48A1-8FF8-B97F3BF037A4" dmnElementRef="_6425976E-C74A-468A-A45A-9923D3D1F000" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="112" y="112" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_330CB0D9-141B-4576-900B-53685B492F47" dmnElementRef="_40BE3723-24DC-4600-80E1-236839494897" sourceElement="_CDA76C2E-C905-4850-A6BB-C25CA10E10E5" targetElement="_A2498D2F-8B53-48A1-8FF8-B97F3BF037A4">
+        <di:waypoint x="412" y="292" />
+        <di:waypoint x="192" y="192" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_5A8A459E-B794-4D90-ABEB-655D718DF28D" dmnElementRef="_67877894-60DB-48FA-A0F6-6F213EA14F22" sourceElement="_570671A3-97A1-46E9-B4F0-7AB5E4EC142D" targetElement="_A2498D2F-8B53-48A1-8FF8-B97F3BF037A4">
+        <di:waypoint x="192" y="292" />
+        <di:waypoint x="192" y="192" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
