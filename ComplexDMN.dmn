@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_7BB3052C-38FF-48CC-9BA4-24F78464AD29" id="_4E8BB694-1416-40E6-8150-D46A296E7BC9" name="DMN_F8FB5388-BB62-45BD-A07D-FF535E59676E" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_9FF676AB-3FE4-4C1B-ABBA-68BC03943266" name="ItemTotal" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_BCE8B7CC-DA72-49EA-A52C-D05B6D75C5ED" name="PurchaseRequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_6382059D-B3A7-4E00-80EE-60D3BB46BB84" name="items" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Item</typeRef>
@@ -68,14 +69,14 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Item Totals" id="_BC5FF909-25BB-4E58-A4CF-73BCD386E0A5">
-    <variable name="Item Totals" id="_D2B76630-9AEA-444C-98B5-280207B7E3B3" />
+    <variable name="Item Totals" id="_D2B76630-9AEA-444C-98B5-280207B7E3B3" typeRef="ItemTotal" />
     <informationRequirement id="_DAC92875-1DC1-4DFF-8E01-F81A1F53AEFC">
       <requiredInput href="#_6AF234AF-A793-49EE-B617-6D30E85432DD" />
     </informationRequirement>
     <knowledgeRequirement id="_C35CC857-D3B6-4E9D-8D25-480C2D5047CE">
       <requiredKnowledge href="#_8210AB07-7786-4DC3-90C9-E7A9EFF68F1E" />
     </knowledgeRequirement>
-    <for id="_8FE34ED6-45F1-4946-AE93-151FF295C18D" label="Item Totals" iteratorVariable="item">
+    <for id="_8FE34ED6-45F1-4946-AE93-151FF295C18D" typeRef="ItemTotal" label="Item Totals" iteratorVariable="item">
       <in id="_3C8BE4AD-918F-445E-A1EE-5DB93DC9E944">
         <literalExpression id="_C27070B2-38E0-4D97-9D71-E2778AC83E64" label="Expression Name">
           <text>PurchaseRequest.items</text>
