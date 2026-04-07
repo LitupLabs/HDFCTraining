@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_3E37894E-F08A-44F5-A8C6-5351C1471784" id="_530C4890-95A2-484D-9E88-00BEE2F8E3E9" name="DMN_1B24152F-F520-4D3A-B953-E3D5BB5CB9E5" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
   <itemDefinition id="_1DEA2586-B558-4719-A42C-E9B8138CA24F" name="Vendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_8BE829BC-FB1F-4E9C-9B90-060E2C5BE277" name="deliveryDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_904DB770-53C1-47AA-B056-FB83DA8A5A5C" name="basePriceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_6EC2DA86-1CFD-4555-A3F0-24302D14E481" name="complianceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_7AD1B9FE-6F4A-4D2E-9C05-153CC34D3A37" name="location" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_67100A3A-0F2A-4846-B106-771909413CBB" name="rating" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
     <itemComponent id="_76194C0F-9CBB-419E-ADF3-C165C5DE0693" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
