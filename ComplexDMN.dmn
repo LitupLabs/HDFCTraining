@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_3E37894E-F08A-44F5-A8C6-5351C1471784" id="_530C4890-95A2-484D-9E88-00BEE2F8E3E9" name="DMN_1B24152F-F520-4D3A-B953-E3D5BB5CB9E5" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_3E37894E-F08A-44F5-A8C6-5351C1471784" id="_530C4890-95A2-484D-9E88-00BEE2F8E3E9" name="DMN_1B24152F-F520-4D3A-B953-E3D5BB5CB9E5">
   <itemDefinition id="_79D6B5DF-13AD-4E58-ABDD-D6B6B278BAD9" name="Item" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_BF363A37-0247-4BDB-B066-E2185285C446" name="unitPrice" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_519EFF9A-C197-489B-9784-9BE4AEA39A37" name="quantity" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_A3DA45D9-3D4B-4F3A-97D6-341A321CF596" name="category" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_2597CF52-2F4E-43FF-BD3F-40574FC0CC26" name="itemId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
   </itemDefinition>
   <itemDefinition id="_BC5CDA53-A1E9-4245-B44E-6FB38C228241" name="PurchaseRequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_623EFF64-E9DF-4FD6-8CBB-8B1DED5FD82B" name="items" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
