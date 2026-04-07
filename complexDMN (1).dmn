@@ -13,7 +13,7 @@
     <itemComponent id="_46027CAA-E035-4179-BB62-FB3145BF694C" name="totalAmount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_AE625031-A187-40B3-BBEB-EC555039C4C4" name="item" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_AE625031-A187-40B3-BBEB-EC555039C4C4" name="items" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Item</typeRef>
     </itemComponent>
   </itemDefinition>
@@ -71,20 +71,20 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Item Totals" id="_7D5AE6AB-44DA-49C2-8D12-FFBAC64208EF">
-    <variable name="Item Totals" id="_648E1E88-47DD-47D8-9EA5-A698DAB5EF32" />
+    <variable name="Item Totals" id="_648E1E88-47DD-47D8-9EA5-A698DAB5EF32" typeRef="ItemTotal" />
     <informationRequirement id="_7B1B1A9A-1A6F-418E-887F-9BB5D91AEA06">
       <requiredInput href="#_F69A7E9B-1094-4B09-8F4C-FF3A3F64F62E" />
     </informationRequirement>
     <knowledgeRequirement id="_BED7E9E8-B93C-4886-900F-E16A98E2DB43">
       <requiredKnowledge href="#_CBEFDCE7-F8EE-4429-BEE9-A8A3D7E6FE33" />
     </knowledgeRequirement>
-    <for id="_CD9922E1-4315-44F2-9458-7EC9F5FB780A" label="Item Totals" iteratorVariable="item">
-      <in id="_FC50FB5F-F820-42F2-AA8A-13250695DAD5">
+    <for id="_CD9922E1-4315-44F2-9458-7EC9F5FB780A" typeRef="ItemTotal" label="Item Totals" iteratorVariable="item">
+      <in id="_AA89BE5F-0391-4569-93EB-B84F81E6396B">
         <literalExpression id="_B2BEF86C-A7E4-40C1-B4A1-B263D076CCC8" label="Expression Name">
-          <text>PurchaseRequest.items</text>
+          <text>Purchase Request.items</text>
         </literalExpression>
       </in>
-      <return id="_2557E4D9-CCBA-42D1-B36D-A419C357286A">
+      <return id="_FD935954-4A48-485F-B8D6-D3C03DAAB69B">
         <literalExpression id="_3CB6827D-BFD4-45D9-BF7A-D6864D35A9FC" label="Expression Name">
           <text>Calculate Item Total(item)</text>
         </literalExpression>
@@ -94,14 +94,14 @@
   <businessKnowledgeModel name="Calculate Item Total" id="_CBEFDCE7-F8EE-4429-BEE9-A8A3D7E6FE33">
     <variable name="Calculate Item Total" id="_81511AC4-09A3-4F6E-AB20-F15932ADFBBF" typeRef="number" />
     <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_7E734984-E1D4-49EF-941F-9292F77922ED" kind="FEEL">
-      <formalParameter id="_9B000484-D534-493A-8FD2-BACE644927B2" name="item" typeRef="Item" />
+      <formalParameter id="_9B000484-D534-493A-8FD2-BACE644927B2" name="Item" typeRef="Item" />
       <literalExpression id="_EEA4811A-AE0B-4779-BF05-B3D6CD97920C" label="Return">
-        <text>item.quantity = null or item.unitPrice = null then 0 else item.quantity * item.unitPrice</text>
+        <text>if Item.quantity = null or Item.unitPrice = null then 0 else Item.quantity * Item.unitPrice</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="Purchase Request" id="_F69A7E9B-1094-4B09-8F4C-FF3A3F64F62E">
-    <variable name="Purchase Request" id="_4CA86E3B-B4B4-4DC5-86C4-7E046D3DA0A7" />
+    <variable name="Purchase Request" id="_4CA86E3B-B4B4-4DC5-86C4-7E046D3DA0A7" typeRef="PurchaseRequest" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_0082FFE7-E6EF-4C23-BC31-5011A5F56D50" name="Default DRD" useAlternativeInputDataShape="false">
