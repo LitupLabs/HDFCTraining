@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_E0B5639D-A5C5-4821-BD56-C4A911DC4957" id="_A7B3AAA7-480C-44E1-A7F0-3EF6691C08C3" name="DMN_2355D20F-D529-4C56-B423-1C65DA517B06" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_113CC4C0-80A6-4767-91AA-86FEE215AD9E" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_6C505C34-B0BA-40E3-9FCF-2216985B3066" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Customer</typeRef>
+    </itemComponent>
+    <itemComponent id="_2473346B-3F2A-414D-B06E-F8B103611FAA" name="Financial" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Financial</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_741C31CF-40DF-4FB5-8787-5D5685312310" name="Customer" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_86C80FBE-726B-43B3-A056-712C2E9FA179" name="CreditScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_1C4E860A-791F-4C94-9ABE-0D493E23130A" name="Segment" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_8891AE78-BDF7-4CD1-AE17-AEC28EDDCE30" name="Financial" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_8F2E1149-C996-4BC9-9167-61C85F0B4ED8" name="ExistingEMI" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_10E11B4E-C3DB-41DE-B41D-C98ADDB1207F" name="OtherIncome" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+</definitions>
