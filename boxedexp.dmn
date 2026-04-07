@@ -107,6 +107,16 @@
       </match>
     </filter>
   </decision>
+  <decision name="atleastone highvalue loan" id="_0D3503A1-FF37-4978-B17E-F69451F33BDA">
+    <variable name="atleastone highvalue loan" id="_4011E000-6D1D-456C-ABD1-7AC85177DB25" />
+    <informationRequirement id="_568E567E-32AE-4729-9319-EBC8A5EFC526">
+      <requiredDecision href="#_E4F2E6EB-D990-47EE-917B-74680538F66C" />
+    </informationRequirement>
+    <some id="_E7C78FC5-26F9-42BC-A311-07044DE89DD7" label="atleastone highvalue loan">
+      <in id="_C574F954-2256-4970-8553-2E602D847B0D" />
+      <satisfies id="_BF0D229E-2E37-4E86-B38E-E6A9A9E912BC" />
+    </some>
+  </decision>
   <inputData name="loan application" id="_7FA7ACF5-4259-4390-948F-FBC887FA7E5A">
     <variable name="loan application" id="_4609B2F4-10BA-4E13-ABFD-D4AC2763CF2E" typeRef="loanapplication" />
   </inputData>
@@ -156,7 +166,10 @@
         <dc:Bounds x="300" y="-140" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_9CF2494F-DFB0-407A-907C-3361A9F82E7D" dmnElementRef="_E4F2E6EB-D990-47EE-917B-74680538F66C" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="660" y="-60" width="160" height="80" />
+        <dc:Bounds x="620" y="-140" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_EB4B27FF-8599-4923-B74A-1DD63B9501B3" dmnElementRef="_0D3503A1-FF37-4978-B17E-F69451F33BDA" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="920" y="-60" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_3BDA5A8F-EFCB-4285-9FED-9A7D9DEE36F2" dmnElementRef="_6C759F35-3624-44A9-9F8B-F1D7B6A12FF9" sourceElement="_D4D51C99-E594-4FFD-8C6D-98DC7C8091C1" targetElement="_77FFFB4C-E2ED-4808-868E-BF4896BFBF8D">
         <di:waypoint x="320" y="160" />
@@ -172,7 +185,11 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_EE73049E-5C56-4044-AAA7-4B875CB1397B" dmnElementRef="_58EFF9EF-DDFA-495F-B91D-AD2AD551EAC1" sourceElement="_D4D51C99-E594-4FFD-8C6D-98DC7C8091C1" targetElement="_9CF2494F-DFB0-407A-907C-3361A9F82E7D">
         <di:waypoint x="320" y="160" />
-        <di:waypoint x="740" y="-20" />
+        <di:waypoint x="700" y="-100" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_A97D96B5-F8AB-441F-8822-4BF283730F06" dmnElementRef="_568E567E-32AE-4729-9319-EBC8A5EFC526" sourceElement="_9CF2494F-DFB0-407A-907C-3361A9F82E7D" targetElement="_EB4B27FF-8599-4923-B74A-1DD63B9501B3">
+        <di:waypoint x="700" y="-100" />
+        <di:waypoint x="1000" y="-20" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
