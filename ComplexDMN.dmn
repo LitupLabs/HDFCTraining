@@ -96,7 +96,7 @@
     <encapsulatedLogic label="CalItemTotal" typeRef="number" id="_AEDC34A7-0824-410D-907D-42139CFCB3E0" kind="FEEL">
       <formalParameter id="_1A2187C6-0545-494D-B83F-1552B6E3628A" name="item" typeRef="Item" />
       <literalExpression id="_A1B15FA2-40D6-4F93-9141-00457A7F5C44" typeRef="number" label="Return">
-        <text>item.quantity * item.unitPrice</text>
+        <text>if item.quantity = null or item.unitPrice = null then 0 else item.quantity * item.unitPrice</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
@@ -111,7 +111,7 @@
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A1B15FA2-40D6-4F93-9141-00457A7F5C44">
-            <kie:width>190</kie:width>
+            <kie:width>715</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_2A3BAC37-9133-461A-8CD3-842765CC6B93">
             <kie:width>190</kie:width>
