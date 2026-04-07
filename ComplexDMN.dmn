@@ -115,10 +115,27 @@
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <businessKnowledgeModel name="Is Vendor Eligible" id="_31128800-42A4-4FA0-A757-33FD0D5F4B1C">
-    <variable name="Is Vendor Eligible" id="_95028976-6798-4CBE-9D36-B04C1DBE7079" />
-    <encapsulatedLogic label="Is Vendor Eligible" id="_75EF7C76-FC5A-44A8-A6A2-04AA82D88B02" kind="FEEL">
+    <variable name="Is Vendor Eligible" id="_95028976-6798-4CBE-9D36-B04C1DBE7079" typeRef="boolean" />
+    <encapsulatedLogic label="Is Vendor Eligible" typeRef="boolean" id="_75EF7C76-FC5A-44A8-A6A2-04AA82D88B02" kind="FEEL">
       <formalParameter id="_DB7F3203-A046-4AAC-B829-05EC1EC7F67B" name="vendor" typeRef="Vendor" />
-      <formalParameter id="_AA64F7E2-7F2D-4067-9B4E-BA74D73772C3" name="" />
+      <formalParameter id="_AA64F7E2-7F2D-4067-9B4E-BA74D73772C3" name="policies" typeRef="Policies" />
+      <conditional id="_21674A22-7B0C-4EA6-8049-5AA60417607D" label="Return">
+        <if id="_C93D8FF8-84A2-4D69-A4BC-28576CFBE9B9">
+          <literalExpression id="_5E4E8A81-AF94-4EF8-9356-EEBD65A06777" label="Expression Name">
+            <text>vendor.complianceScore &gt; policies.minComplianceScore and vendor.deliveryDays &lt;= policies.maxDeliveryDyas</text>
+          </literalExpression>
+        </if>
+        <then id="_CD9D091D-FBA0-49FC-9E68-3CF3D5843C57">
+          <literalExpression id="_49911ABC-B09E-4D7E-AAD6-49EAFBFB50B3" label="Expression Name">
+            <text>true</text>
+          </literalExpression>
+        </then>
+        <else id="_3DD7B034-C72D-4EA1-B269-646E9D7710FC">
+          <literalExpression id="_6EA7C3B9-A6E7-47D0-A21E-485ACDCBD9B0" label="Expression Name">
+            <text>false</text>
+          </literalExpression>
+        </else>
+      </conditional>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="PurchaseRequest" id="_6AF234AF-A793-49EE-B617-6D30E85432DD">
@@ -144,6 +161,15 @@
             <kie:width>395</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_377984D7-ECD9-4655-BBF9-62B2ED643B93">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5E4E8A81-AF94-4EF8-9356-EEBD65A06777">
+            <kie:width>662</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_49911ABC-B09E-4D7E-AAD6-49EAFBFB50B3">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6EA7C3B9-A6E7-47D0-A21E-485ACDCBD9B0">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
