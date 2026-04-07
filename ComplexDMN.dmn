@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_3E37894E-F08A-44F5-A8C6-5351C1471784" id="_530C4890-95A2-484D-9E88-00BEE2F8E3E9" name="DMN_1B24152F-F520-4D3A-B953-E3D5BB5CB9E5">
+  <itemDefinition id="_C3B717F6-5E4A-4252-B8AA-F52B12B56AE1" name="Policies" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_615FE07F-3B61-4F63-95C1-286EA01663C4" name="approvalThreshold" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_8A7885C3-E56E-4BD6-80C4-65DE43D80FF9" name="minComplianceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_9FB22E00-F093-4A19-8C90-D1B8CBEB37CA" name="maxDeliveryDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_79D6B5DF-13AD-4E58-ABDD-D6B6B278BAD9" name="Item" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_BF363A37-0247-4BDB-B066-E2185285C446" name="unitPrice" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
@@ -56,4 +67,25 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <businessKnowledgeModel name="CalItemTotal" id="_7FC0D9DA-C2D8-40F2-B0AF-D881BE2A56BB">
+    <variable name="CalItemTotal" id="_21BB93C7-CEDE-423E-A03D-442C7F7BA2EA" typeRef="number" />
+  </businessKnowledgeModel>
+  <inputData name="PurchaseRequest" id="_EC5592E0-4861-4279-9412-E0F98CF05D7D">
+    <variable name="PurchaseRequest" id="_04D4F691-6BA1-4D53-A721-BAB1867CB380" typeRef="PurchaseRequest" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_DD2E854A-EF7D-47E8-9DD3-0C10D16FAC3E" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_CDA76C2E-C905-4850-A6BB-C25CA10E10E5" dmnElementRef="_EC5592E0-4861-4279-9412-E0F98CF05D7D" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="400" y="160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_570671A3-97A1-46E9-B4F0-7AB5E4EC142D" dmnElementRef="_7FC0D9DA-C2D8-40F2-B0AF-D881BE2A56BB" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="-20" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
