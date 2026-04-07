@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_9761C847-B613-47A5-A82C-4275E90879EB" id="_56120F80-BEA3-4CDE-81E4-BECEC978F35C" name="DMN_BFFC5E11-896D-48B6-9154-376386CAED5A">
+  <itemDefinition id="_2BF7676E-DEAC-4714-899D-15170845B28F" name="ItemTotal" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  </itemDefinition>
   <itemDefinition id="_DEA09CAC-4F55-4454-B1AA-E37B6B6BA148" name="PurchaseRequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_2AB6D08E-F558-481A-B9DE-6679505F6DE6" name="id" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
@@ -75,7 +77,18 @@
     <knowledgeRequirement id="_BED7E9E8-B93C-4886-900F-E16A98E2DB43">
       <requiredKnowledge href="#_CBEFDCE7-F8EE-4429-BEE9-A8A3D7E6FE33" />
     </knowledgeRequirement>
-    <literalExpression id="_EDCCA275-A347-4D68-8F0C-60C53F74A402" label="Item Totals" />
+    <for id="_CD9922E1-4315-44F2-9458-7EC9F5FB780A" label="Item Totals" iteratorVariable="item">
+      <in id="_FC50FB5F-F820-42F2-AA8A-13250695DAD5">
+        <literalExpression id="_B2BEF86C-A7E4-40C1-B4A1-B263D076CCC8" label="Expression Name">
+          <text>PurchaseRequest.items</text>
+        </literalExpression>
+      </in>
+      <return id="_2557E4D9-CCBA-42D1-B36D-A419C357286A">
+        <literalExpression id="_3CB6827D-BFD4-45D9-BF7A-D6864D35A9FC" label="Expression Name">
+          <text>Calculate Item Total(item)</text>
+        </literalExpression>
+      </return>
+    </for>
   </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_CBEFDCE7-F8EE-4429-BEE9-A8A3D7E6FE33">
     <variable name="Calculate Item Total" id="_81511AC4-09A3-4F6E-AB20-F15932ADFBBF" />
@@ -96,8 +109,11 @@
           <kie:ComponentWidths dmnElementRef="_EEA4811A-AE0B-4779-BF05-B3D6CD97920C">
             <kie:width>586</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_EDCCA275-A347-4D68-8F0C-60C53F74A402">
-            <kie:width>190</kie:width>
+          <kie:ComponentWidths dmnElementRef="_B2BEF86C-A7E4-40C1-B4A1-B263D076CCC8">
+            <kie:width>303</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3CB6827D-BFD4-45D9-BF7A-D6864D35A9FC">
+            <kie:width>303</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
