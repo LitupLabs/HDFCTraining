@@ -108,7 +108,7 @@
       <di:extension>
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_1FA83085-73D9-4C1F-A7C7-CF355DCE7344">
-            <kie:width>574</kie:width>
+            <kie:width>971</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_77F7EC21-C60A-439B-AB55-71551925AC2D">
             <kie:width>607</kie:width>
