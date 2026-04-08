@@ -27,9 +27,6 @@
     <itemComponent id="_57A23F16-AE12-4F10-A319-78AF77B951CA" name="selectedVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>ScoredVendor</typeRef>
     </itemComponent>
-    <itemComponent id="_32ABED10-2B0C-4EDE-8EC4-F79964AC85AA" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>string</typeRef>
-    </itemComponent>
   </itemDefinition>
   <itemDefinition id="_17DA40D9-6918-4978-A3A2-BA7B0C26AC0C" name="VendorList" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>Vendor</typeRef>
@@ -206,15 +203,15 @@
       </match>
     </filter>
   </decision>
-  <decision name="Final Vendor Cost" id="_C34ED718-E249-4BA5-90AB-2BB4089E537D">
-    <variable name="Final Vendor Cost" id="_6BA4CC1E-90E0-4B3D-B162-C7C60057F28C" typeRef="ScoredVendor" />
+  <decision name="Final Vendor" id="_C34ED718-E249-4BA5-90AB-2BB4089E537D">
+    <variable name="Final Vendor" id="_6BA4CC1E-90E0-4B3D-B162-C7C60057F28C" typeRef="ScoredVendor" />
     <informationRequirement id="_5E9E0EB8-21A3-40A0-B4D8-EF93074EC698">
       <requiredDecision href="#_59511A81-63C2-4DEF-B089-A531CB7AC31F" />
     </informationRequirement>
     <informationRequirement id="_EC41501E-CE1F-4A6D-A45B-A8EBCBABC817">
       <requiredDecision href="#_2DC52B78-44F3-488D-9B7E-853B57815A51" />
     </informationRequirement>
-    <literalExpression id="_14540ABC-2074-4A46-960B-AC5E7D2B6CE4" typeRef="ScoredVendor" label="Final Vendor Cost">
+    <literalExpression id="_14540ABC-2074-4A46-960B-AC5E7D2B6CE4" typeRef="ScoredVendor" label="Final Vendor">
       <text>for v in Best Vendor return {vendorId: v.vendorId ,score : totalProcurementCost * v.basePriceFactor, basePriceFactor: v.basePriceFactor}</text>
     </literalExpression>
   </decision>
@@ -227,7 +224,7 @@
       <requiredInput href="#_71F38F71-854D-486E-8568-A7741B13DFB9" />
     </informationRequirement>
     <literalExpression id="_3EAB0CFD-056D-462F-8B79-3580E0D00829" typeRef="boolean" label="Approval Required or Not">
-      <text>Final Vendor Cost.score &gt; Policies.approvalThreshold</text>
+      <text>Final Vendor.score &gt; Policies.approvalThreshold</text>
     </literalExpression>
   </decision>
   <decision name="Recommended Vendor" id="_0CF69EB0-BEBB-4EF1-8EA8-0207DA05B67E">
@@ -239,7 +236,7 @@
       <requiredDecision href="#_C34ED718-E249-4BA5-90AB-2BB4089E537D" />
     </informationRequirement>
     <literalExpression id="_CDCF8093-3EAD-4FE3-B44A-BB4FBCBE341C" typeRef="Recommendation" label="Recommended Vendor">
-      <text>for v in Final Vendor Cost return { }</text>
+      <text>for v in Final Vendor return {selectedVendor: Final Vendor, approvalRequired: Approval Required or Not }</text>
     </literalExpression>
   </decision>
   <businessKnowledgeModel name="CalItemTotal" id="_7FC0D9DA-C2D8-40F2-B0AF-D881BE2A56BB">
