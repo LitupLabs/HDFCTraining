@@ -5,7 +5,7 @@
     <typeRef>ScoredVendor</typeRef>
   </itemDefinition>
   <itemDefinition id="_876703FF-3E7B-453A-B375-CCB7B781092E" name="FinalCostList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_EA19B04E-75CE-46FF-BA56-CAE01F823604" name="finalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_EA19B04E-75CE-46FF-BA56-CAE01F823604" name="finalCost" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>FinalCost</typeRef>
     </itemComponent>
   </itemDefinition>
