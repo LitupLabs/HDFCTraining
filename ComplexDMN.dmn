@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_4301566D-488F-48A6-B5A4-092EFFE4DDE4" id="_9190E527-3C8C-4F34-BDDC-4ED677169ED1" name="DMN_294DA93D-FD37-4E04-B89E-453521992A31" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_15EB3E71-7E80-461F-B752-4DD6146406AE" name="VendorList" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>vendor</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_94C6A4B6-F46A-4D53-9269-57072C121802" name="ItemTotal" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_4816150B-2786-4F5F-8844-3A2EEC8CE8B3" name="Amount" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_A9D0F3BC-648C-4BA0-8612-E521F0C5A102" name="Policies" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_A964E907-33C0-4EDC-8EDB-CD8C7D62ADE8" name="New property" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+    <itemComponent id="_BBB1D0DA-B39C-49E0-BFD1-A66B565FC719" name="minComplianceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_2A65DD17-BCF9-4CAF-8A4D-3CD1F3CF9C0C" name="approvalThreshold" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_06CB012C-DDC1-4265-AC7A-4F5E7290A3FA" name="Recommendation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_5F7AA753-5A1F-4628-AF69-4ECF1C0C36B6" name="approvalRequired" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_051F6520-69F7-4C4D-A205-37628A5416DA" name="finalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>FinalCostList</typeRef>
+    </itemComponent>
+    <itemComponent id="_71296E6C-E26B-489A-9AF5-8B8BC946D2E1" name="selectedVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>ScoredVendorList</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_BBBDE288-B1B9-466A-9203-48E8B6A15703" name="Item" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_AEF160C8-EFFC-41BF-B2D8-B3EC50C35A12" name="itemId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_54A8CFB5-0065-4065-983B-E346AE0406B0" name="category" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_E41F6828-3DC9-4170-B135-E2FBC0B350C9" name="quantity" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_F32FC2C3-1E8A-4738-9ADD-E2A8B3BF5369" name="unitProce" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_AFE33ECA-4A7A-4237-89DE-486472710489" name="FinalCostList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_CEF5ACF1-4EF5-49D1-A8E5-7B1E981B3CB3" name="finaCost" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>FinalCost</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_1C61D676-D1D4-4CEB-95EC-DF834DC3E2DD" name="ScoredVendorList" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>ScoredVendor</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_72283CA9-04ED-468B-872D-DFE9E84DC454" name="ScoredVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_4DD58EB2-CB24-43D5-B548-5D681BBBF4AA" name="baseProceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_908CEB9C-1B01-4FEC-BC67-5EE20463C816" name="score" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_663F538B-7F35-4F86-A03B-B0804BC7D506" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_531FE805-EEC5-4510-B01C-67F560039956" name="FinalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_67D83CA8-17B5-49AE-A6EF-F8E0BE9AA032" name="finalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_E5F528C8-5144-468C-BB7E-3712134F6DB1" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_69A85DE0-A4C8-40AC-8A26-94D14DEFC173" name="PurchaseRequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_AFBA4B64-692A-4FBF-9EF8-E86DCD47642D" name="tota" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+    <itemComponent id="_CE63AAC9-FA04-418A-9BD7-B4FF0F883158" name="item" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  </itemDefinition>
+  <itemDefinition id="_C1456E36-B1A0-4DF7-8F71-1240D3E9D38E" name="vendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_39FAC8CA-1DD3-4064-98C4-8FE1C1D6F6E5" name="vendorid" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_C4BE1A31-002E-46E9-82B5-F1713D3E19C6" name="rating" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_EFAF4557-E896-4C30-B900-CCB1510E2D51" name="Location" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_B5EE5261-D083-46BE-95A0-DBF4D4AFA2C6" name="complianceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_595ED5F3-4908-45D1-88AD-1316366D465F" name="basePriceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_0EFACF09-D818-48CA-89E6-18D6805C29D8" name="delveryDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="Item Total" id="_B1BB4AC7-E95A-49FC-B1CC-9951D842E034">
+    <variable name="Item Total" id="_145F7895-FE2B-4B00-AB89-4AE19BC962BA" typeRef="ItemTotal" />
+    <informationRequirement id="_6BB6F146-00E1-47E1-942F-A31B29196322">
+      <requiredInput href="#_C6C5FEAA-BF21-4CC4-8CEA-89BC3A91C1FE" />
+    </informationRequirement>
+    <knowledgeRequirement id="_F7F056A4-66E4-44F9-86F2-1BE62DE91871">
+      <requiredKnowledge href="#_CF9E87E2-4138-4580-BDBC-5D7E46F5044B" />
+    </knowledgeRequirement>
+    <for id="_D421CADB-5B90-4E0F-88E8-D95D67689C7F" typeRef="ItemTotal" label="Item Total" iteratorVariable="Item">
+      <in id="_54C27631-3BF1-4119-9A55-E31AAB588D84">
+        <literalExpression id="_200BA7C2-F8C9-42A4-B770-591E6AB3FAD9" label="Expression Name">
+          <text>PurchaseRequest.item</text>
+        </literalExpression>
+      </in>
+      <return id="_9F456BA5-8F39-402F-90D6-5E5E5F225111">
+        <literalExpression id="_4C0B4CEF-99A4-423E-89C1-B25D3FC77F3B" label="Expression Name">
+          <text>Calculated item Total (item)</text>
+        </literalExpression>
+      </return>
+    </for>
+  </decision>
+  <businessKnowledgeModel name="Calculated item Total" id="_CF9E87E2-4138-4580-BDBC-5D7E46F5044B">
+    <variable name="Calculated item Total" id="_BB62395F-0927-4F66-95B9-9FAFE978763D" typeRef="number" />
+    <encapsulatedLogic label="Calculated item Total" typeRef="number" id="_5B348055-DC90-4177-B7B3-B1311175C0AA" kind="FEEL">
+      <formalParameter id="_26DA6F53-2324-43AF-836D-53386E6945B8" name="item" typeRef="Item" />
+      <literalExpression id="_C6D42A6B-7961-4717-A6C9-A63A1893B0E0" typeRef="number" label="Return">
+        <text>if item.quantity = null or item.unitProce = null then 0 else item.quantity * item.unitPrice</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <inputData name="PurchaseRequest" id="_C6C5FEAA-BF21-4CC4-8CEA-89BC3A91C1FE">
+    <variable name="PurchaseRequest" id="_B4AFC247-C032-4C8E-9128-0C58F2D6D840" typeRef="PurchaseRequest" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_D82EF6F0-5940-4258-A5D9-A353F024EC36" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_C6D42A6B-7961-4717-A6C9-A63A1893B0E0">
+            <kie:width>1063</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_200BA7C2-F8C9-42A4-B770-591E6AB3FAD9">
+            <kie:width>465</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4C0B4CEF-99A4-423E-89C1-B25D3FC77F3B">
+            <kie:width>465</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_9DFC5AD6-BE68-4B33-B943-128927CE3AE5" dmnElementRef="_CF9E87E2-4138-4580-BDBC-5D7E46F5044B" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_67DB7495-1987-4B97-889B-6CD14A8FFB91" dmnElementRef="_B1BB4AC7-E95A-49FC-B1CC-9951D842E034" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_7F8F7B19-060C-44DF-AF6F-A2A8445F40FB" dmnElementRef="_C6C5FEAA-BF21-4CC4-8CEA-89BC3A91C1FE" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="320" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_78D938F5-A01D-414E-A857-F30BCAF2F2FC" dmnElementRef="_F7F056A4-66E4-44F9-86F2-1BE62DE91871" sourceElement="_9DFC5AD6-BE68-4B33-B943-128927CE3AE5" targetElement="_67DB7495-1987-4B97-889B-6CD14A8FFB91">
+        <di:waypoint x="180" y="80" />
+        <di:waypoint x="460" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_FAC55A97-A8F0-4BE6-A567-955DD00593BE" dmnElementRef="_6BB6F146-00E1-47E1-942F-A31B29196322" sourceElement="_7F8F7B19-060C-44DF-AF6F-A2A8445F40FB" targetElement="_67DB7495-1987-4B97-889B-6CD14A8FFB91">
+        <di:waypoint x="400" y="220" />
+        <di:waypoint x="460" y="60" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

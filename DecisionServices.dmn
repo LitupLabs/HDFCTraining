@@ -73,6 +73,10 @@
       <text>Risk Category != &quot;HIGH&quot; and Financial Eligiblity = true</text>
     </literalExpression>
   </decision>
+  <decision name="CallDS" id="_66799EBC-3C76-42F3-9EA4-26841B32A717">
+    <variable name="CallDS" id="_8D2C2AF5-94E1-4F83-BAA1-9CF79316792F" typeRef="boolean" />
+    <literalExpression id="_3B997996-AC2C-4F66-8D2D-6953281A63B0" typeRef="boolean" label="CallDS" />
+  </decision>
   <businessKnowledgeModel name="Calculate Risk Score" id="_13A6FE44-8127-4748-9333-1B14AF370454">
     <variable name="Calculate Risk Score" id="_7D0D5485-BE0B-45F7-9E77-89B8CBCBE29F" typeRef="number" />
     <encapsulatedLogic label="Calculate Risk Score" typeRef="number" id="_9279D148-1CD7-490E-935B-3F8236E90B50" kind="FEEL">
@@ -88,12 +92,12 @@
     <encapsulatedLogic label="Calculate Financial Eligiblity" typeRef="number" id="_A782A24E-C54B-4CB8-A616-52F3843AD0BE" kind="FEEL">
       <formalParameter id="_C0A265F6-6ACE-4C3F-B878-26226F348BFF" name="LoanApplication" typeRef="LoanApplication" />
       <literalExpression id="_8C0A8351-63A7-436A-A3F7-FA275EF5D73A" typeRef="number" label="Return">
-        <text>LoanApplication.Financials.monthlyIncomes + sum( LoanApplication.Financials.otherincomes ) -  LoanApplication.Financials.existingEMIs</text>
+        <text>LoanApplication.Financials.monthlyIncomes + sum(LoanApplication.Financials.otherincomes) - LoanApplication.Financials.existingEMIs</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="LoanApplication" id="_9A9C7EBF-D93E-42B0-BAE2-43F913B3EBB7">
-    <variable name="LoanApplication" id="_E9F875AD-0FE9-4BCA-AED2-E3931A9A5025" />
+    <variable name="LoanApplication" id="_E9F875AD-0FE9-4BCA-AED2-E3931A9A5025" typeRef="LoanApplication" />
   </inputData>
   <decisionService name="Loan Decision Service" id="_AE47CFD1-BCD5-4C86-8CB2-31B5F9362897">
     <variable name="Loan Decision Service" id="_B039E204-B424-45B5-86F0-FE41DDFADD49" />
@@ -121,6 +125,9 @@
           <kie:ComponentWidths dmnElementRef="_74CB5442-49E9-4CE9-8BEF-A2A76457E483">
             <kie:width>745</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3B997996-AC2C-4F66-8D2D-6953281A63B0">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_CC3490B1-65C1-43A4-8927-6C0DBF79D722" dmnElementRef="_AE47CFD1-BCD5-4C86-8CB2-31B5F9362897" isCollapsed="false" isListedInputData="false">
@@ -147,6 +154,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_14E2BE27-99D5-4DC5-ABEC-BDE16CC18415" dmnElementRef="_4EA35582-16D4-4F9E-9E29-8D0A1EE57120" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1120" y="-580" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_1F03352E-726E-4CE0-A81F-F49D17AA5D98" dmnElementRef="_66799EBC-3C76-42F3-9EA4-26841B32A717" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="-120" y="-640" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_C7C6BD4B-C13D-4026-B913-5386473F26EE-AUTO-TARGET" dmnElementRef="_5CA11495-1121-4349-BC6A-731901DD26E8" sourceElement="_CC3490B1-65C1-43A4-8927-6C0DBF79D722" targetElement="_6DC1F737-22D9-4518-9FE9-9EA3EFC47894">
         <di:waypoint x="740" y="-730" />
