@@ -204,6 +204,18 @@ basePriceFactor: v.basePriceFactor
     <informationRequirement id="_7AA1911B-20C3-4D88-AB4D-120DEEDBA687">
       <requiredDecision href="#_74ACCC92-903A-4D19-9308-E2A06A584B32" />
     </informationRequirement>
+    <filter id="_7B1D8967-0E12-462A-8C7D-3485532A7124" typeRef="ScoredVendor" label="Best Vendor">
+      <in id="_38E457C8-562F-4ACE-AC75-73B44AF33040">
+        <literalExpression id="_386D39D5-3B6E-4E2F-9770-A3B708A370C4" label="Expression Name">
+          <text>Scored Vendors</text>
+        </literalExpression>
+      </in>
+      <match id="_9F209389-0E5B-4260-8D3D-C260910A7383">
+        <literalExpression id="_AC7AEC87-66A0-4065-AC97-14F8AB7349B0" label="Expression Name">
+          <text>item.score = max(Scored Vendors.score)</text>
+        </literalExpression>
+      </match>
+    </filter>
   </decision>
   <businessKnowledgeModel name="Is Vendor Eligible" id="_7D3819A8-B951-4D65-860C-41854FA66129">
     <variable name="Is Vendor Eligible" id="_95C1A4EB-6859-47A1-A8C9-49A1FD7BD668" typeRef="boolean" />
@@ -382,6 +394,12 @@ basePriceFactor: v.basePriceFactor
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_BC07F726-7EB0-4CE7-82D9-E44987545FE6">
             <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_386D39D5-3B6E-4E2F-9770-A3B708A370C4">
+            <kie:width>682</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AC7AEC87-66A0-4065-AC97-14F8AB7349B0">
+            <kie:width>642</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
