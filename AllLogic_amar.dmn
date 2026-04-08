@@ -210,15 +210,15 @@ basePriceFactor: v.basePriceFactor
       </match>
     </filter>
   </decision>
-  <decision name="finalVendorCost" id="_10596612-4B7D-4E6D-B649-F598F243527A">
-    <variable name="finalVendorCost" id="_66A4B6CF-C4A4-4CBB-BE19-50C30236F3C9" typeRef="ScoredVendor" />
+  <decision name="finalVendor" id="_10596612-4B7D-4E6D-B649-F598F243527A">
+    <variable name="finalVendor" id="_66A4B6CF-C4A4-4CBB-BE19-50C30236F3C9" typeRef="ScoredVendor" />
     <informationRequirement id="_3F869864-9542-41CC-AEB8-A79A51D1007D">
       <requiredDecision href="#_0CCD6F61-9D33-48F0-8150-F1664E67F9C6" />
     </informationRequirement>
     <informationRequirement id="_ECFCCA4F-9919-405A-8F58-E67E549B791C">
       <requiredDecision href="#_C3DC0FD0-76DD-4AB0-940B-D34B0C55884C" />
     </informationRequirement>
-    <literalExpression id="_9FF76979-658C-43B6-8821-A3012DB6B1E1" typeRef="ScoredVendor" label="finalVendorCost">
+    <literalExpression id="_9FF76979-658C-43B6-8821-A3012DB6B1E1" typeRef="ScoredVendor" label="finalVendor">
       <text>for ven in bestVendor
 return {
 vendorId: ven.vendorId,
@@ -238,7 +238,7 @@ basePriceFactor: ven.basePriceFactor
     <conditional id="_D6DDFA6F-A04F-4B3F-8C4C-9AB6C2E49574" typeRef="boolean" label="isApprovalRequired">
       <if id="_128DB168-3416-4EEA-BC9C-8ADE42D88DEF">
         <literalExpression id="_EEF2EF46-29B8-4D07-8FDC-69394A9D51FF" label="Expression Name">
-          <text>finalVendorCost.score &gt; Policies.approvalThreshold</text>
+          <text>finalVendor.score &gt; Policies.approvalThreshold</text>
         </literalExpression>
       </if>
       <then id="_7C79B1F0-52B6-47FB-9973-38C0191A4A35">
@@ -254,13 +254,25 @@ basePriceFactor: ven.basePriceFactor
     </conditional>
   </decision>
   <decision name="recommendedVendor" id="_2B8168CA-CA63-4F9E-812D-CDEFDB385106">
-    <variable name="recommendedVendor" id="_A23673AD-2EEE-43B3-A9FF-6CA32110354E" typeRef="boolean" />
+    <variable name="recommendedVendor" id="_A23673AD-2EEE-43B3-A9FF-6CA32110354E" typeRef="Recommendation" />
     <informationRequirement id="_B2899C7C-2129-4F7D-9257-66A714AECF05">
       <requiredDecision href="#_10596612-4B7D-4E6D-B649-F598F243527A" />
     </informationRequirement>
     <informationRequirement id="_B9612248-2C49-4C91-BA01-B2E328C9FFDE">
       <requiredDecision href="#_569C3DAE-90CA-4625-B730-FC5966199224" />
     </informationRequirement>
+    <literalExpression id="_F724928F-CFF9-4B51-BD4B-7385CF884753" typeRef="Recommendation" label="recommendedVendor">
+      <text>for v in finalVendor
+
+return {
+
+selectedVendor: finalVendor,
+
+approvalRequired: isApprovalRequired
+
+}
+ </text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="calItemTotal" id="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1">
     <variable name="calItemTotal" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" typeRef="number" />
@@ -418,6 +430,9 @@ basePriceFactor: ven.basePriceFactor
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C5FD679D-E98E-4E08-BB42-DED1211C8AA2">
             <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F724928F-CFF9-4B51-BD4B-7385CF884753">
+            <kie:width>685</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
