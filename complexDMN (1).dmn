@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8789EF4A-8C0C-4AC0-B66D-2D0C654FDD4B" id="_1447EC50-3B0F-4D85-9D10-EF9543C85961" name="DMN_E0AAF2BA-2AD5-4D52-9B24-BD64A416AC0A">
+  <itemDefinition id="_367655E4-BDC2-4C70-9047-CFEC021537ED" name="Amount" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_FE637D18-5149-4A94-AAAD-394DEADFEB6F" name="Recommendation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_706EBAE1-B642-4FF9-835D-3013336DF577" name="selectedVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>ScoredVendorList</typeRef>
+    </itemComponent>
+    <itemComponent id="_1759DC11-6726-4DF8-8AB9-FA951CCCD881" name="finalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>FinalCostList</typeRef>
+    </itemComponent>
+    <itemComponent id="_53410FE2-3C02-47E6-9C82-EB386F486479" name="approvalRequired" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_CBE8FE4F-F5DE-4CFF-8A34-074B09D5B2E0" name="FinalCostList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_C76A58BD-5C3F-4A64-8308-FAD91875B19A" name="finalCost" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>FinalCost</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_8B7A64C9-26AA-4D7E-AECC-471145E34AF6" name="ScoredVendorList" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>ScoredVendor</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_4236B104-4089-49A8-99A0-55DE80EFDE34" name="ScoredVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_5B993A9E-6FFF-4537-938E-85DDB954306E" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_283D2C4D-39C6-45C2-B4B6-5FC9D7EC1408" name="score" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_3E79D750-7898-40FC-B2D2-5C3FABAB6813" name="bestPriceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_67F9A24F-8BCA-414E-9F97-976C474AD445" name="VendorList" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>Vendor</typeRef>
   </itemDefinition>
@@ -323,7 +354,7 @@
         <dc:Bounds x="1060" y="200" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_444C2C37-762E-4E8C-9CFC-769E66B3A194" dmnElementRef="_5F07BF3F-9B51-4AB9-9095-5A5A4998FD29" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="1480" y="320" width="160" height="80" />
+        <dc:Bounds x="1340" y="180" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_4D8B8B88-C910-4965-9113-E53521530E4B" dmnElementRef="_DB754D57-2BEF-40D3-B20C-1E04663AEC0A" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1600" y="200" width="160" height="80" />
@@ -354,7 +385,7 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_CE77F70C-C55C-4269-90BB-D9731A11F8BD" dmnElementRef="_2A27CE72-CFEE-4BD2-9EB5-8A9A391BCA85" sourceElement="_4D8B8B88-C910-4965-9113-E53521530E4B" targetElement="_444C2C37-762E-4E8C-9CFC-769E66B3A194">
         <di:waypoint x="1680" y="240" />
-        <di:waypoint x="1560" y="360" />
+        <di:waypoint x="1420" y="220" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
