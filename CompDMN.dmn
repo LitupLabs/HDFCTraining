@@ -134,7 +134,7 @@
       <requiredDecision href="#_DAD01CFC-C954-4AD4-931C-8BA3FEF5D2FF" />
     </informationRequirement>
     <literalExpression id="_C4AF8D32-37A2-4548-94E9-0E5D9E9B8907" typeRef="number" label="Total Procurement Cost">
-      <text>sum(Item Totals)</text>
+      <text>sum(FilteredItem Totals)</text>
     </literalExpression>
   </decision>
   <decision name="Item Totals" id="_DAD01CFC-C954-4AD4-931C-8BA3FEF5D2FF">
