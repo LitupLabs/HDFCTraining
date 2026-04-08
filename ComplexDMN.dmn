@@ -107,14 +107,14 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Item Total" id="_7F0C5F2A-E2AA-4BB4-AF42-295DD249CF82">
-    <variable name="Item Total" id="_4AECC0C1-B274-4561-B148-73E71DEA90CC" typeRef="ItemTotal" />
+    <variable name="Item Total" id="_4AECC0C1-B274-4561-B148-73E71DEA90CC" typeRef="Amount" />
     <informationRequirement id="_371E0EF2-D5FE-4890-BB94-ED22F2E8D390">
       <requiredInput href="#_F6DF58C6-5616-47B6-9013-3088843221AF" />
     </informationRequirement>
     <knowledgeRequirement id="_3B184B19-99F2-4B32-845F-FE3E9326C4C6">
       <requiredKnowledge href="#_9CA8680C-FD67-4357-90B2-28CEFF64C7F0" />
     </knowledgeRequirement>
-    <for id="_FCC89402-F4C0-4962-ACB7-923A1B651E22" typeRef="ItemTotal" label="Item Total" iteratorVariable="Item">
+    <for id="_FCC89402-F4C0-4962-ACB7-923A1B651E22" typeRef="Amount" label="Item Total" iteratorVariable="Item">
       <in id="_63C5E221-6DE9-40A3-AAD3-D31C5B315C7E">
         <literalExpression id="_A44C2ECC-22FA-45BD-8739-6B1123C676C8" label="Expression Name">
           <text>PurchaseRequest.Item</text>
@@ -239,7 +239,7 @@
         <dc:Bounds x="60" y="20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_E9B10D09-1141-4CB2-9D79-BACD70CE38F2" dmnElementRef="_9CA8680C-FD67-4357-90B2-28CEFF64C7F0" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="-100" y="-100" width="160" height="80" />
+        <dc:Bounds x="-440" y="-100" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_68225AFA-9F91-4682-A68C-84D439ADEEB3" dmnElementRef="_7F0C5F2A-E2AA-4BB4-AF42-295DD249CF82" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="-200" y="60" width="160" height="80" />
@@ -264,7 +264,7 @@
         <di:waypoint x="-40" y="100" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_219B0441-2E0E-446D-8676-F1FA908C8242" dmnElementRef="_3B184B19-99F2-4B32-845F-FE3E9326C4C6" sourceElement="_E9B10D09-1141-4CB2-9D79-BACD70CE38F2" targetElement="_68225AFA-9F91-4682-A68C-84D439ADEEB3">
-        <di:waypoint x="-20" y="-60" />
+        <di:waypoint x="-360" y="-60" />
         <di:waypoint x="-120" y="60" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_6C839090-7EA2-42A1-89AA-5800A24DB512" dmnElementRef="_9FE2622D-1111-429A-B653-DAEAE74103C5" sourceElement="_68225AFA-9F91-4682-A68C-84D439ADEEB3" targetElement="_5FEEA0D1-23DC-4E6D-9382-D0066D491EA4">
