@@ -127,8 +127,8 @@
   </decision>
   <decision name="totalprocurementcost" id="_777285A1-8535-4856-8FBE-5B55C0544B4B">
     <variable name="totalprocurementcost" id="_40824E13-F86A-4494-8496-82AAEEE9FD6E" typeRef="number" />
-    <informationRequirement id="_58D40B35-9883-43C0-81DF-DD6F04B33562">
-      <requiredDecision href="#_360EF0EB-231F-4448-9860-A51B744329AB" />
+    <informationRequirement id="_2173D8CD-C168-4C56-A236-25CC54569C21">
+      <requiredDecision href="#_B7FBA25B-A500-49F8-8F44-0D28F2812656" />
     </informationRequirement>
     <literalExpression id="_FB08E099-AF84-439F-AA41-6C10D4699C51" typeRef="number" label="totalprocurementcost">
       <text>sum(itemtotal)</text>
@@ -160,6 +160,9 @@
   </decision>
   <decision name="filtereditemtotals" id="_B7FBA25B-A500-49F8-8F44-0D28F2812656">
     <variable name="filtereditemtotals" id="_A00A0CF4-E48A-4C63-BF68-8DC06C8B8262" typeRef="amount" />
+    <informationRequirement id="_66AD8058-0114-40DE-8B36-186A505D0665">
+      <requiredDecision href="#_360EF0EB-231F-4448-9860-A51B744329AB" />
+    </informationRequirement>
     <filter id="_97F35FF6-57F8-45F1-B918-0A52323455E0" typeRef="amount" label="filtereditemtotals">
       <in id="_807C41F5-AC76-4664-B8EC-1EBE38058B5F">
         <literalExpression id="_9A5A76B6-F7ED-46BA-9883-3E5B1D5F0F74" label="Expression Name">
@@ -279,7 +282,7 @@
     <variable name="purchaserequest" id="_61DA599E-F4D6-4344-8D01-403FFBA9FCAA" typeRef="purchaserequest" />
   </inputData>
   <inputData name="vendors" id="_D42391B6-928F-4C6B-8D06-86FEF5393BBA">
-    <variable name="vendors" id="_8C80DA63-0E0A-40BF-A4E8-8417B924A385" typeRef="vendor" />
+    <variable name="vendors" id="_8C80DA63-0E0A-40BF-A4E8-8417B924A385" typeRef="vendorlist" />
   </inputData>
   <inputData name="policies" id="_54A615ED-BE73-408E-ABD0-084AA478315E">
     <variable name="policies" id="_CE90D7CC-1BAC-42D4-BA8D-5D8709B9B8D3" typeRef="policies" />
@@ -407,8 +410,12 @@
         <di:waypoint x="1280" y="20" />
         <di:waypoint x="1080" y="20" />
       </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_C78AF91E-2F72-4691-84F1-E0E13EF53D2A" dmnElementRef="_58D40B35-9883-43C0-81DF-DD6F04B33562" sourceElement="_887FE400-25AD-45C1-9496-F5E9EA5A04A8" targetElement="_667E85B2-7C5F-438B-82B9-7C4850459B93">
+      <dmndi:DMNEdge id="_C756BBE3-056F-4F9A-A39A-7A993161734B" dmnElementRef="_66AD8058-0114-40DE-8B36-186A505D0665" sourceElement="_887FE400-25AD-45C1-9496-F5E9EA5A04A8" targetElement="_1DDB9451-6AB5-4DB5-9C62-A06064EFBC59">
         <di:waypoint x="280" y="40" />
+        <di:waypoint x="480" y="-100" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_EF920B87-D10C-4E99-92F3-2937DEB10EFB" dmnElementRef="_2173D8CD-C168-4C56-A236-25CC54569C21" sourceElement="_1DDB9451-6AB5-4DB5-9C62-A06064EFBC59" targetElement="_667E85B2-7C5F-438B-82B9-7C4850459B93">
+        <di:waypoint x="480" y="-100" />
         <di:waypoint x="480" y="20" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
