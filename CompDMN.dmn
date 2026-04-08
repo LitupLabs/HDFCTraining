@@ -217,6 +217,15 @@ basePriceFactor: v.basePriceFactor
       </match>
     </filter>
   </decision>
+  <decision name="Final Vendor Cost" id="_D54DEA3C-6E3F-48E3-B2CC-4A4FAB03D409">
+    <variable name="Final Vendor Cost" id="_F3FC0C47-DD9E-45D7-9D6D-6C6DDF909D39" typeRef="number" />
+    <informationRequirement id="_E352E38B-34F9-42D7-AE89-97EDE231FC64">
+      <requiredDecision href="#_9532BF22-20B3-40C0-9935-B4C6D8C1C738" />
+    </informationRequirement>
+    <informationRequirement id="_6974E460-981B-4F8D-9D42-671E5C9EF21E">
+      <requiredDecision href="#_8FB5B2B1-9B43-4A81-A5F7-E563904422C1" />
+    </informationRequirement>
+  </decision>
   <businessKnowledgeModel name="Is Vendor Eligible" id="_7D3819A8-B951-4D65-860C-41854FA66129">
     <variable name="Is Vendor Eligible" id="_95C1A4EB-6859-47A1-A8C9-49A1FD7BD668" typeRef="boolean" />
     <encapsulatedLogic label="Is Vendor Eligible" typeRef="boolean" id="_4CC0CD4A-DB7F-40D9-8E64-648D008ABD93" kind="FEEL">
@@ -442,6 +451,9 @@ basePriceFactor: v.basePriceFactor
       <dmndi:DMNShape id="_6F6F5637-96BC-46F7-A5B6-DC58248CA60A" dmnElementRef="_9532BF22-20B3-40C0-9935-B4C6D8C1C738" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1060" y="-380" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_A3C65CD2-841F-4B87-9D37-174FE494BCA4" dmnElementRef="_D54DEA3C-6E3F-48E3-B2CC-4A4FAB03D409" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="840" y="-380" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_74C6897A-7843-492F-9D06-62E7B83617A9" dmnElementRef="_1CC02212-31A1-4619-9D28-D630A554DF46" sourceElement="_6493FE7A-E182-4D4A-8C22-214D162DE3D2" targetElement="_7741C3F6-5349-4ED3-A2BE-0D6C187E3890">
         <di:waypoint x="500" y="-40" />
         <di:waypoint x="240" y="-100" />
@@ -485,6 +497,14 @@ basePriceFactor: v.basePriceFactor
       <dmndi:DMNEdge id="_6ABF6B30-3DFD-40B8-AD4F-6A3118E7DC86" dmnElementRef="_7AA1911B-20C3-4D88-AB4D-120DEEDBA687" sourceElement="_3AA8B5F9-BE03-4763-9EA4-1A5005BBEE4F" targetElement="_6F6F5637-96BC-46F7-A5B6-DC58248CA60A">
         <di:waypoint x="1140" y="-200" />
         <di:waypoint x="1140" y="-300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_D2D61A85-1331-4FBD-A679-302007681437" dmnElementRef="_E352E38B-34F9-42D7-AE89-97EDE231FC64" sourceElement="_6F6F5637-96BC-46F7-A5B6-DC58248CA60A" targetElement="_A3C65CD2-841F-4B87-9D37-174FE494BCA4">
+        <di:waypoint x="1140" y="-340" />
+        <di:waypoint x="920" y="-380" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_1EDF6039-903C-477D-96BE-11C04CD699B7" dmnElementRef="_6974E460-981B-4F8D-9D42-671E5C9EF21E" sourceElement="_E5C53E32-797A-4864-A63D-CC97AFE7843C" targetElement="_A3C65CD2-841F-4B87-9D37-174FE494BCA4">
+        <di:waypoint x="240" y="-220" />
+        <di:waypoint x="840" y="-340" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
