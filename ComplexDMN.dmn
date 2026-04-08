@@ -27,6 +27,9 @@
     <itemComponent id="_57A23F16-AE12-4F10-A319-78AF77B951CA" name="selectedVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>ScoredVendor</typeRef>
     </itemComponent>
+    <itemComponent id="_32ABED10-2B0C-4EDE-8EC4-F79964AC85AA" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
   </itemDefinition>
   <itemDefinition id="_17DA40D9-6918-4978-A3A2-BA7B0C26AC0C" name="VendorList" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>Vendor</typeRef>
@@ -228,13 +231,16 @@
     </literalExpression>
   </decision>
   <decision name="Recommended Vendor" id="_0CF69EB0-BEBB-4EF1-8EA8-0207DA05B67E">
-    <variable name="Recommended Vendor" id="_5A9A32F3-FE03-4BDF-989A-0C845A20303B" />
+    <variable name="Recommended Vendor" id="_5A9A32F3-FE03-4BDF-989A-0C845A20303B" typeRef="Recommendation" />
     <informationRequirement id="_E8EE941C-C4C1-4D9F-9F0A-9E51A4A3F2BA">
       <requiredDecision href="#_9A56B906-C833-43F9-8078-D1E1786B2DF1" />
     </informationRequirement>
     <informationRequirement id="_D004DE48-77FA-4B8B-AF5D-29FDABE56376">
       <requiredDecision href="#_C34ED718-E249-4BA5-90AB-2BB4089E537D" />
     </informationRequirement>
+    <literalExpression id="_CDCF8093-3EAD-4FE3-B44A-BB4FBCBE341C" typeRef="Recommendation" label="Recommended Vendor">
+      <text>for v in Final Vendor Cost return { }</text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="CalItemTotal" id="_7FC0D9DA-C2D8-40F2-B0AF-D881BE2A56BB">
     <variable name="CalItemTotal" id="_21BB93C7-CEDE-423E-A03D-442C7F7BA2EA" typeRef="number" />
@@ -405,6 +411,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_3EAB0CFD-056D-462F-8B79-3580E0D00829">
             <kie:width>665</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CDCF8093-3EAD-4FE3-B44A-BB4FBCBE341C">
+            <kie:width>1144</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
