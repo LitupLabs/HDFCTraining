@@ -200,7 +200,7 @@ basepricefactor: v.basepricefactor
       </in>
       <match id="_CCD38A1C-4E63-4CD8-AEF8-333D9A48D1AA">
         <literalExpression id="_7248C5AE-F976-448A-978E-985A454EDB3F" label="Expression Name">
-          <text>item.score=max(scoredvendor.score)</text>
+          <text>item.score=max(scored vendor.score)</text>
         </literalExpression>
       </match>
     </filter>
