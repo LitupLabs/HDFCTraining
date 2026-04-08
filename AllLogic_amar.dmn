@@ -195,6 +195,24 @@ basePriceFactor: v.basePriceFactor
 }</text>
     </literalExpression>
   </decision>
+  <decision name="bestVendor" id="_C3DC0FD0-76DD-4AB0-940B-D34B0C55884C">
+    <variable name="bestVendor" id="_CCFD64E1-C9E9-49BD-9D8F-EC350A91FD15" typeRef="ScoredVendor" />
+    <informationRequirement id="_A40D6756-BF75-4D85-B874-609F7CA55509">
+      <requiredDecision href="#_3D081E3E-7D52-4416-B324-630D7534C5E0" />
+    </informationRequirement>
+    <filter id="_BEA08DE6-9B74-446E-8B6B-561513B4E2A4" typeRef="ScoredVendor" label="bestVendor">
+      <in id="_F600552C-9637-492E-8BCD-843872A13C30">
+        <literalExpression id="_AD767301-404C-41A4-8BC5-3860430AC861" label="Expression Name">
+          <text>scoredVendors</text>
+        </literalExpression>
+      </in>
+      <match id="_8E527AC9-8964-44C1-A72C-7971418C3B69">
+        <literalExpression id="_CCBCAB3C-8E42-4F12-9B83-10C40CA0B8CF" label="Expression Name">
+          <text>item.score=max(scoredVendors.score)</text>
+        </literalExpression>
+      </match>
+    </filter>
+  </decision>
   <businessKnowledgeModel name="calItemTotal" id="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1">
     <variable name="calItemTotal" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" typeRef="number" />
     <encapsulatedLogic label="calItemTotal" typeRef="number" id="_57224D47-8413-4318-8BC2-A46DDACAA3BB" kind="FEEL">
@@ -334,6 +352,12 @@ basePriceFactor: v.basePriceFactor
           <kie:ComponentWidths dmnElementRef="_0E903153-2A6C-446C-B25E-65128504D0BB">
             <kie:width>518</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AD767301-404C-41A4-8BC5-3860430AC861">
+            <kie:width>678</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CCBCAB3C-8E42-4F12-9B83-10C40CA0B8CF">
+            <kie:width>638</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_A4DBC775-97B0-4BB1-88FF-03A5B0E4F932" dmnElementRef="_319D80D7-A8E9-4F9D-9531-48A0971F136B" isCollapsed="false" isListedInputData="false">
@@ -371,6 +395,9 @@ basePriceFactor: v.basePriceFactor
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_8B8F1C94-FC7B-4E5E-8101-38707B5AFF3C" dmnElementRef="_3D081E3E-7D52-4416-B324-630D7534C5E0" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1280" y="-80" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_D14A9246-1D60-40D3-96EB-D5B4619D979F" dmnElementRef="_C3DC0FD0-76DD-4AB0-940B-D34B0C55884C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1280" y="-240" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_C1EB3A7F-153F-45C3-9F1F-E1BB312C69D3" dmnElementRef="_55ED0D31-6C4A-4AEB-979E-52C34168B13C" sourceElement="_5ABB1A17-875A-4B69-966E-4A38B6C3B286" targetElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD">
         <di:waypoint x="180" y="180" />
@@ -411,6 +438,10 @@ basePriceFactor: v.basePriceFactor
       <dmndi:DMNEdge id="_808CC506-26CB-41F9-BFAD-18BA151D77B8" dmnElementRef="_3C463A13-6551-407F-97D8-568B22805B99" sourceElement="_48739381-D9FE-4310-AB7F-4D9DC9CA111C" targetElement="_8B8F1C94-FC7B-4E5E-8101-38707B5AFF3C">
         <di:waypoint x="1640" y="80" />
         <di:waypoint x="1360" y="-40" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_67E5F442-22D3-49B5-AC69-CE73FEEC78D5" dmnElementRef="_A40D6756-BF75-4D85-B874-609F7CA55509" sourceElement="_8B8F1C94-FC7B-4E5E-8101-38707B5AFF3C" targetElement="_D14A9246-1D60-40D3-96EB-D5B4619D979F">
+        <di:waypoint x="1360" y="-40" />
+        <di:waypoint x="1360" y="-200" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
