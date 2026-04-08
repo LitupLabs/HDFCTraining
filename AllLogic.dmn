@@ -192,10 +192,12 @@
     <encapsulatedLogic label="Calculate Vendor Score" typeRef="number" id="_10284CEE-6FB5-4831-A276-A391E53F7F9B" kind="FEEL">
       <formalParameter id="_2228528B-BF0F-4173-8002-52BD4F807D7B" name="vendor" typeRef="Vendor" />
       <context id="_6D2FD7F4-79D0-4761-9AB9-E04C2BFE34AB" typeRef="number" label="Return">
-        <contextEntry id="_D8E005FF-1290-48B5-88A3-DF3D09BE2FD1">
-          <variable id="_297FEA5C-1605-48FC-B323-DA1FE8377379" name="ratingScore" typeRef="number" />
-          <literalExpression id="_5A23287E-211D-4D4E-BC29-1F2C7718635A" typeRef="number" label="ratingScore">
-            <text>vendor.rating * 20</text>
+        <contextEntry id="_D6BA0FED-2BEE-4FA5-B4A5-3E03B1627510">
+          <variable id="_8FC53554-11C1-4926-B4D3-EA35AE426D4B" name="ratingScore">
+            <description></description>
+          </variable>
+          <literalExpression id="_329D420E-CB20-4A66-A4CB-C6FE8D69954C" label="ratingScore">
+            <text>Calculate Vendor Rating(vendor)</text>
           </literalExpression>
         </contextEntry>
         <contextEntry id="_63A91EFD-88F5-4DF4-AC57-16578FC8D091">
@@ -229,6 +231,9 @@
         </contextEntry>
       </context>
     </encapsulatedLogic>
+    <knowledgeRequirement id="_1E560C08-D57C-40D0-8CF6-4DFF9153EEC8">
+      <requiredKnowledge href="#_C043D9CE-CE0F-4237-B69A-68A581248660" />
+    </knowledgeRequirement>
   </businessKnowledgeModel>
   <businessKnowledgeModel name="Is Vendor Eligible" id="_AAED8A76-3660-45D4-A767-D50D0D514B55">
     <variable name="Is Vendor Eligible" id="_86813DA4-9C6C-4577-B65B-7169C51D5AE1" typeRef="boolean" />
@@ -253,6 +258,15 @@
           </literalExpression>
         </else>
       </conditional>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <businessKnowledgeModel name="Calculate Vendor Rating" id="_C043D9CE-CE0F-4237-B69A-68A581248660">
+    <variable name="Calculate Vendor Rating" id="_B57C1FE7-A428-49D1-8C5B-36ACC00E6775" typeRef="number" />
+    <encapsulatedLogic label="Calculate Vendor Rating" typeRef="number" id="_18883FBB-236F-48A5-89D5-CE3EB82CDB47" kind="FEEL">
+      <formalParameter id="_A4429664-C714-40FA-ABD7-717D1EB62FB9" name="vendor" typeRef="Vendor" />
+      <literalExpression id="_40192FAA-19FA-4AB8-9AED-194CAC7F3B93" typeRef="number" label="Return">
+        <text>vendor.rating * 10</text>
+      </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="PurchaseRequest" id="_319D80D7-A8E9-4F9D-9531-48A0971F136B">
@@ -289,9 +303,6 @@
           <kie:ComponentWidths dmnElementRef="_6D2FD7F4-79D0-4761-9AB9-E04C2BFE34AB">
             <kie:width>120</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_5A23287E-211D-4D4E-BC29-1F2C7718635A">
-            <kie:width>705</kie:width>
-          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_D52A27E8-FF0B-4296-B44F-9B52A18FF7B2">
             <kie:width>705</kie:width>
           </kie:ComponentWidths>
@@ -319,6 +330,12 @@
           <kie:ComponentWidths dmnElementRef="_0F33BB21-7986-4840-AE8D-A0661F4F1FBF">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_40192FAA-19FA-4AB8-9AED-194CAC7F3B93">
+            <kie:width>565</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_329D420E-CB20-4A66-A4CB-C6FE8D69954C">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_A4DBC775-97B0-4BB1-88FF-03A5B0E4F932" dmnElementRef="_319D80D7-A8E9-4F9D-9531-48A0971F136B" isCollapsed="false" isListedInputData="false">
@@ -343,13 +360,16 @@
         <dc:Bounds x="1200" y="100" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_48739381-D9FE-4310-AB7F-4D9DC9CA111C" dmnElementRef="_E5CD3220-E513-425D-85A3-E0D5B34B200C" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="1560" y="100" width="160" height="80" />
+        <dc:Bounds x="1420" y="140" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_57523AD7-CC7D-4B7B-88B0-B229465C86DF" dmnElementRef="_892DF098-3CB8-4500-A1DC-49948F071715" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="700" y="-20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_249E2DD4-17D0-4E5F-86BA-FDD67FAB3394" dmnElementRef="_AAED8A76-3660-45D4-A767-D50D0D514B55" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1480" y="280" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_64E255B6-159E-4219-BAAF-4EF9490E880A" dmnElementRef="_C043D9CE-CE0F-4237-B69A-68A581248660" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1600" y="20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_C1EB3A7F-153F-45C3-9F1F-E1BB312C69D3" dmnElementRef="_55ED0D31-6C4A-4AEB-979E-52C34168B13C" sourceElement="_5ABB1A17-875A-4B69-966E-4A38B6C3B286" targetElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD">
         <di:waypoint x="180" y="180" />
@@ -378,6 +398,10 @@
       <dmndi:DMNEdge id="_88A22BB9-B5F5-4AC3-AFD0-F6BF6D6E97A5" dmnElementRef="_195E58DE-0C52-44AC-80E6-7A5916B245D0" sourceElement="_249E2DD4-17D0-4E5F-86BA-FDD67FAB3394" targetElement="_6C0250A3-E608-48CE-B770-DB0372DED014">
         <di:waypoint x="1560" y="320" />
         <di:waypoint x="1280" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_2DDBBFDB-1B47-446B-8FC7-DEE3090DC7D6" dmnElementRef="_1E560C08-D57C-40D0-8CF6-4DFF9153EEC8" sourceElement="_64E255B6-159E-4219-BAAF-4EF9490E880A" targetElement="_48739381-D9FE-4310-AB7F-4D9DC9CA111C">
+        <di:waypoint x="1680" y="60" />
+        <di:waypoint x="1500" y="180" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
