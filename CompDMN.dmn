@@ -248,7 +248,7 @@ basePriceFactor: v.basePriceFactor
       <requiredInput href="#_124A1091-23CE-48E4-952B-F3E906E49DB2" />
     </informationRequirement>
     <literalExpression id="_F6EAEBFF-D94F-49F2-B06E-2D5C91A83203" typeRef="boolean" label="Approval Required or not">
-      <text>Final Vendor Cost &gt; Policies.approvalThreshold</text>
+      <text>Final Vendor Cost.score &gt; Policies.approvalThreshold</text>
     </literalExpression>
   </decision>
   <businessKnowledgeModel name="Is Vendor Eligible" id="_7D3819A8-B951-4D65-860C-41854FA66129">
