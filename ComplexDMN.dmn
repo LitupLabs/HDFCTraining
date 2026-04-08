@@ -227,7 +227,7 @@
       <requiredInput href="#_71F38F71-854D-486E-8568-A7741B13DFB9" />
     </informationRequirement>
     <literalExpression id="_3EAB0CFD-056D-462F-8B79-3580E0D00829" typeRef="boolean" label="Approval Required or Not">
-      <text>Final Vendor Cost &gt; Policies.approvalThreshold</text>
+      <text>Final Vendor Cost.score &gt; Policies.approvalThreshold</text>
     </literalExpression>
   </decision>
   <businessKnowledgeModel name="CalItemTotal" id="_7FC0D9DA-C2D8-40F2-B0AF-D881BE2A56BB">
