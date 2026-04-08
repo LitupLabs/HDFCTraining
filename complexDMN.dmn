@@ -158,6 +158,21 @@
       </match>
     </filter>
   </decision>
+  <decision name="filtereditemtotals" id="_B7FBA25B-A500-49F8-8F44-0D28F2812656">
+    <variable name="filtereditemtotals" id="_A00A0CF4-E48A-4C63-BF68-8DC06C8B8262" typeRef="amount" />
+    <filter id="_97F35FF6-57F8-45F1-B918-0A52323455E0" typeRef="amount" label="filtereditemtotals">
+      <in id="_807C41F5-AC76-4664-B8EC-1EBE38058B5F">
+        <literalExpression id="_9A5A76B6-F7ED-46BA-9883-3E5B1D5F0F74" label="Expression Name">
+          <text>itemtotals</text>
+        </literalExpression>
+      </in>
+      <match id="_36B36E9A-5FEE-4F21-95F2-F12EDBC36D1F">
+        <literalExpression id="_9FA56E33-16E8-4F59-8FC9-2A7045C31962" label="Expression Name">
+          <text>item!=0</text>
+        </literalExpression>
+      </match>
+    </filter>
+  </decision>
   <businessKnowledgeModel name="calculateitemtotal" id="_B085B2E7-F5E6-441F-86D5-A5F3B1EFD3C9">
     <variable name="calculateitemtotal" id="_8F76B61D-54DF-45FD-A0EB-BD5A775625B9" typeRef="number" />
     <encapsulatedLogic label="calculateitemtotal" typeRef="number" id="_499851F2-8EB0-4622-89E2-4DF30E2B05F6" kind="FEEL">
@@ -327,6 +342,12 @@
           <kie:ComponentWidths dmnElementRef="_1DE3BDB1-E350-49DC-AE95-EDAB7FA624D2">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9A5A76B6-F7ED-46BA-9883-3E5B1D5F0F74">
+            <kie:width>1006</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9FA56E33-16E8-4F59-8FC9-2A7045C31962">
+            <kie:width>966</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_EBEA4119-E455-43DF-97FF-1548F87B9712" dmnElementRef="_DDD64DCF-2162-4440-A035-9AB6C8D39D19" isCollapsed="false" isListedInputData="false">
@@ -358,6 +379,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_A93BA01A-C382-4E9C-87EB-3678B40A2833" dmnElementRef="_0D95072A-7600-4918-BD7B-A59616E28301" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1200" y="-20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_1DDB9451-6AB5-4DB5-9C62-A06064EFBC59" dmnElementRef="_B7FBA25B-A500-49F8-8F44-0D28F2812656" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="400" y="-140" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_6CE7FE85-95F4-4DD2-AF98-D207CF6AD338" dmnElementRef="_10AA3318-55FC-45B7-A316-E5FA6F0FAAA3" sourceElement="_C9969243-EAA7-4873-A004-6B6FE429EB16" targetElement="_887FE400-25AD-45C1-9496-F5E9EA5A04A8">
         <di:waypoint x="100" y="180" />
