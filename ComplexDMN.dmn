@@ -241,7 +241,7 @@ basePriceFactor: v.basePriceFactor
         <contextEntry id="_FD3DC2F6-23BB-4039-92E5-E70B7CB1D57A">
           <variable id="_BE1CA565-EE8F-4148-B682-479422816392" name="ratingscore" typeRef="number" />
           <literalExpression id="_E8511B16-8F1C-4B7C-86E4-D6FD42D36750" typeRef="number" label="ratingscore">
-            <text>Calculate vendor rating(vendor)</text>
+            <text>Calculate Vendor Rating(vendor)</text>
           </literalExpression>
         </contextEntry>
         <contextEntry id="_256D6823-B944-4027-988F-F7749AE903C7">
