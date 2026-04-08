@@ -240,6 +240,9 @@
         </contextEntry>
       </context>
     </encapsulatedLogic>
+    <knowledgeRequirement id="_4253EC06-025C-4A11-8FA5-C42BED54202C">
+      <requiredKnowledge href="#_3EF3DC2E-5F2A-4090-9E32-D3837D9198E2" />
+    </knowledgeRequirement>
   </businessKnowledgeModel>
   <businessKnowledgeModel name="calVendorRating" id="_3EF3DC2E-5F2A-4090-9E32-D3837D9198E2">
     <variable name="calVendorRating" id="_25FE2A50-1594-4A35-80EE-B4D7CCD85F61" typeRef="number" />
@@ -338,7 +341,7 @@
         <dc:Bounds x="1500" y="260" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_48739381-D9FE-4310-AB7F-4D9DC9CA111C" dmnElementRef="_E5CD3220-E513-425D-85A3-E0D5B34B200C" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="80" y="400" width="160" height="80" />
+        <dc:Bounds x="80" y="420" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_CE126A88-1492-4120-8565-1ED626BC0B66" dmnElementRef="_B6367473-A98A-49B5-AB75-ADA3D3757442" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="700" y="-40" width="160" height="80" />
@@ -373,6 +376,10 @@
       <dmndi:DMNEdge id="_48582A67-3049-4E9C-82FA-7F5CA52F3302" dmnElementRef="_451F7C72-DE57-4473-84E4-512B86F8A83C" sourceElement="_CE126A88-1492-4120-8565-1ED626BC0B66" targetElement="_423F3F86-AF2D-42CE-9ACB-1FAD7364D0CB">
         <di:waypoint x="780" y="0" />
         <di:waypoint x="920" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_532312E5-B310-4D62-9548-A065EA33E537" dmnElementRef="_4253EC06-025C-4A11-8FA5-C42BED54202C" sourceElement="_D9285F22-D26E-4F5F-B36D-A37E2086192C" targetElement="_48739381-D9FE-4310-AB7F-4D9DC9CA111C">
+        <di:waypoint x="160" y="340" />
+        <di:waypoint x="160" y="460" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
