@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_C4570E77-E354-47A9-8890-F198FA822399" id="_E6FAC838-D77F-41D5-93E5-8C11D0A1B330" name="DMN_7A0428B9-6726-42B5-B3F5-61B5A55788FC" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_5AD52155-C99D-48CD-ACBE-F9EAD62D1380" name="Recommendation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F8D7115C-668B-45FE-94B2-D444E9EEF63D" name="approvalRequired" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_5F1ED475-4D1C-44B6-BBDA-C4C1139D1258" name="finalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+    <itemComponent id="_1E7F8C3D-380D-4CF9-949F-A039D661F04C" name="selectedVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  </itemDefinition>
   <itemDefinition id="_580CBB31-19E0-4EBA-BA4C-C0F65B6CF29A" name="ScoredVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_BC599198-1914-44DE-80A4-5C1C18050099" name="basePriceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
