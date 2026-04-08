@@ -161,9 +161,18 @@
     <knowledgeRequirement id="_39E21CE9-530A-49E6-A61D-41F240E72F0B">
       <requiredKnowledge href="#_A660E6D5-4722-4793-9D2C-779238041CE7" />
     </knowledgeRequirement>
-  </decision>
-  <decision name="New Decision" id="_902E66CB-B385-4DCF-A807-660209268B70">
-    <variable name="New Decision" id="_D2BF50AB-27A8-4665-A51F-D164376DEF9F" />
+    <filter id="_365CA392-85ED-4CDE-A6C2-16710EA40674" typeRef="VendorList" label="Eligible Vendor">
+      <in id="_2B342B48-41AF-4A54-916E-9C0E1F54411B">
+        <literalExpression id="_E629DB30-2828-4F49-BE55-556B9511A9C6" label="Expression Name">
+          <text>vendor</text>
+        </literalExpression>
+      </in>
+      <match id="_28ED74BD-4A6A-4443-AB67-04F575812A90">
+        <literalExpression id="_EFF43200-503A-4A03-B9F3-E51FAC38D867" label="Expression Name">
+          <text>Is Vendor Eligible(item,Policies)</text>
+        </literalExpression>
+      </match>
+    </filter>
   </decision>
   <businessKnowledgeModel name="Calculated item Total" id="_CF9E87E2-4138-4580-BDBC-5D7E46F5044B">
     <variable name="Calculated item Total" id="_BB62395F-0927-4F66-95B9-9FAFE978763D" typeRef="number" />
@@ -208,6 +217,12 @@
           <kie:ComponentWidths dmnElementRef="_9FEF7CAB-A91E-4D48-A7EB-F09C32D838B2">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E629DB30-2828-4F49-BE55-556B9511A9C6">
+            <kie:width>794</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_EFF43200-503A-4A03-B9F3-E51FAC38D867">
+            <kie:width>754</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_9DFC5AD6-BE68-4B33-B943-128927CE3AE5" dmnElementRef="_CF9E87E2-4138-4580-BDBC-5D7E46F5044B" isCollapsed="false" isListedInputData="false">
@@ -236,9 +251,6 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_0F112FC6-68AA-4BAB-9DBB-030CEC977357" dmnElementRef="_A660E6D5-4722-4793-9D2C-779238041CE7" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1100" y="120" width="160" height="80" />
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="_3E9EC279-BD84-4DD4-8C0A-D9FD41767F94" dmnElementRef="_902E66CB-B385-4DCF-A807-660209268B70" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="1140" y="-20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_78D938F5-A01D-414E-A857-F30BCAF2F2FC" dmnElementRef="_F7F056A4-66E4-44F9-86F2-1BE62DE91871" sourceElement="_9DFC5AD6-BE68-4B33-B943-128927CE3AE5" targetElement="_67DB7495-1987-4B97-889B-6CD14A8FFB91">
         <di:waypoint x="80" y="40" />
