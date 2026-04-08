@@ -169,7 +169,7 @@
       </in>
       <match id="_28ED74BD-4A6A-4443-AB67-04F575812A90">
         <literalExpression id="_EFF43200-503A-4A03-B9F3-E51FAC38D867" label="Expression Name">
-          <text>Is Vendor Eligible(vendor,Policies)</text>
+          <text>Is Vendor Eligible(item,Policies)</text>
         </literalExpression>
       </match>
     </filter>
