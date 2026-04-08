@@ -188,6 +188,24 @@
       <text>for v in eligibleVendors return {vendorId:v.vendorId, score: calVendorScore(v), basePriceFactor:  v.basePriceFactor }</text>
     </literalExpression>
   </decision>
+  <decision name="Best Vendor" id="_59511A81-63C2-4DEF-B089-A531CB7AC31F">
+    <variable name="Best Vendor" id="_0EBD5682-3E41-4894-8EE3-9E613035BE5B" typeRef="ScoredVendor" />
+    <informationRequirement id="_5FA83D91-DEC9-4338-AD48-7A0580C5173D">
+      <requiredDecision href="#_AC7660AC-317B-4228-BDC1-29EA64046ACA" />
+    </informationRequirement>
+    <filter id="_002A0160-7641-4B78-8EF6-5A275C77D21E" typeRef="ScoredVendor" label="Best Vendor">
+      <in id="_2E31F375-5877-4334-A84F-BFC62E147EB8">
+        <literalExpression id="_EF5B363B-042A-40BB-80C0-63F100EFCB69" label="Expression Name">
+          <text>Scored Vendors</text>
+        </literalExpression>
+      </in>
+      <match id="_6225D19E-9428-4394-BAEB-12BD31F6E1B5">
+        <literalExpression id="_984FB1B4-4F80-4B5B-AD4C-518CF1F22EC4" label="Expression Name">
+          <text>item.score=max(Scored Vendors.score)</text>
+        </literalExpression>
+      </match>
+    </filter>
+  </decision>
   <businessKnowledgeModel name="CalItemTotal" id="_7FC0D9DA-C2D8-40F2-B0AF-D881BE2A56BB">
     <variable name="CalItemTotal" id="_21BB93C7-CEDE-423E-A03D-442C7F7BA2EA" typeRef="number" />
     <encapsulatedLogic label="CalItemTotal" typeRef="number" id="_AEDC34A7-0824-410D-907D-42139CFCB3E0" kind="FEEL">
@@ -346,6 +364,12 @@
           <kie:ComponentWidths dmnElementRef="_4A2CD289-5C68-44E3-AC20-96A383F1B9AC">
             <kie:width>613</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_EF5B363B-042A-40BB-80C0-63F100EFCB69">
+            <kie:width>467</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_984FB1B4-4F80-4B5B-AD4C-518CF1F22EC4">
+            <kie:width>427</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_CDA76C2E-C905-4850-A6BB-C25CA10E10E5" dmnElementRef="_EC5592E0-4861-4279-9412-E0F98CF05D7D" isCollapsed="false" isListedInputData="false">
@@ -383,6 +407,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_28EC287D-262C-4E45-BCE0-B5B33CE574CD" dmnElementRef="_AC7660AC-317B-4228-BDC1-29EA64046ACA" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="100" y="80" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_F26CA913-39E6-40EA-8340-9D27831C0EE2" dmnElementRef="_59511A81-63C2-4DEF-B089-A531CB7AC31F" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="-40" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_330CB0D9-141B-4576-900B-53685B492F47" dmnElementRef="_40BE3723-24DC-4600-80E1-236839494897" sourceElement="_CDA76C2E-C905-4850-A6BB-C25CA10E10E5" targetElement="_A2498D2F-8B53-48A1-8FF8-B97F3BF037A4">
         <di:waypoint x="1200" y="420" />
@@ -423,6 +450,10 @@
       <dmndi:DMNEdge id="_68BBD4FA-B2B5-4118-837B-1A4B78AF111E" dmnElementRef="_2EF5253A-91DC-4445-B84C-3F7907EA0A3D" sourceElement="_ED97F878-3E0C-401B-88FB-61E7C03541C9" targetElement="_28EC287D-262C-4E45-BCE0-B5B33CE574CD">
         <di:waypoint x="-40" y="280" />
         <di:waypoint x="180" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_CE3C5989-3291-4618-B569-6335C406BDBF" dmnElementRef="_5FA83D91-DEC9-4338-AD48-7A0580C5173D" sourceElement="_28EC287D-262C-4E45-BCE0-B5B33CE574CD" targetElement="_F26CA913-39E6-40EA-8340-9D27831C0EE2">
+        <di:waypoint x="180" y="120" />
+        <di:waypoint x="180" y="40" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
