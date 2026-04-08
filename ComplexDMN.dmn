@@ -55,7 +55,7 @@
     <itemComponent id="_D947AC3C-AB31-4DF0-B6E1-0D940CD81891" name="MaxDeliveryDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_1555751E-1683-4FD5-B6B4-C0E1A79B30C7" name="MinComplainceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_1555751E-1683-4FD5-B6B4-C0E1A79B30C7" name="MinComplianceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
     <itemComponent id="_367FEBE7-FBC8-4937-BF7F-CB3FBBFC002F" name="ApprovalThreshold" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -148,15 +148,15 @@
     <knowledgeRequirement id="_E056320D-8493-48D8-B4EB-00983BC4CD32">
       <requiredKnowledge href="#_964BEDD1-D834-4ADB-AE49-1D7CD2C4F3C4" />
     </knowledgeRequirement>
-    <for id="_2E8EB798-78EA-4722-93D0-16B2CAA408FD" typeRef="VendorList" label="Eligible Vendors" iteratorVariable="vendor">
+    <for id="_2E8EB798-78EA-4722-93D0-16B2CAA408FD" typeRef="VendorList" label="Eligible Vendors" iteratorVariable="Vendor">
       <in id="_D998C920-B84B-40B6-B89E-C11FC5225B9C">
         <literalExpression id="_DBD3364F-AAE3-4CCB-A10B-BE6C1997EFE6" label="Expression Name">
-          <text>Vendors</text>
+          <text>Vendor</text>
         </literalExpression>
       </in>
-      <return id="_0CBCA295-AEE4-44FC-A5F7-F4C9CDD5EDDC">
+      <return id="_DD8A288B-67DF-463A-A472-69A9018CD44D">
         <literalExpression id="_8941F9AB-1596-48B2-9718-2F8913965A0B" label="Expression Name">
-          <text>Is Vendor Eligible(Item, Polices)</text>
+          <text>Is Vendor Eligible(Vendor, Polices)</text>
         </literalExpression>
       </return>
     </for>
@@ -173,9 +173,9 @@
       <text>
 for v in Eligible Vendors
 return {
-vendorId: v.vendorId,
+vendorId: v.vendorID,
 score: Calculate Vendor Score(v),
-basePriceFactor: v.basePriceFactor
+basePriceFactor: v.BasePriceFactor
 }
 
 </text>
@@ -198,7 +198,7 @@ basePriceFactor: v.basePriceFactor
       <conditional id="_14E07FCA-F966-49B3-9358-067533B0D707" label="Return">
         <if id="_799DF2A4-5942-43B6-83B9-18DE8AA4EF4A">
           <literalExpression id="_8658C670-54E3-4232-B5F8-644DEDCA0B7F" label="Expression Name">
-            <text>Vendor.ComplianceScore &gt;= Polices.MinComplainceScore and Vendor.DeliveryDays &lt;= Polices.MaxDeliveryDays</text>
+            <text>Vendor.ComplianceScore &gt;= Polices.MinComplianceScore and Vendor.DeliveryDays &lt;= Polices.MaxDeliveryDays</text>
           </literalExpression>
         </if>
         <then id="_A7B03475-B6C3-46F5-9413-702918C46269">
@@ -272,8 +272,8 @@ basePriceFactor: v.basePriceFactor
   <inputData name="PurchaseRequest" id="_F6DF58C6-5616-47B6-9013-3088843221AF">
     <variable name="PurchaseRequest" id="_FE28FC58-43C3-4073-830A-DFB721782F49" typeRef="PurchaseRequest" />
   </inputData>
-  <inputData name="Vendors" id="_437FCD67-38E9-4AFB-A0A4-E1A2894DDAEF">
-    <variable name="Vendors" id="_4860B258-D953-479F-9787-C3E9A6973B02" typeRef="VendorList" />
+  <inputData name="Vendor" id="_437FCD67-38E9-4AFB-A0A4-E1A2894DDAEF">
+    <variable name="Vendor" id="_4860B258-D953-479F-9787-C3E9A6973B02" typeRef="VendorList" />
   </inputData>
   <inputData name="Polices" id="_550D3964-0DBA-4929-8CCA-B4B20F49217D">
     <variable name="Polices" id="_BD4BD970-4462-4507-87FC-1C4E5294535E" typeRef="Polices" />
