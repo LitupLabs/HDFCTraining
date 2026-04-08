@@ -163,7 +163,7 @@
     <encapsulatedLogic label="calculateitemtotal" typeRef="number" id="_499851F2-8EB0-4622-89E2-4DF30E2B05F6" kind="FEEL">
       <formalParameter id="_ECA00901-486D-4E5B-9AF1-39FABE709A00" name="item" typeRef="item" />
       <literalExpression id="_1FA83085-73D9-4C1F-A7C7-CF355DCE7344" typeRef="number" label="Return">
-        <text>if item.quantity == null or item.unitprice == null then 0 else item.quantity * item.unitprice</text>
+        <text>if item.quantity = null or item.unitprice = null then 0 else item.quantity * item.unitprice</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
