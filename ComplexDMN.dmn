@@ -194,11 +194,11 @@
           </conditional>
         </contextEntry>
         <contextEntry id="_DF85A2BE-B283-40D1-A269-3F22CDF1FFA8">
-          <variable id="_2E6159F3-5BF9-4E21-A550-0D7ECAF5B951" name="complianceScore" typeRef="number">
+          <variable id="_2E6159F3-5BF9-4E21-A550-0D7ECAF5B951" name="Return" typeRef="number">
             <description></description>
           </variable>
           <literalExpression id="_F0E63EE7-FFB0-4C70-B911-226E2B1871D5" label="Return">
-            <text>totalScore</text>
+            <text>vendor.complianceScore</text>
           </literalExpression>
         </contextEntry>
         <contextEntry id="_514569DD-F002-4277-8DAB-389288FDC1A9">
