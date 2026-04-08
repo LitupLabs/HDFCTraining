@@ -230,7 +230,7 @@
           <conditional id="_B00CBA1F-DE7E-457B-8C3B-D25CB6ACDA11" label="Return">
             <if id="_8FEF6456-F57F-4324-87DD-818C2624F65D">
               <literalExpression id="_9B806CA4-18D9-4819-822D-696A81A13FB5" label="Expression Name">
-                <text>vender.deliverydays&lt;=3</text>
+                <text>vendor.deliverydays&lt;=3</text>
               </literalExpression>
             </if>
             <then id="_B3A80C87-D68A-4908-B8B4-552A58058988">
@@ -283,7 +283,7 @@
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_FB08E099-AF84-439F-AA41-6C10D4699C51">
-            <kie:width>190</kie:width>
+            <kie:width>961</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_05E1896F-9ED5-4F42-A298-E3B245072C51">
             <kie:width>702</kie:width>
@@ -357,7 +357,7 @@
         <dc:Bounds x="1000" y="-20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_A93BA01A-C382-4E9C-87EB-3678B40A2833" dmnElementRef="_0D95072A-7600-4918-BD7B-A59616E28301" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="1280" y="0" width="160" height="80" />
+        <dc:Bounds x="1200" y="-20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_6CE7FE85-95F4-4DD2-AF98-D207CF6AD338" dmnElementRef="_10AA3318-55FC-45B7-A316-E5FA6F0FAAA3" sourceElement="_C9969243-EAA7-4873-A004-6B6FE429EB16" targetElement="_887FE400-25AD-45C1-9496-F5E9EA5A04A8">
         <di:waypoint x="100" y="180" />
@@ -380,7 +380,7 @@
         <di:waypoint x="740" y="20" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_A1C9F4B1-75C1-4325-AA34-DFD383B7674D" dmnElementRef="_6C03AA49-CA27-4C95-B44D-EFDCCB187A2D" sourceElement="_A93BA01A-C382-4E9C-87EB-3678B40A2833" targetElement="_684C950C-95A2-4B03-BEAB-DF26BA4A4FEC">
-        <di:waypoint x="1360" y="40" />
+        <di:waypoint x="1280" y="20" />
         <di:waypoint x="1080" y="20" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_C78AF91E-2F72-4691-84F1-E0E13EF53D2A" dmnElementRef="_58D40B35-9883-43C0-81DF-DD6F04B33562" sourceElement="_887FE400-25AD-45C1-9496-F5E9EA5A04A8" targetElement="_667E85B2-7C5F-438B-82B9-7C4850459B93">
