@@ -127,12 +127,12 @@
       </return>
     </for>
   </decision>
-  <decision name="Total Procurement Cost" id="_0CCD6F61-9D33-48F0-8150-F1664E67F9C6">
-    <variable name="Total Procurement Cost" id="_3F78B6DD-5AA1-43AA-91AB-FCC2069A10A2" typeRef="number" />
+  <decision name="totalProcurementCost" id="_0CCD6F61-9D33-48F0-8150-F1664E67F9C6">
+    <variable name="totalProcurementCost" id="_3F78B6DD-5AA1-43AA-91AB-FCC2069A10A2" typeRef="number" />
     <informationRequirement id="_962A5DBF-AA57-4656-B994-AA0A476517AE">
       <requiredDecision href="#_F71B967F-F1FD-4BAC-AF1C-CC8ED6F31AC8" />
     </informationRequirement>
-    <literalExpression id="_CA3865FF-E05E-41D0-B32F-B8675B7795F5" typeRef="number" label="Total Procurement Cost">
+    <literalExpression id="_CA3865FF-E05E-41D0-B32F-B8675B7795F5" typeRef="number" label="totalProcurementCost">
       <text>sum(itemTotal)</text>
     </literalExpression>
   </decision>
