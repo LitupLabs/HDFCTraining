@@ -153,7 +153,7 @@
       </in>
       <match id="_01EE9F70-94CC-4B81-9C1A-B431F59A0031">
         <literalExpression id="_ECE0E65F-AD7F-4178-B438-944F4A20B9C6" label="Expression Name">
-          <text>is vendor eligible(item, policies)</text>
+          <text>isvendoreligible(item, policies)</text>
         </literalExpression>
       </match>
     </filter>
@@ -185,9 +185,9 @@
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
-  <businessKnowledgeModel name="is vendor eligible" id="_064B8F08-438E-4EDC-8C1F-C861C9742171">
-    <variable name="is vendor eligible" id="_2E654FF6-491E-4286-8CE4-08B11F7C296C" typeRef="boolean" />
-    <encapsulatedLogic label="is vendor eligible" typeRef="boolean" id="_82EDBDC2-99CC-493B-98B9-C8A769219A62" kind="FEEL">
+  <businessKnowledgeModel name="isvendoreligible" id="_064B8F08-438E-4EDC-8C1F-C861C9742171">
+    <variable name="isvendoreligible" id="_2E654FF6-491E-4286-8CE4-08B11F7C296C" typeRef="boolean" />
+    <encapsulatedLogic label="isvendoreligible" typeRef="boolean" id="_82EDBDC2-99CC-493B-98B9-C8A769219A62" kind="FEEL">
       <formalParameter id="_8A0F6484-C455-4F48-B6F8-6F0EA19144BC" name="vendor" typeRef="vendor" />
       <formalParameter id="_138DBE0B-EB0D-4881-A18B-2DA3746ECC6B" name="policies" typeRef="policies" />
       <conditional id="_97D6AD58-0EF0-434B-BE3C-26A7C318F98F" label="Return">
