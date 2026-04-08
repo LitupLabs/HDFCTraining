@@ -199,6 +199,12 @@ basePriceFactor: v.basePriceFactor
       </match>
     </filter>
   </decision>
+  <decision name="Best Vendor" id="_9532BF22-20B3-40C0-9935-B4C6D8C1C738">
+    <variable name="Best Vendor" id="_E9103D7D-EE13-479E-B4A6-7A4BD130DDA7" typeRef="ScoredVendor" />
+    <informationRequirement id="_7AA1911B-20C3-4D88-AB4D-120DEEDBA687">
+      <requiredDecision href="#_74ACCC92-903A-4D19-9308-E2A06A584B32" />
+    </informationRequirement>
+  </decision>
   <businessKnowledgeModel name="Is Vendor Eligible" id="_7D3819A8-B951-4D65-860C-41854FA66129">
     <variable name="Is Vendor Eligible" id="_95C1A4EB-6859-47A1-A8C9-49A1FD7BD668" typeRef="boolean" />
     <encapsulatedLogic label="Is Vendor Eligible" typeRef="boolean" id="_4CC0CD4A-DB7F-40D9-8E64-648D008ABD93" kind="FEEL">
@@ -415,6 +421,9 @@ basePriceFactor: v.basePriceFactor
       <dmndi:DMNShape id="_2014D4FD-286A-4C9F-8177-D327AEFC4EFE" dmnElementRef="_7D82CC40-1938-4C42-98F2-ED98ACCC4CD8" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="820" y="-140" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_6F6F5637-96BC-46F7-A5B6-DC58248CA60A" dmnElementRef="_9532BF22-20B3-40C0-9935-B4C6D8C1C738" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1060" y="-380" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_74C6897A-7843-492F-9D06-62E7B83617A9" dmnElementRef="_1CC02212-31A1-4619-9D28-D630A554DF46" sourceElement="_6493FE7A-E182-4D4A-8C22-214D162DE3D2" targetElement="_7741C3F6-5349-4ED3-A2BE-0D6C187E3890">
         <di:waypoint x="500" y="-40" />
         <di:waypoint x="240" y="-100" />
@@ -454,6 +463,10 @@ basePriceFactor: v.basePriceFactor
       <dmndi:DMNEdge id="_B7B2460D-E68D-4488-998B-C11752FA4A5B" dmnElementRef="_B721E9DF-1797-42BF-A362-FACDD1947939" sourceElement="_2014D4FD-286A-4C9F-8177-D327AEFC4EFE" targetElement="_3AA8B5F9-BE03-4763-9EA4-1A5005BBEE4F">
         <di:waypoint x="900" y="-100" />
         <di:waypoint x="1140" y="-160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_6ABF6B30-3DFD-40B8-AD4F-6A3118E7DC86" dmnElementRef="_7AA1911B-20C3-4D88-AB4D-120DEEDBA687" sourceElement="_3AA8B5F9-BE03-4763-9EA4-1A5005BBEE4F" targetElement="_6F6F5637-96BC-46F7-A5B6-DC58248CA60A">
+        <di:waypoint x="1140" y="-200" />
+        <di:waypoint x="1140" y="-300" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
