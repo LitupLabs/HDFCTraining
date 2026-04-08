@@ -166,6 +166,17 @@
       <text></text>
     </literalExpression>
   </decision>
+  <decision name="scored Vendors" id="_DD0D6865-CCE6-4F03-8CDA-5E12A32C60A8">
+    <variable name="scored Vendors" id="_D63BD888-8ABF-4333-8C15-995F7664B818" typeRef="ScoredVendorList" />
+    <literalExpression id="_9B5E55CD-6F7A-4C8C-9C63-CC71DABB6FB2" typeRef="ScoredVendorList" label="scored Vendors">
+      <text>for v in Eligible Vendors
+return {
+vendorId: v.vendorId,
+score: Calculate Vendor Score(v),
+basePriceFactor: v.basePriceFactor
+}</text>
+    </literalExpression>
+  </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1">
     <variable name="Calculate Item Total" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" typeRef="number" />
     <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_57224D47-8413-4318-8BC2-A46DDACAA3BB" kind="FEEL">
@@ -285,6 +296,9 @@
           <kie:ComponentWidths dmnElementRef="_8D755A34-D5DF-459C-B613-68173DE6EEE0">
             <kie:width>472</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9B5E55CD-6F7A-4C8C-9C63-CC71DABB6FB2">
+            <kie:width>460</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_A4DBC775-97B0-4BB1-88FF-03A5B0E4F932" dmnElementRef="_319D80D7-A8E9-4F9D-9531-48A0971F136B" isCollapsed="false" isListedInputData="false">
@@ -316,6 +330,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_9F11C0D9-33FF-4C5B-87FE-F3FD1A5B98BF" dmnElementRef="_418E8BF1-4F5D-475E-B994-321E355FDC8E" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1460" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_68D9EBE7-B386-4581-8C42-5F5EE760D6A7" dmnElementRef="_DD0D6865-CCE6-4F03-8CDA-5E12A32C60A8" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="680" y="0" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_C1EB3A7F-153F-45C3-9F1F-E1BB312C69D3" dmnElementRef="_55ED0D31-6C4A-4AEB-979E-52C34168B13C" sourceElement="_5ABB1A17-875A-4B69-966E-4A38B6C3B286" targetElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD">
         <di:waypoint x="180" y="180" />
