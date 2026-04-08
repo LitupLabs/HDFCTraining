@@ -150,8 +150,8 @@
       </match>
     </filter>
   </decision>
-  <decision name="Eligible Vendor" id="_1AA6B94A-1D85-4891-AA30-46422E697EC7">
-    <variable name="Eligible Vendor" id="_0B0CE45D-9635-473F-8F16-527ACAE66D4C" typeRef="VendorList" />
+  <decision name="Eligible Vendors" id="_1AA6B94A-1D85-4891-AA30-46422E697EC7">
+    <variable name="Eligible Vendors" id="_0B0CE45D-9635-473F-8F16-527ACAE66D4C" typeRef="VendorList" />
     <informationRequirement id="_B1655665-114C-47A4-8B51-FB40CEBBCAF4">
       <requiredInput href="#_910FA2EE-9453-4102-B993-B10906488663" />
     </informationRequirement>
@@ -161,7 +161,7 @@
     <knowledgeRequirement id="_39E21CE9-530A-49E6-A61D-41F240E72F0B">
       <requiredKnowledge href="#_A660E6D5-4722-4793-9D2C-779238041CE7" />
     </knowledgeRequirement>
-    <filter id="_365CA392-85ED-4CDE-A6C2-16710EA40674" typeRef="VendorList" label="Eligible Vendor">
+    <filter id="_365CA392-85ED-4CDE-A6C2-16710EA40674" typeRef="VendorList" label="Eligible Vendors">
       <in id="_2B342B48-41AF-4A54-916E-9C0E1F54411B">
         <literalExpression id="_E629DB30-2828-4F49-BE55-556B9511A9C6" label="Expression Name">
           <text>vendor</text>
@@ -183,7 +183,7 @@
       <requiredKnowledge href="#_7C606B2A-9DD6-4A06-9BAD-6DA4DC0DA3EA" />
     </knowledgeRequirement>
     <literalExpression id="_697C069B-4707-45E6-9CBE-E1124E55396E" typeRef="ScoredVendorList" label="Scored Vendors">
-      <text>for v in Eligible Vendor</text>
+      <text>for v in Eligible Vendors return</text>
     </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculated item Total" id="_CF9E87E2-4138-4580-BDBC-5D7E46F5044B">
