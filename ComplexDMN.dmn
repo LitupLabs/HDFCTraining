@@ -21,6 +21,15 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_FBDD905C-E622-4204-956D-41A4DDC46DED" name="Recommendation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E61BAE07-18FE-4D11-BC24-2F2B5A76295F" name="approvalRequired" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_86C6E029-8924-4193-8E2B-898E21629CC4" name="finalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>FinalCostList</typeRef>
+    </itemComponent>
+    <itemComponent id="_57A23F16-AE12-4F10-A319-78AF77B951CA" name="selectedVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>ScoredVendorList</typeRef>
+    </itemComponent>
   </itemDefinition>
   <itemDefinition id="_17DA40D9-6918-4978-A3A2-BA7B0C26AC0C" name="VendorList" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>Vendor</typeRef>
