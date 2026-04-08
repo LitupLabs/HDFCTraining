@@ -277,7 +277,7 @@ basePriceFactor: v.basePriceFactor
           <conditional id="_CDF680BB-571B-402A-86DB-B03600E04E7F" typeRef="number" label="deliveryScore">
             <if id="_A4D40820-D922-4A90-BD08-48D156674F45">
               <literalExpression id="_2C337FB6-4540-411D-95B1-71FBE9CB2741" label="Expression Name">
-                <text>Vendor.deliveryDays &lt; =2</text>
+                <text>Vendor.deliveryDays &lt;= 2</text>
               </literalExpression>
             </if>
             <then id="_7E346496-0174-4C05-B532-36F3A28B5020">
