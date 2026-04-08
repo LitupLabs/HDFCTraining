@@ -171,6 +171,49 @@
             <text>calculatevendorrating(vendor)</text>
           </literalExpression>
         </contextEntry>
+        <contextEntry id="_0A27B534-B241-465F-80CF-2B729ED43D1E">
+          <variable id="_207B6618-7D85-42A9-A1A2-0BECC55C35DF" name="compliancescore" typeRef="number">
+            <description></description>
+          </variable>
+          <literalExpression id="_C808B0A7-58E3-43B5-8CF0-3B585C377073" typeRef="number" label="compliancescore">
+            <text>totalscore</text>
+          </literalExpression>
+        </contextEntry>
+        <contextEntry id="_23EFEF55-DAD7-49D7-B725-FBD7AE3C2791">
+          <variable id="_95954CA0-092F-4F2B-8FA2-0C644BBBBED0" name="totalscore" typeRef="number">
+            <description></description>
+          </variable>
+          <literalExpression id="_DA27C52C-4911-494B-A315-81EFE5BD1589" typeRef="number" label="totalscore">
+            <text>ratingscore + deliveryscore + compliancescore</text>
+          </literalExpression>
+        </contextEntry>
+        <contextEntry id="_A965FA01-8CB9-4D17-9018-F2281F0A5BE5">
+          <variable id="_BC28D678-4612-4012-8957-413B07890634" name="ContextEntry-5">
+            <description></description>
+          </variable>
+          <literalExpression id="_1DE3BDB1-E350-49DC-AE95-EDAB7FA624D2" label="ContextEntry-5">
+            <text>totalscore</text>
+          </literalExpression>
+        </contextEntry>
+        <contextEntry id="_22D6060B-6405-4B56-967F-BF03CE1C63F7">
+          <conditional id="_B00CBA1F-DE7E-457B-8C3B-D25CB6ACDA11" label="Return">
+            <if id="_8FEF6456-F57F-4324-87DD-818C2624F65D">
+              <literalExpression id="_9B806CA4-18D9-4819-822D-696A81A13FB5" label="Expression Name">
+                <text>vender.deliverydays&lt;=3</text>
+              </literalExpression>
+            </if>
+            <then id="_B3A80C87-D68A-4908-B8B4-552A58058988">
+              <literalExpression id="_0D8861CF-A5C8-4A5A-B586-BCB77C4433D2" label="Expression Name">
+                <text>30</text>
+              </literalExpression>
+            </then>
+            <else id="_BFD3CF4A-AF52-46F5-A092-14065CB37129">
+              <literalExpression id="_64DFF28A-265C-4923-B5C1-6F39E8862F7C" label="Expression Name">
+                <text>10</text>
+              </literalExpression>
+            </else>
+          </conditional>
+        </contextEntry>
       </context>
     </encapsulatedLogic>
     <knowledgeRequirement id="_6C03AA49-CA27-4C95-B44D-EFDCCB187A2D">
@@ -233,6 +276,24 @@
             <kie:width>785</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_D8F59283-5752-486C-92CD-3870F1DEBA4D">
+            <kie:width>614</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9B806CA4-18D9-4819-822D-696A81A13FB5">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0D8861CF-A5C8-4A5A-B586-BCB77C4433D2">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_64DFF28A-265C-4923-B5C1-6F39E8862F7C">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C808B0A7-58E3-43B5-8CF0-3B585C377073">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DA27C52C-4911-494B-A315-81EFE5BD1589">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_1DE3BDB1-E350-49DC-AE95-EDAB7FA624D2">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
