@@ -105,14 +105,14 @@
     </itemComponent>
   </itemDefinition>
   <decision name="ItemTotal" id="_6425976E-C74A-468A-A45A-9923D3D1F000">
-    <variable name="ItemTotal" id="_EDFBC362-A86E-4AAD-8707-29D60C9D05A0" typeRef="ItemTotal" />
+    <variable name="ItemTotal" id="_EDFBC362-A86E-4AAD-8707-29D60C9D05A0" typeRef="Amount" />
     <informationRequirement id="_40BE3723-24DC-4600-80E1-236839494897">
       <requiredInput href="#_EC5592E0-4861-4279-9412-E0F98CF05D7D" />
     </informationRequirement>
     <knowledgeRequirement id="_67877894-60DB-48FA-A0F6-6F213EA14F22">
       <requiredKnowledge href="#_7FC0D9DA-C2D8-40F2-B0AF-D881BE2A56BB" />
     </knowledgeRequirement>
-    <for id="_F20FB6B7-ABB4-41E2-AAD4-C84DEAB36F95" typeRef="ItemTotal" label="ItemTotal" iteratorVariable="item">
+    <for id="_F20FB6B7-ABB4-41E2-AAD4-C84DEAB36F95" typeRef="Amount" label="ItemTotal" iteratorVariable="item">
       <in id="_F7BAEA06-E4C1-4B56-885F-A66B6ED0BB48">
         <literalExpression id="_971EA25F-0E2C-4B9B-B7A9-6512DAB13C3D" label="Expression Name">
           <text>PurchaseRequest.items</text>
@@ -260,13 +260,13 @@
       <di:extension>
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_971EA25F-0E2C-4B9B-B7A9-6512DAB13C3D">
-            <kie:width>190</kie:width>
+            <kie:width>611</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A1B15FA2-40D6-4F93-9141-00457A7F5C44">
             <kie:width>1156</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_2A3BAC37-9133-461A-8CD3-842765CC6B93">
-            <kie:width>190</kie:width>
+            <kie:width>611</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_BA4261B2-7035-4A27-8C8A-D82D1207B063">
             <kie:width>190</kie:width>
