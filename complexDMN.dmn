@@ -20,7 +20,7 @@
     <typeRef>scoredvendor</typeRef>
   </itemDefinition>
   <itemDefinition id="_F0A9FFE4-17B7-4FD4-B634-A05148A3A84F" name="scoredvendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_02AECB22-FC99-43A1-8A3A-4C3C9FF4BDAD" name="venderid" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_02AECB22-FC99-43A1-8A3A-4C3C9FF4BDAD" name="vendorid" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
     <itemComponent id="_36660D40-418F-434F-A1A7-CF7FC4783C1F" name="score" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -187,7 +187,7 @@
     <literalExpression id="_F2796C31-6E6D-4B2D-889F-FF6D4C7E41AC" typeRef="scoredvendorlist" label="scoredvendors">
       <text>for v in eligiblevenders return
 { 
-vendorid: v.vendorid, 
+vendorid: v. vendorid, 
 score:calculatevendorscore(v), 
 basepricefactor: v.basepricefactor
 }</text>
