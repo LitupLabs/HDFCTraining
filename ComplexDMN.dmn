@@ -183,7 +183,12 @@
       <requiredKnowledge href="#_7C606B2A-9DD6-4A06-9BAD-6DA4DC0DA3EA" />
     </knowledgeRequirement>
     <literalExpression id="_697C069B-4707-45E6-9CBE-E1124E55396E" typeRef="ScoredVendorList" label="Scored Vendors">
-      <text>for v in Eligible Vendors return</text>
+      <text>for v in Eligible Vendors
+return {
+vendorId: v.vendorId,
+score: Calculate Vendor Score(v),
+basePriceFactor: v.basePriceFactor
+}</text>
     </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculated item Total" id="_CF9E87E2-4138-4580-BDBC-5D7E46F5044B">
