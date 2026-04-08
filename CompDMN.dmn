@@ -214,15 +214,15 @@ basePriceFactor: v.basePriceFactor
       </match>
     </filter>
   </decision>
-  <decision name="Final Vendor Cost" id="_D54DEA3C-6E3F-48E3-B2CC-4A4FAB03D409">
-    <variable name="Final Vendor Cost" id="_F3FC0C47-DD9E-45D7-9D6D-6C6DDF909D39" typeRef="ScoredVendor" />
+  <decision name="Final Vendor" id="_D54DEA3C-6E3F-48E3-B2CC-4A4FAB03D409">
+    <variable name="Final Vendor" id="_F3FC0C47-DD9E-45D7-9D6D-6C6DDF909D39" typeRef="ScoredVendor" />
     <informationRequirement id="_E352E38B-34F9-42D7-AE89-97EDE231FC64">
       <requiredDecision href="#_9532BF22-20B3-40C0-9935-B4C6D8C1C738" />
     </informationRequirement>
     <informationRequirement id="_6974E460-981B-4F8D-9D42-671E5C9EF21E">
       <requiredDecision href="#_8FB5B2B1-9B43-4A81-A5F7-E563904422C1" />
     </informationRequirement>
-    <literalExpression id="_481DE88E-0B0E-42A7-BE41-F0F4B3EF90C3" typeRef="ScoredVendor" label="Final Vendor Cost">
+    <literalExpression id="_481DE88E-0B0E-42A7-BE41-F0F4B3EF90C3" typeRef="ScoredVendor" label="Final Vendor">
       <text>for v in Best Vendor
 
 return {
@@ -245,7 +245,7 @@ basePriceFactor: v.basePriceFactor
       <requiredInput href="#_124A1091-23CE-48E4-952B-F3E906E49DB2" />
     </informationRequirement>
     <literalExpression id="_F6EAEBFF-D94F-49F2-B06E-2D5C91A83203" typeRef="boolean" label="Approval Decision">
-      <text>Final Vendor Cost.score &gt; Policies.approvalThreshold</text>
+      <text>Final Vendor.score &gt; Policies.approvalThreshold</text>
     </literalExpression>
   </decision>
   <decision name="Recommended Vendor" id="_B8E2BD13-BF72-45F5-939B-01A923B4F442">
@@ -459,7 +459,7 @@ approvalRequired: Approval Decision
             <kie:width>556</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_244AE390-9FD2-440E-A94D-89C8C1489404">
-            <kie:width>190</kie:width>
+            <kie:width>536</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
