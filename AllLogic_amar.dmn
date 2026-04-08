@@ -129,15 +129,15 @@
   </decision>
   <decision name="totalProcurementCost" id="_0CCD6F61-9D33-48F0-8150-F1664E67F9C6">
     <variable name="totalProcurementCost" id="_3F78B6DD-5AA1-43AA-91AB-FCC2069A10A2" typeRef="number" />
-    <informationRequirement id="_962A5DBF-AA57-4656-B994-AA0A476517AE">
-      <requiredDecision href="#_F71B967F-F1FD-4BAC-AF1C-CC8ED6F31AC8" />
+    <informationRequirement id="_451F7C72-DE57-4473-84E4-512B86F8A83C">
+      <requiredDecision href="#_B6367473-A98A-49B5-AB75-ADA3D3757442" />
     </informationRequirement>
     <literalExpression id="_CA3865FF-E05E-41D0-B32F-B8675B7795F5" typeRef="number" label="totalProcurementCost">
-      <text>sum(itemTotal)</text>
+      <text>sum(filteredItemTotal)</text>
     </literalExpression>
   </decision>
-  <decision name="Eligible Vendors" id="_74AEE765-B589-4553-B442-EC7CA06DC64F">
-    <variable name="Eligible Vendors" id="_B591E614-1D22-4E46-99FD-8072ED63FC2C" typeRef="VendorList" />
+  <decision name="eligibleVendors" id="_74AEE765-B589-4553-B442-EC7CA06DC64F">
+    <variable name="eligibleVendors" id="_B591E614-1D22-4E46-99FD-8072ED63FC2C" typeRef="VendorList" />
     <informationRequirement id="_330960B7-567F-48FE-BA74-9A0D48DAD687">
       <requiredInput href="#_8C6B02FC-9824-4617-AF03-711A3C423C21" />
     </informationRequirement>
@@ -147,7 +147,7 @@
     <knowledgeRequirement id="_11B5DA33-5E10-4C30-818A-AC0F454F91D7">
       <requiredKnowledge href="#_3FF79A86-3180-4D92-8815-C28E6BC426DE" />
     </knowledgeRequirement>
-    <filter id="_62067532-2B13-4C8D-9C41-1BBFD285E755" typeRef="VendorList" label="Eligible Vendors">
+    <filter id="_62067532-2B13-4C8D-9C41-1BBFD285E755" typeRef="VendorList" label="eligibleVendors">
       <in id="_73D26D62-3333-47EB-B37E-0EB105726ACF">
         <literalExpression id="_105C7ECD-071B-47C6-9098-0B8B7338814C" label="Expression Name">
           <text>Vendors</text>
@@ -155,7 +155,25 @@
       </in>
       <match id="_A3F83F55-3ADC-4D6B-9951-89B5ECC3065C">
         <literalExpression id="_5E43A04D-74C0-4115-8A14-EF6E4F7813DB" label="Expression Name">
-          <text>Is Vendor Eligible(item,Policies)</text>
+          <text>isVendorEligible(item,Policies)</text>
+        </literalExpression>
+      </match>
+    </filter>
+  </decision>
+  <decision name="filteredItemTotal" id="_B6367473-A98A-49B5-AB75-ADA3D3757442">
+    <variable name="filteredItemTotal" id="_113ECAC4-7CF9-4E10-B783-AB7306A7BB60" typeRef="Amount" />
+    <informationRequirement id="_D07D62D0-C624-475B-AA0C-38E03068675B">
+      <requiredDecision href="#_F71B967F-F1FD-4BAC-AF1C-CC8ED6F31AC8" />
+    </informationRequirement>
+    <filter id="_57DDC098-66A4-4D05-AE1F-A565D1F1F400" typeRef="Amount" label="filteredItemTotal">
+      <in id="_A2CFE603-4F50-4ECE-9F5C-59E615F34527">
+        <literalExpression id="_5FEEA281-39BB-425D-B82E-D4EECA9E8D74" label="Expression Name">
+          <text>itemTotal</text>
+        </literalExpression>
+      </in>
+      <match id="_0270C586-0A1E-46B7-8948-FAFEB795BF03">
+        <literalExpression id="_81E1854B-0C02-4C45-8608-F3A9F91C607C" label="Expression Name">
+          <text>item != 0</text>
         </literalExpression>
       </match>
     </filter>
@@ -169,9 +187,9 @@
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
-  <businessKnowledgeModel name="Is Vendor Eligible" id="_3FF79A86-3180-4D92-8815-C28E6BC426DE">
-    <variable name="Is Vendor Eligible" id="_85114F76-5FE6-4C0D-87B0-16FB64F27B77" typeRef="boolean" />
-    <encapsulatedLogic label="Is Vendor Eligible" typeRef="boolean" id="_B29E9BCD-8349-4887-95FE-B15FD822F326" kind="FEEL">
+  <businessKnowledgeModel name="isVendorEligible" id="_3FF79A86-3180-4D92-8815-C28E6BC426DE">
+    <variable name="isVendorEligible" id="_85114F76-5FE6-4C0D-87B0-16FB64F27B77" typeRef="boolean" />
+    <encapsulatedLogic label="isVendorEligible" typeRef="boolean" id="_B29E9BCD-8349-4887-95FE-B15FD822F326" kind="FEEL">
       <formalParameter id="_CED0992D-02C4-41BD-A187-CD09A1F68F36" name="vendor" typeRef="Vendor" />
       <formalParameter id="_3B833ADE-21F1-44CF-8613-39E0122C0091" name="policies" typeRef="Policies" />
       <literalExpression id="_A04F60ED-1992-435D-B043-4DFFEA8FEB66" typeRef="boolean" label="Return">
@@ -180,9 +198,9 @@
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
-  <businessKnowledgeModel name="Calculate Vendor Score" id="_E5CD3220-E513-425D-85A3-E0D5B34B200C">
-    <variable name="Calculate Vendor Score" id="_1A738847-1C2D-4559-943A-BFCFA50EA2AA" typeRef="number" />
-    <encapsulatedLogic label="Calculate Vendor Score" typeRef="number" id="_10284CEE-6FB5-4831-A276-A391E53F7F9B" kind="FEEL">
+  <businessKnowledgeModel name="calVendorScore" id="_E5CD3220-E513-425D-85A3-E0D5B34B200C">
+    <variable name="calVendorScore" id="_1A738847-1C2D-4559-943A-BFCFA50EA2AA" typeRef="number" />
+    <encapsulatedLogic label="calVendorScore" typeRef="number" id="_10284CEE-6FB5-4831-A276-A391E53F7F9B" kind="FEEL">
       <formalParameter id="_2228528B-BF0F-4173-8002-52BD4F807D7B" name="vendor" typeRef="Vendor" />
       <context id="_6D2FD7F4-79D0-4761-9AB9-E04C2BFE34AB" typeRef="number" label="Return">
         <contextEntry id="_D8E005FF-1290-48B5-88A3-DF3D09BE2FD1">
@@ -221,6 +239,15 @@
           </literalExpression>
         </contextEntry>
       </context>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <businessKnowledgeModel name="calVendorRating" id="_3EF3DC2E-5F2A-4090-9E32-D3837D9198E2">
+    <variable name="calVendorRating" id="_25FE2A50-1594-4A35-80EE-B4D7CCD85F61" typeRef="number" />
+    <encapsulatedLogic label="calVendorRating" typeRef="number" id="_002AD3F6-9590-4C9D-AA34-EC4413278B0A" kind="FEEL">
+      <formalParameter id="_B4B5658E-0BF2-4E9E-899C-07D9CA90A76E" name="vendor" typeRef="Vendor" />
+      <literalExpression id="_7FD205BF-2D5E-4C51-9164-01271E4A288C" label="Return">
+        <text>vendor.rating * 10</text>
+      </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="PurchaseRequest" id="_319D80D7-A8E9-4F9D-9531-48A0971F136B">
@@ -275,6 +302,15 @@
           <kie:ComponentWidths dmnElementRef="_DBC8DE56-D9E2-4068-B918-89C90B2FB986">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5FEEA281-39BB-425D-B82E-D4EECA9E8D74">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_81E1854B-0C02-4C45-8608-F3A9F91C607C">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7FD205BF-2D5E-4C51-9164-01271E4A288C">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_A4DBC775-97B0-4BB1-88FF-03A5B0E4F932" dmnElementRef="_319D80D7-A8E9-4F9D-9531-48A0971F136B" isCollapsed="false" isListedInputData="false">
@@ -302,7 +338,13 @@
         <dc:Bounds x="1500" y="260" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_48739381-D9FE-4310-AB7F-4D9DC9CA111C" dmnElementRef="_E5CD3220-E513-425D-85A3-E0D5B34B200C" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="1560" y="100" width="160" height="80" />
+        <dc:Bounds x="80" y="400" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_CE126A88-1492-4120-8565-1ED626BC0B66" dmnElementRef="_B6367473-A98A-49B5-AB75-ADA3D3757442" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="700" y="-40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_D9285F22-D26E-4F5F-B36D-A37E2086192C" dmnElementRef="_3EF3DC2E-5F2A-4090-9E32-D3837D9198E2" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="80" y="300" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_C1EB3A7F-153F-45C3-9F1F-E1BB312C69D3" dmnElementRef="_55ED0D31-6C4A-4AEB-979E-52C34168B13C" sourceElement="_5ABB1A17-875A-4B69-966E-4A38B6C3B286" targetElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD">
         <di:waypoint x="180" y="180" />
@@ -311,10 +353,6 @@
       <dmndi:DMNEdge id="_35383880-9A33-4875-9A5D-7E2C90B33CE8" dmnElementRef="_8A99BB74-3C4C-4139-A646-589A3B2D9440" sourceElement="_A4DBC775-97B0-4BB1-88FF-03A5B0E4F932" targetElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD">
         <di:waypoint x="640" y="380" />
         <di:waypoint x="660" y="160" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_BE745B41-8210-4489-A9B2-364FE7FE8CD4" dmnElementRef="_962A5DBF-AA57-4656-B994-AA0A476517AE" sourceElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD" targetElement="_423F3F86-AF2D-42CE-9ACB-1FAD7364D0CB">
-        <di:waypoint x="660" y="160" />
-        <di:waypoint x="920" y="140" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_08262C1F-B4FD-4E0B-8D87-F292042F766A" dmnElementRef="_330960B7-567F-48FE-BA74-9A0D48DAD687" sourceElement="_5AF5FAFC-188C-406C-A10E-28B74856131D" targetElement="_6C0250A3-E608-48CE-B770-DB0372DED014">
         <di:waypoint x="960" y="380" />
@@ -327,6 +365,14 @@
       <dmndi:DMNEdge id="_E557FF9C-88F6-4B37-A5A7-E39DF7D71B0E" dmnElementRef="_11B5DA33-5E10-4C30-818A-AC0F454F91D7" sourceElement="_971972F6-04A4-46B2-8874-F37071A21245" targetElement="_6C0250A3-E608-48CE-B770-DB0372DED014">
         <di:waypoint x="1580" y="300" />
         <di:waypoint x="1280" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_6D241F08-FCF1-4E93-9686-EEA4609AC351" dmnElementRef="_D07D62D0-C624-475B-AA0C-38E03068675B" sourceElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD" targetElement="_CE126A88-1492-4120-8565-1ED626BC0B66">
+        <di:waypoint x="660" y="160" />
+        <di:waypoint x="780" y="0" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_48582A67-3049-4E9C-82FA-7F5CA52F3302" dmnElementRef="_451F7C72-DE57-4473-84E4-512B86F8A83C" sourceElement="_CE126A88-1492-4120-8565-1ED626BC0B66" targetElement="_423F3F86-AF2D-42CE-9ACB-1FAD7364D0CB">
+        <di:waypoint x="780" y="0" />
+        <di:waypoint x="920" y="140" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
