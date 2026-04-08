@@ -131,7 +131,7 @@
       <requiredDecision href="#_B7FBA25B-A500-49F8-8F44-0D28F2812656" />
     </informationRequirement>
     <literalExpression id="_FB08E099-AF84-439F-AA41-6C10D4699C51" typeRef="number" label="totalprocurementcost">
-      <text>sum(itemtotal)</text>
+      <text>sum(filtereditemtotals)</text>
     </literalExpression>
   </decision>
   <decision name="eligiblevenders" id="_73FFB477-28A0-4C3F-9157-1FF52511E19D">
@@ -153,7 +153,7 @@
       </in>
       <match id="_01EE9F70-94CC-4B81-9C1A-B431F59A0031">
         <literalExpression id="_ECE0E65F-AD7F-4178-B438-944F4A20B9C6" label="Expression Name">
-          <text>isvendoreligible(policies,vendors)</text>
+          <text>isvendoreligible(vendors,policies)</text>
         </literalExpression>
       </match>
     </filter>
@@ -210,7 +210,7 @@ basepricefactor: v.basepricefactor
       <conditional id="_97D6AD58-0EF0-434B-BE3C-26A7C318F98F" label="Return">
         <if id="_C891C850-4832-4F72-B343-257B3CD5B7E9">
           <literalExpression id="_91175B48-B58D-45C3-B13A-AF9AFE9780E8" label="Expression Name">
-            <text>vendor.compliancescore &gt;= policies.mincompliancescore and vendor.deliverydate &lt;= policies.maxdeliverydays</text>
+            <text>vendor.compliancescore &gt;= policies.mincompliancescore and vendor.deliverydays &lt;= policies.maxdeliverydays</text>
           </literalExpression>
         </if>
         <then id="_035AC073-428C-4E9B-8504-7E264F01305F">
@@ -261,11 +261,8 @@ basepricefactor: v.basepricefactor
             <text>ratingscore + deliveryscore + compliancescore</text>
           </literalExpression>
         </contextEntry>
-        <contextEntry id="_A965FA01-8CB9-4D17-9018-F2281F0A5BE5">
-          <variable id="_BC28D678-4612-4012-8957-413B07890634" name="" typeRef="Any">
-            <description></description>
-          </variable>
-          <literalExpression id="_1DE3BDB1-E350-49DC-AE95-EDAB7FA624D2" label="" typeRef="Any">
+        <contextEntry id="_B75DB2E4-FCED-4FC8-A2FD-8B9F3637E85E">
+          <literalExpression id="_DFF4EDB3-EF2C-43C4-A57D-65286F39F6FC" label="Return">
             <text>totalscore</text>
           </literalExpression>
         </contextEntry>
@@ -310,13 +307,13 @@ basepricefactor: v.basepricefactor
             <kie:width>961</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_05E1896F-9ED5-4F42-A298-E3B245072C51">
-            <kie:width>702</kie:width>
+            <kie:width>1026</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_61A81008-2408-4FA4-9F86-BDBECEC45035">
-            <kie:width>702</kie:width>
+            <kie:width>1026</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_91175B48-B58D-45C3-B13A-AF9AFE9780E8">
-            <kie:width>702</kie:width>
+            <kie:width>1026</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C9E1237E-9FE4-4AD6-AE4C-60CCCE3C3E4D">
             <kie:width>489</kie:width>
@@ -339,9 +336,6 @@ basepricefactor: v.basepricefactor
           <kie:ComponentWidths dmnElementRef="_DA27C52C-4911-494B-A315-81EFE5BD1589">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_1DE3BDB1-E350-49DC-AE95-EDAB7FA624D2">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_9A5A76B6-F7ED-46BA-9883-3E5B1D5F0F74">
             <kie:width>1006</kie:width>
           </kie:ComponentWidths>
@@ -353,6 +347,9 @@ basepricefactor: v.basepricefactor
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_F2796C31-6E6D-4B2D-889F-FF6D4C7E41AC">
             <kie:width>1002</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DFF4EDB3-EF2C-43C4-A57D-65286F39F6FC">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
