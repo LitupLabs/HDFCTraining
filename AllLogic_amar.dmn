@@ -178,6 +178,23 @@
       </match>
     </filter>
   </decision>
+  <decision name="scoredVendors" id="_3D081E3E-7D52-4416-B324-630D7534C5E0">
+    <variable name="scoredVendors" id="_4F7E9B9E-58AD-44C4-90F9-5486CB587F69" typeRef="ScoredVendorList" />
+    <informationRequirement id="_697B6553-6D3B-4D2B-851A-DF5FE3FC0611">
+      <requiredDecision href="#_74AEE765-B589-4553-B442-EC7CA06DC64F" />
+    </informationRequirement>
+    <knowledgeRequirement id="_3C463A13-6551-407F-97D8-568B22805B99">
+      <requiredKnowledge href="#_E5CD3220-E513-425D-85A3-E0D5B34B200C" />
+    </knowledgeRequirement>
+    <literalExpression id="_0E903153-2A6C-446C-B25E-65128504D0BB" typeRef="ScoredVendorList" label="scoredVendors">
+      <text>for v in eligibleVendors 
+return {
+vendorId: v.vendorId,
+score: calVendorScore(v),
+basePriceFactor: v.basePriceFactor
+}</text>
+    </literalExpression>
+  </decision>
   <businessKnowledgeModel name="calItemTotal" id="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1">
     <variable name="calItemTotal" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" typeRef="number" />
     <encapsulatedLogic label="calItemTotal" typeRef="number" id="_57224D47-8413-4318-8BC2-A46DDACAA3BB" kind="FEEL">
@@ -249,7 +266,7 @@
     <encapsulatedLogic label="calVendorRating" typeRef="number" id="_002AD3F6-9590-4C9D-AA34-EC4413278B0A" kind="FEEL">
       <formalParameter id="_B4B5658E-0BF2-4E9E-899C-07D9CA90A76E" name="vendor" typeRef="Vendor" />
       <literalExpression id="_7FD205BF-2D5E-4C51-9164-01271E4A288C" label="Return">
-        <text>vendor.rating * 10</text>
+        <text>if vendor.rating = null then 0 else vendor.rating * 10</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
@@ -314,6 +331,9 @@
           <kie:ComponentWidths dmnElementRef="_7FD205BF-2D5E-4C51-9164-01271E4A288C">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0E903153-2A6C-446C-B25E-65128504D0BB">
+            <kie:width>518</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_A4DBC775-97B0-4BB1-88FF-03A5B0E4F932" dmnElementRef="_319D80D7-A8E9-4F9D-9531-48A0971F136B" isCollapsed="false" isListedInputData="false">
@@ -341,13 +361,16 @@
         <dc:Bounds x="1500" y="260" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_48739381-D9FE-4310-AB7F-4D9DC9CA111C" dmnElementRef="_E5CD3220-E513-425D-85A3-E0D5B34B200C" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="1460" y="40" width="160" height="80" />
+        <dc:Bounds x="1560" y="40" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_CE126A88-1492-4120-8565-1ED626BC0B66" dmnElementRef="_B6367473-A98A-49B5-AB75-ADA3D3757442" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="700" y="-40" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_D9285F22-D26E-4F5F-B36D-A37E2086192C" dmnElementRef="_3EF3DC2E-5F2A-4090-9E32-D3837D9198E2" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="1480" y="-120" width="160" height="80" />
+        <dc:Bounds x="1560" y="-100" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_8B8F1C94-FC7B-4E5E-8101-38707B5AFF3C" dmnElementRef="_3D081E3E-7D52-4416-B324-630D7534C5E0" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1280" y="-80" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_C1EB3A7F-153F-45C3-9F1F-E1BB312C69D3" dmnElementRef="_55ED0D31-6C4A-4AEB-979E-52C34168B13C" sourceElement="_5ABB1A17-875A-4B69-966E-4A38B6C3B286" targetElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD">
         <di:waypoint x="180" y="180" />
@@ -378,8 +401,16 @@
         <di:waypoint x="920" y="140" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_532312E5-B310-4D62-9548-A065EA33E537" dmnElementRef="_4253EC06-025C-4A11-8FA5-C42BED54202C" sourceElement="_D9285F22-D26E-4F5F-B36D-A37E2086192C" targetElement="_48739381-D9FE-4310-AB7F-4D9DC9CA111C">
-        <di:waypoint x="1560" y="-80" />
-        <di:waypoint x="1540" y="80" />
+        <di:waypoint x="1640" y="-60" />
+        <di:waypoint x="1640" y="80" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_CA143517-3555-4B0B-8534-6167B0CA0DDA" dmnElementRef="_697B6553-6D3B-4D2B-851A-DF5FE3FC0611" sourceElement="_6C0250A3-E608-48CE-B770-DB0372DED014" targetElement="_8B8F1C94-FC7B-4E5E-8101-38707B5AFF3C">
+        <di:waypoint x="1280" y="140" />
+        <di:waypoint x="1360" y="-40" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_808CC506-26CB-41F9-BFAD-18BA151D77B8" dmnElementRef="_3C463A13-6551-407F-97D8-568B22805B99" sourceElement="_48739381-D9FE-4310-AB7F-4D9DC9CA111C" targetElement="_8B8F1C94-FC7B-4E5E-8101-38707B5AFF3C">
+        <di:waypoint x="1640" y="80" />
+        <di:waypoint x="1360" y="-40" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
