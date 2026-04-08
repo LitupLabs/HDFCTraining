@@ -158,6 +158,9 @@
     <informationRequirement id="_5C8C1FAD-F93C-4223-9A02-AD561C66BC38">
       <requiredInput href="#_309F4044-E11D-4003-9527-6111FC537D58" />
     </informationRequirement>
+    <knowledgeRequirement id="_39E21CE9-530A-49E6-A61D-41F240E72F0B">
+      <requiredKnowledge href="#_A660E6D5-4722-4793-9D2C-779238041CE7" />
+    </knowledgeRequirement>
   </decision>
   <businessKnowledgeModel name="Calculated item Total" id="_CF9E87E2-4138-4580-BDBC-5D7E46F5044B">
     <variable name="Calculated item Total" id="_BB62395F-0927-4F66-95B9-9FAFE978763D" typeRef="number" />
@@ -168,8 +171,8 @@
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
-  <businessKnowledgeModel name="New BKM" id="_A660E6D5-4722-4793-9D2C-779238041CE7">
-    <variable name="New BKM" id="_05814B09-46A0-4BFF-99F9-E2092BBA9AA0" />
+  <businessKnowledgeModel name="Is Vendor Eligible" id="_A660E6D5-4722-4793-9D2C-779238041CE7">
+    <variable name="Is Vendor Eligible" id="_05814B09-46A0-4BFF-99F9-E2092BBA9AA0" typeRef="boolean" />
   </businessKnowledgeModel>
   <inputData name="PurchaseRequest" id="_C6C5FEAA-BF21-4CC4-8CEA-89BC3A91C1FE">
     <variable name="PurchaseRequest" id="_B4AFC247-C032-4C8E-9128-0C58F2D6D840" typeRef="PurchaseRequest" />
@@ -253,6 +256,10 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_5C5EB39B-5FDF-444A-A4E3-659DA93FD1E2" dmnElementRef="_5C8C1FAD-F93C-4223-9A02-AD561C66BC38" sourceElement="_74416F76-2012-48A4-B99D-3B368C574FA0" targetElement="_A4088813-1075-42BA-BC26-DE675BD54EDE">
         <di:waypoint x="1000" y="240" />
+        <di:waypoint x="920" y="80" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_70C279D0-07C2-4F96-94AC-64C17B96D828" dmnElementRef="_39E21CE9-530A-49E6-A61D-41F240E72F0B" sourceElement="_0F112FC6-68AA-4BAB-9DBB-030CEC977357" targetElement="_A4088813-1075-42BA-BC26-DE675BD54EDE">
+        <di:waypoint x="1180" y="160" />
         <di:waypoint x="920" y="80" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
