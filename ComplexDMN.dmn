@@ -178,12 +178,39 @@
           <conditional id="_34DBE4F3-1D2F-43F5-AAD9-3ECB800E7BD4" typeRef="number" label="deliveryScore">
             <if id="_C9767694-415C-49A8-B39E-371C33E75D13">
               <literalExpression id="_CC8227B2-D781-4A5E-A059-5420E4602D26" label="Expression Name">
-                <text>vendor.deliverDays &lt;= </text>
+                <text>vendor.deliverDays &lt;= 3</text>
               </literalExpression>
             </if>
-            <then id="_0C40F0A1-7529-420E-A8D9-BCF27AA51998" />
-            <else id="_29CA70F0-DD13-4C51-AA3F-A4DE971FFC4F" />
+            <then id="_0C40F0A1-7529-420E-A8D9-BCF27AA51998">
+              <literalExpression id="_3F59C77A-6A88-4EE8-B06B-DD5A6BD18536" label="Expression Name">
+                <text>30</text>
+              </literalExpression>
+            </then>
+            <else id="_29CA70F0-DD13-4C51-AA3F-A4DE971FFC4F">
+              <literalExpression id="_CA85777E-7208-47B6-869E-70F0EC4CBAEF" label="Expression Name">
+                <text>10</text>
+              </literalExpression>
+            </else>
           </conditional>
+        </contextEntry>
+        <contextEntry id="_DF85A2BE-B283-40D1-A269-3F22CDF1FFA8">
+          <variable id="_2E6159F3-5BF9-4E21-A550-0D7ECAF5B951" name="complianceScore" typeRef="number">
+            <description></description>
+          </variable>
+          <literalExpression id="_F0E63EE7-FFB0-4C70-B911-226E2B1871D5" label="Return">
+            <text>totalScore</text>
+          </literalExpression>
+        </contextEntry>
+        <contextEntry id="_514569DD-F002-4277-8DAB-389288FDC1A9">
+          <variable id="_B52F248A-228A-4A67-BD9D-2BAF815ED684" name="totalScore" typeRef="number">
+            <description></description>
+          </variable>
+          <literalExpression id="_523BC3B1-D2F1-4F8E-BAD4-18F1785BF63E" typeRef="number" label="totalScore">
+            <text>ratingScore + deliveryScore +complianceScore</text>
+          </literalExpression>
+        </contextEntry>
+        <contextEntry id="_349631C6-D5D4-43B9-AC80-E53B7F350602">
+          <literalExpression id="_F0E63EE7-FFB0-4C70-B911-226E2B1871D5" label="Return" />
         </contextEntry>
       </context>
     </encapsulatedLogic>
@@ -195,6 +222,9 @@
     <variable name="Calculate Vendor Rating" id="_5D599931-8751-46E2-8A29-07295B9C6D75" />
     <encapsulatedLogic label="Calculate Vendor Rating" id="_8AF91DC4-7301-4FA2-92D0-CFC514EA4B38" kind="FEEL">
       <formalParameter id="_A99B64FA-C0F1-46C5-8EEE-D2772AAFA5F9" name="vendor" typeRef="Vendor" />
+      <literalExpression id="_D7332100-5416-414F-A8F1-41E1A4C7B966" label="Return">
+        <text>vendor.rating * 10</text>
+      </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="PurchaseRequest" id="_955BE7CC-3CD2-47BB-B281-13398D86F372">
@@ -241,9 +271,27 @@
             <kie:width>120</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C68CE022-FC96-49DA-B8B7-551327A86E91">
-            <kie:width>190</kie:width>
+            <kie:width>474</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CC8227B2-D781-4A5E-A059-5420E4602D26">
+            <kie:width>392</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D7332100-5416-414F-A8F1-41E1A4C7B966">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3F59C77A-6A88-4EE8-B06B-DD5A6BD18536">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CA85777E-7208-47B6-869E-70F0EC4CBAEF">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F0E63EE7-FFB0-4C70-B911-226E2B1871D5">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4DE58444-689A-4A9B-B099-C9F71E36D5BB">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_523BC3B1-D2F1-4F8E-BAD4-18F1785BF63E">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
