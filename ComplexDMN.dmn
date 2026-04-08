@@ -91,14 +91,14 @@
     </itemComponent>
   </itemDefinition>
   <decision name="Item Total" id="_B1BB4AC7-E95A-49FC-B1CC-9951D842E034">
-    <variable name="Item Total" id="_145F7895-FE2B-4B00-AB89-4AE19BC962BA" typeRef="ItemTotal" />
+    <variable name="Item Total" id="_145F7895-FE2B-4B00-AB89-4AE19BC962BA" typeRef="Amount" />
     <informationRequirement id="_6BB6F146-00E1-47E1-942F-A31B29196322">
       <requiredInput href="#_C6C5FEAA-BF21-4CC4-8CEA-89BC3A91C1FE" />
     </informationRequirement>
     <knowledgeRequirement id="_F7F056A4-66E4-44F9-86F2-1BE62DE91871">
       <requiredKnowledge href="#_CF9E87E2-4138-4580-BDBC-5D7E46F5044B" />
     </knowledgeRequirement>
-    <for id="_D421CADB-5B90-4E0F-88E8-D95D67689C7F" typeRef="ItemTotal" label="Item Total" iteratorVariable="Item">
+    <for id="_D421CADB-5B90-4E0F-88E8-D95D67689C7F" typeRef="Amount" label="Item Total" iteratorVariable="Item">
       <in id="_54C27631-3BF1-4119-9A55-E31AAB588D84">
         <literalExpression id="_200BA7C2-F8C9-42A4-B770-591E6AB3FAD9" label="Expression Name">
           <text>PurchaseRequest.item</text>
@@ -116,7 +116,7 @@
     <encapsulatedLogic label="Calculated item Total" typeRef="number" id="_5B348055-DC90-4177-B7B3-B1311175C0AA" kind="FEEL">
       <formalParameter id="_26DA6F53-2324-43AF-836D-53386E6945B8" name="item" typeRef="Item" />
       <literalExpression id="_C6D42A6B-7961-4717-A6C9-A63A1893B0E0" typeRef="number" label="Return">
-        <text>if item.quantity = null or item.unitProce = null then 0 else item.quantity * item.unitPrice</text>
+        <text>if  item.quantity = null or item.unitProce = null then 0 else item.quantity * item.unitPrice</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
