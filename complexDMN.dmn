@@ -153,7 +153,7 @@
       </in>
       <match id="_01EE9F70-94CC-4B81-9C1A-B431F59A0031">
         <literalExpression id="_ECE0E65F-AD7F-4178-B438-944F4A20B9C6" label="Expression Name">
-          <text>isvendoreligible(item, policies)</text>
+          <text>isvendoreligible(policies,vendors)</text>
         </literalExpression>
       </match>
     </filter>
@@ -166,7 +166,7 @@
     <filter id="_97F35FF6-57F8-45F1-B918-0A52323455E0" typeRef="amount" label="filtereditemtotals">
       <in id="_807C41F5-AC76-4664-B8EC-1EBE38058B5F">
         <literalExpression id="_9A5A76B6-F7ED-46BA-9883-3E5B1D5F0F74" label="Expression Name">
-          <text>itemtotals</text>
+          <text>itemtotal</text>
         </literalExpression>
       </in>
       <match id="_36B36E9A-5FEE-4F21-95F2-F12EDBC36D1F">
@@ -262,10 +262,10 @@ basepricefactor: v.basepricefactor
           </literalExpression>
         </contextEntry>
         <contextEntry id="_A965FA01-8CB9-4D17-9018-F2281F0A5BE5">
-          <variable id="_BC28D678-4612-4012-8957-413B07890634" name="">
+          <variable id="_BC28D678-4612-4012-8957-413B07890634" name="" typeRef="Any">
             <description></description>
           </variable>
-          <literalExpression id="_1DE3BDB1-E350-49DC-AE95-EDAB7FA624D2" label="">
+          <literalExpression id="_1DE3BDB1-E350-49DC-AE95-EDAB7FA624D2" label="" typeRef="Any">
             <text>totalscore</text>
           </literalExpression>
         </contextEntry>
