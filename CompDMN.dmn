@@ -483,7 +483,7 @@ basePriceFactor: v.basePriceFactor
         <dc:Bounds x="1060" y="-380" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_A3C65CD2-841F-4B87-9D37-174FE494BCA4" dmnElementRef="_D54DEA3C-6E3F-48E3-B2CC-4A4FAB03D409" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="840" y="-380" width="160" height="80" />
+        <dc:Bounds x="800" y="-380" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_8C416289-814B-49BB-9D2A-4D258BF4C081" dmnElementRef="_12AE0615-5916-403D-A7C6-A0871F5277FF" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1200" y="-540" width="160" height="80" />
@@ -534,14 +534,14 @@ basePriceFactor: v.basePriceFactor
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_D2D61A85-1331-4FBD-A679-302007681437" dmnElementRef="_E352E38B-34F9-42D7-AE89-97EDE231FC64" sourceElement="_6F6F5637-96BC-46F7-A5B6-DC58248CA60A" targetElement="_A3C65CD2-841F-4B87-9D37-174FE494BCA4">
         <di:waypoint x="1140" y="-340" />
-        <di:waypoint x="920" y="-380" />
+        <di:waypoint x="880" y="-380" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_1EDF6039-903C-477D-96BE-11C04CD699B7" dmnElementRef="_6974E460-981B-4F8D-9D42-671E5C9EF21E" sourceElement="_E5C53E32-797A-4864-A63D-CC97AFE7843C" targetElement="_A3C65CD2-841F-4B87-9D37-174FE494BCA4">
         <di:waypoint x="240" y="-220" />
-        <di:waypoint x="840" y="-340" />
+        <di:waypoint x="800" y="-340" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_42575B7D-C9E2-4539-A1C7-6789F95383C8" dmnElementRef="_F1474AFC-B08D-4203-A173-B6B3A60C8FE1" sourceElement="_A3C65CD2-841F-4B87-9D37-174FE494BCA4" targetElement="_8C416289-814B-49BB-9D2A-4D258BF4C081">
-        <di:waypoint x="920" y="-340" />
+        <di:waypoint x="880" y="-340" />
         <di:waypoint x="1280" y="-460" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_885FDC9A-9492-4D07-8E5A-634DA7EB1551" dmnElementRef="_CD1DD965-3CEF-413E-A4F3-1E79A16F5D03" sourceElement="_3C709AAD-B071-4EA5-BDE7-BEF1D7296C6D" targetElement="_8C416289-814B-49BB-9D2A-4D258BF4C081">
