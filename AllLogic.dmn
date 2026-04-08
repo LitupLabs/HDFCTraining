@@ -160,6 +160,12 @@
       </match>
     </filter>
   </decision>
+  <decision name="Calcualte Vendor Rating" id="_418E8BF1-4F5D-475E-B994-321E355FDC8E">
+    <variable name="Calcualte Vendor Rating" id="_65448454-8BE7-4C74-B1ED-691D79F97D48" typeRef="number" />
+    <literalExpression id="_8D755A34-D5DF-459C-B613-68173DE6EEE0" typeRef="number" label="Calcualte Vendor Rating">
+      <text></text>
+    </literalExpression>
+  </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_64F349BF-0EC7-4CAF-8CE1-83C045688CD1">
     <variable name="Calculate Item Total" id="_114C12D6-A0E5-48D5-90C4-6AAC66323B9C" typeRef="number" />
     <encapsulatedLogic label="Calculate Item Total" typeRef="number" id="_57224D47-8413-4318-8BC2-A46DDACAA3BB" kind="FEEL">
@@ -189,7 +195,7 @@
         <contextEntry id="_D8E005FF-1290-48B5-88A3-DF3D09BE2FD1">
           <variable id="_297FEA5C-1605-48FC-B323-DA1FE8377379" name="ratingScore" typeRef="number" />
           <literalExpression id="_5A23287E-211D-4D4E-BC29-1F2C7718635A" typeRef="number" label="ratingScore">
-            <text>vendor.rating * 20</text>
+            <text>Calculate Vendor Rating(vendor)</text>
           </literalExpression>
         </contextEntry>
         <contextEntry id="_63A91EFD-88F5-4DF4-AC57-16578FC8D091">
@@ -276,6 +282,9 @@
           <kie:ComponentWidths dmnElementRef="_DBC8DE56-D9E2-4068-B918-89C90B2FB986">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8D755A34-D5DF-459C-B613-68173DE6EEE0">
+            <kie:width>472</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_A4DBC775-97B0-4BB1-88FF-03A5B0E4F932" dmnElementRef="_319D80D7-A8E9-4F9D-9531-48A0971F136B" isCollapsed="false" isListedInputData="false">
@@ -304,6 +313,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_48739381-D9FE-4310-AB7F-4D9DC9CA111C" dmnElementRef="_E5CD3220-E513-425D-85A3-E0D5B34B200C" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1560" y="100" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9F11C0D9-33FF-4C5B-87FE-F3FD1A5B98BF" dmnElementRef="_418E8BF1-4F5D-475E-B994-321E355FDC8E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="1460" y="120" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_C1EB3A7F-153F-45C3-9F1F-E1BB312C69D3" dmnElementRef="_55ED0D31-6C4A-4AEB-979E-52C34168B13C" sourceElement="_5ABB1A17-875A-4B69-966E-4A38B6C3B286" targetElement="_C95CF430-1E69-45FB-BFFF-F90215DDCBAD">
         <di:waypoint x="180" y="180" />
