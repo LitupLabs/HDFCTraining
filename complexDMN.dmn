@@ -105,14 +105,14 @@
     </itemComponent>
   </itemDefinition>
   <decision name="itemtotal" id="_360EF0EB-231F-4448-9860-A51B744329AB">
-    <variable name="itemtotal" id="_58F0F33E-C493-4540-8BFF-EC434E2F47C4" typeRef="itemtotal" />
+    <variable name="itemtotal" id="_58F0F33E-C493-4540-8BFF-EC434E2F47C4" typeRef="amount" />
     <informationRequirement id="_270C9177-CF0A-442A-B05C-84A1B23E2B2B">
       <requiredInput href="#_DDD64DCF-2162-4440-A035-9AB6C8D39D19" />
     </informationRequirement>
     <knowledgeRequirement id="_10AA3318-55FC-45B7-A316-E5FA6F0FAAA3">
       <requiredKnowledge href="#_B085B2E7-F5E6-441F-86D5-A5F3B1EFD3C9" />
     </knowledgeRequirement>
-    <for id="_B720F08A-F965-4547-A904-9BBDB6F6C008" typeRef="itemtotal" label="itemtotal" iteratorVariable="item">
+    <for id="_B720F08A-F965-4547-A904-9BBDB6F6C008" typeRef="amount" label="itemtotal" iteratorVariable="item">
       <in id="_966EEEB6-16BB-4E46-A9D5-6C0D3671669B">
         <literalExpression id="_77F7EC21-C60A-439B-AB55-71551925AC2D" label="Expression Name">
           <text>purchaserequest.items</text>
