@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_9592703C-4D9A-42F4-AA43-A98D14328382" id="_B0D2AC05-8557-4412-935D-ED145233F1C5" name="DMN_0D9ADA57-13AF-4F79-9E25-0679230DF62C">
+  <itemDefinition id="_3032609D-B72A-4CE3-BD4A-8BB7133DD623" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_A05FAE7E-4132-40AE-9BBE-E8533708CD48" name="itemTotal" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>number</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_B6F804E5-900A-492F-8D3B-39AC30776164" name="policies" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_25F183AD-DEC4-4394-A465-192A78CF7C41" name="approvalThreshold" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_18083791-67F4-4A7C-B90C-08F68DD5A111" name="minComplianceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_0D88E9F0-D68F-46A0-9463-3743C624C59D" name="maxDeliverDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_BA15250E-E937-462D-BDBB-038A134FA189" name="item" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_4D96EB42-DBFE-4A64-B106-A2D3E0FB3D47" name="unitPrice" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_1A435EDC-63D9-447F-97F4-3AB8D54D1B08" name="quantity" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_70531456-8DD7-4CEE-B3E3-99790F3D4B17" name="category" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_0547E17B-CFA3-4089-9B1D-DF6A69199C31" name="itemID" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_27D931B8-1E82-47AA-9431-837348C6592A" name="purchaseRequest" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_CFBC39C5-A167-44C3-A629-59B872264427" name="items" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>item</typeRef>
+    </itemComponent>
+    <itemComponent id="_9F75B603-AC3B-4A51-82D4-6AF5ABC13B9C" name="totalAmount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_123B161C-D310-4927-B528-8B45F8B9CD48" name="department" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_7E2CFA6E-3A42-48DC-827D-4A140C386E41" name="id" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_58CA0C28-36AE-436F-A4D7-DD2E4892835F" name="Vendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_35B0B83E-D6E2-428A-BD6E-947119A71BD7" name="bestPriceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_53D56872-8B60-4C17-A271-FE3F6DB29A62" name="complianceScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_2082A8F4-7A83-4475-84F0-0B9A08ACBE58" name="location" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_9C02B22F-F842-4E56-B258-BB742CFB9583" name="rating" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_DCB3A1AF-CB7D-49DA-BC8D-4AAD2828262E" name="vendorID" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_A4203AD1-EC8D-4733-B286-896FA053F03E" name="deiveryDays" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_C8AEFD73-BBF7-420B-9910-FE9DCDD22ACF" name="Policies" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>boolean</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_3967F80C-18D3-4F29-BFC2-5B289852B2D0" name="Amount" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_9C3D1684-2B93-4D9C-8007-5CEFE48C0387" name="Recommendation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F2FE7A23-2264-4616-BBFF-FBF3883EDFE5" name="selected vendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>score vendor list</typeRef>
+    </itemComponent>
+    <itemComponent id="_42D0ACF4-A033-42D2-A9E5-A9581305D068" name="final cost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Final Cost List</typeRef>
+    </itemComponent>
+    <itemComponent id="_A5C18983-8781-43F9-9849-3506AD6F2B56" name="approvalRequired" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_FC65F88A-0CAB-4895-A85B-6E7FC31D8ABC" name="Final Cost List" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_032B8FED-0F3F-4E4E-9031-774B32B09DC2" name="Final cost" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Final cost</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_EB4C7A0F-7B01-4E0E-8E93-8BA85D6ED35D" name="score vendor list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>Sourced vendor</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_898CBB5A-7685-4490-AFC7-C9CDF29B5DC3" name="Final cost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_7CB2CF33-2841-4528-9FC3-22B1603149B8" name="FinaCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_8BB9577F-39DD-47A2-A3E1-846D136B54E3" name="vendorID" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_9769411E-C05D-4F80-893B-1D9775AED0B2" name="Sourced vendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_7DCDA14E-9C60-4F7B-B7D4-5E0C401D6602" name="vendorID" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_F1A8FDE0-D1AA-4267-89CC-FA5F48E3ED0C" name="score" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_7D63CC1C-F4F6-4AAF-A16D-7A550AFA08C8" name="bestPriceFactor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <businessKnowledgeModel name="calculate item total" id="_7C797E12-C962-484F-8A8D-0163F1DD6743">
+    <variable name="calculate item total" id="_E12C29CC-0E90-4821-ACEB-B3A2BED0A14D" />
+    <encapsulatedLogic label="calculate item total" id="_895C0E9B-6C70-4307-9A7D-C7BD688884CF" kind="FEEL">
+      <formalParameter id="_AAD8D75B-92BC-403E-B074-A84074330756" name="p-1" typeRef="item" />
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_27407B92-EB70-4161-BE2E-0151F5A94B0A" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_6941F3CD-9050-47F2-B38A-45543C4F0C4D" dmnElementRef="_7C797E12-C962-484F-8A8D-0163F1DD6743" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="120" y="60" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
