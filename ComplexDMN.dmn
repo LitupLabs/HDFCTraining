@@ -207,7 +207,7 @@
     </filter>
   </decision>
   <decision name="Final Vendor Cost" id="_C34ED718-E249-4BA5-90AB-2BB4089E537D">
-    <variable name="Final Vendor Cost" id="_6BA4CC1E-90E0-4B3D-B162-C7C60057F28C" typeRef="number" />
+    <variable name="Final Vendor Cost" id="_6BA4CC1E-90E0-4B3D-B162-C7C60057F28C" typeRef="ScoredVendor" />
     <informationRequirement id="_5E9E0EB8-21A3-40A0-B4D8-EF93074EC698">
       <requiredDecision href="#_59511A81-63C2-4DEF-B089-A531CB7AC31F" />
     </informationRequirement>
