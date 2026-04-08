@@ -208,7 +208,7 @@
     <encapsulatedLogic label="Calculate Vendor Rating" typeRef="number" id="_7E54EFDF-7E76-431C-8899-A535F13EFBE4" kind="FEEL">
       <formalParameter id="_08F0FC92-DB38-4410-AFFA-F8F8265E92DB" name="vendor" typeRef="vendor" />
       <literalExpression id="_83F4C9DF-F884-4B34-8981-36E37E217EAA" typeRef="number" label="Return">
-        <text>vendor.rating*10</text>
+        <text>vendor.rating * 10</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
