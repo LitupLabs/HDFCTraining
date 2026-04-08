@@ -218,13 +218,26 @@ basePriceFactor: v.basePriceFactor
     </filter>
   </decision>
   <decision name="Final Vendor Cost" id="_D54DEA3C-6E3F-48E3-B2CC-4A4FAB03D409">
-    <variable name="Final Vendor Cost" id="_F3FC0C47-DD9E-45D7-9D6D-6C6DDF909D39" typeRef="number" />
+    <variable name="Final Vendor Cost" id="_F3FC0C47-DD9E-45D7-9D6D-6C6DDF909D39" typeRef="ScoredVendor" />
     <informationRequirement id="_E352E38B-34F9-42D7-AE89-97EDE231FC64">
       <requiredDecision href="#_9532BF22-20B3-40C0-9935-B4C6D8C1C738" />
     </informationRequirement>
     <informationRequirement id="_6974E460-981B-4F8D-9D42-671E5C9EF21E">
       <requiredDecision href="#_8FB5B2B1-9B43-4A81-A5F7-E563904422C1" />
     </informationRequirement>
+    <literalExpression id="_481DE88E-0B0E-42A7-BE41-F0F4B3EF90C3" typeRef="ScoredVendor" label="Final Vendor Cost">
+      <text>for v in Best Vendor
+
+return {
+
+vendorId: v.vendorId,
+
+score: Total Procurement Cost* v.basePriceFactor,
+
+basePriceFactor: v.basePriceFactor
+
+}</text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="Is Vendor Eligible" id="_7D3819A8-B951-4D65-860C-41854FA66129">
     <variable name="Is Vendor Eligible" id="_95C1A4EB-6859-47A1-A8C9-49A1FD7BD668" typeRef="boolean" />
@@ -409,6 +422,9 @@ basePriceFactor: v.basePriceFactor
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_AC7AEC87-66A0-4065-AC97-14F8AB7349B0">
             <kie:width>642</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_481DE88E-0B0E-42A7-BE41-F0F4B3EF90C3">
+            <kie:width>772</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
