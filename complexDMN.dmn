@@ -176,6 +176,23 @@
       </match>
     </filter>
   </decision>
+  <decision name="scoredvendors" id="_71572507-35FB-471B-9DFE-8B2A24986F1C">
+    <variable name="scoredvendors" id="_7562B6E5-26C6-45F0-92F8-72C41B0F6AEE" typeRef="scoredvendorlist" />
+    <informationRequirement id="_9EC24517-E911-4705-880A-2E29BEF1389A">
+      <requiredDecision href="#_73FFB477-28A0-4C3F-9157-1FF52511E19D" />
+    </informationRequirement>
+    <knowledgeRequirement id="_95974462-912D-40DA-8C97-474858832B2C">
+      <requiredKnowledge href="#_66B9AAA7-0A80-473B-9C78-B8FA002E131A" />
+    </knowledgeRequirement>
+    <literalExpression id="_F2796C31-6E6D-4B2D-889F-FF6D4C7E41AC" typeRef="scoredvendorlist" label="scoredvendors">
+      <text>for v in eligiblevenders return
+{ 
+vendorid: v.vendorid, 
+score:calculatevendorscore(v), 
+basepricefactor: v.basepricefactor
+}</text>
+    </literalExpression>
+  </decision>
   <businessKnowledgeModel name="calculateitemtotal" id="_B085B2E7-F5E6-441F-86D5-A5F3B1EFD3C9">
     <variable name="calculateitemtotal" id="_8F76B61D-54DF-45FD-A0EB-BD5A775625B9" typeRef="number" />
     <encapsulatedLogic label="calculateitemtotal" typeRef="number" id="_499851F2-8EB0-4622-89E2-4DF30E2B05F6" kind="FEEL">
@@ -220,12 +237,20 @@
             <text>calculatevendorrating(vendor)</text>
           </literalExpression>
         </contextEntry>
+        <contextEntry id="_AEACDD99-6995-4CD4-BC19-5D0A2362ECBE">
+          <variable id="_057A33DB-224C-4F8A-9012-F72509A3CAC7" name="deliveryscore" typeRef="number">
+            <description></description>
+          </variable>
+          <literalExpression id="_BFD6A845-3F26-4A26-8045-656CF1CC1AFF" typeRef="number" label="deliveryscore">
+            <text>if vendor.deliverydays &lt;= 5 then 30 else 10</text>
+          </literalExpression>
+        </contextEntry>
         <contextEntry id="_0A27B534-B241-465F-80CF-2B729ED43D1E">
           <variable id="_207B6618-7D85-42A9-A1A2-0BECC55C35DF" name="compliancescore" typeRef="number">
             <description></description>
           </variable>
           <literalExpression id="_C808B0A7-58E3-43B5-8CF0-3B585C377073" typeRef="number" label="compliancescore">
-            <text>totalscore</text>
+            <text>vendor.compliancescore</text>
           </literalExpression>
         </contextEntry>
         <contextEntry id="_23EFEF55-DAD7-49D7-B725-FBD7AE3C2791">
@@ -237,31 +262,12 @@
           </literalExpression>
         </contextEntry>
         <contextEntry id="_A965FA01-8CB9-4D17-9018-F2281F0A5BE5">
-          <variable id="_BC28D678-4612-4012-8957-413B07890634" name="ContextEntry-5">
+          <variable id="_BC28D678-4612-4012-8957-413B07890634" name="">
             <description></description>
           </variable>
-          <literalExpression id="_1DE3BDB1-E350-49DC-AE95-EDAB7FA624D2" label="ContextEntry-5">
+          <literalExpression id="_1DE3BDB1-E350-49DC-AE95-EDAB7FA624D2" label="">
             <text>totalscore</text>
           </literalExpression>
-        </contextEntry>
-        <contextEntry id="_22D6060B-6405-4B56-967F-BF03CE1C63F7">
-          <conditional id="_B00CBA1F-DE7E-457B-8C3B-D25CB6ACDA11" label="Return">
-            <if id="_8FEF6456-F57F-4324-87DD-818C2624F65D">
-              <literalExpression id="_9B806CA4-18D9-4819-822D-696A81A13FB5" label="Expression Name">
-                <text>vendor.deliverydays&lt;=3</text>
-              </literalExpression>
-            </if>
-            <then id="_B3A80C87-D68A-4908-B8B4-552A58058988">
-              <literalExpression id="_0D8861CF-A5C8-4A5A-B586-BCB77C4433D2" label="Expression Name">
-                <text>30</text>
-              </literalExpression>
-            </then>
-            <else id="_BFD3CF4A-AF52-46F5-A092-14065CB37129">
-              <literalExpression id="_64DFF28A-265C-4923-B5C1-6F39E8862F7C" label="Expression Name">
-                <text>10</text>
-              </literalExpression>
-            </else>
-          </conditional>
         </contextEntry>
       </context>
     </encapsulatedLogic>
@@ -327,15 +333,6 @@
           <kie:ComponentWidths dmnElementRef="_D8F59283-5752-486C-92CD-3870F1DEBA4D">
             <kie:width>614</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_9B806CA4-18D9-4819-822D-696A81A13FB5">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_0D8861CF-A5C8-4A5A-B586-BCB77C4433D2">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_64DFF28A-265C-4923-B5C1-6F39E8862F7C">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_C808B0A7-58E3-43B5-8CF0-3B585C377073">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
@@ -350,6 +347,12 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_9FA56E33-16E8-4F59-8FC9-2A7045C31962">
             <kie:width>966</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BFD6A845-3F26-4A26-8045-656CF1CC1AFF">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F2796C31-6E6D-4B2D-889F-FF6D4C7E41AC">
+            <kie:width>1002</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -386,6 +389,9 @@
       <dmndi:DMNShape id="_1DDB9451-6AB5-4DB5-9C62-A06064EFBC59" dmnElementRef="_B7FBA25B-A500-49F8-8F44-0D28F2812656" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="400" y="-140" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_AF1EDB2A-482E-41D2-8ECF-39EB691440C9" dmnElementRef="_71572507-35FB-471B-9DFE-8B2A24986F1C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="840" y="-120" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_6CE7FE85-95F4-4DD2-AF98-D207CF6AD338" dmnElementRef="_10AA3318-55FC-45B7-A316-E5FA6F0FAAA3" sourceElement="_C9969243-EAA7-4873-A004-6B6FE429EB16" targetElement="_887FE400-25AD-45C1-9496-F5E9EA5A04A8">
         <di:waypoint x="100" y="180" />
         <di:waypoint x="280" y="40" />
@@ -417,6 +423,14 @@
       <dmndi:DMNEdge id="_EF920B87-D10C-4E99-92F3-2937DEB10EFB" dmnElementRef="_2173D8CD-C168-4C56-A236-25CC54569C21" sourceElement="_1DDB9451-6AB5-4DB5-9C62-A06064EFBC59" targetElement="_667E85B2-7C5F-438B-82B9-7C4850459B93">
         <di:waypoint x="480" y="-100" />
         <di:waypoint x="480" y="20" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_600A7766-8EB9-4D64-90B8-43B2C17FC515" dmnElementRef="_9EC24517-E911-4705-880A-2E29BEF1389A" sourceElement="_8E097C1E-D82B-4CD8-BB1D-E5F1FFF46510" targetElement="_AF1EDB2A-482E-41D2-8ECF-39EB691440C9">
+        <di:waypoint x="740" y="20" />
+        <di:waypoint x="920" y="-80" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_DFE95AB4-3571-4545-975B-5AB4EA21ADC8" dmnElementRef="_95974462-912D-40DA-8C97-474858832B2C" sourceElement="_684C950C-95A2-4B03-BEAB-DF26BA4A4FEC" targetElement="_AF1EDB2A-482E-41D2-8ECF-39EB691440C9">
+        <di:waypoint x="1080" y="20" />
+        <di:waypoint x="920" y="-80" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
