@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_C8C60A91-8C59-452F-9ED9-E09DE53B4C0E" id="_E42AF6FE-50A2-46C1-A623-A9BBE304719F" name="DMN_8330F7FD-0AAD-4769-9DB5-6B22AF021245">
   <itemDefinition id="_9AD48882-3A0F-4952-B34B-8AC0F29550E4" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_872CFA04-7488-4DDF-ACEE-C0C87363908D" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
     <itemComponent id="_76BB598E-530A-4688-9937-1948BD5BC0D5" name="applicant_reference_number" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
@@ -26,6 +29,16 @@
       </match>
     </filter>
   </decision>
+  <decision name="unsecloantrades" id="_404535DD-7759-4B7F-BA0F-E3390A82CC2F">
+    <variable name="unsecloantrades" id="_85B6D471-03F8-4E6A-B957-B8CAA46EA0C0" typeRef="number" />
+    <informationRequirement id="_F9B31D16-9799-4EA2-B6EA-579F33F4773A">
+      <requiredInput href="#_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773" />
+    </informationRequirement>
+    <filter id="_F908BDB2-AB30-42F6-A149-F2FC9019BBFA" typeRef="number" label="unsecloantrades">
+      <in id="_BBF658F6-EAAF-46BB-AD64-9DAC485A2499" />
+      <match id="_7B4890BB-99E4-40D4-9C63-BDF76C622C8B" />
+    </filter>
+  </decision>
   <inputData name="TardeLine" id="_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773">
     <variable name="TardeLine" id="_82AA3E0C-31D4-4963-ADF4-28F55ADAB384" typeRef="tbl_tradelines" />
   </inputData>
@@ -47,9 +60,16 @@
       <dmndi:DMNShape id="_15390610-60B3-4FBE-8E26-6331F2E4E89E" dmnElementRef="_9260F595-F4B0-4DB2-AE13-C8DEB265FA55" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="112" y="112" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_7CE62D58-A3A1-44B1-B19E-BF818F1C20BE" dmnElementRef="_404535DD-7759-4B7F-BA0F-E3390A82CC2F" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="680" y="140" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_F0F22026-29B0-48DB-A293-CB84F46FD308" dmnElementRef="_5BE7CD62-ACC0-41DC-9FC7-4B2195CE1849" sourceElement="_A7E98FD2-4669-4262-87C3-6A5757B51365" targetElement="_15390610-60B3-4FBE-8E26-6331F2E4E89E">
         <di:waypoint x="192" y="292" />
         <di:waypoint x="192" y="192" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_F00129B3-B352-49E1-996D-48ADAECF968C" dmnElementRef="_F9B31D16-9799-4EA2-B6EA-579F33F4773A" sourceElement="_A7E98FD2-4669-4262-87C3-6A5757B51365" targetElement="_7CE62D58-A3A1-44B1-B19E-BF818F1C20BE">
+        <di:waypoint x="192" y="332" />
+        <di:waypoint x="760" y="180" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
