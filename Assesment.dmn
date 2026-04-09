@@ -128,6 +128,14 @@
       </contextEntry>
     </context>
   </decision>
+  <decision name="lstUnsecLoan" id="_C9A53254-36A8-4E98-BBED-C0A575474AF2">
+    <variable name="lstUnsecLoan" id="_E79CFD30-A621-4298-B775-2A24865D10F0" typeRef="lstTrades" />
+    <list id="_F5D00810-1A3F-47FA-BA64-B476158CC080" typeRef="lstTrades" label="lstUnsecLoan">
+      <list id="_EE7C9E3A-11EA-4E72-AF4D-0308D71F8027" typeRef="lstTrades" label="Expression Name">
+        <expression />
+      </list>
+    </list>
+  </decision>
   <inputData name="tbl_tradelines" id="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E">
     <variable name="tbl_tradelines" id="_578AD899-6CE9-45BF-A4BF-2757A365ADDA" typeRef="tbl_tradelines" />
   </inputData>
@@ -175,6 +183,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_B37AF4A6-CCA5-4165-9D1A-B727597C8593" dmnElementRef="_6945DFE3-629A-40C5-BF86-A04FFA4DC0EF" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="420" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_E0CBF89C-6139-4B7C-9704-BE892082AC58" dmnElementRef="_C9A53254-36A8-4E98-BBED-C0A575474AF2" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="-200" y="120" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_732D46A6-C0E5-4ED7-B417-9ACD8A88A460" dmnElementRef="_326D29A0-3482-4012-9532-B0B643FC470D" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7">
         <di:waypoint x="192" y="292" />
