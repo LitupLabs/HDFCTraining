@@ -164,9 +164,8 @@
     <encapsulatedLogic label="fnUnSecureLiveLoanCheck" typeRef="number" id="_CD21F6EB-D0CF-4170-A55E-5F3B057EB9B0" kind="FEEL">
       <formalParameter id="_F2B0E19D-1BD5-4CCF-BA52-84793342009E" name="tl" typeRef="tradelines_obj" />
       <literalExpression id="_C3B5D5F8-79A2-49BE-91D0-2FB604B1C403" typeRef="number" label="Return">
-        <text>
-if tl.tl_acct_type = null then 0
-else if (upper case(replace(tl.tl_acct_type, &quot; &quot;, &quot;&quot;)) in [&quot;BUSINESSLOAN&quot;,&quot;CONSUMERLOAN&quot;,&quot;EDUCATIONLOAN&quot;,&quot;LOANONCREDITCARD&quot;,&quot;MICROFINANCEHOUSINGLOAN&quot;,&quot;PERSONALLOAN&quot;,&quot;MUDRALOANSSHISHUKISHORTARUN&quot;,&quot;OTHER&quot;,&quot;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&quot;])
+        <text>if tl.tl_acct_type = null then 0
+else if ((upper case(replace(tl.tl_acct_type, &quot; &quot;, &quot;&quot;)) in [&quot;BUSINESSLOAN&quot;,&quot;CONSUMERLOAN&quot;,&quot;EDUCATIONLOAN&quot;,&quot;LOANONCREDITCARD&quot;,&quot;MICROFINANCEHOUSINGLOAN&quot;,&quot;PERSONALLOAN&quot;,&quot;MUDRALOANSSHISHUKISHORTARUN&quot;,&quot;OTHER&quot;,&quot;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&quot;]) and (tl.tl_closed_date in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;))) )
 then 1
 else 0</text>
       </literalExpression>
