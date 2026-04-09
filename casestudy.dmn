@@ -23,8 +23,8 @@
     </informationRequirement>
     <context id="_12033194-AB66-4D74-9E30-0709B1DE8C12" typeRef="number" label="livetrade">
       <contextEntry id="_A705704F-B353-474F-9112-5EFBBF8B6DE0">
-        <variable id="_66D18517-D292-452E-8FB2-B0ED296E76BD" name="for" typeRef="trade" />
-        <for id="_DA13AE11-A1A3-4186-A412-7425206EA184" typeRef="trade" label="for" iteratorVariable="i">
+        <variable id="_66D18517-D292-452E-8FB2-B0ED296E76BD" name="live" typeRef="trade" />
+        <for id="_DA13AE11-A1A3-4186-A412-7425206EA184" typeRef="trade" label="live" iteratorVariable="i">
           <in id="_3C8535F2-088C-495A-B980-0B1FCEA85597">
             <literalExpression id="_E927A322-473F-4F33-8ECB-6A91893BED0E" label="Expression Name">
               <text>tbltradelines</text>
@@ -44,7 +44,7 @@
         <filter id="_A9A237ED-0403-4906-BC4D-52D41FAB6B7C" typeRef="trade" label="filter">
           <in id="_F3132474-61AB-414B-A0AC-699AC96814DC">
             <literalExpression id="_86CF356C-3B86-4053-9131-D71203F9BC3E" label="Expression Name">
-              <text>for</text>
+              <text>live</text>
             </literalExpression>
           </in>
           <match id="_4EEB6B10-FCE1-4A5C-AE62-9F89646AA1D3">
@@ -56,7 +56,7 @@
       </contextEntry>
       <contextEntry id="_261E3840-EB41-4969-8867-4662E469EC5F">
         <literalExpression id="_FEA4A501-484A-44C5-B07A-7DF487574CE6" typeRef="number" label="livetrade">
-          <text>count(filter</text>
+          <text>count(filter)</text>
         </literalExpression>
       </contextEntry>
     </context>
