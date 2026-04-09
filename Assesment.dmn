@@ -128,6 +128,34 @@
       </contextEntry>
     </context>
   </decision>
+  <decision name="cntOfUnSecureLiveLoan" id="_FE4A242A-895C-45EE-82F2-1189CBB3B3DD">
+    <variable name="cntOfUnSecureLiveLoan" id="_E00422D3-47DF-4573-BBB8-79B29CC9C309" typeRef="number" />
+    <informationRequirement id="_8AD1F9F7-537B-4FC9-AB1B-3F63988F1D3B">
+      <requiredInput href="#_532304C2-97F7-4368-995B-3F90BA449C77" />
+    </informationRequirement>
+    <context id="_1EEB856C-AAE5-4876-ABD9-ABF060ACC32F" typeRef="number" label="cntOfUnSecureLiveLoan">
+      <contextEntry id="_A9152C1A-B264-4FD5-A50E-79BB4D9E6993">
+        <variable id="_AA2D45F2-52F1-435D-8103-B585C4010078" name="unsecLoan_fetch" typeRef="trade_table" />
+        <for id="_2275C5B2-0F61-4DB2-B076-50DC349CF9F6" typeRef="trade_table" label="unsecLoan_fetch" iteratorVariable="item">
+          <in id="_A30E28CB-8115-421B-975F-B30E3C6916B7">
+            <literalExpression id="_8F23B392-0BC7-4916-A562-4B9213934F68" label="Expression Name">
+              <text>tbl_tradelines</text>
+            </literalExpression>
+          </in>
+          <return id="_E47718D6-B0FB-424D-8AE6-25BA566C2AC7">
+            <literalExpression id="_F3F00C07-ACF6-4DE3-B4B7-3CA801027FFB" label="Expression Name">
+              <text>UnSecureLiveLoanCheck(item)</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_227CEBC1-A5D6-481F-A4E0-4B3C8A8F8B43">
+        <literalExpression id="_7BB8FB74-FA54-4171-A3A6-68B590FD3B90" typeRef="number" label="cntOfUnSecureLiveLoan">
+          <text>sum(unsecLoan_fetch</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
+  </decision>
   <inputData name="tbl_tradelines" id="_532304C2-97F7-4368-995B-3F90BA449C77">
     <variable name="tbl_tradelines" id="_E6323C6B-58EB-4970-8258-7F33470839A1" typeRef="tradeline_list" />
   </inputData>
@@ -139,19 +167,19 @@
             <kie:width>120</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CFF9D174-8C91-4047-9FBC-9AD2E6EAD0D0">
-            <kie:width>190</kie:width>
+            <kie:width>463</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_CFA41139-248C-4D8E-AECE-38631D9B2FF0">
-            <kie:width>190</kie:width>
+            <kie:width>463</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_3AE4F671-EA01-4CB0-85A4-CE6F4360C203">
-            <kie:width>190</kie:width>
+            <kie:width>543</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_66F543B6-2772-4C38-9F72-43EFB146B90B">
-            <kie:width>190</kie:width>
+            <kie:width>503</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_67331BAD-E5C1-43F4-8D96-589855672800">
-            <kie:width>190</kie:width>
+            <kie:width>545</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_35C9A3FD-3C8A-4D09-9CD9-251A23FE7B54">
             <kie:width>120</kie:width>
@@ -165,6 +193,18 @@
           <kie:ComponentWidths dmnElementRef="_FE33C0ED-ABAD-4554-BF1F-C6E26CB16696">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_1EEB856C-AAE5-4876-ABD9-ABF060ACC32F">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8F23B392-0BC7-4916-A562-4B9213934F68">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F3F00C07-ACF6-4DE3-B4B7-3CA801027FFB">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7BB8FB74-FA54-4171-A3A6-68B590FD3B90">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" dmnElementRef="_532304C2-97F7-4368-995B-3F90BA449C77" isCollapsed="false" isListedInputData="false">
@@ -176,6 +216,9 @@
       <dmndi:DMNShape id="_223959FB-6C93-402A-8D00-4E1C48D82471" dmnElementRef="_E89034CF-8E0C-400A-9CA0-B8335D800A31" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="520" y="180" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9EC442CA-AAB6-4CB4-9153-CA434EE00E18" dmnElementRef="_FE4A242A-895C-45EE-82F2-1189CBB3B3DD" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="240" y="320" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9F7A668F-DB9B-479C-B981-8CC54AB2EAF6" dmnElementRef="_A376DE78-98F6-42E6-8F35-0E925734C594" sourceElement="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" targetElement="_D30C2145-9A4E-4B45-A45C-705A12BEA892">
         <di:waypoint x="320" y="220" />
         <di:waypoint x="320" y="120" />
@@ -183,6 +226,10 @@
       <dmndi:DMNEdge id="_7644D6B6-9EC8-448D-8A5A-B794BBB22800" dmnElementRef="_A4FD1168-67E7-4DAE-BB1E-89897E088B8D" sourceElement="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" targetElement="_223959FB-6C93-402A-8D00-4E1C48D82471">
         <di:waypoint x="320" y="220" />
         <di:waypoint x="520" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_29F35A99-66B2-4F9F-BC0D-06FD1CC4A54E" dmnElementRef="_8AD1F9F7-537B-4FC9-AB1B-3F63988F1D3B" sourceElement="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" targetElement="_9EC442CA-AAB6-4CB4-9153-CA434EE00E18">
+        <di:waypoint x="320" y="220" />
+        <di:waypoint x="320" y="360" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
