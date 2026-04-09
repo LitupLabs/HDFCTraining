@@ -200,7 +200,7 @@ basepricefactor: v.basepricefactor
       </in>
       <match id="_CCD38A1C-4E63-4CD8-AEF8-333D9A48D1AA">
         <literalExpression id="_7248C5AE-F976-448A-978E-985A454EDB3F" label="Expression Name">
-          <text>item.score=max(scored vendor.score)</text>
+          <text>item.score=max(scoredvendors.score)</text>
         </literalExpression>
       </match>
     </filter>
@@ -447,7 +447,7 @@ approvalrequired:approval decision
         <dc:Bounds x="820" y="140" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_8E097C1E-D82B-4CD8-BB1D-E5F1FFF46510" dmnElementRef="_73FFB477-28A0-4C3F-9157-1FF52511E19D" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="660" y="-40" width="160" height="80" />
+        <dc:Bounds x="740" y="-60" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_684C950C-95A2-4B03-BEAB-DF26BA4A4FEC" dmnElementRef="_66B9AAA7-0A80-473B-9C78-B8FA002E131A" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="1220" y="20" width="160" height="80" />
@@ -483,15 +483,15 @@ approvalrequired:approval decision
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_EC1EE7D6-0C1C-46ED-A3DF-D247B662AD78" dmnElementRef="_ABD8CA02-D95C-4AD3-9322-870F83447CD8" sourceElement="_8E3CE3A6-BA8A-4FA0-860E-220C19B587F5" targetElement="_8E097C1E-D82B-4CD8-BB1D-E5F1FFF46510">
         <di:waypoint x="740" y="140" />
-        <di:waypoint x="740" y="0" />
+        <di:waypoint x="820" y="-20" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_D9A0C170-7A7C-492D-80CE-2154334D51E9" dmnElementRef="_54ECE063-8197-4F5C-8E3E-65829D2E3C78" sourceElement="_A9C6C302-675C-4677-A28F-3579A5B15CE1" targetElement="_8E097C1E-D82B-4CD8-BB1D-E5F1FFF46510">
         <di:waypoint x="900" y="180" />
-        <di:waypoint x="740" y="0" />
+        <di:waypoint x="820" y="-20" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_2B877E56-4065-4EAB-9B10-B6961A9BEE03" dmnElementRef="_BD6035FA-D1CE-44CF-A162-BF0686683D30" sourceElement="_09E4C732-7733-4F88-A300-5B518B9A3690" targetElement="_8E097C1E-D82B-4CD8-BB1D-E5F1FFF46510">
         <di:waypoint x="580" y="180" />
-        <di:waypoint x="740" y="0" />
+        <di:waypoint x="820" y="-20" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_A1C9F4B1-75C1-4325-AA34-DFD383B7674D" dmnElementRef="_6C03AA49-CA27-4C95-B44D-EFDCCB187A2D" sourceElement="_A93BA01A-C382-4E9C-87EB-3678B40A2833" targetElement="_684C950C-95A2-4B03-BEAB-DF26BA4A4FEC">
         <di:waypoint x="1380" y="-60" />
@@ -506,7 +506,7 @@ approvalrequired:approval decision
         <di:waypoint x="560" y="0" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_600A7766-8EB9-4D64-90B8-43B2C17FC515" dmnElementRef="_9EC24517-E911-4705-880A-2E29BEF1389A" sourceElement="_8E097C1E-D82B-4CD8-BB1D-E5F1FFF46510" targetElement="_AF1EDB2A-482E-41D2-8ECF-39EB691440C9">
-        <di:waypoint x="740" y="0" />
+        <di:waypoint x="820" y="-20" />
         <di:waypoint x="1060" y="60" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_DFE95AB4-3571-4545-975B-5AB4EA21ADC8" dmnElementRef="_95974462-912D-40DA-8C97-474858832B2C" sourceElement="_684C950C-95A2-4B03-BEAB-DF26BA4A4FEC" targetElement="_AF1EDB2A-482E-41D2-8ECF-39EB691440C9">
@@ -526,7 +526,7 @@ approvalrequired:approval decision
         <di:waypoint x="820" y="-240" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_A74A8C94-B310-44B2-A9DF-9CE93B3E3097" dmnElementRef="_490071EA-668D-4D06-A73F-E79DA6162F0B" sourceElement="_8E097C1E-D82B-4CD8-BB1D-E5F1FFF46510" targetElement="_A12F40ED-B4DC-4900-AC81-EB56A6C74958">
-        <di:waypoint x="740" y="0" />
+        <di:waypoint x="820" y="-20" />
         <di:waypoint x="820" y="-240" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_0AE2AE77-56A3-4F33-8303-313A4EF71EDD" dmnElementRef="_B46025BA-50EC-42A3-A9B0-13CD52A51640" sourceElement="_844E3930-2E68-4E2E-922D-43C48F813214" targetElement="_D8997065-300E-477F-88B8-178D8E290D21">
