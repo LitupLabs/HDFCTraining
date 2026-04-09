@@ -32,6 +32,9 @@
   </itemDefinition>
   <decision name="New Decision" id="_4E34E68B-B296-431B-89BA-4758D476CADF">
     <variable name="New Decision" id="_F85701FC-ABD4-4252-A43D-E7FC00AA2591" />
+    <informationRequirement id="_E9B28B2A-8E6D-4520-A3D3-F42A690D251E">
+      <requiredInput href="#_573FC751-548B-473D-9307-C848411872D0" />
+    </informationRequirement>
   </decision>
   <inputData name="rawinput" id="_573FC751-548B-473D-9307-C848411872D0">
     <variable name="rawinput" id="_BF32C367-A724-4ABE-84B2-6F2F6C3065E2" typeRef="rawInput" />
@@ -49,6 +52,10 @@
       <dmndi:DMNShape id="_8E4ED6FB-8266-4F5B-8FF2-162D4B96A778" dmnElementRef="_4E34E68B-B296-431B-89BA-4758D476CADF" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="500" y="80" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_D687E7CC-1473-4DF4-B3E1-BA54CF0F0B11" dmnElementRef="_E9B28B2A-8E6D-4520-A3D3-F42A690D251E" sourceElement="_8C3FF88F-C3AC-4040-8798-24E43C09248A" targetElement="_8E4ED6FB-8266-4F5B-8FF2-162D4B96A778">
+        <di:waypoint x="300" y="220" />
+        <di:waypoint x="580" y="120" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
