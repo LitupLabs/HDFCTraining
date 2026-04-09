@@ -20,7 +20,7 @@
       <requiredInput href="#_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773" />
     </informationRequirement>
     <literalExpression id="_4E0166FF-2DFE-40FB-87E2-D1A4736F732D" typeRef="number" label="numOfLiveTrades">
-      <text>count(not(TradeLine.tl_closed_date in [&quot;01/01/1900 00:00:00&quot;, &quot;null&quot;, null, &quot;&quot;] ))</text>
+      <text>count(not(tbl_tradelines.tl_closed_date in [&quot;01/01/1900 00:00:00&quot;, &quot;null&quot;, null, &quot;&quot;] ))</text>
     </literalExpression>
   </decision>
   <decision name="cntOfUnSecureLiveLoan" id="_9D3FD60D-27EF-4999-AB49-B24FA0300811">
@@ -38,11 +38,11 @@
       <requiredInput href="#_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773" />
     </informationRequirement>
     <literalExpression id="_851EEA49-22F1-48C2-86D8-2C4C4C90AD25" typeRef="number" label="totalBureauOverDue">
-      <text>sum(TradeLine.tl_overdue_amount)</text>
+      <text>sum(tbl_tradelines.tl_overdue_amount)</text>
     </literalExpression>
   </decision>
-  <inputData name="TradeLine" id="_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773">
-    <variable name="TradeLine" id="_82AA3E0C-31D4-4963-ADF4-28F55ADAB384" typeRef="tbl_tradelines" />
+  <inputData name="tbl_tradelines" id="_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773">
+    <variable name="tbl_tradelines" id="_82AA3E0C-31D4-4963-ADF4-28F55ADAB384" typeRef="tbl_tradelines" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_4CF39306-4038-4696-831B-6EE6A872E042" name="Default DRD" useAlternativeInputDataShape="false">
