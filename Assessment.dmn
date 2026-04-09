@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_1B74E78D-FBC4-4409-AF4E-C95E93503B6D" id="_0A749F11-B712-4222-8F8F-636596C20396" name="DMN_B5FC457E-9559-4182-BFA9-F0FAE545CC14" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_40701560-13E9-4B9A-823B-88A0E4B5EAF2" name="Detail" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_3A115401-FF3B-4DCE-87BB-C288C7B11E31" name="detail_obj" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>detail_obj</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_AD019B9E-16AE-4285-9290-78CE727C48F9" name="detail_obj" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_932C30A8-3CBA-4FE9-8FB5-422545F33B04" name="value" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_A9643B00-98EF-4110-B080-3E0F3E3B5389" name="variable" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_F010F7DD-9BB7-47EF-8A5F-E9418E2353F3" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_D0167A4C-C5B1-472C-9212-03DF4DAE64D4" name="Detail" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Detail</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_ADDC4200-D4B3-4218-94D8-FC7F1598F987" name="contextParameter" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E9E4BDF1-5331-4403-82E3-90E1A545B760" name="productName" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_E1A7F110-6EFC-4D7C-BB51-8A70E6330431" name="partnerJourneyID" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_6296846E-5923-4194-8498-3EBE127BDC88" name="bankJourneyID" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_996DC5A8-F3F0-4A94-A41B-08D460E1BE27" name="partnerID" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_C18FF12D-956F-45A0-868B-077B430C869D" name="channelID" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_DF18F637-0A47-480E-87BC-A46C04F11621" name="Tradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F90B6F50-E5D4-4C1E-914A-45680E75725D" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date and time</typeRef>
+    </itemComponent>
+    <itemComponent id="_67B18A6E-F102-4AF4-B975-3093E6C1D0FD" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_3A66A72A-31FB-4B7A-99E4-91AC556A0492" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+</definitions>
