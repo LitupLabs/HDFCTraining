@@ -55,12 +55,12 @@
       <typeRef>date</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="New Decision" id="_26AAADEA-6B1E-4812-8DEF-C246312DE082">
-    <variable name="New Decision" id="_5B5B3492-C3D2-4489-9360-12AFDEE3C00A" typeRef="trade" />
+  <decision name="trade" id="_26AAADEA-6B1E-4812-8DEF-C246312DE082">
+    <variable name="trade" id="_5B5B3492-C3D2-4489-9360-12AFDEE3C00A" typeRef="trade" />
     <informationRequirement id="_867475D8-1EA1-4540-AF23-389D839EC4E9">
       <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
     </informationRequirement>
-    <for id="_74A6F5E3-A58D-43A6-9999-D11DFBFE03C5" typeRef="trade" label="New Decision" iteratorVariable="t">
+    <for id="_74A6F5E3-A58D-43A6-9999-D11DFBFE03C5" typeRef="trade" label="trade" iteratorVariable="t">
       <in id="_7C814287-6F13-4CA1-BA60-4D7F11F69924">
         <literalExpression id="_72F4D01F-8024-4BB1-82FF-2A450EF988F1" label="Expression Name">
           <text>raw_data.applicant.tradelines</text>
