@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_4094D88B-CA85-4121-AC1D-AE5F0C99182E" id="_00FCE08C-E16B-49DA-963D-2AFD69B655F8" name="DMN_B08F9882-1CD7-40C1-8CBA-CC0EF3565F1C">
+  <itemDefinition id="_5EB764EE-33F9-4947-A8E8-68FEA03F613B" name="Perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_48F9D87F-3041-4B2A-B42B-403F0AE1EA08" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>ScoringDetails</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_BCB2ED20-0958-4270-B180-013BEDF601EA" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_AEA2EF16-3928-4A9D-9ECD-63C2989D1530" name="Detail" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Detail</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_87DAFCF7-67B0-4BC2-8F9B-580D449B69E5" name="Detail" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>detail_obj</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_6BC1AF78-7701-4CCF-A941-5586F8E8DBF3" name="detail_obj" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_70F7422A-325A-4636-AE1E-6FA5BB1955E4" name="variable" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_4A51E4A5-60F4-47F6-A1FE-5F6AC1C712C2" name="value" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_C547C146-E66D-45BF-AC88-0D19C538E1B1" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_C6D5C5BE-AF24-4CE6-9BCD-C17E8485F6DF" name="perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Perfios</typeRef>
+    </itemComponent>
+    <itemComponent id="_F6256B06-F3A0-4BEF-8955-FDDC1D5DFAFF" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>tbl_tradelines</typeRef>
+    </itemComponent>
+    <itemComponent id="_EA0C1A32-C0C4-47F0-994F-A58F6E421878" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_AB21E6BA-4985-4670-9D30-1EFB8D636166" name="tradelines_list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>tradelines</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_2DC7F20C-000D-46F5-9B3B-505DECC01847" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_340AD8F8-93E8-4913-9AA9-CEAB64F11A75" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+    <itemComponent id="_FF75FA5F-2337-4A20-A540-E4C9D12910D7" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_40336FE2-B84D-4B10-9DFE-8FB18D518B3E" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_FD8F4AF9-AEFC-4870-9665-7387D9EE5399" name="tl_acct_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_28FDC1FF-9627-496F-A84C-9A44D1380697" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_CF040682-9278-4439-B728-D9B55B007A6E" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="New Decision" id="_26AAADEA-6B1E-4812-8DEF-C246312DE082">
+    <variable name="New Decision" id="_5B5B3492-C3D2-4489-9360-12AFDEE3C00A" typeRef="tradelines_list" />
+    <informationRequirement id="_867475D8-1EA1-4540-AF23-389D839EC4E9">
+      <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
+    </informationRequirement>
+  </decision>
+  <inputData name="tradelines" id="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08">
+    <variable name="tradelines" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="tradelines" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_CC545C0F-2B38-4D9C-85FC-CD435DF1DBFE" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_9092B576-3E92-41EB-84F5-FA0FAD3E040C" dmnElementRef="_26AAADEA-6B1E-4812-8DEF-C246312DE082" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="420" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_73A70B92-49F5-4362-87A7-FBA587BB458C" dmnElementRef="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="420" y="140" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_6396BD42-7647-41CC-86FB-D8BEC4E03467" dmnElementRef="_867475D8-1EA1-4540-AF23-389D839EC4E9" sourceElement="_73A70B92-49F5-4362-87A7-FBA587BB458C" targetElement="_9092B576-3E92-41EB-84F5-FA0FAD3E040C">
+        <di:waypoint x="500" y="180" />
+        <di:waypoint x="500" y="60" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
