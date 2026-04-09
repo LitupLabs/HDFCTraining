@@ -9,7 +9,7 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_A5060FCB-DCDA-4DCC-AEB4-C760DC89A0D3" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_592E9F9A-84FC-4F8D-89D9-C26B33051AC6" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_592E9F9A-84FC-4F8D-89D9-C26B33051AC6" name="tradelines" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>tradelines</typeRef>
     </itemComponent>
     <itemComponent id="_6C188A26-BFF2-41AF-BF66-F4465AA9CAC2" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
