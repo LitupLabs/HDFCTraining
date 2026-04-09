@@ -82,17 +82,17 @@
     <informationRequirement id="_4601282E-E266-49C4-9F98-FE218DF1980A">
       <requiredInput href="#_76088C6A-EE2B-4C75-8840-225CDEA3974B" />
     </informationRequirement>
-    <literalExpression id="_1A61401A-ECFB-464C-A149-BA2B8793CD4F" typeRef="number" label="numOfLiveTrades">
-      <text>
-count(
-  Raw Input.applicant.tbl_tradelines[
-      tl_closed_date = &quot;01/01/1900 00:00:00&quot;
-      or tl_closed_date = &quot;null&quot;
-      or tl_closed_date = null
-      or tl_closed_date = &quot;&quot;
-  ]
-)
-</text>
+    <literalExpression id="_D4F4CD0A-642D-4E1B-8C10-FE1024FA98D3" typeRef="number" label="numOfLiveTrades">
+      <text>sum(
+  for t in Raw Input.applicant.tbl_tradeline
+  return
+    if (t.tl_closed_date = &quot;01/01/1900 00:00:00&quot;
+        or t.tl_closed_date = &quot;null&quot;
+        or t.tl_closed_date = &quot;&quot;
+        or t.tl_closed_date = null)
+    then 1
+    else 0
+)</text>
     </literalExpression>
   </decision>
   <inputData name="Raw Input" id="_76088C6A-EE2B-4C75-8840-225CDEA3974B">
@@ -102,8 +102,8 @@ count(
     <dmndi:DMNDiagram id="_AE39B66D-FF56-4F6E-B89A-DD07C52BEF8B" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_1A61401A-ECFB-464C-A149-BA2B8793CD4F">
-            <kie:width>625</kie:width>
+          <kie:ComponentWidths dmnElementRef="_D4F4CD0A-642D-4E1B-8C10-FE1024FA98D3">
+            <kie:width>549</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
