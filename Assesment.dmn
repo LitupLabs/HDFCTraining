@@ -128,6 +128,12 @@
       </contextEntry>
     </context>
   </decision>
+  <decision name="UNSECCOUNTLOAN" id="_68DBB22B-FB83-48CC-A72F-DD9C1B8F6D85">
+    <variable name="UNSECCOUNTLOAN" id="_0413C290-3C11-4684-8859-15EF9A86D565" />
+    <informationRequirement id="_29C09C0D-B848-40EC-A7DE-5A6F7726F6F9">
+      <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
+    </informationRequirement>
+  </decision>
   <inputData name="tbl_tradelines" id="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E">
     <variable name="tbl_tradelines" id="_578AD899-6CE9-45BF-A4BF-2757A365ADDA" typeRef="tbl_tradelines" />
   </inputData>
@@ -174,7 +180,10 @@
         <dc:Bounds x="112" y="112" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_B37AF4A6-CCA5-4165-9D1A-B727597C8593" dmnElementRef="_6945DFE3-629A-40C5-BF86-A04FFA4DC0EF" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="420" y="120" width="160" height="80" />
+        <dc:Bounds x="920" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_B7FE9934-7AEB-455F-9A8E-B6D221889376" dmnElementRef="_68DBB22B-FB83-48CC-A72F-DD9C1B8F6D85" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="520" y="140" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_732D46A6-C0E5-4ED7-B417-9ACD8A88A460" dmnElementRef="_326D29A0-3482-4012-9532-B0B643FC470D" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7">
         <di:waypoint x="192" y="292" />
@@ -182,7 +191,11 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_0CCDAE22-6DD5-4545-9C32-B850E4A58534" dmnElementRef="_9C875A26-430A-411C-9FB1-DBD44ED850FC" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_B37AF4A6-CCA5-4165-9D1A-B727597C8593">
         <di:waypoint x="192" y="332" />
-        <di:waypoint x="500" y="160" />
+        <di:waypoint x="1000" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_F984F461-8FB1-4D62-BB90-D0796D0F495C" dmnElementRef="_29C09C0D-B848-40EC-A7DE-5A6F7726F6F9" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_B7FE9934-7AEB-455F-9A8E-B6D221889376">
+        <di:waypoint x="192" y="332" />
+        <di:waypoint x="600" y="180" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
