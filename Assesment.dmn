@@ -95,7 +95,7 @@
       </contextEntry>
       <contextEntry id="_B9B91FCE-F4D1-43D4-B0D6-DEC06CFFF444">
         <literalExpression id="_394FBD17-2D54-494E-B421-E392E2271774" typeRef="number" label="num_Livetrades">
-          <text>count(filtered_List_Closeddates)</text>
+          <text>count(lst_Closeddates) - count(filtered_List_Closeddates)</text>
         </literalExpression>
       </contextEntry>
     </context>
