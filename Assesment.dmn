@@ -1,8 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_01638FB1-4C6D-4B86-B53E-11AF9AC1AC72" id="_1467F3D0-9CC8-40BD-951B-B03B3B7D5F9F" name="DMN_B011171D-37F8-442B-99A1-578377514D0E" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
-  <itemDefinition id="_4F868D73-241F-497E-A8C8-19C576901099" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_BA6CCE4E-9055-4F42-83C5-CE84B87A1DFE" name="tl_closed_date" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_7BF909B4-927E-4B79-822E-373A416B3284" name="raw_input" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_2B5E376E-88FD-4275-A289-C89464D624E1" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Applicant</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_6587A544-9BB4-4C1E-A640-829277814323" name="Details" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E03FD01C-CD00-4761-9832-A8366D638FF7" name="variable" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_8459083F-DC6C-4670-A6D8-4C26403E5E47" name="value" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
+  <itemDefinition id="_90B75FC2-6DF8-4A3F-A265-33372A983C58" name="scoring_detail" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_19DE35FF-C7BA-4EF2-AFF6-C8DE8B466CA5" name="detail" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Details</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_C914CA3F-0BE7-4D54-8685-35386161FE67" name="perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_D7C4E063-8CEE-4C19-8879-0CAFF7715D30" name="scoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>scoring_detail</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_9215D5EC-66C7-40B0-8FB8-02004494CF99" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_9927D4F3-4084-48A5-A342-23C8D3F22CFB" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+    <itemComponent id="_0E4C3D92-D051-4EFB-B968-26662A9720AE" name="perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>perfios</typeRef>
+    </itemComponent>
+    <itemComponent id="_0CA285C8-E432-4E76-9256-4F4FA60E5E30" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>tradelines</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_4F868D73-241F-497E-A8C8-19C576901099" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_1235AE60-5BB6-4082-9D28-AE79F11FBC11" name="tl_accnt_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+    <itemComponent id="_943C14EF-DBFC-4D5A-BF85-DF19A236A96F" name="tl_accnt_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_48AA8770-F73B-43DC-82BC-8671C215B408" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_BA6CCE4E-9055-4F42-83C5-CE84B87A1DFE" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="numOfLiveTrades" id="_8B3F2D17-FD75-4BDB-A05C-B6F61FCEEC95">
+    <variable name="numOfLiveTrades" id="_213C0D46-8B5A-4A3C-B9B0-AF429526D630" typeRef="number" />
+    <filter id="_00ECE5D8-73CD-4423-BDFA-C88441AEE09A" typeRef="number" label="numOfLiveTrades">
+      <in id="_591A05B4-30DB-45C1-91BA-3C0D72BB0D77" />
+      <match id="_B8462DBC-5A70-4B16-B6CD-432E9BEA0A20" />
+    </filter>
+  </decision>
+  <inputData name="raw_input" id="_950A344D-86F0-4E17-B5A8-06DDCDC8E891">
+    <variable name="raw_input" id="_0973BDDE-17CC-464A-ACF9-002EB348757B" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_BE5E6222-6F9B-45A8-AA00-C6BE09C86C99" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_08BAD0A2-9D86-40F2-BF5A-080F27B66F6D" dmnElementRef="_950A344D-86F0-4E17-B5A8-06DDCDC8E891" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="-260" y="200" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_71F2FE50-88B2-4E07-84C3-18880E28DDB9" dmnElementRef="_8B3F2D17-FD75-4BDB-A05C-B6F61FCEEC95" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="-20" y="200" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
