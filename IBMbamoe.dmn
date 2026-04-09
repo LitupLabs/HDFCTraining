@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_BB783EB0-269E-4095-971F-C74EF8E6D44C" id="_932731EF-7358-424E-B5ED-15B007CF0212" name="DMN_100ABA6B-5CC8-4192-9CE1-9F3F19F81FB2">
-  <itemDefinition id="_0AA8D102-5AAB-470C-AFA9-C6E5E27C1B5D" name="TradeLineList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_2893175B-D55C-407F-A4C0-474E9F3348E0" name="TradeLineList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>TradeLine</typeRef>
-    </itemComponent>
-  </itemDefinition>
-  <itemDefinition id="_7A5799ED-ECF2-41B4-91C5-9FA3E6D654C3" name="TradeLine" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_2F598CD4-4804-4D96-9662-E1709EE541E5" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>string</typeRef>
-    </itemComponent>
-    <itemComponent id="_5EC8C45A-F101-485D-93C5-627A291A2595" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>string</typeRef>
-    </itemComponent>
+  <itemDefinition id="_AF509F74-B6E4-43A9-8A29-4266EDF9BC74" name="overdue" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_F14EA6C5-17BC-4D47-8CBE-0AA0D275408F" name="trade" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_09AE03C6-05B6-46D6-AFB5-25BE2293F150" name="tradeline_list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>tbl_tradelines</typeRef>
   </itemDefinition>
   <itemDefinition id="_3238CC7D-A0A6-4600-AB71-3CB9D92A99D2" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_2B99B29F-71C3-4FE2-8441-59B52EFDC5FE" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>string</typeRef>
+      <typeRef>date</typeRef>
     </itemComponent>
     <itemComponent id="_5ADC47B7-65D5-4E62-B3EF-87C63F0550E0" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
@@ -25,57 +17,114 @@
     </itemComponent>
   </itemDefinition>
   <decision name="NumOfLiveTrades" id="_C6161D11-AC99-40EF-823E-75C4438500B1">
-    <variable name="NumOfLiveTrades" id="_CAEA294B-4B01-451E-A728-CC97A12402D9" typeRef="string" />
+    <variable name="NumOfLiveTrades" id="_CAEA294B-4B01-451E-A728-CC97A12402D9" typeRef="number" />
     <informationRequirement id="_902FB004-2736-4856-A5FA-14B78882A4CC">
       <requiredInput href="#_995D532E-751A-45C4-B549-5F0037B4EF3F" />
     </informationRequirement>
-    <literalExpression id="_80288D0E-CFE6-48DA-B522-3B8869FA5662" typeRef="string" label="NumOfLiveTrades">
-      <text>count(
-      for t in tbl_tradelines return 
-        IsLiveDate(t.tl_closed_date)   
-       )                                     
-</text>
-    </literalExpression>
+    <context id="_56DED3E6-40D3-4961-A6AC-B9A413A946EA" typeRef="number" label="NumOfLiveTrades">
+      <contextEntry id="_4B4B7DC7-386B-4905-93F9-1387959E2846">
+        <variable id="_B6908BE0-44BE-42A5-8EB2-A566CC5CC5D2" name="for_loop" typeRef="trade" />
+        <for id="_9B35B417-7562-4657-8A63-7111F18CF338" typeRef="trade" label="for_loop" iteratorVariable="i">
+          <in id="_0B4F426F-E6FA-4B10-8D46-7AE57BAC61B7">
+            <literalExpression id="_16AC1252-A7BF-478C-B0E8-05F6D0EC236E" label="Expression Name">
+              <text>tbl_tradelines</text>
+            </literalExpression>
+          </in>
+          <return id="_1EF25706-D305-4E5D-8DA4-24404ABBF83B">
+            <literalExpression id="_3E48D904-BE19-4FC1-A7B1-E8B871ACF767" label="Expression Name">
+              <text>i.tl_closed_date</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_2A4C34B7-3945-4804-83C7-61E7EA70B0A8">
+        <variable id="_68510BFD-E444-426B-AF76-6A9467F96EDB" name="fliter" typeRef="trade">
+          <description></description>
+        </variable>
+        <filter id="_8ECDD402-5226-4D73-9E01-973596D0FA4D" typeRef="trade" label="fliter">
+          <in id="_4EB128C4-EE93-48B8-9509-EC015D75217F">
+            <literalExpression id="_BBB9C2D4-E16C-44BD-ACC8-330DF869AA9D" label="Expression Name">
+              <text>for_loop</text>
+            </literalExpression>
+          </in>
+          <match id="_4F082067-BE94-43C9-85A4-167744FEFEAE">
+            <literalExpression id="_BB397DFE-C0AA-4DB1-A1E5-280DE0E07072" label="Expression Name">
+              <text>not(item in (null , &quot;null&quot;,&quot;&quot;,&quot;01-01-1900&quot;))</text>
+            </literalExpression>
+          </match>
+        </filter>
+      </contextEntry>
+      <contextEntry id="_9B8D76F2-2068-43FC-8623-2756D7A98140">
+        <literalExpression id="_FF350F6D-4B37-445A-B9BF-9CA325D611FA" typeRef="number" label="NumOfLiveTrades">
+          <text>count(fliter)</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
   </decision>
-  <decision name="cntOfUnSecureLiveLoan" id="_9E97FA08-4F33-4EBC-B5EA-D8853DA36EA9">
-    <variable name="cntOfUnSecureLiveLoan" id="_B395F99A-4D19-47C1-BAEB-5663903BFD80" typeRef="TradeLine" />
-    <informationRequirement id="_F9E90224-238C-44B5-9B2F-4D32FB053C21">
+  <decision name="totalBureauOverDue" id="_EF71B5A8-0462-46D4-9472-47F8006C947E">
+    <variable name="totalBureauOverDue" id="_F4175663-DF1F-402C-B320-81A72F078A92" typeRef="overdue" />
+    <informationRequirement id="_DFDB8B67-F7A0-48C3-AE00-60C08FF767A7">
       <requiredInput href="#_995D532E-751A-45C4-B549-5F0037B4EF3F" />
     </informationRequirement>
-    <literalExpression id="_BCEA1BAE-2973-4EE5-A229-85A48E876FA4" typeRef="TradeLine" label="cntOfUnSecureLiveLoan">
-      <text>		
-count(
-      for t in tbl_tradelines return
-	  ( IsUnsecured(tl_acct_type) = true 
-         and IsLive(t.tl_closed_date)   
-       )                                     
-)</text>
-    </literalExpression>
-  </decision>
-  <decision name="totalBureauOverDue" id="_F884F5AE-EA83-4FBE-9A6B-8787E6EA67B6">
-    <variable name="totalBureauOverDue" id="_1B684CE3-2FBD-411B-B6BF-D5E3FD2FA3C0" typeRef="tbl_tradelines" />
-    <informationRequirement id="_A6D40A60-57A1-4FBC-B806-D078F32A999D">
-      <requiredInput href="#_995D532E-751A-45C4-B549-5F0037B4EF3F" />
-    </informationRequirement>
-    <literalExpression id="_19FD2B78-FBD2-4ED5-B407-D514FF3199E5" typeRef="tbl_tradelines" label="totalBureauOverDue">
-      <text>sum( for t in tbl_tradelines return t.t1_overdue_amount)</text>
-    </literalExpression>
+    <context id="_A6A97D42-5453-402F-8561-50B65E5D2ECE" typeRef="overdue" label="totalBureauOverDue">
+      <contextEntry id="_08F8DC31-46F6-4CC3-BD0F-F1B42F3BD663">
+        <variable id="_4C420FFC-14DD-47B2-8B9A-A8E5DC2E6EE4" name="tl_overdue_amount" typeRef="number" />
+        <for id="_062A262E-6EFB-4C75-A23D-8A04E51FBC09" typeRef="number" label="tl_overdue_amount" iteratorVariable="i">
+          <in id="_AD763534-772E-4622-89BD-37C1ECE4AEAD">
+            <literalExpression id="_230C746B-2BFB-45E8-9C1C-FD4ED43F0A73" label="Expression Name">
+              <text>tbl_tradelines</text>
+            </literalExpression>
+          </in>
+          <return id="_260900FA-22CB-456E-B490-8C792DA14FBE">
+            <literalExpression id="_B8CC933A-5791-4B0D-9A34-5C3EF30FECC6" label="Expression Name">
+              <text>i.overdue</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_7C66B222-5884-4D36-8402-32AE9BA2DB4C">
+        <literalExpression id="_236602E5-657B-4D52-A2D1-C53DC179099F" typeRef="number" label="totalBureauOverDue">
+          <text>sum(tl_overdue_amount)</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
   </decision>
   <inputData name="tbl_tradelines" id="_995D532E-751A-45C4-B549-5F0037B4EF3F">
-    <variable name="tbl_tradelines" id="_160427C3-5BDC-4C58-A22A-8A266C2C22F1" typeRef="tbl_tradelines" />
+    <variable name="tbl_tradelines" id="_160427C3-5BDC-4C58-A22A-8A266C2C22F1" typeRef="tradeline_list" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_38C1A46A-DFFC-4A92-9DE8-8B51BB3F33B5" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_BCEA1BAE-2973-4EE5-A229-85A48E876FA4">
-            <kie:width>448</kie:width>
+          <kie:ComponentWidths dmnElementRef="_56DED3E6-40D3-4961-A6AC-B9A413A946EA">
+            <kie:width>120</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_19FD2B78-FBD2-4ED5-B407-D514FF3199E5">
-            <kie:width>542</kie:width>
+          <kie:ComponentWidths dmnElementRef="_16AC1252-A7BF-478C-B0E8-05F6D0EC236E">
+            <kie:width>961</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_80288D0E-CFE6-48DA-B522-3B8869FA5662">
-            <kie:width>447</kie:width>
+          <kie:ComponentWidths dmnElementRef="_3E48D904-BE19-4FC1-A7B1-E8B871ACF767">
+            <kie:width>961</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BBB9C2D4-E16C-44BD-ACC8-330DF869AA9D">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BB397DFE-C0AA-4DB1-A1E5-280DE0E07072">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_FF350F6D-4B37-445A-B9BF-9CA325D611FA">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A6A97D42-5453-402F-8561-50B65E5D2ECE">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_230C746B-2BFB-45E8-9C1C-FD4ED43F0A73">
+            <kie:width>413</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B8CC933A-5791-4B0D-9A34-5C3EF30FECC6">
+            <kie:width>413</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_236602E5-657B-4D52-A2D1-C53DC179099F">
+            <kie:width>495</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -85,23 +134,16 @@ count(
       <dmndi:DMNShape id="_12120627-5E43-4E22-A5FA-ED054E2DBF93" dmnElementRef="_C6161D11-AC99-40EF-823E-75C4438500B1" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="200" y="240" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="_9E2CD82D-06D5-4AA2-935E-471967FD306F" dmnElementRef="_9E97FA08-4F33-4EBC-B5EA-D8853DA36EA9" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="500" y="240" width="160" height="80" />
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="_30DB3BF4-3630-436A-B3D2-117C7203C520" dmnElementRef="_F884F5AE-EA83-4FBE-9A6B-8787E6EA67B6" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="780" y="240" width="160" height="80" />
+      <dmndi:DMNShape id="_D5F0D05E-B9ED-42FD-86D6-65399C7A51BD" dmnElementRef="_EF71B5A8-0462-46D4-9472-47F8006C947E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="660" y="240" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_5AF45405-08F4-4AFD-9FBC-EAA708E703AD" dmnElementRef="_902FB004-2736-4856-A5FA-14B78882A4CC" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_12120627-5E43-4E22-A5FA-ED054E2DBF93">
         <di:waypoint x="580" y="100" />
         <di:waypoint x="280" y="280" />
       </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_0D7561B8-AEB6-418F-9178-265E4615E92B" dmnElementRef="_F9E90224-238C-44B5-9B2F-4D32FB053C21" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_9E2CD82D-06D5-4AA2-935E-471967FD306F">
+      <dmndi:DMNEdge id="_AC94A244-B6C8-47E4-80D8-52705912B234" dmnElementRef="_DFDB8B67-F7A0-48C3-AE00-60C08FF767A7" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_D5F0D05E-B9ED-42FD-86D6-65399C7A51BD">
         <di:waypoint x="580" y="100" />
-        <di:waypoint x="580" y="280" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_5C8E16B1-AB73-46B1-B353-A930C0A01664" dmnElementRef="_A6D40A60-57A1-4FBC-B806-D078F32A999D" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_30DB3BF4-3630-436A-B3D2-117C7203C520">
-        <di:waypoint x="580" y="100" />
-        <di:waypoint x="860" y="280" />
+        <di:waypoint x="740" y="280" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
