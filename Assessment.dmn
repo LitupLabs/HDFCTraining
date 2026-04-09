@@ -83,8 +83,9 @@
       <requiredInput href="#_76088C6A-EE2B-4C75-8840-225CDEA3974B" />
     </informationRequirement>
     <literalExpression id="_D4F4CD0A-642D-4E1B-8C10-FE1024FA98D3" typeRef="number" label="numOfLiveTrades">
-      <text>sum(
-  for t in Raw Input.applicant.tbl_tradelines
+      <text>
+sum(
+  for t in (if Applicant.tbl_tradelines = null then [] else Applicant.tbl_tradelines)
   return
     if (t.tl_closed_date = &quot;01/01/1900 00:00:00&quot;
         or t.tl_closed_date = &quot;null&quot;
@@ -92,11 +93,12 @@
         or t.tl_closed_date = null)
     then 1
     else 0
-)</text>
+)
+</text>
     </literalExpression>
   </decision>
-  <inputData name="Raw Input" id="_76088C6A-EE2B-4C75-8840-225CDEA3974B">
-    <variable name="Raw Input" id="_2095F144-8083-4DAE-AD48-4BC405C95055" typeRef="raw_input" />
+  <inputData name="Applicant" id="_76088C6A-EE2B-4C75-8840-225CDEA3974B">
+    <variable name="Applicant" id="_2095F144-8083-4DAE-AD48-4BC405C95055" typeRef="applicant" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_AE39B66D-FF56-4F6E-B89A-DD07C52BEF8B" name="Default DRD" useAlternativeInputDataShape="false">
