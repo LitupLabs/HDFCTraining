@@ -62,18 +62,6 @@
     <informationRequirement id="_37857F3E-1859-4F78-97AA-FB30EB95888C">
       <requiredInput href="#_B2D8F5F2-9C84-4D9D-8F55-29B6E0D77A7E" />
     </informationRequirement>
-    <filter id="_D366144C-46A3-403C-BFCF-C24C60FD43B5" typeRef="number" label="numOfLiveTrades">
-      <in id="_23ED47B2-BEB8-4171-8318-623B0D0BCD8C">
-        <literalExpression id="_131DD2B7-D39F-49F2-AC69-3FD460723262" label="Expression Name">
-          <text>not(input.tl_closed_date in [&quot;0:00:00&quot;, &quot;null&quot;, null, &quot;&quot;] )</text>
-        </literalExpression>
-      </in>
-      <match id="_F59A7BA0-82FD-425C-9F67-FE6B60EA0033">
-        <literalExpression id="_126BA474-9AF2-421A-917B-9FA5CCC8FB2D" label="Expression Name">
-          <text>count(input.applicant_reference_number)</text>
-        </literalExpression>
-      </match>
-    </filter>
   </decision>
   <inputData name="input" id="_B2D8F5F2-9C84-4D9D-8F55-29B6E0D77A7E">
     <variable name="input" id="_0BFFE406-D777-4E0A-8DD7-AFFA46F9025B" typeRef="tradelines_object" />
@@ -82,12 +70,6 @@
     <dmndi:DMNDiagram id="_1F6228B3-F8B0-47A6-9578-E7892644B32C" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_131DD2B7-D39F-49F2-AC69-3FD460723262">
-            <kie:width>476</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_126BA474-9AF2-421A-917B-9FA5CCC8FB2D">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_D5DB2906-A79B-43C7-825D-0EA466350845" dmnElementRef="_64E14BFA-68A4-4808-8161-66BF4C01FB0A" isCollapsed="false" isListedInputData="false">
