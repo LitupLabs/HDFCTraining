@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8937B8BF-2E81-4746-8A93-41849E864DE1" id="_EBDE8AEF-D0CB-4EAB-BDAF-47B74663EA96" name="DMN_083D042D-9950-4B3B-956E-B3103F0EBF93">
+  <itemDefinition id="_03C85F9F-7600-434E-B587-30A63759699C" name="input" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_7BA143DF-4753-45A0-BA86-0E023A414EB2" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>applicant</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_E2831443-C147-4938-8EF4-DE4185ECE652" name="Perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_90D8F265-4672-48E9-962D-665C56E37501" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>ScoringDetails</typeRef>
@@ -49,4 +54,37 @@
       <typeRef>date</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="numOfLiveTrades" id="_21EA626A-AB77-474B-9955-A73B05F2CA55">
+    <variable name="numOfLiveTrades" id="_FC7E4ED5-EE37-4D6A-AAB6-C24C76667A86" typeRef="number" />
+    <literalExpression id="_AA89BB7E-7C66-4950-9B6A-C27EA9257C49" typeRef="number" label="numOfLiveTrades">
+      <text></text>
+    </literalExpression>
+  </decision>
+  <decision name="input" id="_92D15368-7EE7-46CA-AE37-518FC6562A8E">
+    <variable name="input" id="_D71996FE-0BA1-4824-BE1C-A8B6B1D3E5EC" />
+    <informationRequirement id="_44873C1B-4950-43E9-ABEA-A4AC379B43E6">
+      <requiredDecision href="#_21EA626A-AB77-474B-9955-A73B05F2CA55" />
+    </informationRequirement>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_1F6228B3-F8B0-47A6-9578-E7892644B32C" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_AA89BB7E-7C66-4950-9B6A-C27EA9257C49">
+            <kie:width>552</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_3D0F9E8D-C93F-4C40-A5D8-BDD896224980" dmnElementRef="_21EA626A-AB77-474B-9955-A73B05F2CA55" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="340" y="40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_CFD9BC50-78B0-4B86-8757-8CDA2DE2308D" dmnElementRef="_92D15368-7EE7-46CA-AE37-518FC6562A8E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="340" y="240" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_E70AEDA0-B978-4935-B791-CF0FB5A0E1AE" dmnElementRef="_44873C1B-4950-43E9-ABEA-A4AC379B43E6" sourceElement="_3D0F9E8D-C93F-4C40-A5D8-BDD896224980" targetElement="_CFD9BC50-78B0-4B86-8757-8CDA2DE2308D">
+        <di:waypoint x="420" y="80" />
+        <di:waypoint x="420" y="280" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
