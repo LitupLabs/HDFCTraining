@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8937B8BF-2E81-4746-8A93-41849E864DE1" id="_EBDE8AEF-D0CB-4EAB-BDAF-47B74663EA96" name="DMN_083D042D-9950-4B3B-956E-B3103F0EBF93" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_1C064F26-90F5-497E-913A-6A21AF3E26D6" name="tbl_tradelines" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>tradelines_obj</typeRef>
+  </itemDefinition>
   <itemDefinition id="_001F8E22-A754-4720-BB7C-21CB7CBDE7F1" name="tradelines_obj" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_C1292E7A-DF38-4E49-95B3-782A322BAEB2" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>date</typeRef>
