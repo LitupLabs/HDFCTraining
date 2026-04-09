@@ -26,7 +26,7 @@
       <typeRef>Perfios</typeRef>
     </itemComponent>
     <itemComponent id="_F6256B06-F3A0-4BEF-8955-FDDC1D5DFAFF" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>tbl_tradelines</typeRef>
+      <typeRef>tradelines</typeRef>
     </itemComponent>
     <itemComponent id="_EA0C1A32-C0C4-47F0-994F-A58F6E421878" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>date</typeRef>
@@ -37,7 +37,7 @@
   </itemDefinition>
   <itemDefinition id="_2DC7F20C-000D-46F5-9B3B-505DECC01847" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_340AD8F8-93E8-4913-9AA9-CEAB64F11A75" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>date</typeRef>
+      <typeRef>string</typeRef>
     </itemComponent>
     <itemComponent id="_FF75FA5F-2337-4A20-A540-E4C9D12910D7" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
@@ -49,16 +49,19 @@
       <typeRef>date</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_28FDC1FF-9627-496F-A84C-9A44D1380697" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_CF040682-9278-4439-B728-D9B55B007A6E" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>date</typeRef>
-    </itemComponent>
-  </itemDefinition>
   <decision name="New Decision" id="_26AAADEA-6B1E-4812-8DEF-C246312DE082">
     <variable name="New Decision" id="_5B5B3492-C3D2-4489-9360-12AFDEE3C00A" typeRef="tradelines_list" />
     <informationRequirement id="_867475D8-1EA1-4540-AF23-389D839EC4E9">
       <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
     </informationRequirement>
+    <literalExpression id="_4884DCBD-A337-4BB3-9350-CF03A98E3006" typeRef="tradelines_list" label="New Decision">
+      <text>
+count(
+  for d in tradelines.tl_closed_date return
+    if d = &quot;01/01/1900 00:00:00&quot; then d
+)
+</text>
+    </literalExpression>
   </decision>
   <inputData name="tradelines" id="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08">
     <variable name="tradelines" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="tradelines" />
@@ -67,6 +70,9 @@
     <dmndi:DMNDiagram id="_CC545C0F-2B38-4D9C-85FC-CD435DF1DBFE" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_4884DCBD-A337-4BB3-9350-CF03A98E3006">
+            <kie:width>828</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_9092B576-3E92-41EB-84F5-FA0FAD3E040C" dmnElementRef="_26AAADEA-6B1E-4812-8DEF-C246312DE082" isCollapsed="false" isListedInputData="false">
