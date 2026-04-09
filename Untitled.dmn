@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_4094D88B-CA85-4121-AC1D-AE5F0C99182E" id="_00FCE08C-E16B-49DA-963D-2AFD69B655F8" name="DMN_B08F9882-1CD7-40C1-8CBA-CC0EF3565F1C">
+  <itemDefinition id="_EC2D06BA-804A-4CE1-936E-914784AD0D6C" name="overdue" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_9EDCF8C8-219A-4466-B70F-52A72BFC58E1" name="trade" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_45B2BE4E-A50E-49A4-89B6-0ED7E5187393" name="raw_input" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_D5B5041C-D4AB-41FF-BD77-3D100E89B586" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -100,30 +101,38 @@
       </contextEntry>
     </context>
   </decision>
-  <decision name="cntOfUnSecureLiveLoan" id="_957C26D1-37B4-454B-AF52-4A5D6F39A0EE">
-    <variable name="cntOfUnSecureLiveLoan" id="_D3293B33-E8E8-4291-8C18-4DC38C77C818" typeRef="number" />
-    <informationRequirement id="_4809CF00-6B43-4562-B182-FFB9B690028F">
-      <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
-    </informationRequirement>
-    <context id="_D3896738-B4FD-4D4E-9633-7003A48BC234" typeRef="number" label="cntOfUnSecureLiveLoan">
-      <contextEntry id="_57D8BBAA-0D63-4CF2-A4D2-4414D0501BD7">
-        <variable id="_3753099B-CFE0-4138-8319-EC5FEDE02A41" name="unsec_trades" typeRef="string" />
-        <list id="_2E8CE9AF-F833-43A9-91FB-9F4A2DCF48EA" typeRef="string" label="unsec_trades">
-          <literalExpression id="_BD3E618C-1DA7-4A36-B15B-1414C270EAED" typeRef="string" label="Expression Name">
-            <text>[&apos;BUSINESSLOAN&apos;,&apos;CONSUMERLOAN&apos;, &apos;EDUCATIONLOAN&apos;, &apos;LOANONCREDITCARD&apos;, &apos;MICROFINANCEHOUSINGLOAN&apos;, &apos;PERSONALLOAN&apos;, &apos;MUDRALOANSSHISHUKISHORTARUN&apos;, &apos;OTHER&apos;, &apos;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&apos;]</text>
-          </literalExpression>
-        </list>
-      </contextEntry>
-    </context>
-  </decision>
   <decision name="totalBureauOverDue" id="_71AC915A-04ED-41DD-B2CF-F31AA9EE67D8">
     <variable name="totalBureauOverDue" id="_A1DAA01E-D469-4298-8D89-6759EEDEDD42" typeRef="number" />
     <informationRequirement id="_0EFAE30C-08E6-4F87-8C61-91810DD42D27">
       <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
     </informationRequirement>
-    <literalExpression id="_162D043C-F867-4FB3-AF16-75554E945ADF" typeRef="number" label="totalBureauOverDue">
-      <text>sum(tradeline.tl_overdue_amount)</text>
-    </literalExpression>
+    <context id="_EDF511FF-85CB-40A0-A2C3-5941F2069B76" typeRef="number" label="totalBureauOverDue">
+      <contextEntry id="_D0411604-3A75-48FA-9678-1918E7CD0291">
+        <variable id="_66B4A141-0AD9-40FA-94AE-CC6BF8D11D51" name="for_loop" typeRef="overdue" />
+        <for id="_9C6A3B62-A874-4635-81D1-BD9647A3488E" typeRef="overdue" label="for_loop" iteratorVariable="o">
+          <in id="_D33DCC2B-1978-4F20-A53C-7D2AE52EA8E4">
+            <literalExpression id="_1F636FC8-E7B9-40A9-85AB-B5952B6981D6" label="Expression Name">
+              <text>tradeline</text>
+            </literalExpression>
+          </in>
+          <return id="_D33A7E0D-BFB2-4CD1-9BD8-15A8D22362A8">
+            <literalExpression id="_28F561A9-9A81-4532-9E62-5BE6CE166E82" label="Expression Name">
+              <text>if o.tl_overdue_amount = null then 0 else o.tl_overdue_amount</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_336A340F-9B19-4D3C-8789-347868B7F6B5">
+        <literalExpression id="_456C6728-3017-4C8C-8B4D-13E2259EFA97" typeRef="number" label="totalBureauOverDue">
+          <text>sum_over</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry>
+        <literalExpression id="_456C6728-3017-4C8C-8B4D-13E2259EFA97" typeRef="number" label="totalBureauOverDue">
+          <text>sum(for_loop)</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
   </decision>
   <inputData name="tradeline" id="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08">
     <variable name="tradeline" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="tradelines_list" />
@@ -150,14 +159,17 @@
           <kie:ComponentWidths dmnElementRef="_6E4492E3-D9D3-40A0-888B-6421DB5C363D">
             <kie:width>547</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_D3896738-B4FD-4D4E-9633-7003A48BC234">
+          <kie:ComponentWidths dmnElementRef="_EDF511FF-85CB-40A0-A2C3-5941F2069B76">
             <kie:width>120</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_BD3E618C-1DA7-4A36-B15B-1414C270EAED">
-            <kie:width>700</kie:width>
+          <kie:ComponentWidths dmnElementRef="_1F636FC8-E7B9-40A9-85AB-B5952B6981D6">
+            <kie:width>803</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_162D043C-F867-4FB3-AF16-75554E945ADF">
-            <kie:width>190</kie:width>
+          <kie:ComponentWidths dmnElementRef="_28F561A9-9A81-4532-9E62-5BE6CE166E82">
+            <kie:width>803</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_456C6728-3017-4C8C-8B4D-13E2259EFA97">
+            <kie:width>885</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -167,19 +179,12 @@
       <dmndi:DMNShape id="_73A70B92-49F5-4362-87A7-FBA587BB458C" dmnElementRef="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="520" y="160" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="_102B0485-4FEE-4BCC-ABB8-5150ED3E3E62" dmnElementRef="_957C26D1-37B4-454B-AF52-4A5D6F39A0EE" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="640" y="20" width="160" height="80" />
-      </dmndi:DMNShape>
       <dmndi:DMNShape id="_EDDCBA2C-06FD-40A2-B908-2C33ED443209" dmnElementRef="_71AC915A-04ED-41DD-B2CF-F31AA9EE67D8" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="840" y="20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_6396BD42-7647-41CC-86FB-D8BEC4E03467" dmnElementRef="_867475D8-1EA1-4540-AF23-389D839EC4E9" sourceElement="_73A70B92-49F5-4362-87A7-FBA587BB458C" targetElement="_9092B576-3E92-41EB-84F5-FA0FAD3E040C">
         <di:waypoint x="600" y="200" />
         <di:waypoint x="500" y="60" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_37FCFC9A-AAE1-42C4-AFB1-E01FCDDF1313" dmnElementRef="_4809CF00-6B43-4562-B182-FFB9B690028F" sourceElement="_73A70B92-49F5-4362-87A7-FBA587BB458C" targetElement="_102B0485-4FEE-4BCC-ABB8-5150ED3E3E62">
-        <di:waypoint x="600" y="200" />
-        <di:waypoint x="720" y="100" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_97DC09AB-1DCA-48F3-B71B-B0D7AB369581" dmnElementRef="_0EFAE30C-08E6-4F87-8C61-91810DD42D27" sourceElement="_73A70B92-49F5-4362-87A7-FBA587BB458C" targetElement="_EDDCBA2C-06FD-40A2-B908-2C33ED443209">
         <di:waypoint x="600" y="200" />
