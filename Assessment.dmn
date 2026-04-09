@@ -123,8 +123,17 @@
       </contextEntry>
     </context>
   </decision>
+  <decision name="cntOfUnsecuredTrades" id="_33F8B296-2CC5-49C1-B87F-6093055DB253">
+    <variable name="cntOfUnsecuredTrades" id="_394F654D-696B-4DF9-ACE0-14F6EDCB52E5" typeRef="number" />
+    <informationRequirement id="_A4FFB483-EDAA-4EE2-9567-09EF9F3D47AF">
+      <requiredInput href="#_A3C65BD8-4AF0-41BD-9E34-BCFFDEE9998E" />
+    </informationRequirement>
+  </decision>
   <inputData name="Tradeline" id="_DB087796-1901-408A-A281-BE01DEB628C8">
     <variable name="Tradeline" id="_AC8C623E-4FA9-4A7D-B968-C8540E00057A" typeRef="Tradeline_List" />
+  </inputData>
+  <inputData name="Unsecured Tradeline" id="_A3C65BD8-4AF0-41BD-9E34-BCFFDEE9998E">
+    <variable name="Unsecured Tradeline" id="_8362E2D0-6170-403C-A131-E87D3FADF5CC" typeRef="Tradeline_List" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_AE39B66D-FF56-4F6E-B89A-DD07C52BEF8B" name="Default DRD" useAlternativeInputDataShape="false">
@@ -156,9 +165,19 @@
       <dmndi:DMNShape id="_17362852-91BE-43FE-B548-7C3E6234FC54" dmnElementRef="_F0D5A3E7-3F4B-4BF9-817D-CC1FE0D7FBBB" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="220" y="0" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_E6F77A96-78E4-437D-AFEF-E1EF7D0CCADD" dmnElementRef="_A3C65BD8-4AF0-41BD-9E34-BCFFDEE9998E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="500" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_471C0965-B99A-4C1A-851D-D979F100014B" dmnElementRef="_33F8B296-2CC5-49C1-B87F-6093055DB253" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="500" y="0" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9EA41887-8DA3-400B-9BFF-189D9069AF54" dmnElementRef="_95E3404D-49B8-49EC-9CAC-A71128DCC139" sourceElement="_D0F335AB-868D-4E85-87FF-05D60AB6D46D" targetElement="_17362852-91BE-43FE-B548-7C3E6234FC54">
         <di:waypoint x="300" y="220" />
         <di:waypoint x="300" y="80" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_832E2B04-34B2-4BC9-A8C6-447614F78131" dmnElementRef="_A4FFB483-EDAA-4EE2-9567-09EF9F3D47AF" sourceElement="_E6F77A96-78E4-437D-AFEF-E1EF7D0CCADD" targetElement="_471C0965-B99A-4C1A-851D-D979F100014B">
+        <di:waypoint x="580" y="220" />
+        <di:waypoint x="580" y="80" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
