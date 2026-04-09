@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_4094D88B-CA85-4121-AC1D-AE5F0C99182E" id="_00FCE08C-E16B-49DA-963D-2AFD69B655F8" name="DMN_B08F9882-1CD7-40C1-8CBA-CC0EF3565F1C">
+  <itemDefinition id="_9EDCF8C8-219A-4466-B70F-52A72BFC58E1" name="trade" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_45B2BE4E-A50E-49A4-89B6-0ED7E5187393" name="raw_input" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_D5B5041C-D4AB-41FF-BD77-3D100E89B586" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>applicant</typeRef>
@@ -30,14 +31,16 @@
     <itemComponent id="_C6D5C5BE-AF24-4CE6-9BCD-C17E8485F6DF" name="perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Perfios</typeRef>
     </itemComponent>
-    <itemComponent id="_F6256B06-F3A0-4BEF-8955-FDDC1D5DFAFF" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F6256B06-F3A0-4BEF-8955-FDDC1D5DFAFF" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>tradelines</typeRef>
     </itemComponent>
     <itemComponent id="_EA0C1A32-C0C4-47F0-994F-A58F6E421878" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>date</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_AB21E6BA-4985-4670-9D30-1EFB8D636166" name="tradelines_list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_AB21E6BA-4985-4670-9D30-1EFB8D636166" name="tradelines_list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>tradelines</typeRef>
+  </itemDefinition>
   <itemDefinition id="_2DC7F20C-000D-46F5-9B3B-505DECC01847" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_340AD8F8-93E8-4913-9AA9-CEAB64F11A75" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
@@ -53,14 +56,14 @@
     </itemComponent>
   </itemDefinition>
   <decision name="New Decision" id="_26AAADEA-6B1E-4812-8DEF-C246312DE082">
-    <variable name="New Decision" id="_5B5B3492-C3D2-4489-9360-12AFDEE3C00A" typeRef="tradelines_list" />
+    <variable name="New Decision" id="_5B5B3492-C3D2-4489-9360-12AFDEE3C00A" typeRef="trade" />
     <informationRequirement id="_867475D8-1EA1-4540-AF23-389D839EC4E9">
       <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
     </informationRequirement>
-    <for id="_74A6F5E3-A58D-43A6-9999-D11DFBFE03C5" typeRef="tradelines_list" label="New Decision" iteratorVariable="t">
-      <in id="_18E6C96D-216C-42DD-A614-C6109D5FAD4C">
+    <for id="_74A6F5E3-A58D-43A6-9999-D11DFBFE03C5" typeRef="trade" label="New Decision" iteratorVariable="t">
+      <in id="_7C814287-6F13-4CA1-BA60-4D7F11F69924">
         <literalExpression id="_72F4D01F-8024-4BB1-82FF-2A450EF988F1" label="Expression Name">
-          <text>raw_data</text>
+          <text>raw_data.applicant.tradelines</text>
         </literalExpression>
       </in>
       <return id="_20D25A04-59A0-47A8-82F7-BBE04FCF9B56">
@@ -71,7 +74,7 @@
     </for>
   </decision>
   <inputData name="raw_data" id="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08">
-    <variable name="raw_data" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="tradelines" />
+    <variable name="raw_data" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="raw_input" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_CC545C0F-2B38-4D9C-85FC-CD435DF1DBFE" name="Default DRD" useAlternativeInputDataShape="false">
