@@ -55,7 +55,7 @@
       </in>
       <match id="_5FD0023C-DD11-4BD0-8F81-DF5A8173AE7D">
         <literalExpression id="_F03A5632-8FB9-4AB9-9B8A-3ADD71E4FD39" label="Expression Name">
-          <text>item.tl_closed_date =&quot;&quot; or item.tl_closed_date =nul</text>
+          <text>item.tl_closed_date =&quot;&quot; or item.tl_closed_date =null</text>
         </literalExpression>
       </match>
     </filter>
@@ -74,14 +74,26 @@
     <informationRequirement id="_9101C370-4D00-41E1-AEBF-42A63A91F53A">
       <requiredDecision href="#_2027745F-CAEC-4C35-829C-FC74D57BE80E" />
     </informationRequirement>
+    <informationRequirement id="_AE11D8B2-9046-48CB-AA92-3E8B64A8C853">
+      <requiredDecision href="#_4E34E68B-B296-431B-89BA-4758D476CADF" />
+    </informationRequirement>
     <conditional id="_7D09532A-1A82-4942-96BB-06C470A49BD7" typeRef="number" label="unsec live trade count">
       <if id="_C3EADDDE-FF69-45F9-9274-FD5B7D1D00D4">
         <literalExpression id="_3F9D5B7D-018E-4E2E-BA41-74067DED829D" label="Expression Name">
-          <text>count(Live trade)&gt;0 and </text>
+          <text>count(Live trade)&gt;0 and 
+Tradelist in (&quot;BUSINESS LOAN&quot;,&quot;CONSUMER LOAN&quot;, &quot;EDUCATION LOAN&quot;, &quot;LOAN ON CREDIT CARD&quot;, &quot;MICROFINANCE HOUSING LOAN&quot;, &quot;PERSONAL LOAN&quot;, &quot;MUDRA LOANS SHISHU KISHOR TARUN&quot;, &quot;OTHER&quot;, &quot;PRIMEMINISTER JAANDHAN YOJANA OVERDRAFT&quot;)</text>
         </literalExpression>
       </if>
-      <then id="_366D3E64-E97B-4957-B0A2-13BB45A61BDF" />
-      <else id="_E952C69A-2E60-41B0-8792-31F67857DE76" />
+      <then id="_366D3E64-E97B-4957-B0A2-13BB45A61BDF">
+        <literalExpression id="_1BBD12D7-D5C0-4C97-B473-8896B3E9F6C1" label="Expression Name">
+          <text>count(Tradelist)</text>
+        </literalExpression>
+      </then>
+      <else id="_E952C69A-2E60-41B0-8792-31F67857DE76">
+        <literalExpression id="_BB259B0A-4CCD-41C3-9057-F653252850DF" label="Expression Name">
+          <text>0</text>
+        </literalExpression>
+      </else>
     </conditional>
   </decision>
   <inputData name="Applicant" id="_573FC751-548B-473D-9307-C848411872D0">
@@ -104,6 +116,12 @@
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_3F9D5B7D-018E-4E2E-BA41-74067DED829D">
+            <kie:width>790</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_1BBD12D7-D5C0-4C97-B473-8896B3E9F6C1">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BB259B0A-4CCD-41C3-9057-F653252850DF">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
@@ -121,7 +139,7 @@
         <dc:Bounds x="800" y="0" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_60D37418-4AC6-43AA-AC95-44036F76089A" dmnElementRef="_5FFAF8C8-FB9F-41EE-8DCD-BB265097FE8E" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="820" y="160" width="160" height="80" />
+        <dc:Bounds x="760" y="160" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_D687E7CC-1473-4DF4-B3E1-BA54CF0F0B11" dmnElementRef="_E9B28B2A-8E6D-4520-A3D3-F42A690D251E" sourceElement="_8C3FF88F-C3AC-4040-8798-24E43C09248A" targetElement="_8E4ED6FB-8266-4F5B-8FF2-162D4B96A778">
         <di:waypoint x="120" y="80" />
@@ -137,7 +155,11 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_EB96F051-5D15-44F6-ABB7-C79FAAE259D4" dmnElementRef="_9101C370-4D00-41E1-AEBF-42A63A91F53A" sourceElement="_9E6F7A56-470C-417B-B59F-63FAF527077C" targetElement="_60D37418-4AC6-43AA-AC95-44036F76089A">
         <di:waypoint x="560" y="40" />
-        <di:waypoint x="900" y="200" />
+        <di:waypoint x="840" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_6CF212F7-7F65-42CD-9AAF-971AAB82AB31" dmnElementRef="_AE11D8B2-9046-48CB-AA92-3E8B64A8C853" sourceElement="_8E4ED6FB-8266-4F5B-8FF2-162D4B96A778" targetElement="_60D37418-4AC6-43AA-AC95-44036F76089A">
+        <di:waypoint x="360" y="220" />
+        <di:waypoint x="840" y="200" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
