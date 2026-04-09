@@ -168,9 +168,9 @@
               <text>Tradeline</text>
             </literalExpression>
           </in>
-          <return id="_2AA2B857-10BB-48BC-A1C7-2FA49DA31A38">
+          <return id="_AA398576-867D-4803-84E9-817C844F875A">
             <literalExpression id="_4445CF1F-9E19-42F4-814A-8F59CB067412" label="Expression Name">
-              <text>cntOfUnsecTrades(item)Tradeline</text>
+              <text>cntOfUnsecTrades(item)</text>
             </literalExpression>
           </return>
         </for>
@@ -187,7 +187,7 @@
     <encapsulatedLogic label="cntOfUnsecTrades" typeRef="number" id="_F47B78F4-2B08-4B6A-83D2-7BFD9666769A" kind="FEEL">
       <formalParameter id="_1B446E92-13B3-4717-AEE5-45F4C454E84E" name="tradeline" typeRef="tradelines_obj" />
       <literalExpression id="_07426670-4B05-402C-9123-FF0481481AC6" typeRef="number" label="Return">
-        <text>if tradeline.acct_type = null then 0
+        <text>if tradeline.tl_acct_type = null then 0
 else if ((upper case(replace(tradeline.tl_acct_type, &quot; &quot;, &quot;&quot;)) in [&quot;BUSINESSLOAN&quot;,&quot;CONSUMERLOAN&quot;,&quot;EDUCATIONLOAN&quot;,&quot;LOANONCREDITCARD&quot;,&quot;MICROFINANCEHOUSINGLOAN&quot;,&quot;PERSONALLOAN&quot;,&quot;MUDRALOANSSHISHUKISHORTARUN&quot;,&quot;OTHER&quot;,&quot;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&quot;]) and (tradeline.tl_closed_date in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;))))
 then 1
 else 0</text>
@@ -232,7 +232,7 @@ else 0</text>
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_07426670-4B05-402C-9123-FF0481481AC6">
-            <kie:width>765</kie:width>
+            <kie:width>1326</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_80526F20-75F3-409B-80CC-6960B961876E">
             <kie:width>120</kie:width>
