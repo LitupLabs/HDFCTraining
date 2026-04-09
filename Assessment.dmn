@@ -128,6 +128,45 @@
     <informationRequirement id="_A4FFB483-EDAA-4EE2-9567-09EF9F3D47AF">
       <requiredInput href="#_A3C65BD8-4AF0-41BD-9E34-BCFFDEE9998E" />
     </informationRequirement>
+    <context id="_247C1F8F-E2FB-4DB1-B65A-847CABB4D2E4" typeRef="number" label="cntOfUnsecuredTrades">
+      <contextEntry id="_55532BCD-1F3D-4AF1-8B20-68C32A6F4262">
+        <variable id="_08C7F401-8296-4D21-AE9F-92193ABD294E" name="for_loop" typeRef="trade" />
+        <for id="_C351835B-0122-4788-B359-C222E06B5249" typeRef="trade" label="for_loop" iteratorVariable="i">
+          <in id="_18AF52C1-2772-4E05-A6F4-41B56C66CC0C">
+            <literalExpression id="_67E4141D-9AB7-463A-A82F-2BBE812C301C" label="Expression Name">
+              <text>Unsecured Tradeline</text>
+            </literalExpression>
+          </in>
+          <return id="_2396094C-047A-4B58-A991-D1A8AB449907">
+            <literalExpression id="_22F99BCF-8A93-4D00-B36B-703EA0129823" label="Expression Name">
+              <text>i.tl_closed_date</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_25D9F8C4-C3CC-48B2-896F-7C031E3EA243">
+        <variable id="_DCB63D06-4277-44A3-AE60-E628B1485D5A" name="filtered" typeRef="trade">
+          <description></description>
+        </variable>
+        <filter id="_168DB586-9BD3-4CBB-981A-C424438F4163" typeRef="trade" label="filtered">
+          <in id="_B9EEE5F3-CA40-4FAB-9B03-C111E09272C4">
+            <literalExpression id="_80BBD1F2-263C-4BFF-9EFB-E57A7F7A10B5" label="Expression Name">
+              <text>for_loop</text>
+            </literalExpression>
+          </in>
+          <match id="_9F3B55FF-B3E9-4B5E-83E0-4F83FE830DD7">
+            <literalExpression id="_31B8C211-D798-4D22-99C7-D02605DF841F" label="Expression Name">
+              <text>item in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;))</text>
+            </literalExpression>
+          </match>
+        </filter>
+      </contextEntry>
+      <contextEntry id="_08B9606E-3FED-4ABF-AD8B-2ADCF8AC5D22">
+        <literalExpression id="_7B65A858-8494-469E-A81E-34FACCA4B7E9" typeRef="number" label="cntOfUnsecuredTrades">
+          <text>count(filtered)</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
   </decision>
   <inputData name="Tradeline" id="_DB087796-1901-408A-A281-BE01DEB628C8">
     <variable name="Tradeline" id="_AC8C623E-4FA9-4A7D-B968-C8540E00057A" typeRef="Tradeline_List" />
@@ -155,6 +194,24 @@
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_337FFB40-75F5-4793-BF10-347CA7446A7F">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_247C1F8F-E2FB-4DB1-B65A-847CABB4D2E4">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_67E4141D-9AB7-463A-A82F-2BBE812C301C">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_22F99BCF-8A93-4D00-B36B-703EA0129823">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_80BBD1F2-263C-4BFF-9EFB-E57A7F7A10B5">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_31B8C211-D798-4D22-99C7-D02605DF841F">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7B65A858-8494-469E-A81E-34FACCA4B7E9">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
