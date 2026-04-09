@@ -1,66 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_E75B2253-9E89-426B-A040-8EFA19A3A1A3" id="_62FF6818-5529-497B-914F-B3FB74E45C19" name="DMN_C47324BD-1DF5-4A95-8B87-9E4F691001CD" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
-  <itemDefinition id="_28117F9E-FFD2-413F-A618-09BD351FF77E" name="listoftrandelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_090E3487-8B40-4B8A-B703-C990F4DC90CC" name="listoftradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>tradeline</typeRef>
+  <itemDefinition id="_EF3F9C60-C5BB-4282-95EB-8D585A9A645B" name="Tradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <description>split_timestring (since null and text come)tl_acct_number_2stringtl_acct_open_datestring (or date-time if converted)tl_acct_typestringtl_bureau_namestringtl_credit_inststringtl_current_balancenumbertl_disbursed_amtnumbertl_overdue_amountnumbertl_ownershipstringtl_reported_bureausstringtl_sanctioned_amtnumbertl_writeoff_statusstringtl_closed_datestring (or date-time if cleaned)tl_collateralstringtl_install_amtstring (because sometimes it may be &quot;null&quot;)tl_interest_ratestringtl_last_payment_amtstringtl_last_payment_datestring or date-timetl_payment_ratingstringtl_reported_datestring or date-timetl_securedstringtl_tenurenumber (or string if format varies)</description>
+    <itemComponent id="_72E1B504-307A-4D16-9CA6-F984E694ABBE" name="tl_install_amt" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
     </itemComponent>
-  </itemDefinition>
-  <itemDefinition id="_9B5DB34C-7A94-43FB-A500-67301D60C862" name="tradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_008EBDCD-0F6F-4DA1-B991-8240764DA36E" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_280B1BA7-2FDA-4115-BA1C-5744A2DCBCB7" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_1ED6E0AA-E453-4AF2-BFB0-6904F7273940" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>string</typeRef>
-    </itemComponent>
-  </itemDefinition>
-  <itemDefinition id="_B6BA6233-DE11-49E8-8CD6-5B0C756A9AE9" name="tbltradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_E06E2FC5-B195-4D95-8E29-7B4D405747D2" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_9AD1E56B-F80B-4A53-B7D4-E3A0DA509041" name="tl_current_balance" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
-    <itemComponent id="_3791897B-50D8-4BBA-9FB9-6FE8348981AD" name="tl_acct_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_D5270DE4-AA77-46BC-96A8-8CC40DD1AF0D" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
-    <itemComponent id="_2301D150-598D-42B7-B8A5-65072EB92851" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_7C563FE6-4956-456F-98E5-FBABACED3DDB" name="applicant_reference_number" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="InvalidClosedDateCount" id="_A86E8AD6-C3F1-40E1-A855-B505357BD9F9">
-    <variable name="InvalidClosedDateCount" id="_47FC0186-A945-4A3D-9091-841E808DFAEC" typeRef="number" />
-    <informationRequirement id="_97D33483-5D2D-4001-AF61-0381E80457E3">
-      <requiredInput href="#_F56E7C3C-2AEB-4558-9E4F-E32CE96CEE28" />
+  <itemDefinition id="_60F40713-1314-4A6F-90D9-3EB54B4AAB93" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <decision name="TotalTradelineCount" id="_43C588B2-9C48-4AAE-9713-037FADE3AF8F">
+    <variable name="TotalTradelineCount" id="_8423FC44-310B-461E-8A8C-F30BE70261BF" typeRef="number" />
+    <informationRequirement id="_57A2FCDF-F778-4429-BFBC-F6BF8E51F2D7">
+      <requiredInput href="#_D138C403-E2F1-44C8-91DA-918CBB2B56DF" />
     </informationRequirement>
-    <literalExpression id="_B64E54AC-29BF-4DFE-8C3E-441D99CF2B91" typeRef="number" label="InvalidClosedDateCount">
-      <text>count(
-  tradelines.tbl tradelines[
-       tl_closed_date = &quot;01/01/1900 00:00:00&quot;
-    or tl_closed_date = &quot;null&quot;
-    or tl_closed_date = null
-    or tl_closed_date = &quot;&quot;
-  ]
-)</text>
+    <literalExpression id="_56ED7649-6DF9-48C9-A841-76BF438F71D1" typeRef="number" label="TotalTradelineCount">
+      <text>count(CreditRequest.tbl_tradelines)</text>
     </literalExpression>
   </decision>
-  <inputData name="tradelines" id="_F56E7C3C-2AEB-4558-9E4F-E32CE96CEE28">
-    <variable name="tradelines" id="_DA4D3F01-0D79-4297-81A0-9943F1D2B0FF" />
+  <decision name="tradelineCount" id="_EEB4B1CC-3729-46B5-A6CA-CC0CD6DC1072">
+    <variable name="tradelineCount" id="_3B6589CF-6579-43B6-B38D-16060FC8CC43" typeRef="number" />
+    <informationRequirement id="_BEDD3986-9A75-474C-BA6D-D01336ACBFFB">
+      <requiredDecision href="#_43C588B2-9C48-4AAE-9713-037FADE3AF8F" />
+    </informationRequirement>
+  </decision>
+  <inputData name="CreditRequest" id="_D138C403-E2F1-44C8-91DA-918CBB2B56DF">
+    <variable name="CreditRequest" id="_AECDDDE1-57AE-478A-9F95-0F08BEBD8EF8" typeRef="tbl_tradelines" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_6743444B-D303-40C5-82F0-70697DAD7B90" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_B64E54AC-29BF-4DFE-8C3E-441D99CF2B91">
-            <kie:width>1150</kie:width>
+          <kie:ComponentWidths dmnElementRef="_56ED7649-6DF9-48C9-A841-76BF438F71D1">
+            <kie:width>469</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
-      <dmndi:DMNShape id="_42DA083C-4718-43AD-B337-E001CA10694A" dmnElementRef="_F56E7C3C-2AEB-4558-9E4F-E32CE96CEE28" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="200" y="-300" width="160" height="80" />
+      <dmndi:DMNShape id="_6EDE20F1-8F69-47BC-AB13-BDE5C5D1FFF1" dmnElementRef="_D138C403-E2F1-44C8-91DA-918CBB2B56DF" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="300" y="-320" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="_CA8E4A90-6A78-4FBF-8630-CE001306A35A" dmnElementRef="_A86E8AD6-C3F1-40E1-A855-B505357BD9F9" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="520" y="-300" width="160" height="80" />
+      <dmndi:DMNShape id="_8EF7B6AD-5C27-4D44-9294-B63BC9677627" dmnElementRef="_43C588B2-9C48-4AAE-9713-037FADE3AF8F" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="640" y="-320" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="_368FE337-8102-4AB3-BA9E-DB3209FD2FE0" dmnElementRef="_97D33483-5D2D-4001-AF61-0381E80457E3" sourceElement="_42DA083C-4718-43AD-B337-E001CA10694A" targetElement="_CA8E4A90-6A78-4FBF-8630-CE001306A35A">
-        <di:waypoint x="280" y="-260" />
-        <di:waypoint x="600" y="-260" />
+      <dmndi:DMNShape id="_3D95BA80-DF7C-4D96-B999-80BAFEB3BF67" dmnElementRef="_EEB4B1CC-3729-46B5-A6CA-CC0CD6DC1072" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="500" y="-140" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_E2C66258-1AD2-4821-9A02-2C985F07837B" dmnElementRef="_57A2FCDF-F778-4429-BFBC-F6BF8E51F2D7" sourceElement="_6EDE20F1-8F69-47BC-AB13-BDE5C5D1FFF1" targetElement="_8EF7B6AD-5C27-4D44-9294-B63BC9677627">
+        <di:waypoint x="380" y="-280" />
+        <di:waypoint x="720" y="-280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_5745D11B-3700-4417-9934-4CDBAAA9866F" dmnElementRef="_BEDD3986-9A75-474C-BA6D-D01336ACBFFB" sourceElement="_8EF7B6AD-5C27-4D44-9294-B63BC9677627" targetElement="_3D95BA80-DF7C-4D96-B999-80BAFEB3BF67">
+        <di:waypoint x="720" y="-280" />
+        <di:waypoint x="580" y="-100" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
