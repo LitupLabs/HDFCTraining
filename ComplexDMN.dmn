@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_038CCC28-1DAE-4B5B-A8F1-6649402DEC23" id="_AA7C585C-CBEA-44C9-8EC8-5C08B3C551DB" name="DMN_A80D0900-E077-4DD6-9FAA-2AF78C482F7C">
   <itemDefinition id="_B6E3D730-5D68-453A-B2CC-96C98FEECB13" name="Recommendation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_F0FFA887-4071-46F7-95C7-0E2977D7C506" name="approalRequired" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F0FFA887-4071-46F7-95C7-0E2977D7C506" name="approvalRequired" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>boolean</typeRef>
     </itemComponent>
-    <itemComponent id="_6E7DFD1F-D31C-476E-841E-A67087F849B5" name="finalCost" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>FinalCostList</typeRef>
-    </itemComponent>
     <itemComponent id="_7FE0C805-7DFB-44FE-B35A-109A591C5863" name="selectedVendor" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>ScoredVendorList</typeRef>
+      <typeRef>ScoredVendor</typeRef>
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_759D9E8A-E641-40F8-B2B8-7C71CCFDD841" name="FinalCostList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -212,15 +209,15 @@ basePriceFactor: v.basePriceFactor
       </match>
     </filter>
   </decision>
-  <decision name="Final Vendor Cost" id="_63276C3F-BC77-47BF-8BBE-E72E6A12003B">
-    <variable name="Final Vendor Cost" id="_F0CD4ACA-3957-44E7-B380-2D8464E2C1B4" typeRef="ScoredVendor" />
+  <decision name="Final Vendor" id="_63276C3F-BC77-47BF-8BBE-E72E6A12003B">
+    <variable name="Final Vendor" id="_F0CD4ACA-3957-44E7-B380-2D8464E2C1B4" typeRef="ScoredVendor" />
     <informationRequirement id="_C800D4CE-F2FA-45B9-9598-B5D2B0E88CDF">
       <requiredDecision href="#_7044F7C5-007A-4A34-AB6C-814DDB8E3EDC" />
     </informationRequirement>
     <informationRequirement id="_CFE0833D-0AFD-465D-8EE1-0FA07FF8412E">
       <requiredDecision href="#_2467E1F1-3DF5-4441-8BEA-07D8664D9378" />
     </informationRequirement>
-    <literalExpression id="_BA15E414-B04D-499E-A8D0-C4901C4006CD" typeRef="ScoredVendor" label="Final Vendor Cost">
+    <literalExpression id="_BA15E414-B04D-499E-A8D0-C4901C4006CD" typeRef="ScoredVendor" label="Final Vendor">
       <text>for v in Best Vendor
 return {
 vendorId: v.vendorId,
@@ -230,16 +227,32 @@ basePriceFactor: v.basePriceFactor
  </text>
     </literalExpression>
   </decision>
-  <decision name="Approval Required or Not" id="_74F4FA2C-64F3-4511-A525-FC6F1EC64453">
-    <variable name="Approval Required or Not" id="_0DBD588E-9237-4EFD-94A8-BDA66E11C10E" typeRef="boolean" />
+  <decision name="Approval Decision" id="_74F4FA2C-64F3-4511-A525-FC6F1EC64453">
+    <variable name="Approval Decision" id="_0DBD588E-9237-4EFD-94A8-BDA66E11C10E" typeRef="boolean" />
     <informationRequirement id="_5944A212-8E47-45A9-B77B-99A4EE9FC562">
       <requiredDecision href="#_63276C3F-BC77-47BF-8BBE-E72E6A12003B" />
     </informationRequirement>
     <informationRequirement id="_B5AB577C-33D9-491F-8C61-167355D623C4">
       <requiredInput href="#_22FD2A3D-1FDF-43F3-ACDB-4365830867C2" />
     </informationRequirement>
-    <literalExpression id="_46DE0942-B439-487F-B803-1CD78F01ECF1" typeRef="boolean" label="Approval Required or Not">
-      <text>Final Vendor Cost . score &gt; Policies.approvalThreshold</text>
+    <literalExpression id="_46DE0942-B439-487F-B803-1CD78F01ECF1" typeRef="boolean" label="Approval Decision">
+      <text>Final Vendor . score &gt; Policies.approvalThreshold</text>
+    </literalExpression>
+  </decision>
+  <decision name="Recommended Vendor" id="_61B27A00-07BF-4303-AFD5-6C22D024C670">
+    <variable name="Recommended Vendor" id="_36E76AC4-D7BF-4107-9D55-BAC3CA1C344F" typeRef="Recommendation" />
+    <informationRequirement id="_8E1C0388-11D6-4AF1-8975-4B27413DF8D7">
+      <requiredDecision href="#_63276C3F-BC77-47BF-8BBE-E72E6A12003B" />
+    </informationRequirement>
+    <informationRequirement id="_7BEDB423-E7A5-4850-A83B-B74C5D386A1F">
+      <requiredDecision href="#_74F4FA2C-64F3-4511-A525-FC6F1EC64453" />
+    </informationRequirement>
+    <literalExpression id="_DCB599AF-EC52-4EF0-95DE-17AA4FD345E7" typeRef="Recommendation" label="Recommended Vendor">
+      <text>for v in Final Vendor
+return {
+selectedVendor: Final Vendor,
+approvalRequired: Approval Decision
+}</text>
     </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_6F73EC22-0051-4D2B-ADA3-FB830EB154C1">
@@ -415,6 +428,9 @@ basePriceFactor: v.basePriceFactor
           <kie:ComponentWidths dmnElementRef="_46DE0942-B439-487F-B803-1CD78F01ECF1">
             <kie:width>549</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DCB599AF-EC52-4EF0-95DE-17AA4FD345E7">
+            <kie:width>599</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3D9D69DF-D12D-4E56-9EF5-83D4AADAD324" dmnElementRef="_955BE7CC-3CD2-47BB-B281-13398D86F372" isCollapsed="false" isListedInputData="false">
@@ -461,6 +477,9 @@ basePriceFactor: v.basePriceFactor
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_4DFD1428-93E6-40F0-BB86-D9937E2D94AC" dmnElementRef="_74F4FA2C-64F3-4511-A525-FC6F1EC64453" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="760" y="-400" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_A6E7ED2D-822D-4B50-A376-4F760A406546" dmnElementRef="_61B27A00-07BF-4303-AFD5-6C22D024C670" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="220" y="-400" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_1105FA25-90D3-4681-8FAE-2F32494923BA" dmnElementRef="_8DBA2A1B-D97F-45DB-8AEB-DB69E1FE1A97" sourceElement="_3D9D69DF-D12D-4E56-9EF5-83D4AADAD324" targetElement="_9FF8D5B7-6429-4EF1-ACCD-DA8F98ADF090">
         <di:waypoint x="380" y="160" />
@@ -521,6 +540,14 @@ basePriceFactor: v.basePriceFactor
       <dmndi:DMNEdge id="_4EA3969E-7117-404A-B2F7-C86121EE76D2" dmnElementRef="_B5AB577C-33D9-491F-8C61-167355D623C4" sourceElement="_460004D0-F312-422C-947B-4BD49DAA1C90" targetElement="_4DFD1428-93E6-40F0-BB86-D9937E2D94AC">
         <di:waypoint x="920" y="160" />
         <di:waypoint x="840" y="-360" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_174D129D-C183-43DF-8D15-C5F4D99A7359" dmnElementRef="_8E1C0388-11D6-4AF1-8975-4B27413DF8D7" sourceElement="_37556B20-CEBE-4E83-8631-5ABB64C6E9FB" targetElement="_A6E7ED2D-822D-4B50-A376-4F760A406546">
+        <di:waypoint x="580" y="-260" />
+        <di:waypoint x="300" y="-360" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_4B1F5251-35AB-459E-A001-B1D6D784682E" dmnElementRef="_7BEDB423-E7A5-4850-A83B-B74C5D386A1F" sourceElement="_4DFD1428-93E6-40F0-BB86-D9937E2D94AC" targetElement="_A6E7ED2D-822D-4B50-A376-4F760A406546">
+        <di:waypoint x="840" y="-360" />
+        <di:waypoint x="300" y="-360" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>

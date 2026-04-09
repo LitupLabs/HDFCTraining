@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_BB783EB0-269E-4095-971F-C74EF8E6D44C" id="_932731EF-7358-424E-B5ED-15B007CF0212" name="DMN_100ABA6B-5CC8-4192-9CE1-9F3F19F81FB2" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_7A5799ED-ECF2-41B4-91C5-9FA3E6D654C3" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_3238CC7D-A0A6-4600-AB71-3CB9D92A99D2" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_013C5CCE-43DE-44BF-94AE-C4446FE2E140" name="tl_acct_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_59A524B3-EF0D-423D-BD6C-536EB0B77F22" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date and time</typeRef>
+    </itemComponent>
+    <itemComponent id="_DB4EC516-F0C8-48A0-963E-5FBD4170770B" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="NumOfLiveTrades" id="_C6161D11-AC99-40EF-823E-75C4438500B1">
+    <variable name="NumOfLiveTrades" id="_CAEA294B-4B01-451E-A728-CC97A12402D9" typeRef="tbl_tradelines" />
+    <informationRequirement id="_902FB004-2736-4856-A5FA-14B78882A4CC">
+      <requiredInput href="#_995D532E-751A-45C4-B549-5F0037B4EF3F" />
+    </informationRequirement>
+    <literalExpression id="_6575E0D9-4286-4E73-BED2-D7C996AC0ECC" typeRef="tbl_tradelines" label="NumOfLiveTrades">
+      <text>count(                                     
+    for t in tbl_tradelines return
+       IsLiveTrade(t.tl_closed_date)
+ )</text>
+    </literalExpression>
+  </decision>
+  <inputData name="tbl_tradelines" id="_995D532E-751A-45C4-B549-5F0037B4EF3F">
+    <variable name="tbl_tradelines" id="_160427C3-5BDC-4C58-A22A-8A266C2C22F1" typeRef="tbl_tradelines" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_38C1A46A-DFFC-4A92-9DE8-8B51BB3F33B5" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_6575E0D9-4286-4E73-BED2-D7C996AC0ECC">
+            <kie:width>580</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" dmnElementRef="_995D532E-751A-45C4-B549-5F0037B4EF3F" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="280" y="60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_12120627-5E43-4E22-A5FA-ED054E2DBF93" dmnElementRef="_C6161D11-AC99-40EF-823E-75C4438500B1" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="560" y="60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_5AF45405-08F4-4AFD-9FBC-EAA708E703AD" dmnElementRef="_902FB004-2736-4856-A5FA-14B78882A4CC" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_12120627-5E43-4E22-A5FA-ED054E2DBF93">
+        <di:waypoint x="360" y="100" />
+        <di:waypoint x="640" y="100" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
