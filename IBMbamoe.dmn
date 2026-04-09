@@ -1,27 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_BB783EB0-269E-4095-971F-C74EF8E6D44C" id="_932731EF-7358-424E-B5ED-15B007CF0212" name="DMN_100ABA6B-5CC8-4192-9CE1-9F3F19F81FB2">
-  <itemDefinition id="_7A5799ED-ECF2-41B4-91C5-9FA3E6D654C3" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
-  <itemDefinition id="_3238CC7D-A0A6-4600-AB71-3CB9D92A99D2" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_013C5CCE-43DE-44BF-94AE-C4446FE2E140" name="tl_acct_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_0AA8D102-5AAB-470C-AFA9-C6E5E27C1B5D" name="TradeLineList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_2893175B-D55C-407F-A4C0-474E9F3348E0" name="TradeLineList" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>TradeLine</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_7A5799ED-ECF2-41B4-91C5-9FA3E6D654C3" name="TradeLine" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_2F598CD4-4804-4D96-9662-E1709EE541E5" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
-    <itemComponent id="_59A524B3-EF0D-423D-BD6C-536EB0B77F22" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>date and time</typeRef>
+    <itemComponent id="_5EC8C45A-F101-485D-93C5-627A291A2595" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
     </itemComponent>
-    <itemComponent id="_DB4EC516-F0C8-48A0-963E-5FBD4170770B" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  </itemDefinition>
+  <itemDefinition id="_3238CC7D-A0A6-4600-AB71-3CB9D92A99D2" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_2B99B29F-71C3-4FE2-8441-59B52EFDC5FE" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_5ADC47B7-65D5-4E62-B3EF-87C63F0550E0" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_CDE6ECA1-247F-4F1A-925F-CA01A6A97B55" name="tl_acct_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
   <decision name="NumOfLiveTrades" id="_C6161D11-AC99-40EF-823E-75C4438500B1">
-    <variable name="NumOfLiveTrades" id="_CAEA294B-4B01-451E-A728-CC97A12402D9" typeRef="tbl_tradelines" />
+    <variable name="NumOfLiveTrades" id="_CAEA294B-4B01-451E-A728-CC97A12402D9" typeRef="string" />
     <informationRequirement id="_902FB004-2736-4856-A5FA-14B78882A4CC">
       <requiredInput href="#_995D532E-751A-45C4-B549-5F0037B4EF3F" />
     </informationRequirement>
-    <literalExpression id="_6575E0D9-4286-4E73-BED2-D7C996AC0ECC" typeRef="tbl_tradelines" label="NumOfLiveTrades">
-      <text>count(                                     
-    for t in tbl_tradelines return
-       IsLiveTrade(t.tl_closed_date)
- )</text>
+    <literalExpression id="_80288D0E-CFE6-48DA-B522-3B8869FA5662" typeRef="string" label="NumOfLiveTrades">
+      <text>count(
+      for t in tbl_tradelines return 
+        IsLiveDate(t.tl_closed_date)   
+       )                                     
+</text>
+    </literalExpression>
+  </decision>
+  <decision name="cntOfUnSecureLiveLoan" id="_9E97FA08-4F33-4EBC-B5EA-D8853DA36EA9">
+    <variable name="cntOfUnSecureLiveLoan" id="_B395F99A-4D19-47C1-BAEB-5663903BFD80" typeRef="TradeLine" />
+    <informationRequirement id="_F9E90224-238C-44B5-9B2F-4D32FB053C21">
+      <requiredInput href="#_995D532E-751A-45C4-B549-5F0037B4EF3F" />
+    </informationRequirement>
+    <literalExpression id="_BCEA1BAE-2973-4EE5-A229-85A48E876FA4" typeRef="TradeLine" label="cntOfUnSecureLiveLoan">
+      <text>		
+count(
+      for t in tbl_tradelines return
+	  ( IsUnsecured(tl_acct_type) = true 
+         and IsLive(t.tl_closed_date)   
+       )                                     
+)</text>
+    </literalExpression>
+  </decision>
+  <decision name="totalBureauOverDue" id="_F884F5AE-EA83-4FBE-9A6B-8787E6EA67B6">
+    <variable name="totalBureauOverDue" id="_1B684CE3-2FBD-411B-B6BF-D5E3FD2FA3C0" typeRef="tbl_tradelines" />
+    <informationRequirement id="_A6D40A60-57A1-4FBC-B806-D078F32A999D">
+      <requiredInput href="#_995D532E-751A-45C4-B549-5F0037B4EF3F" />
+    </informationRequirement>
+    <literalExpression id="_19FD2B78-FBD2-4ED5-B407-D514FF3199E5" typeRef="tbl_tradelines" label="totalBureauOverDue">
+      <text>sum( for t in tbl_tradelines return t.t1_overdue_amount)</text>
     </literalExpression>
   </decision>
   <inputData name="tbl_tradelines" id="_995D532E-751A-45C4-B549-5F0037B4EF3F">
@@ -31,20 +68,40 @@
     <dmndi:DMNDiagram id="_38C1A46A-DFFC-4A92-9DE8-8B51BB3F33B5" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_6575E0D9-4286-4E73-BED2-D7C996AC0ECC">
-            <kie:width>580</kie:width>
+          <kie:ComponentWidths dmnElementRef="_BCEA1BAE-2973-4EE5-A229-85A48E876FA4">
+            <kie:width>448</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_19FD2B78-FBD2-4ED5-B407-D514FF3199E5">
+            <kie:width>542</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_80288D0E-CFE6-48DA-B522-3B8869FA5662">
+            <kie:width>447</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" dmnElementRef="_995D532E-751A-45C4-B549-5F0037B4EF3F" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="280" y="60" width="160" height="80" />
+        <dc:Bounds x="500" y="60" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_12120627-5E43-4E22-A5FA-ED054E2DBF93" dmnElementRef="_C6161D11-AC99-40EF-823E-75C4438500B1" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="560" y="60" width="160" height="80" />
+        <dc:Bounds x="200" y="240" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9E2CD82D-06D5-4AA2-935E-471967FD306F" dmnElementRef="_9E97FA08-4F33-4EBC-B5EA-D8853DA36EA9" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="500" y="240" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_30DB3BF4-3630-436A-B3D2-117C7203C520" dmnElementRef="_F884F5AE-EA83-4FBE-9A6B-8787E6EA67B6" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="780" y="240" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_5AF45405-08F4-4AFD-9FBC-EAA708E703AD" dmnElementRef="_902FB004-2736-4856-A5FA-14B78882A4CC" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_12120627-5E43-4E22-A5FA-ED054E2DBF93">
-        <di:waypoint x="360" y="100" />
-        <di:waypoint x="640" y="100" />
+        <di:waypoint x="580" y="100" />
+        <di:waypoint x="280" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_0D7561B8-AEB6-418F-9178-265E4615E92B" dmnElementRef="_F9E90224-238C-44B5-9B2F-4D32FB053C21" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_9E2CD82D-06D5-4AA2-935E-471967FD306F">
+        <di:waypoint x="580" y="100" />
+        <di:waypoint x="580" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_5C8E16B1-AB73-46B1-B353-A930C0A01664" dmnElementRef="_A6D40A60-57A1-4FBC-B806-D078F32A999D" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_30DB3BF4-3630-436A-B3D2-117C7203C520">
+        <di:waypoint x="580" y="100" />
+        <di:waypoint x="860" y="280" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
