@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8937B8BF-2E81-4746-8A93-41849E864DE1" id="_EBDE8AEF-D0CB-4EAB-BDAF-47B74663EA96" name="DMN_083D042D-9950-4B3B-956E-B3103F0EBF93" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8937B8BF-2E81-4746-8A93-41849E864DE1" id="_EBDE8AEF-D0CB-4EAB-BDAF-47B74663EA96" name="DMN_083D042D-9950-4B3B-956E-B3103F0EBF93">
   <itemDefinition id="_3C822B55-B792-4555-A92D-3560E203BC7B" name="lstTrades" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_58EA8553-1D14-4D77-8FFD-B26320C73E41" name="raw_input" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_70F418E7-44C7-4BA1-906E-164B22F7387B" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -55,48 +55,87 @@
       <typeRef>date</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="listTrades" id="_95063ED5-2317-4A4F-9C9E-4BAF79C06613">
-    <variable name="listTrades" id="_49E946DA-FE93-4CE4-AB5B-9447D57CDFD0" typeRef="lstTrades" />
-    <informationRequirement id="_EDFD1E27-81A8-4F7E-BB96-ADA5650BB6BC">
+  <decision name="numOfLiveTrades" id="_BF916CA9-1FBC-4AFF-8217-50FE950B09EE">
+    <variable name="numOfLiveTrades" id="_D86D018A-5C90-4728-8A33-71EE8907766D" typeRef="number" />
+    <informationRequirement id="_326D29A0-3482-4012-9532-B0B643FC470D">
       <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
     </informationRequirement>
-    <for id="_202DDE4F-5A2C-4BC6-95E3-F1BA4ECA76A1" typeRef="lstTrades" label="listTrades" iteratorVariable="item">
-      <in id="_686988A0-F388-4CB8-9EC8-D28F9D084B30">
-        <literalExpression id="_0B38AC10-5737-41CD-B59C-C414AF717CF4" label="Expression Name">
-          <text>raw_input.applicant.tbl_tradelines</text>
+    <context id="_5114DACB-AA5E-4656-853C-6D0BFF6F3C51" typeRef="number" label="numOfLiveTrades">
+      <contextEntry id="_8C64752A-E2DE-40A2-8B13-6DBE1D4DD3BD">
+        <variable id="_F335A368-4CA2-45D8-889B-24CC1D638E66" name="lst_Closeddates" typeRef="lstTrades" />
+        <for id="_B8759452-080B-427B-A177-234989D0CA9C" typeRef="lstTrades" label="lst_Closeddates" iteratorVariable="item">
+          <in id="_47E8CD7B-5301-4E84-B926-980E30B3B619">
+            <literalExpression id="_0DE2C69D-2554-4260-8C58-945581BAAE33" label="Expression Name">
+              <text>tbl_tradelines</text>
+            </literalExpression>
+          </in>
+          <return id="_297B7721-6F43-4745-BAD0-D7D34E12CD88">
+            <literalExpression id="_FA0870E4-BBF9-4598-ABD9-BC42CAF8F6C6" label="Expression Name">
+              <text>item.tl_closed_date</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_3636B966-EE95-49D8-A052-7FF29E3BF780">
+        <variable id="_F543269B-1D7B-441A-89F9-26A481AF1E2A" name="filtered_List_Closeddates" typeRef="lstTrades">
+          <description></description>
+        </variable>
+        <filter id="_3E17E54F-3F5F-4DCE-A9E9-109C80917130" typeRef="lstTrades" label="filtered_List_Closeddates">
+          <in id="_48A04A8B-76EB-404C-A6A4-EDCC9FE3721D">
+            <literalExpression id="_A165B06F-4A8D-4A91-8FEE-A78BB26B4149" label="Expression Name">
+              <text>lst_Closeddates</text>
+            </literalExpression>
+          </in>
+          <match id="_BD374D0F-6D4A-40CC-BC00-D406AAB9F791">
+            <literalExpression id="_899F6DBF-6F8B-4468-AE13-83A0F36070E3" label="Expression Name">
+              <text>not(item in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;)))</text>
+            </literalExpression>
+          </match>
+        </filter>
+      </contextEntry>
+      <contextEntry id="_B9B91FCE-F4D1-43D4-B0D6-DEC06CFFF444">
+        <literalExpression id="_394FBD17-2D54-494E-B421-E392E2271774" typeRef="number" label="num_Livetrades">
+          <text>count(filtered_List_Closeddates)</text>
         </literalExpression>
-      </in>
-      <return id="_6B8BD375-BB25-4B37-8459-D852C176DDFA">
-        <literalExpression id="_B04B29C7-CEE6-468A-A96C-97F269A4C47F" label="Expression Name">
-          <text>item.tl_closed_date</text>
-        </literalExpression>
-      </return>
-    </for>
+      </contextEntry>
+    </context>
   </decision>
-  <inputData name="raw_input" id="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E">
-    <variable name="raw_input" id="_578AD899-6CE9-45BF-A4BF-2757A365ADDA" typeRef="raw_input" />
+  <inputData name="tbl_tradelines" id="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E">
+    <variable name="tbl_tradelines" id="_578AD899-6CE9-45BF-A4BF-2757A365ADDA" typeRef="tbl_tradelines" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_DCC63684-781B-410A-B55D-CE3447CD8DFA" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_0B38AC10-5737-41CD-B59C-C414AF717CF4">
-            <kie:width>649</kie:width>
+          <kie:ComponentWidths dmnElementRef="_5114DACB-AA5E-4656-853C-6D0BFF6F3C51">
+            <kie:width>120</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_B04B29C7-CEE6-468A-A96C-97F269A4C47F">
+          <kie:ComponentWidths dmnElementRef="_0DE2C69D-2554-4260-8C58-945581BAAE33">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_FA0870E4-BBF9-4598-ABD9-BC42CAF8F6C6">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A165B06F-4A8D-4A91-8FEE-A78BB26B4149">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_899F6DBF-6F8B-4468-AE13-83A0F36070E3">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_394FBD17-2D54-494E-B421-E392E2271774">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" dmnElementRef="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="320" y="140" width="160" height="80" />
+        <dc:Bounds x="112" y="292" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="_027DBD75-9382-48FA-8A38-E706B71A5384" dmnElementRef="_95063ED5-2317-4A4F-9C9E-4BAF79C06613" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="320" y="-40" width="160" height="80" />
+      <dmndi:DMNShape id="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7" dmnElementRef="_BF916CA9-1FBC-4AFF-8217-50FE950B09EE" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="112" y="112" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="_50821363-C4AB-4BFA-9141-56E89EE1AAE1" dmnElementRef="_EDFD1E27-81A8-4F7E-BB96-ADA5650BB6BC" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_027DBD75-9382-48FA-8A38-E706B71A5384">
-        <di:waypoint x="400" y="180" />
-        <di:waypoint x="400" y="0" />
+      <dmndi:DMNEdge id="_732D46A6-C0E5-4ED7-B417-9ACD8A88A460" dmnElementRef="_326D29A0-3482-4012-9532-B0B643FC470D" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7">
+        <di:waypoint x="192" y="292" />
+        <di:waypoint x="192" y="192" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
