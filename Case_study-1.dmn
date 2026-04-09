@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_CC1300B9-FCB3-49EE-B868-046BCB33AAE1" id="_155905F7-C9BF-4593-9970-91B9E6AFD662" name="DMN_E4804DAA-0FE6-43D2-88E2-D5403DDCE1C1" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_CC1300B9-FCB3-49EE-B868-046BCB33AAE1" id="_155905F7-C9BF-4593-9970-91B9E6AFD662" name="DMN_E4804DAA-0FE6-43D2-88E2-D5403DDCE1C1">
   <itemDefinition id="_ADCB7A6A-8BFE-4DAA-9B13-7C286184DFC6" name="overdue" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_5D5A4CCE-C380-445D-843B-48E4875245FA" name="trade" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_BABA7F6E-2249-4CA5-A5A2-7DE4C6BEA199" name="tradelines_list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -24,25 +24,26 @@
     <informationRequirement id="_E6A9FE53-6471-44AA-A155-55F8576044FB">
       <requiredInput href="#_4E424C55-6A42-4349-84BC-84334D228350" />
     </informationRequirement>
-    <context id="_FB40893A-B3F8-4438-BDFE-F87B798E385B" typeRef="number" label="totalBureauOverDue">
-      <contextEntry id="_06856EE3-0906-4DBF-9980-05C07BDA24D2">
-        <variable id="_3E87F4F2-D37A-4637-BF5C-361BD7022D48" name="for_loop" typeRef="overdue" />
-        <for id="_7EC470AF-5588-442B-8205-867DED580A56" typeRef="overdue" label="for_loop" iteratorVariable="o">
-          <in id="_D1D87D6F-836F-44CA-9C71-DDE02D699151">
-            <literalExpression id="_F3FC4B73-5B61-46FA-BC65-555BB91B53C4" label="Expression Name">
+    <context id="_4A580D2E-6E65-4449-93A7-76D418EBB6E5" typeRef="number" label="totalBureauOverDue">
+      <contextEntry id="_57F84E00-5640-4503-A4BB-F077D9220545">
+        <variable id="_2F9CEEC6-33A4-4CC4-952C-341AEBCC5BF3" name="for_loop" typeRef="overdue" />
+        <for id="_B7048F09-CA40-450C-883E-A880DBEB6FF8" typeRef="overdue" label="for_loop" iteratorVariable="o">
+          <in id="_F87D46F7-D748-43D4-BBAA-5AF56A9E60F6">
+            <literalExpression id="_FD2D3F98-AE6A-40B1-84A3-C087E819EA1C" label="Expression Name">
               <text>tradeline</text>
             </literalExpression>
           </in>
-          <return id="_E07DFF93-D929-4C65-90F2-35D59A48246C">
-            <literalExpression id="_B89A53FB-BA6D-49E6-A7CD-D84D5D0161AA" label="Expression Name">
+          <return id="_FBAFE321-67EC-4E90-A825-C24D0FC88BE2">
+            <literalExpression id="_695C52BD-AD6B-4366-B14D-34FD65F7FEFF" label="Expression Name">
               <text>if o.tl_overdue_amount = null then 0 else o.tl_overdue_amount</text>
             </literalExpression>
           </return>
         </for>
       </contextEntry>
-      <contextEntry id="_9412D1EE-7531-424F-AB2E-BF0B730CFE46">
-      </contextEntry>
-      <contextEntry id="_CCE0F5D3-D32B-44F1-A1D8-F816BCD0F36E">
+      <contextEntry id="_A4F8DFB3-0521-44D4-A1B1-68055BAEE31E">
+        <literalExpression id="_6141BDFE-BCE2-4D7F-9739-07A155D912F5" typeRef="number" label="totalBureauOverDue">
+          <text>sum(for_loop)</text>
+        </literalExpression>
       </contextEntry>
     </context>
   </decision>
@@ -98,7 +99,6 @@
     <dmndi:DMNDiagram id="_1F677118-B300-43E7-A5D8-E3AB000631A2" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths />
           <kie:ComponentWidths dmnElementRef="_CC2A63CF-D62C-4CA1-BB4C-FA332050F112">
             <kie:width>120</kie:width>
           </kie:ComponentWidths>
@@ -117,14 +117,17 @@
           <kie:ComponentWidths dmnElementRef="_43679E26-AD11-49E9-BA64-55BB3D137181">
             <kie:width>547</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_FB40893A-B3F8-4438-BDFE-F87B798E385B">
+          <kie:ComponentWidths dmnElementRef="_4A580D2E-6E65-4449-93A7-76D418EBB6E5">
             <kie:width>120</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_F3FC4B73-5B61-46FA-BC65-555BB91B53C4">
-            <kie:width>803</kie:width>
+          <kie:ComponentWidths dmnElementRef="_FD2D3F98-AE6A-40B1-84A3-C087E819EA1C">
+            <kie:width>590</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_B89A53FB-BA6D-49E6-A7CD-D84D5D0161AA">
-            <kie:width>803</kie:width>
+          <kie:ComponentWidths dmnElementRef="_695C52BD-AD6B-4366-B14D-34FD65F7FEFF">
+            <kie:width>590</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6141BDFE-BCE2-4D7F-9739-07A155D912F5">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
