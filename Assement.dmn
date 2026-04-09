@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_C86DE4E6-C689-47EA-BCD4-1E5DA97BB84C" id="_004A9AEF-A378-4BBA-97B2-1897FFF70595" name="DMN_4563AAF3-0FA0-4E7F-B71F-F18B42A1914C">
+  <itemDefinition id="_8F9244B6-E3DB-48D4-B0E4-561AF0CC1E4C" name="tbl_tradelines" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>tbl_trade</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_9B4490B1-0D42-4450-9C7C-ED1C151E632B" name="tbl_trade" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_30420652-F644-4E9B-A1D2-55C50156D405" name="tl_acct_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+    <itemComponent id="_974E07A1-8B0E-42E8-9CC6-DC1212E1A608" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_E326BE0A-A28C-4567-8263-D792256B8FF6" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_324E21B7-55ED-4FD6-83F0-214184D549F4" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_D825BE90-550E-484F-ACF7-C14FC070D9B0" name="Applicant" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <description></description>
+  </itemDefinition>
+</definitions>
