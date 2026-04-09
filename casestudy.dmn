@@ -16,12 +16,12 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="livetrade" id="_43C588B2-9C48-4AAE-9713-037FADE3AF8F">
-    <variable name="livetrade" id="_8423FC44-310B-461E-8A8C-F30BE70261BF" typeRef="number" />
+  <decision name="numOfLiveTrades" id="_43C588B2-9C48-4AAE-9713-037FADE3AF8F">
+    <variable name="numOfLiveTrades" id="_8423FC44-310B-461E-8A8C-F30BE70261BF" typeRef="number" />
     <informationRequirement id="_57A2FCDF-F778-4429-BFBC-F6BF8E51F2D7">
       <requiredInput href="#_D138C403-E2F1-44C8-91DA-918CBB2B56DF" />
     </informationRequirement>
-    <context id="_12033194-AB66-4D74-9E30-0709B1DE8C12" typeRef="number" label="livetrade">
+    <context id="_12033194-AB66-4D74-9E30-0709B1DE8C12" typeRef="number" label="numOfLiveTrades">
       <contextEntry id="_A705704F-B353-474F-9112-5EFBBF8B6DE0">
         <variable id="_66D18517-D292-452E-8FB2-B0ED296E76BD" name="live" typeRef="trade" />
         <for id="_DA13AE11-A1A3-4186-A412-7425206EA184" typeRef="trade" label="live" iteratorVariable="i">
@@ -61,12 +61,12 @@
       </contextEntry>
     </context>
   </decision>
-  <decision name="overdue" id="_EEB4B1CC-3729-46B5-A6CA-CC0CD6DC1072">
-    <variable name="overdue" id="_3B6589CF-6579-43B6-B38D-16060FC8CC43" typeRef="number" />
+  <decision name="totalBureauOverDue" id="_EEB4B1CC-3729-46B5-A6CA-CC0CD6DC1072">
+    <variable name="totalBureauOverDue" id="_3B6589CF-6579-43B6-B38D-16060FC8CC43" typeRef="number" />
     <informationRequirement id="_7484B3FB-5FCB-498B-AF40-0FD23CD806CB">
       <requiredInput href="#_D138C403-E2F1-44C8-91DA-918CBB2B56DF" />
     </informationRequirement>
-    <context id="_4EB3C5D1-342A-4454-B7A0-F6CBA91B8EC3" typeRef="number" label="overdue">
+    <context id="_4EB3C5D1-342A-4454-B7A0-F6CBA91B8EC3" typeRef="number" label="totalBureauOverDue">
       <contextEntry id="_0BE6C56A-EAC2-4EDA-B897-0970D5398469">
         <variable id="_A12F7072-E518-43E4-9973-7FC394014111" name="tlover" typeRef="trade" />
         <for id="_6D321A76-05B6-41C4-8006-08539B9B7D36" label="tlover" iteratorVariable="i" typeRef="trade">
