@@ -100,6 +100,9 @@
       </contextEntry>
     </context>
   </decision>
+  <decision name="New Decision" id="_0A202C97-9A62-4343-AC63-F0127F990EA2">
+    <variable name="New Decision" id="_3B6698DC-1100-4210-B343-C7DE3D071CD8" />
+  </decision>
   <inputData name="tbl_tradelines" id="_532304C2-97F7-4368-995B-3F90BA449C77">
     <variable name="tbl_tradelines" id="_E6323C6B-58EB-4970-8258-7F33470839A1" typeRef="tradeline_list" />
   </inputData>
@@ -132,6 +135,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_D30C2145-9A4E-4B45-A45C-705A12BEA892" dmnElementRef="_9B2BE6A9-AC9E-4856-8C6C-6FE714F29182" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="240" y="40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_91B56633-CF62-415A-9EFC-1C6696944845" dmnElementRef="_0A202C97-9A62-4343-AC63-F0127F990EA2" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="500" y="180" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9F7A668F-DB9B-479C-B981-8CC54AB2EAF6" dmnElementRef="_A376DE78-98F6-42E6-8F35-0E925734C594" sourceElement="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" targetElement="_D30C2145-9A4E-4B45-A45C-705A12BEA892">
         <di:waypoint x="320" y="220" />
