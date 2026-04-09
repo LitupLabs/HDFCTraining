@@ -85,8 +85,10 @@
     <context id="_2DFDFDB6-5E8B-4789-8767-F60D37301E46" typeRef="number" label="numOfLiveTrades">
       <contextEntry id="_C48E9C74-3C04-4A12-8CF7-3BEFA3184FB2">
         <variable id="_CD3E725F-4BC1-4900-BB1D-8243147FB130" name="numOfTradeline" typeRef="number" />
-        <for id="_79E59998-C970-4721-9897-E09597002632" typeRef="number" label="numOfTradeline">
-          <in id="_4E137F60-DAE5-4AAF-8971-183F3B0C98B7" />
+        <for id="_79E59998-C970-4721-9897-E09597002632" typeRef="number" label="numOfTradeline" iteratorVariable="tbl.tradeline">
+          <in id="_12B75CB5-F0A6-45CF-9CD3-412A439CE5D0">
+            <literalExpression id="_0616D108-8484-404C-A251-1914CCEB750C" label="Expression Name" />
+          </in>
           <return id="_E6E12C29-ECB5-4013-AF23-572A1A974819" />
         </for>
       </contextEntry>
@@ -101,6 +103,9 @@
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_2DFDFDB6-5E8B-4789-8767-F60D37301E46">
             <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0616D108-8484-404C-A251-1914CCEB750C">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
