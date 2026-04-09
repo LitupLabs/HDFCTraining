@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_1B74E78D-FBC4-4409-AF4E-C95E93503B6D" id="_0A749F11-B712-4222-8F8F-636596C20396" name="DMN_B5FC457E-9559-4182-BFA9-F0FAE545CC14" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_9CB452FF-E94A-4CD1-B4BE-FEA16E8544BE" name="raw_input" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_FE67DB80-A9A1-4E33-9561-6F21C7A38499" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>applicant</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_AC871314-46F6-4E82-AB6E-67F009EFE9E2" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_D1E05B56-A9ED-4003-AF05-189EC8985C63" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date and time</typeRef>
+    </itemComponent>
+    <itemComponent id="_0F303B9E-5032-49B9-9740-C000FD821E88" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>tbl_tradelines</typeRef>
+    </itemComponent>
+    <itemComponent id="_8B2A72E1-4C95-4B7B-809B-0ACDDB893592" name="perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Perfios</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_1D35A7C0-48F0-4BE6-9136-79223BAA6A4B" name="Perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_4F98756A-1F8C-4F03-A687-4AE319E185F7" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>ScoringDetails</typeRef>
+    </itemComponent>
+  </itemDefinition>
   <itemDefinition id="_40701560-13E9-4B9A-823B-88A0E4B5EAF2" name="Detail" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_3A115401-FF3B-4DCE-87BB-C288C7B11E31" name="detail_obj" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>detail_obj</typeRef>
@@ -35,7 +56,7 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_DF18F637-0A47-480E-87BC-A46C04F11621" name="Tradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_DF18F637-0A47-480E-87BC-A46C04F11621" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_F90B6F50-E5D4-4C1E-914A-45680E75725D" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>date and time</typeRef>
     </itemComponent>
@@ -46,4 +67,46 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="numOfLiveTrades" id="_128C5AD2-131F-45BD-9E42-F48C519D97B5">
+    <variable name="numOfLiveTrades" id="_907EEACD-DC6F-4B40-A3CC-D2DAE68ED782" typeRef="number" />
+    <informationRequirement id="_4601282E-E266-49C4-9F98-FE218DF1980A">
+      <requiredInput href="#_76088C6A-EE2B-4C75-8840-225CDEA3974B" />
+    </informationRequirement>
+    <literalExpression id="_1A61401A-ECFB-464C-A149-BA2B8793CD4F" typeRef="number" label="numOfLiveTrades">
+      <text>
+count(
+  Raw Input.applicant.tbl_tradelines[
+      tl_closed_date = &quot;01/01/1900 00:00:00&quot;
+      or tl_closed_date = &quot;null&quot;
+      or tl_closed_date = null
+      or tl_closed_date = &quot;&quot;
+  ]
+)
+</text>
+    </literalExpression>
+  </decision>
+  <inputData name="Raw Input" id="_76088C6A-EE2B-4C75-8840-225CDEA3974B">
+    <variable name="Raw Input" id="_2095F144-8083-4DAE-AD48-4BC405C95055" typeRef="raw_input" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_AE39B66D-FF56-4F6E-B89A-DD07C52BEF8B" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_1A61401A-ECFB-464C-A149-BA2B8793CD4F">
+            <kie:width>625</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_3842F990-091C-4136-81D3-324B4AC0DE9D" dmnElementRef="_76088C6A-EE2B-4C75-8840-225CDEA3974B" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="200" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_95793E41-6BC6-41A1-9182-1C5761C9ACC8" dmnElementRef="_128C5AD2-131F-45BD-9E42-F48C519D97B5" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="200" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_4D8885C3-556B-4F08-8982-F9BCB5AB4CE2" dmnElementRef="_4601282E-E266-49C4-9F98-FE218DF1980A" sourceElement="_3842F990-091C-4136-81D3-324B4AC0DE9D" targetElement="_95793E41-6BC6-41A1-9182-1C5761C9ACC8">
+        <di:waypoint x="280" y="260" />
+        <di:waypoint x="280" y="100" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
