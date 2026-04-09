@@ -51,7 +51,12 @@
   <decision name="numOfLiveTrades" id="_8B3F2D17-FD75-4BDB-A05C-B6F61FCEEC95">
     <variable name="numOfLiveTrades" id="_213C0D46-8B5A-4A3C-B9B0-AF429526D630" typeRef="number" />
     <filter id="_00ECE5D8-73CD-4423-BDFA-C88441AEE09A" typeRef="number" label="numOfLiveTrades">
-      <in id="_591A05B4-30DB-45C1-91BA-3C0D72BB0D77" />
+      <in id="_591A05B4-30DB-45C1-91BA-3C0D72BB0D77">
+        <for id="_65B05E8D-8E0C-4942-97BB-F14F8A3AC1F7" label="Expression Name">
+          <in id="_A1061548-F585-4564-A314-F40C77EEB860" />
+          <return id="_2DA0DE70-071B-46DC-BD80-4AE0DDD50127" />
+        </for>
+      </in>
       <match id="_B8462DBC-5A70-4B16-B6CD-432E9BEA0A20" />
     </filter>
   </decision>
