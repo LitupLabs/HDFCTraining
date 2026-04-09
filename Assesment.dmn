@@ -100,6 +100,34 @@
       </contextEntry>
     </context>
   </decision>
+  <decision name="totalBureauOverDue" id="_E89034CF-8E0C-400A-9CA0-B8335D800A31">
+    <variable name="totalBureauOverDue" id="_45B2AD32-ECF1-47F7-84E0-566A083492CC" typeRef="number" />
+    <informationRequirement id="_A4FD1168-67E7-4DAE-BB1E-89897E088B8D">
+      <requiredInput href="#_532304C2-97F7-4368-995B-3F90BA449C77" />
+    </informationRequirement>
+    <context id="_35C9A3FD-3C8A-4D09-9CD9-251A23FE7B54" typeRef="number" label="totalBureauOverDue">
+      <contextEntry id="_AC356596-6737-48A4-AC64-A03843576C07">
+        <variable id="_E1C5C943-6515-4248-A2A0-76F384BCA71F" name="overdue_table" typeRef="trade_table" />
+        <for id="_F3F79FE7-7D68-42F7-8CC1-7749603D16F2" typeRef="trade_table" label="overdue_table" iteratorVariable="item">
+          <in id="_ECABE191-7D5E-4474-88AC-9301271DBD4F">
+            <literalExpression id="_DA46C213-5343-489F-8FDD-1F28B6B4E1C1" label="Expression Name">
+              <text>tbl_tradelines</text>
+            </literalExpression>
+          </in>
+          <return id="_E12A3D4B-4E28-434E-B31C-9F4C64834365">
+            <literalExpression id="_7DC01D57-770B-436E-9D11-A47325E7AFDE" label="Expression Name">
+              <text>if item.tl_overdue_amount = null then 0 else item.tl_overdue_amount</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_8B9980CE-0749-46FC-B1A8-E31B1C76791C">
+        <literalExpression id="_FE33C0ED-ABAD-4554-BF1F-C6E26CB16696" typeRef="number" label="totalBureauOverDue">
+          <text>sum(overdue_table)</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
+  </decision>
   <inputData name="tbl_tradelines" id="_532304C2-97F7-4368-995B-3F90BA449C77">
     <variable name="tbl_tradelines" id="_E6323C6B-58EB-4970-8258-7F33470839A1" typeRef="tradeline_list" />
   </inputData>
@@ -125,6 +153,18 @@
           <kie:ComponentWidths dmnElementRef="_67331BAD-E5C1-43F4-8D96-589855672800">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_35C9A3FD-3C8A-4D09-9CD9-251A23FE7B54">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DA46C213-5343-489F-8FDD-1F28B6B4E1C1">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7DC01D57-770B-436E-9D11-A47325E7AFDE">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_FE33C0ED-ABAD-4554-BF1F-C6E26CB16696">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" dmnElementRef="_532304C2-97F7-4368-995B-3F90BA449C77" isCollapsed="false" isListedInputData="false">
@@ -133,9 +173,16 @@
       <dmndi:DMNShape id="_D30C2145-9A4E-4B45-A45C-705A12BEA892" dmnElementRef="_9B2BE6A9-AC9E-4856-8C6C-6FE714F29182" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="240" y="40" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_223959FB-6C93-402A-8D00-4E1C48D82471" dmnElementRef="_E89034CF-8E0C-400A-9CA0-B8335D800A31" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="520" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9F7A668F-DB9B-479C-B981-8CC54AB2EAF6" dmnElementRef="_A376DE78-98F6-42E6-8F35-0E925734C594" sourceElement="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" targetElement="_D30C2145-9A4E-4B45-A45C-705A12BEA892">
         <di:waypoint x="320" y="220" />
         <di:waypoint x="320" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_7644D6B6-9EC8-448D-8A5A-B794BBB22800" dmnElementRef="_A4FD1168-67E7-4DAE-BB1E-89897E088B8D" sourceElement="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" targetElement="_223959FB-6C93-402A-8D00-4E1C48D82471">
+        <di:waypoint x="320" y="220" />
+        <di:waypoint x="520" y="220" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
