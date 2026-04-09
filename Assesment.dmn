@@ -22,6 +22,9 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_11DABE7B-779B-45F6-AD71-092A3F143CB1" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F6E3C1C0-A30E-4BCE-AE14-4D4025B08BC8" name="perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Perfios</typeRef>
+    </itemComponent>
     <itemComponent id="_CF46FF11-E863-4C53-9B34-37A34C79E36F" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>tbl_tradelines</typeRef>
     </itemComponent>
