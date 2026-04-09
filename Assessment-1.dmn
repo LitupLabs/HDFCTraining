@@ -128,22 +128,28 @@
     <informationRequirement id="_61742382-645F-40B9-992B-3B0565D79E49">
       <requiredInput href="#_DB087796-1901-408A-A281-BE01DEB628C8" />
     </informationRequirement>
-    <for id="_87F907E0-D81E-43BD-B760-A3DF7C757A8B" typeRef="number" label="totalBureauOverDue" iteratorVariable="t">
-      <in id="_E050FC7D-4DD0-4F91-BA4F-D4FB2288CF83">
-        <literalExpression id="_B85E9219-2AB6-45C6-94FF-02BEEA29F359" label="Expression Name">
-          <text>if Tradeline = null 
-then [] 
-else Tradeline</text>
+    <context id="_604CAB08-9A46-48E9-8EAE-5B9BABF6986C" typeRef="number" label="totalBureauOverDue">
+      <contextEntry id="_D3BA1222-95DC-406D-9431-48CEE87FF5F5">
+        <variable id="_2980DFDA-BA10-4AD8-B99D-242860B4E813" name="total" typeRef="trade" />
+        <for id="_A8B128E7-9362-4AF7-8312-DC2F6A3A0C2C" typeRef="trade" label="total" iteratorVariable="t">
+          <in id="_F0CB1229-C657-4721-9113-101C4091E4F7">
+            <literalExpression id="_548C41B6-AE41-40E6-8B7B-5E9C7630FDED" label="Expression Name">
+              <text>Tradeline</text>
+            </literalExpression>
+          </in>
+          <return id="_261A8227-DA32-48E0-BA40-E833B426E14F">
+            <literalExpression id="_8C296443-FEB5-472B-8CB5-6A3F15D75D6F" label="Expression Name">
+              <text>t.tl_overdue_amount</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_290EC58E-75BF-4269-956B-64900D02108D">
+        <literalExpression id="_F0E9F8D6-ECDF-45DF-9414-01C9AA64A025" typeRef="number" label="totalBureauOverDue">
+          <text>sum(total)</text>
         </literalExpression>
-      </in>
-      <return id="_06846B4E-9EA1-44E0-B4AB-D5791A9F20AD">
-        <literalExpression id="_6C077E36-BB07-4A8F-89CF-A96F07333B26" label="Expression Name">
-          <text>if t.tl_overdue_amount &gt; 0 
-then 1 
-else 0</text>
-        </literalExpression>
-      </return>
-    </for>
+      </contextEntry>
+    </context>
   </decision>
   <inputData name="Tradeline" id="_DB087796-1901-408A-A281-BE01DEB628C8">
     <variable name="Tradeline" id="_AC8C623E-4FA9-4A7D-B968-C8540E00057A" typeRef="Tradeline_List" />
@@ -170,11 +176,17 @@ else 0</text>
           <kie:ComponentWidths dmnElementRef="_337FFB40-75F5-4793-BF10-347CA7446A7F">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_B85E9219-2AB6-45C6-94FF-02BEEA29F359">
-            <kie:width>329</kie:width>
+          <kie:ComponentWidths dmnElementRef="_604CAB08-9A46-48E9-8EAE-5B9BABF6986C">
+            <kie:width>120</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_6C077E36-BB07-4A8F-89CF-A96F07333B26">
-            <kie:width>329</kie:width>
+          <kie:ComponentWidths dmnElementRef="_548C41B6-AE41-40E6-8B7B-5E9C7630FDED">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8C296443-FEB5-472B-8CB5-6A3F15D75D6F">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F0E9F8D6-ECDF-45DF-9414-01C9AA64A025">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
