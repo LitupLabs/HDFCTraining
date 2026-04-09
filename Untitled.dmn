@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_77F264DA-4518-47AC-A4D6-E7D9C522D330" id="_26039CA2-3EA8-4F58-9EE0-6F54D5749B12" name="DMN_1366F4BA-308E-461D-AD20-07590F28357F" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_4265CCC2-5153-4E51-B15A-AD9626AD7108" name="Tradelinelist" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>tradelines</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_742F7EAC-9152-4C97-9C88-7746138DD52A" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_B918F69C-C43A-4A0A-BB88-C1E9E78FA515" name="applicant_reference_number" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_31619F4B-132E-46E3-B881-E4FFBA89C15B" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_8A788158-95ED-4415-933C-CC77AFB31133" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_89F3C7B1-5356-4923-8099-136F787C67EF" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+</definitions>
