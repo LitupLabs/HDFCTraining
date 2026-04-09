@@ -16,7 +16,7 @@
     <filter id="_0DF48C34-5399-4449-90AC-5F1DE1AAEA99" typeRef="number" label="numOfLiveTrades">
       <in id="_0496AED0-D58E-4717-864D-1EDF2E116D6C">
         <literalExpression id="_60B6D85F-E512-4E6A-B93B-5A21E1253BFA" label="Expression Name">
-          <text>not(TardeLine.tl_closed_date in [&quot;0:00:00&quot;, &quot;null&quot;, null, &quot;&quot;] )</text>
+          <text>not(TardeLine.tl_closed_date in [&quot;01/01/1999 00:00:00&quot;, &quot;null&quot;, null, &quot;&quot;] )</text>
         </literalExpression>
       </in>
       <match id="_FF82503C-C813-4650-8B06-88B889CE781F">
