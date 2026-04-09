@@ -2,9 +2,6 @@
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_D44ACD89-9511-49A3-B4A0-69612438D78A" id="_0C60C9E0-BDC2-4CEC-8B7B-89ECA6B22DD3" name="DMN_8C3A6388-10D8-4D2F-A7F5-16F95C765BA0">
   <itemDefinition id="_C831BAB5-A920-456A-8CD4-F63198880A4E" name="Amount" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_83D8F14C-3044-45B1-81C7-72154DE9C839" name="Recommendation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_8D0A3EF2-36A9-4DBA-889C-44011267FD0A" name="vendorId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>string</typeRef>
-    </itemComponent>
     <itemComponent id="_048EB42C-E31A-465E-8E6E-8FC8ABD94AB9" name="approvalRequired" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>boolean</typeRef>
     </itemComponent>
@@ -194,15 +191,15 @@ basePriceFactor: v.BasePriceFactor
       </match>
     </filter>
   </decision>
-  <decision name="Final Vendor Cost" id="_80D5BEEF-5106-414A-9C3A-933E2B17B1BC">
-    <variable name="Final Vendor Cost" id="_CE19ADBC-8649-4887-8CAF-DB74B51D1273" typeRef="scoredVendor" />
+  <decision name="Final Vendor" id="_80D5BEEF-5106-414A-9C3A-933E2B17B1BC">
+    <variable name="Final Vendor" id="_CE19ADBC-8649-4887-8CAF-DB74B51D1273" typeRef="scoredVendor" />
     <informationRequirement id="_9454A6EC-0359-4ADA-8E50-9D07F8837775">
       <requiredDecision href="#_856EFE18-AF49-4F17-B937-E0B554ED6FF1" />
     </informationRequirement>
     <informationRequirement id="_2B8FDB65-FEFA-4FE8-9913-BC4C622C64CE">
       <requiredDecision href="#_C7ABE838-F7B7-4700-A8DA-CEE5370A6FE4" />
     </informationRequirement>
-    <literalExpression id="_CAEE64C7-C32C-43D6-84DE-FDD6492CFF61" typeRef="scoredVendor" label="Final Vendor Cost">
+    <literalExpression id="_CAEE64C7-C32C-43D6-84DE-FDD6492CFF61" typeRef="scoredVendor" label="Final Vendor">
       <text>for v in Best Vendor
 
 return {
@@ -216,16 +213,16 @@ basePriceFactor: v.basePriceFactor
 }</text>
     </literalExpression>
   </decision>
-  <decision name="Approval Required or Not" id="_8D279A4F-65D9-4B6D-8A03-46D1C28B9394">
-    <variable name="Approval Required or Not" id="_2F7D128D-35BF-4B08-B6AD-A280A8060224" typeRef="boolean" />
+  <decision name="Approval Decision" id="_8D279A4F-65D9-4B6D-8A03-46D1C28B9394">
+    <variable name="Approval Decision" id="_2F7D128D-35BF-4B08-B6AD-A280A8060224" typeRef="boolean" />
     <informationRequirement id="_81E49B53-E2D1-4F33-B6D4-11D77F88EAC4">
       <requiredDecision href="#_80D5BEEF-5106-414A-9C3A-933E2B17B1BC" />
     </informationRequirement>
     <informationRequirement id="_10E69AEB-141A-48AF-8AD6-E20CFD265888">
       <requiredInput href="#_550D3964-0DBA-4929-8CCA-B4B20F49217D" />
     </informationRequirement>
-    <literalExpression id="_A4B34BB3-F629-4A74-8574-D35286DDAC32" typeRef="boolean" label="Approval Required or Not">
-      <text>Final Vendor Cost.score &gt; Polices.ApprovalThreshold</text>
+    <literalExpression id="_A4B34BB3-F629-4A74-8574-D35286DDAC32" typeRef="boolean" label="Approval Decision">
+      <text>Final Vendor.score &gt; Polices.ApprovalThreshold</text>
     </literalExpression>
   </decision>
   <decision name="Recommended Vendor" id="_A202D3DE-C26D-4A1D-AA35-EC147F307646">
@@ -236,7 +233,18 @@ basePriceFactor: v.basePriceFactor
     <informationRequirement id="_99F61E4F-F63B-4A41-9C25-1AA5D34BF7BD">
       <requiredDecision href="#_80D5BEEF-5106-414A-9C3A-933E2B17B1BC" />
     </informationRequirement>
-    <literalExpression id="_0E4656A9-76BB-4EFC-95B6-C96DB7CD4927" typeRef="Recommendation" label="Recommended Vendor" />
+    <literalExpression id="_0E4656A9-76BB-4EFC-95B6-C96DB7CD4927" typeRef="Recommendation" label="Recommended Vendor">
+      <text>for v in Final Vendor
+
+return {
+
+selectedVendor: Final Vendor,
+
+approvalRequired: Approval Decision
+
+}
+ </text>
+    </literalExpression>
   </decision>
   <businessKnowledgeModel name="Calculate Item Total" id="_9CA8680C-FD67-4357-90B2-28CEFF64C7F0">
     <variable name="Calculate Item Total" id="_D52082F1-14EC-4CD1-9740-DA7233FE6307" typeRef="number" />
@@ -403,7 +411,7 @@ basePriceFactor: v.basePriceFactor
             <kie:width>1249</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_0E4656A9-76BB-4EFC-95B6-C96DB7CD4927">
-            <kie:width>190</kie:width>
+            <kie:width>1135</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_C8C60A91-8C59-452F-9ED9-E09DE53B4C0E" id="_E42AF6FE-50A2-46C1-A623-A9BBE304719F" name="DMN_8330F7FD-0AAD-4769-9DB5-6B22AF021245" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_9AD48882-3A0F-4952-B34B-8AC0F29550E4" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_76BB598E-530A-4688-9937-1948BD5BC0D5" name="applicant_reference_number" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_D34340CA-E655-400B-BDE5-3C57FD04FABA" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_7592B296-4FD5-4B40-9D3E-FA07164DD956" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <decision name="numOfLiveTrades" id="_9260F595-F4B0-4DB2-AE13-C8DEB265FA55">
+    <variable name="numOfLiveTrades" id="_70926F00-B26A-4C0F-9502-F059042E4E34" typeRef="number" />
+    <informationRequirement id="_5BE7CD62-ACC0-41DC-9FC7-4B2195CE1849">
+      <requiredInput href="#_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773" />
+    </informationRequirement>
+    <filter id="_0DF48C34-5399-4449-90AC-5F1DE1AAEA99" typeRef="number" label="numOfLiveTrades">
+      <in id="_0496AED0-D58E-4717-864D-1EDF2E116D6C">
+        <literalExpression id="_60B6D85F-E512-4E6A-B93B-5A21E1253BFA" label="Expression Name">
+          <text>not(TardeLine.tl_closed_date in [&quot;0:00:00&quot;, &quot;null&quot;, null, &quot;&quot;] )</text>
+        </literalExpression>
+      </in>
+      <match id="_FF82503C-C813-4650-8B06-88B889CE781F">
+        <literalExpression id="_E6A4FEB7-159D-4819-9104-B4F167DE59A2" label="Expression Name">
+          <text>count(TardeLine.applicant_reference_number)</text>
+        </literalExpression>
+      </match>
+    </filter>
+  </decision>
+  <inputData name="TardeLine" id="_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773">
+    <variable name="TardeLine" id="_82AA3E0C-31D4-4963-ADF4-28F55ADAB384" typeRef="tbl_tradelines" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_4CF39306-4038-4696-831B-6EE6A872E042" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_60B6D85F-E512-4E6A-B93B-5A21E1253BFA">
+            <kie:width>1360</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E6A4FEB7-159D-4819-9104-B4F167DE59A2">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_A7E98FD2-4669-4262-87C3-6A5757B51365" dmnElementRef="_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="112" y="292" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_15390610-60B3-4FBE-8E26-6331F2E4E89E" dmnElementRef="_9260F595-F4B0-4DB2-AE13-C8DEB265FA55" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="112" y="112" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_F0F22026-29B0-48DB-A293-CB84F46FD308" dmnElementRef="_5BE7CD62-ACC0-41DC-9FC7-4B2195CE1849" sourceElement="_A7E98FD2-4669-4262-87C3-6A5757B51365" targetElement="_15390610-60B3-4FBE-8E26-6331F2E4E89E">
+        <di:waypoint x="192" y="292" />
+        <di:waypoint x="192" y="192" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
