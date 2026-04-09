@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_E96BD3D6-C88D-44ED-A755-302F48AA9903" id="_E855E7CB-C081-40EC-89DC-E826676B009D" name="DMN_DEF1F31E-55E6-4B36-9CA7-2D37C7DEB6DF" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_B5C8A0A3-292D-42BB-8C9E-92D9F9FF0092" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <description>LoanOffer</description>
+    <itemComponent id="_79820200-5CB5-4279-B67D-53304A737691" name="intrestRate" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_045D75C8-4473-438B-9D6A-48CFD3791179" name="New property" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  </itemDefinition>
+</definitions>
