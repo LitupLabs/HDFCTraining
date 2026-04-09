@@ -18,7 +18,7 @@
   </itemDefinition>
   <decision name="NumOfLiveTrades" id="_C6161D11-AC99-40EF-823E-75C4438500B1">
     <variable name="NumOfLiveTrades" id="_CAEA294B-4B01-451E-A728-CC97A12402D9" typeRef="number" />
-    <informationRequirement id="_902FB004-2736-4856-A5FA-14B78882A4CC">
+    <informationRequirement id="_F0C6997F-D854-480F-8993-05F19A3C5ED2">
       <requiredInput href="#_995D532E-751A-45C4-B549-5F0037B4EF3F" />
     </informationRequirement>
     <context id="_56DED3E6-40D3-4961-A6AC-B9A413A946EA" typeRef="number" label="NumOfLiveTrades">
@@ -62,22 +62,22 @@
     </context>
   </decision>
   <decision name="totalBureauOverDue" id="_EF71B5A8-0462-46D4-9472-47F8006C947E">
-    <variable name="totalBureauOverDue" id="_F4175663-DF1F-402C-B320-81A72F078A92" typeRef="overdue" />
+    <variable name="totalBureauOverDue" id="_F4175663-DF1F-402C-B320-81A72F078A92" typeRef="number" />
     <informationRequirement id="_DFDB8B67-F7A0-48C3-AE00-60C08FF767A7">
       <requiredInput href="#_995D532E-751A-45C4-B549-5F0037B4EF3F" />
     </informationRequirement>
-    <context id="_A6A97D42-5453-402F-8561-50B65E5D2ECE" typeRef="overdue" label="totalBureauOverDue">
+    <context id="_A6A97D42-5453-402F-8561-50B65E5D2ECE" typeRef="number" label="totalBureauOverDue">
       <contextEntry id="_08F8DC31-46F6-4CC3-BD0F-F1B42F3BD663">
-        <variable id="_4C420FFC-14DD-47B2-8B9A-A8E5DC2E6EE4" name="tl_overdue_amount" typeRef="number" />
-        <for id="_062A262E-6EFB-4C75-A23D-8A04E51FBC09" typeRef="number" label="tl_overdue_amount" iteratorVariable="i">
+        <variable id="_4C420FFC-14DD-47B2-8B9A-A8E5DC2E6EE4" name="tl_overdue_amount" typeRef="overdue" />
+        <for id="_062A262E-6EFB-4C75-A23D-8A04E51FBC09" typeRef="overdue" label="tl_overdue_amount" iteratorVariable="i">
           <in id="_AD763534-772E-4622-89BD-37C1ECE4AEAD">
             <literalExpression id="_230C746B-2BFB-45E8-9C1C-FD4ED43F0A73" label="Expression Name">
               <text>tbl_tradelines</text>
             </literalExpression>
           </in>
-          <return id="_260900FA-22CB-456E-B490-8C792DA14FBE">
+          <return id="_A3A85687-39F4-4D16-9D44-950307F94309">
             <literalExpression id="_B8CC933A-5791-4B0D-9A34-5C3EF30FECC6" label="Expression Name">
-              <text>i.overdue</text>
+              <text>if i.tl_overdue_amount = null then 0 else i.tl_overdue_amount</text>
             </literalExpression>
           </return>
         </for>
@@ -118,13 +118,13 @@
             <kie:width>120</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_230C746B-2BFB-45E8-9C1C-FD4ED43F0A73">
-            <kie:width>413</kie:width>
+            <kie:width>606</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_B8CC933A-5791-4B0D-9A34-5C3EF30FECC6">
-            <kie:width>413</kie:width>
+            <kie:width>606</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_236602E5-657B-4D52-A2D1-C53DC179099F">
-            <kie:width>495</kie:width>
+            <kie:width>688</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -137,13 +137,13 @@
       <dmndi:DMNShape id="_D5F0D05E-B9ED-42FD-86D6-65399C7A51BD" dmnElementRef="_EF71B5A8-0462-46D4-9472-47F8006C947E" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="660" y="240" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="_5AF45405-08F4-4AFD-9FBC-EAA708E703AD" dmnElementRef="_902FB004-2736-4856-A5FA-14B78882A4CC" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_12120627-5E43-4E22-A5FA-ED054E2DBF93">
-        <di:waypoint x="580" y="100" />
-        <di:waypoint x="280" y="280" />
-      </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_AC94A244-B6C8-47E4-80D8-52705912B234" dmnElementRef="_DFDB8B67-F7A0-48C3-AE00-60C08FF767A7" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_D5F0D05E-B9ED-42FD-86D6-65399C7A51BD">
         <di:waypoint x="580" y="100" />
         <di:waypoint x="740" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_0B2F23F2-B8DE-4254-A316-817A517A6F03" dmnElementRef="_F0C6997F-D854-480F-8993-05F19A3C5ED2" sourceElement="_8C2CB660-F3D1-4EC1-8289-33EB1022270B" targetElement="_12120627-5E43-4E22-A5FA-ED054E2DBF93">
+        <di:waypoint x="580" y="100" />
+        <di:waypoint x="280" y="280" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
