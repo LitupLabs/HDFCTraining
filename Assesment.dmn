@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_01638FB1-4C6D-4B86-B53E-11AF9AC1AC72" id="_1467F3D0-9CC8-40BD-951B-B03B3B7D5F9F" name="DMN_B011171D-37F8-442B-99A1-578377514D0E" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_84C51DEF-E597-42BC-A13B-9D5A118E55C5" name="detail_obj" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>Details</typeRef>
+  </itemDefinition>
   <itemDefinition id="_875E3337-6237-4956-A75C-AB9B478BCF6C" name="tradeline_list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>tradelines</typeRef>
   </itemDefinition>
