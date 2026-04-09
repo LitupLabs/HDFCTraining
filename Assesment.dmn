@@ -159,23 +159,16 @@
       </contextEntry>
     </context>
   </decision>
-  <decision name="lst_UnSecLoan" id="_EBF8CCFC-878A-4762-A364-06B62FE7AF20">
-    <variable name="lst_UnSecLoan" id="_6FE377C5-0A2C-44C5-A55D-A5CC8F4F3A79" typeRef="lstTrades" />
-    <informationRequirement id="_849A6D85-94C3-4B0C-A467-7CB60D3814A3">
-      <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
-    </informationRequirement>
-    <knowledgeRequirement id="_4B996F5E-E174-4187-B01C-2C6913D9EBD1">
-      <requiredKnowledge href="#_C72B97D3-93BD-4FC3-8879-E20CA262A173" />
-    </knowledgeRequirement>
-  </decision>
   <businessKnowledgeModel name="fnUnSecureLiveLoanCheck" id="_C72B97D3-93BD-4FC3-8879-E20CA262A173">
     <variable name="fnUnSecureLiveLoanCheck" id="_F2B6EAF4-7A92-4414-9B0D-376C98FDEA0D" typeRef="number" />
     <encapsulatedLogic label="fnUnSecureLiveLoanCheck" typeRef="number" id="_CD21F6EB-D0CF-4170-A55E-5F3B057EB9B0" kind="FEEL">
       <formalParameter id="_F2B0E19D-1BD5-4CCF-BA52-84793342009E" name="tl" typeRef="tradelines_obj" />
       <literalExpression id="_C3B5D5F8-79A2-49BE-91D0-2FB604B1C403" typeRef="number" label="Return">
-        <text>if (tl.tl_acct_type = null or upper case(replace(tl.tl_acct_type, &quot; &quot;, &quot;&quot;)) in [&quot;BUSINESSLOAN&quot;,&quot;CONSUMERLOAN&quot;,&quot;EDUCATIONLOAN&quot;,&quot;LOANONCREDITCARD&quot;,&quot;MICROFINANCEHOUSINGLOAN&quot;,&quot;PERSONALLOAN&quot;,&quot;MUDRALOANSSHISHUKISHORTARUN&quot;,&quot;OTHER&quot;,&quot;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&quot;])
-then 0
-else 1</text>
+        <text>
+if tl.tl_acct_type = null then 0
+else if (upper case(replace(tl.tl_acct_type, &quot; &quot;, &quot;&quot;)) in [&quot;BUSINESSLOAN&quot;,&quot;CONSUMERLOAN&quot;,&quot;EDUCATIONLOAN&quot;,&quot;LOANONCREDITCARD&quot;,&quot;MICROFINANCEHOUSINGLOAN&quot;,&quot;PERSONALLOAN&quot;,&quot;MUDRALOANSSHISHUKISHORTARUN&quot;,&quot;OTHER&quot;,&quot;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&quot;])
+then 1
+else 0</text>
       </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
@@ -248,9 +241,6 @@ else 1</text>
       <dmndi:DMNShape id="_721508EC-7986-45DA-A9F6-E0A43D43B0DB" dmnElementRef="_C72B97D3-93BD-4FC3-8879-E20CA262A173" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="120" y="-20" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="_F30ED4FC-D230-46BA-B59C-BEF9FEABB46C" dmnElementRef="_EBF8CCFC-878A-4762-A364-06B62FE7AF20" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="340" y="-20" width="160" height="80" />
-      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_732D46A6-C0E5-4ED7-B417-9ACD8A88A460" dmnElementRef="_326D29A0-3482-4012-9532-B0B643FC470D" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7">
         <di:waypoint x="192" y="292" />
         <di:waypoint x="-80" y="200" />
@@ -266,14 +256,6 @@ else 1</text>
       <dmndi:DMNEdge id="_AB8A3B88-A140-4958-90CC-EEB85AA8973D" dmnElementRef="_601704E6-2C29-4A21-AE6C-A5F15C2C1078" sourceElement="_721508EC-7986-45DA-A9F6-E0A43D43B0DB" targetElement="_AF7C487C-E0B9-4EE6-9D19-CAD63F601390">
         <di:waypoint x="200" y="20" />
         <di:waypoint x="200" y="160" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_EF7B2624-0B72-426F-B69E-BBD6A21443F9" dmnElementRef="_849A6D85-94C3-4B0C-A467-7CB60D3814A3" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_F30ED4FC-D230-46BA-B59C-BEF9FEABB46C">
-        <di:waypoint x="192" y="332" />
-        <di:waypoint x="420" y="-20" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_84CD4D94-335F-4E66-8E97-30B9BD6545E7" dmnElementRef="_4B996F5E-E174-4187-B01C-2C6913D9EBD1" sourceElement="_721508EC-7986-45DA-A9F6-E0A43D43B0DB" targetElement="_F30ED4FC-D230-46BA-B59C-BEF9FEABB46C">
-        <di:waypoint x="200" y="20" />
-        <di:waypoint x="420" y="20" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
