@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8937B8BF-2E81-4746-8A93-41849E864DE1" id="_EBDE8AEF-D0CB-4EAB-BDAF-47B74663EA96" name="DMN_083D042D-9950-4B3B-956E-B3103F0EBF93" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_3C822B55-B792-4555-A92D-3560E203BC7B" name="lstTrades" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_58EA8553-1D14-4D77-8FFD-B26320C73E41" name="raw_input" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_70F418E7-44C7-4BA1-906E-164B22F7387B" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>applicant</typeRef>
@@ -54,15 +55,23 @@
       <typeRef>date</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="numOfLiveTrades" id="_95063ED5-2317-4A4F-9C9E-4BAF79C06613">
-    <variable name="numOfLiveTrades" id="_49E946DA-FE93-4CE4-AB5B-9447D57CDFD0" typeRef="number" />
+  <decision name="listTrades" id="_95063ED5-2317-4A4F-9C9E-4BAF79C06613">
+    <variable name="listTrades" id="_49E946DA-FE93-4CE4-AB5B-9447D57CDFD0" typeRef="lstTrades" />
     <informationRequirement id="_EDFD1E27-81A8-4F7E-BB96-ADA5650BB6BC">
       <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
     </informationRequirement>
-    <filter id="_F1D0B5FC-CFE3-4CB0-8EB6-F4E026183170" typeRef="number" label="numOfLiveTrades">
-      <in id="_8F9C931B-5493-4343-9934-BC4ABF1E35D1" />
-      <match id="_1624E773-8D4A-4F37-93AF-7A622F3F0C34" />
-    </filter>
+    <for id="_202DDE4F-5A2C-4BC6-95E3-F1BA4ECA76A1" typeRef="lstTrades" label="listTrades" iteratorVariable="item">
+      <in id="_686988A0-F388-4CB8-9EC8-D28F9D084B30">
+        <literalExpression id="_0B38AC10-5737-41CD-B59C-C414AF717CF4" label="Expression Name">
+          <text>raw_input.applicant.tbl_tradelines</text>
+        </literalExpression>
+      </in>
+      <return id="_6B8BD375-BB25-4B37-8459-D852C176DDFA">
+        <literalExpression id="_B04B29C7-CEE6-468A-A96C-97F269A4C47F" label="Expression Name">
+          <text>item.tl_closed_date</text>
+        </literalExpression>
+      </return>
+    </for>
   </decision>
   <inputData name="raw_input" id="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E">
     <variable name="raw_input" id="_578AD899-6CE9-45BF-A4BF-2757A365ADDA" typeRef="raw_input" />
@@ -71,6 +80,12 @@
     <dmndi:DMNDiagram id="_DCC63684-781B-410A-B55D-CE3447CD8DFA" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_0B38AC10-5737-41CD-B59C-C414AF717CF4">
+            <kie:width>649</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B04B29C7-CEE6-468A-A96C-97F269A4C47F">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" dmnElementRef="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" isCollapsed="false" isListedInputData="false">
