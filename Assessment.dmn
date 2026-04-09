@@ -179,7 +179,7 @@
         </filter>
       </contextEntry>
       <contextEntry id="_25D9F8C4-C3CC-48B2-896F-7C031E3EA243">
-        <variable id="_DCB63D06-4277-44A3-AE60-E628B1485D5A" name="filtered" typeRef="trade">
+        <variable id="_DCB63D06-4277-44A3-AE60-E628B1485D5A" name="filtered_unsec" typeRef="trade">
           <description></description>
         </variable>
         <filter id="_168DB586-9BD3-4CBB-981A-C424438F4163" typeRef="trade" label="filtered">
@@ -197,7 +197,7 @@
       </contextEntry>
       <contextEntry id="_08B9606E-3FED-4ABF-AD8B-2ADCF8AC5D22">
         <literalExpression id="_7B65A858-8494-469E-A81E-34FACCA4B7E9" typeRef="number" label="cntOfUnsecuredTrades">
-          <text>count(filtered)</text>
+          <text>count(filtered_unsec)</text>
         </literalExpression>
       </contextEntry>
     </context>
