@@ -154,7 +154,7 @@
       </contextEntry>
       <contextEntry id="_C1AD8180-FD6B-46BF-9E5D-29A49FC5C2FD">
         <literalExpression id="_BBE64BE8-D3D3-4B09-8881-9E013CAF3A34" typeRef="number" label="num_Livetrades">
-          <text>count(lst_UnSecLoan)</text>
+          <text>sum(lst_UnSecLoan)</text>
         </literalExpression>
       </contextEntry>
     </context>
