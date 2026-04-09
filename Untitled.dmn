@@ -55,36 +55,75 @@
       <typeRef>date</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="trade" id="_26AAADEA-6B1E-4812-8DEF-C246312DE082">
-    <variable name="trade" id="_5B5B3492-C3D2-4489-9360-12AFDEE3C00A" typeRef="trade" />
+  <decision name="trade_data" id="_26AAADEA-6B1E-4812-8DEF-C246312DE082">
+    <variable name="trade_data" id="_5B5B3492-C3D2-4489-9360-12AFDEE3C00A" typeRef="number" />
     <informationRequirement id="_867475D8-1EA1-4540-AF23-389D839EC4E9">
       <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
     </informationRequirement>
-    <for id="_74A6F5E3-A58D-43A6-9999-D11DFBFE03C5" typeRef="trade" label="trade" iteratorVariable="t">
-      <in id="_7C814287-6F13-4CA1-BA60-4D7F11F69924">
-        <literalExpression id="_72F4D01F-8024-4BB1-82FF-2A450EF988F1" label="Expression Name">
-          <text>raw_data.applicant.tradelines</text>
+    <context id="_F6328E4F-E138-413D-8B5A-EA0DF4F18CC2" typeRef="number" label="trade_data">
+      <contextEntry id="_D2800ED5-2F33-48B0-9E10-8E80E95B0E82">
+        <variable id="_4C50EE66-CB58-4919-BB5E-583ADECFD438" name="trade" typeRef="trade" />
+        <for id="_323D657B-F117-4B60-A686-46471CF4E26F" typeRef="trade" label="trade" iteratorVariable="t">
+          <in id="_5F662270-516C-4FDE-91E6-164B0CFC75FF">
+            <literalExpression id="_7C5F6ABE-7C02-4411-A068-1989EECC92D6" label="Expression Name">
+              <text>tradeline</text>
+            </literalExpression>
+          </in>
+          <return id="_618265F3-3171-4E8F-889F-8FE5D3B2EB21">
+            <literalExpression id="_6836C2A4-AE64-49C7-A415-6CB26BE5B950" label="Expression Name">
+              <text>t.tl_closed_date</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_4BAA977A-80F5-414E-9261-3E0FA6A3EF49">
+        <variable id="_9C4A4EF9-C74D-4693-9D1A-960776EC9A81" name="flitered" typeRef="trade">
+          <description></description>
+        </variable>
+        <filter id="_21E3546E-86AD-4F67-9492-C827969BBC02" typeRef="trade" label="flitered">
+          <in id="_867FAE33-2635-49FD-BA1F-5779D880689F">
+            <literalExpression id="_76E03709-93EC-4586-8861-8C74F67B11AE" label="Expression Name">
+              <text>trade</text>
+            </literalExpression>
+          </in>
+          <match id="_ECA3432F-1EF5-4AD4-B8E3-C41655D7F6C3">
+            <literalExpression id="_02A5C72B-1253-46DC-B26E-6A1060CEDD76" label="Expression Name">
+              <text>item in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;))</text>
+            </literalExpression>
+          </match>
+        </filter>
+      </contextEntry>
+      <contextEntry id="_1DD226F0-FEE8-44D5-86BA-925C88F19F63">
+        <literalExpression id="_6E4492E3-D9D3-40A0-888B-6421DB5C363D" typeRef="number" label="trade">
+          <text>count(flitered)</text>
         </literalExpression>
-      </in>
-      <return id="_20D25A04-59A0-47A8-82F7-BBE04FCF9B56">
-        <literalExpression id="_5219F38C-5258-43E9-87A9-92C5733C07AD" label="Expression Name">
-          <text>t.tl_closed_date</text>
-        </literalExpression>
-      </return>
-    </for>
+      </contextEntry>
+    </context>
   </decision>
-  <inputData name="raw_data" id="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08">
-    <variable name="raw_data" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="raw_input" />
+  <inputData name="tradeline" id="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08">
+    <variable name="tradeline" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="tradelines_list" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_CC545C0F-2B38-4D9C-85FC-CD435DF1DBFE" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_72F4D01F-8024-4BB1-82FF-2A450EF988F1">
-            <kie:width>530</kie:width>
+          <kie:ComponentWidths dmnElementRef="_F6328E4F-E138-413D-8B5A-EA0DF4F18CC2">
+            <kie:width>120</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_5219F38C-5258-43E9-87A9-92C5733C07AD">
-            <kie:width>190</kie:width>
+          <kie:ComponentWidths dmnElementRef="_7C5F6ABE-7C02-4411-A068-1989EECC92D6">
+            <kie:width>465</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6836C2A4-AE64-49C7-A415-6CB26BE5B950">
+            <kie:width>465</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_76E03709-93EC-4586-8861-8C74F67B11AE">
+            <kie:width>545</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_02A5C72B-1253-46DC-B26E-6A1060CEDD76">
+            <kie:width>505</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6E4492E3-D9D3-40A0-888B-6421DB5C363D">
+            <kie:width>547</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
