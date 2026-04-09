@@ -55,57 +55,12 @@
       <typeRef>date</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="lst_Closeddates" id="_2204B0F0-D686-42A9-BBF5-FDCE1229C1DD">
-    <variable name="lst_Closeddates" id="_8D50E28E-6A7A-459F-BA3F-D8DD1B81BB12" typeRef="lstTrades" />
-    <informationRequirement id="_6FCCCC29-29E3-4426-880D-0D9E89998D80">
-      <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
-    </informationRequirement>
-    <for id="_67C58713-AD6B-4C33-9153-F9180D605358" typeRef="lstTrades" label="lst_Closeddates" iteratorVariable="item">
-      <in id="_FD0A32CD-9542-4B0F-8119-95AB32F29ECB">
-        <literalExpression id="_67059CB3-A665-4D55-B9D8-48E256BBC812" label="Expression Name">
-          <text>tbl_tradelines</text>
-        </literalExpression>
-      </in>
-      <return id="_ED36760F-2B2F-4104-AC44-E595FB2456A3">
-        <literalExpression id="_1B8320F1-9AFC-4CBB-80B1-0B51703D4527" label="Expression Name">
-          <text>item.tl_closed_date</text>
-        </literalExpression>
-      </return>
-    </for>
-  </decision>
-  <decision name="filtered_List_Closeddates" id="_A1F4CC02-52C1-4D15-91B8-0BC8BA482FE7">
-    <variable name="filtered_List_Closeddates" id="_7C901477-FC18-49E3-83FE-33CC3FACF01A" typeRef="lstTrades" />
-    <informationRequirement id="_1927A1F6-BAD7-45AA-9162-C6F4D734DED9">
-      <requiredDecision href="#_2204B0F0-D686-42A9-BBF5-FDCE1229C1DD" />
-    </informationRequirement>
-    <filter id="_812AB486-1927-446D-9D5C-5EBD6EDC38F0" typeRef="lstTrades" label="filtered_List_Closeddates">
-      <in id="_F8168387-E344-47C9-86BE-398D12470D76">
-        <literalExpression id="_C08CF89F-0DF2-4136-93B3-0A98CAEE70AC" label="Expression Name">
-          <text>lst_Closeddates</text>
-        </literalExpression>
-      </in>
-      <match id="_92B5AA77-5C96-499D-BDA6-5B8B68D56A84">
-        <literalExpression id="_35397EDE-9A63-4F92-A0CA-7A3AF7E819CB" label="Expression Name">
-          <text>not(item in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;)))</text>
-        </literalExpression>
-      </match>
-    </filter>
-  </decision>
-  <decision name="numOfLiveTrades" id="_EB4F8905-BEC6-49D1-A94B-D8FDFD65E553">
-    <variable name="numOfLiveTrades" id="_B9FDF094-4C54-40C9-BA71-69BBA42724AB" typeRef="number" />
-    <informationRequirement id="_62D9FBA0-DC1C-4DF2-9165-4CC3735E48D0">
-      <requiredDecision href="#_A1F4CC02-52C1-4D15-91B8-0BC8BA482FE7" />
-    </informationRequirement>
-    <literalExpression id="_487F0898-714C-4176-A53D-56B69DAB899B" typeRef="number" label="numOfLiveTrades">
-      <text>count(filtered_List_Closeddates)</text>
-    </literalExpression>
-  </decision>
-  <decision name="num_Livetrades" id="_BF916CA9-1FBC-4AFF-8217-50FE950B09EE">
-    <variable name="num_Livetrades" id="_D86D018A-5C90-4728-8A33-71EE8907766D" typeRef="number" />
+  <decision name="numOfLiveTrades" id="_BF916CA9-1FBC-4AFF-8217-50FE950B09EE">
+    <variable name="numOfLiveTrades" id="_D86D018A-5C90-4728-8A33-71EE8907766D" typeRef="number" />
     <informationRequirement id="_326D29A0-3482-4012-9532-B0B643FC470D">
       <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
     </informationRequirement>
-    <context id="_5114DACB-AA5E-4656-853C-6D0BFF6F3C51" typeRef="number" label="num_Livetrades">
+    <context id="_5114DACB-AA5E-4656-853C-6D0BFF6F3C51" typeRef="number" label="numOfLiveTrades">
       <contextEntry id="_8C64752A-E2DE-40A2-8B13-6DBE1D4DD3BD">
         <variable id="_F335A368-4CA2-45D8-889B-24CC1D638E66" name="lst_Closeddates" typeRef="lstTrades" />
         <for id="_B8759452-080B-427B-A177-234989D0CA9C" typeRef="lstTrades" label="lst_Closeddates" iteratorVariable="item">
@@ -152,21 +107,6 @@
     <dmndi:DMNDiagram id="_DCC63684-781B-410A-B55D-CE3447CD8DFA" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_67059CB3-A665-4D55-B9D8-48E256BBC812">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_1B8320F1-9AFC-4CBB-80B1-0B51703D4527">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_C08CF89F-0DF2-4136-93B3-0A98CAEE70AC">
-            <kie:width>432</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_35397EDE-9A63-4F92-A0CA-7A3AF7E819CB">
-            <kie:width>392</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_487F0898-714C-4176-A53D-56B69DAB899B">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_5114DACB-AA5E-4656-853C-6D0BFF6F3C51">
             <kie:width>120</kie:width>
           </kie:ComponentWidths>
@@ -188,35 +128,14 @@
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" dmnElementRef="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="320" y="140" width="160" height="80" />
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="_7427D543-70F0-4EC0-B608-55CC2A9593CC" dmnElementRef="_2204B0F0-D686-42A9-BBF5-FDCE1229C1DD" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="320" y="-40" width="160" height="80" />
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="_74373661-428E-4163-903A-676349BF9BB5" dmnElementRef="_A1F4CC02-52C1-4D15-91B8-0BC8BA482FE7" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="320" y="-220" width="160" height="80" />
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="_86916B22-C026-40FE-826B-AB5BF08C1B67" dmnElementRef="_EB4F8905-BEC6-49D1-A94B-D8FDFD65E553" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="320" y="-380" width="160" height="80" />
+        <dc:Bounds x="112" y="292" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7" dmnElementRef="_BF916CA9-1FBC-4AFF-8217-50FE950B09EE" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="80" y="0" width="160" height="80" />
+        <dc:Bounds x="112" y="112" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="_419BF1DE-FCCD-446E-8516-050A44ED81B0" dmnElementRef="_6FCCCC29-29E3-4426-880D-0D9E89998D80" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_7427D543-70F0-4EC0-B608-55CC2A9593CC">
-        <di:waypoint x="400" y="180" />
-        <di:waypoint x="400" y="0" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_F17AC9C2-0FB4-4C4C-BDE5-79055363F03C" dmnElementRef="_1927A1F6-BAD7-45AA-9162-C6F4D734DED9" sourceElement="_7427D543-70F0-4EC0-B608-55CC2A9593CC" targetElement="_74373661-428E-4163-903A-676349BF9BB5">
-        <di:waypoint x="400" y="0" />
-        <di:waypoint x="400" y="-180" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="_8F1BCAFF-CD31-408A-A3EE-815910BF3C07" dmnElementRef="_62D9FBA0-DC1C-4DF2-9165-4CC3735E48D0" sourceElement="_74373661-428E-4163-903A-676349BF9BB5" targetElement="_86916B22-C026-40FE-826B-AB5BF08C1B67">
-        <di:waypoint x="400" y="-180" />
-        <di:waypoint x="400" y="-340" />
-      </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_732D46A6-C0E5-4ED7-B417-9ACD8A88A460" dmnElementRef="_326D29A0-3482-4012-9532-B0B643FC470D" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7">
-        <di:waypoint x="400" y="180" />
-        <di:waypoint x="160" y="40" />
+        <di:waypoint x="192" y="292" />
+        <di:waypoint x="192" y="192" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
