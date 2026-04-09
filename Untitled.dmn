@@ -55,12 +55,12 @@
       <typeRef>date</typeRef>
     </itemComponent>
   </itemDefinition>
-  <decision name="trade_data" id="_26AAADEA-6B1E-4812-8DEF-C246312DE082">
-    <variable name="trade_data" id="_5B5B3492-C3D2-4489-9360-12AFDEE3C00A" typeRef="number" />
+  <decision name="numOfLiveTrades" id="_26AAADEA-6B1E-4812-8DEF-C246312DE082">
+    <variable name="numOfLiveTrades" id="_5B5B3492-C3D2-4489-9360-12AFDEE3C00A" typeRef="number" />
     <informationRequirement id="_867475D8-1EA1-4540-AF23-389D839EC4E9">
       <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
     </informationRequirement>
-    <context id="_F6328E4F-E138-413D-8B5A-EA0DF4F18CC2" typeRef="number" label="trade_data">
+    <context id="_F6328E4F-E138-413D-8B5A-EA0DF4F18CC2" typeRef="number" label="numOfLiveTrades">
       <contextEntry id="_D2800ED5-2F33-48B0-9E10-8E80E95B0E82">
         <variable id="_4C50EE66-CB58-4919-BB5E-583ADECFD438" name="trade" typeRef="trade" />
         <for id="_323D657B-F117-4B60-A686-46471CF4E26F" typeRef="trade" label="trade" iteratorVariable="t">
@@ -100,6 +100,31 @@
       </contextEntry>
     </context>
   </decision>
+  <decision name="cntOfUnSecureLiveLoan" id="_957C26D1-37B4-454B-AF52-4A5D6F39A0EE">
+    <variable name="cntOfUnSecureLiveLoan" id="_D3293B33-E8E8-4291-8C18-4DC38C77C818" typeRef="number" />
+    <informationRequirement id="_4809CF00-6B43-4562-B182-FFB9B690028F">
+      <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
+    </informationRequirement>
+    <context id="_D3896738-B4FD-4D4E-9633-7003A48BC234" typeRef="number" label="cntOfUnSecureLiveLoan">
+      <contextEntry id="_57D8BBAA-0D63-4CF2-A4D2-4414D0501BD7">
+        <variable id="_3753099B-CFE0-4138-8319-EC5FEDE02A41" name="unsec_trades" typeRef="string" />
+        <list id="_2E8CE9AF-F833-43A9-91FB-9F4A2DCF48EA" typeRef="string" label="unsec_trades">
+          <literalExpression id="_BD3E618C-1DA7-4A36-B15B-1414C270EAED" typeRef="string" label="Expression Name">
+            <text>[&apos;BUSINESSLOAN&apos;,&apos;CONSUMERLOAN&apos;, &apos;EDUCATIONLOAN&apos;, &apos;LOANONCREDITCARD&apos;, &apos;MICROFINANCEHOUSINGLOAN&apos;, &apos;PERSONALLOAN&apos;, &apos;MUDRALOANSSHISHUKISHORTARUN&apos;, &apos;OTHER&apos;, &apos;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&apos;]</text>
+          </literalExpression>
+        </list>
+      </contextEntry>
+    </context>
+  </decision>
+  <decision name="totalBureauOverDue" id="_71AC915A-04ED-41DD-B2CF-F31AA9EE67D8">
+    <variable name="totalBureauOverDue" id="_A1DAA01E-D469-4298-8D89-6759EEDEDD42" typeRef="number" />
+    <informationRequirement id="_0EFAE30C-08E6-4F87-8C61-91810DD42D27">
+      <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
+    </informationRequirement>
+    <literalExpression id="_162D043C-F867-4FB3-AF16-75554E945ADF" typeRef="number" label="totalBureauOverDue">
+      <text>sum(tradeline.tl_overdue_amount)</text>
+    </literalExpression>
+  </decision>
   <inputData name="tradeline" id="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08">
     <variable name="tradeline" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="tradelines_list" />
   </inputData>
@@ -125,17 +150,40 @@
           <kie:ComponentWidths dmnElementRef="_6E4492E3-D9D3-40A0-888B-6421DB5C363D">
             <kie:width>547</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D3896738-B4FD-4D4E-9633-7003A48BC234">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BD3E618C-1DA7-4A36-B15B-1414C270EAED">
+            <kie:width>700</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_162D043C-F867-4FB3-AF16-75554E945ADF">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_9092B576-3E92-41EB-84F5-FA0FAD3E040C" dmnElementRef="_26AAADEA-6B1E-4812-8DEF-C246312DE082" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="420" y="20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_73A70B92-49F5-4362-87A7-FBA587BB458C" dmnElementRef="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="420" y="140" width="160" height="80" />
+        <dc:Bounds x="520" y="160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_102B0485-4FEE-4BCC-ABB8-5150ED3E3E62" dmnElementRef="_957C26D1-37B4-454B-AF52-4A5D6F39A0EE" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="640" y="20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_EDDCBA2C-06FD-40A2-B908-2C33ED443209" dmnElementRef="_71AC915A-04ED-41DD-B2CF-F31AA9EE67D8" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="840" y="20" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_6396BD42-7647-41CC-86FB-D8BEC4E03467" dmnElementRef="_867475D8-1EA1-4540-AF23-389D839EC4E9" sourceElement="_73A70B92-49F5-4362-87A7-FBA587BB458C" targetElement="_9092B576-3E92-41EB-84F5-FA0FAD3E040C">
-        <di:waypoint x="500" y="180" />
+        <di:waypoint x="600" y="200" />
         <di:waypoint x="500" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_37FCFC9A-AAE1-42C4-AFB1-E01FCDDF1313" dmnElementRef="_4809CF00-6B43-4562-B182-FFB9B690028F" sourceElement="_73A70B92-49F5-4362-87A7-FBA587BB458C" targetElement="_102B0485-4FEE-4BCC-ABB8-5150ED3E3E62">
+        <di:waypoint x="600" y="200" />
+        <di:waypoint x="720" y="100" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_97DC09AB-1DCA-48F3-B71B-B0D7AB369581" dmnElementRef="_0EFAE30C-08E6-4F87-8C61-91810DD42D27" sourceElement="_73A70B92-49F5-4362-87A7-FBA587BB458C" targetElement="_EDDCBA2C-06FD-40A2-B908-2C33ED443209">
+        <di:waypoint x="600" y="200" />
+        <di:waypoint x="920" y="100" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
