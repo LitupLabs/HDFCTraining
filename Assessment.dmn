@@ -123,12 +123,12 @@
       </contextEntry>
     </context>
   </decision>
-  <decision name="cntOfUnsecuredTrades" id="_33F8B296-2CC5-49C1-B87F-6093055DB253">
-    <variable name="cntOfUnsecuredTrades" id="_394F654D-696B-4DF9-ACE0-14F6EDCB52E5" typeRef="number" />
+  <decision name="unsecuredTrades" id="_33F8B296-2CC5-49C1-B87F-6093055DB253">
+    <variable name="unsecuredTrades" id="_394F654D-696B-4DF9-ACE0-14F6EDCB52E5" typeRef="number" />
     <informationRequirement id="_CD5D75F4-A378-43F8-B430-271ADF9B0589">
       <requiredInput href="#_DB087796-1901-408A-A281-BE01DEB628C8" />
     </informationRequirement>
-    <context id="_247C1F8F-E2FB-4DB1-B65A-847CABB4D2E4" typeRef="number" label="cntOfUnsecuredTrades">
+    <context id="_247C1F8F-E2FB-4DB1-B65A-847CABB4D2E4" typeRef="number" label="unsecuredTrades">
       <contextEntry id="_55532BCD-1F3D-4AF1-8B20-68C32A6F4262">
         <variable id="_08C7F401-8296-4D21-AE9F-92193ABD294E" name="for_loop" typeRef="trade" />
         <for id="_C351835B-0122-4788-B359-C222E06B5249" typeRef="trade" label="for_loop" iteratorVariable="i">
@@ -137,26 +137,9 @@
               <text>Tradeline</text>
             </literalExpression>
           </in>
-          <return id="_E016A044-0977-4813-8A70-14448C3BC9A2">
+          <return id="_036162A2-430D-4A2B-8A3A-88BD38C1040D">
             <literalExpression id="_22F99BCF-8A93-4D00-B36B-703EA0129823" label="Expression Name">
-              <text>i.tl_closed_date</text>
-            </literalExpression>
-          </return>
-        </for>
-      </contextEntry>
-      <contextEntry id="_2FDC55C0-E765-4BE0-A096-9982000D5723">
-        <variable id="_0EE9097C-A652-42B5-B240-30444B05B1D1" name="for_loop_unsec" typeRef="trade">
-          <description></description>
-        </variable>
-        <for id="_E835F41A-CD47-4084-B468-87C6B75ABEF5" typeRef="trade" label="for_loop_unsec" iteratorVariable="u">
-          <in id="_C696C6D0-6990-458B-A68D-3721127196B7">
-            <literalExpression id="_E0DB3D4F-47D1-437E-92A6-19F04C803F63" label="Expression Name">
-              <text>Tradeline</text>
-            </literalExpression>
-          </in>
-          <return id="_1E7666A9-3A83-444C-8916-31046E73795A">
-            <literalExpression id="_CB853EC3-A675-4E91-B0BA-08415A5C4E4A" label="Expression Name">
-              <text>u.tl_acct_type</text>
+              <text>{i.tl_closed_date, i.tl_acct_type}</text>
             </literalExpression>
           </return>
         </for>
@@ -173,34 +156,36 @@
           </in>
           <match id="_3982BF97-AEB7-48CE-AA87-224923D366C0">
             <literalExpression id="_A6D889C0-ED9D-4508-A002-7E14FFFECBCB" label="Expression Name">
-              <text>item in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;))</text>
-            </literalExpression>
-          </match>
-        </filter>
-      </contextEntry>
-      <contextEntry id="_25D9F8C4-C3CC-48B2-896F-7C031E3EA243">
-        <variable id="_DCB63D06-4277-44A3-AE60-E628B1485D5A" name="filtered_unsec" typeRef="trade">
-          <description></description>
-        </variable>
-        <filter id="_168DB586-9BD3-4CBB-981A-C424438F4163" typeRef="trade" label="filtered">
-          <in id="_B9EEE5F3-CA40-4FAB-9B03-C111E09272C4">
-            <literalExpression id="_80BBD1F2-263C-4BFF-9EFB-E57A7F7A10B5" label="Expression Name">
-              <text>for_loop_unsec</text>
-            </literalExpression>
-          </in>
-          <match id="_9F3B55FF-B3E9-4B5E-83E0-4F83FE830DD7">
-            <literalExpression id="_31B8C211-D798-4D22-99C7-D02605DF841F" label="Expression Name">
-              <text>item in (&quot;BUSINESSLOAN&quot;,&quot;CONSUMERLOAN&quot;, &quot;EDUCATIONLOAN&quot;, &quot;LOANONCREDITCARD&quot;, &quot;MICROFINANCEHOUSINGLOAN&quot;, &quot;PERSONALLOAN&quot;, &quot;MUDRALOANSSHISHUKISHORTARUN&quot;, &quot;OTHER&quot;, &quot;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&quot;)</text>
+              <text>item in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;)) and item in (&quot;BUSINESSLOAN&quot;,&quot;CONSUMERLOAN&quot;, &quot;EDUCATIONLOAN&quot;, &quot;LOANONCREDITCARD&quot;, &quot;MICROFINANCEHOUSINGLOAN&quot;, &quot;PERSONALLOAN&quot;, &quot;MUDRALOANSSHISHUKISHORTARUN&quot;, &quot;OTHER&quot;, &quot;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&quot;)</text>
             </literalExpression>
           </match>
         </filter>
       </contextEntry>
       <contextEntry id="_08B9606E-3FED-4ABF-AD8B-2ADCF8AC5D22">
         <literalExpression id="_7B65A858-8494-469E-A81E-34FACCA4B7E9" typeRef="number" label="cntOfUnsecuredTrades">
-          <text>count(filtered_unsec)</text>
+          <text>sum(count(filtered_unsec),count(filtered))</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry>
+        <literalExpression id="_7B65A858-8494-469E-A81E-34FACCA4B7E9" typeRef="number" label="cntOfUnsecuredTrades">
+          <text>count(filtered)</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry>
+        <literalExpression id="_7B65A858-8494-469E-A81E-34FACCA4B7E9" typeRef="number" label="cntOfUnsecuredTrades">
+          <text>count(filtered)</text>
         </literalExpression>
       </contextEntry>
     </context>
+  </decision>
+  <decision name="cntOfUnsecuredTrades" id="_854385D2-1D66-42F7-B56D-16FBD1FADFA2">
+    <variable name="cntOfUnsecuredTrades" id="_65B3C10B-B9F5-4E66-894D-EC4BB7055047" typeRef="number" />
+    <informationRequirement id="_25A6CB77-E578-4FA5-9943-BC532A22D5B6">
+      <requiredDecision href="#_33F8B296-2CC5-49C1-B87F-6093055DB253" />
+    </informationRequirement>
+    <literalExpression id="_881B7FFA-B49A-4A37-B7FB-7C352647A108" typeRef="number" label="cntOfUnsecuredTrades">
+      <text>sum(unsecuredTrades)</text>
+    </literalExpression>
   </decision>
   <inputData name="Tradeline" id="_DB087796-1901-408A-A281-BE01DEB628C8">
     <variable name="Tradeline" id="_AC8C623E-4FA9-4A7D-B968-C8540E00057A" typeRef="Tradeline_List" />
@@ -236,25 +221,16 @@
           <kie:ComponentWidths dmnElementRef="_22F99BCF-8A93-4D00-B36B-703EA0129823">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_80BBD1F2-263C-4BFF-9EFB-E57A7F7A10B5">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_31B8C211-D798-4D22-99C7-D02605DF841F">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_7B65A858-8494-469E-A81E-34FACCA4B7E9">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_E0DB3D4F-47D1-437E-92A6-19F04C803F63">
-            <kie:width>190</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_CB853EC3-A675-4E91-B0BA-08415A5C4E4A">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_E5043598-AEFE-4B35-9966-E3276643A128">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A6D889C0-ED9D-4508-A002-7E14FFFECBCB">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_881B7FFA-B49A-4A37-B7FB-7C352647A108">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
@@ -266,7 +242,10 @@
         <dc:Bounds x="20" y="0" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_471C0965-B99A-4C1A-851D-D979F100014B" dmnElementRef="_33F8B296-2CC5-49C1-B87F-6093055DB253" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="420" y="0" width="160" height="80" />
+        <dc:Bounds x="340" y="0" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_01EC8B28-6A98-41E1-8518-39CBBBA74353" dmnElementRef="_854385D2-1D66-42F7-B56D-16FBD1FADFA2" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="600" y="0" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9EA41887-8DA3-400B-9BFF-189D9069AF54" dmnElementRef="_95E3404D-49B8-49EC-9CAC-A71128DCC139" sourceElement="_D0F335AB-868D-4E85-87FF-05D60AB6D46D" targetElement="_17362852-91BE-43FE-B548-7C3E6234FC54">
         <di:waypoint x="300" y="220" />
@@ -274,7 +253,11 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_76D4551B-FD8A-4105-88BA-E8FE180F5E58" dmnElementRef="_CD5D75F4-A378-43F8-B430-271ADF9B0589" sourceElement="_D0F335AB-868D-4E85-87FF-05D60AB6D46D" targetElement="_471C0965-B99A-4C1A-851D-D979F100014B">
         <di:waypoint x="300" y="220" />
-        <di:waypoint x="500" y="80" />
+        <di:waypoint x="420" y="80" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_50BB04BC-9ECD-4D21-9B2D-674143B44665" dmnElementRef="_25A6CB77-E578-4FA5-9943-BC532A22D5B6" sourceElement="_471C0965-B99A-4C1A-851D-D979F100014B" targetElement="_01EC8B28-6A98-41E1-8518-39CBBBA74353">
+        <di:waypoint x="420" y="40" />
+        <di:waypoint x="600" y="40" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
