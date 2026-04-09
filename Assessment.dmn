@@ -82,20 +82,15 @@
     <informationRequirement id="_4601282E-E266-49C4-9F98-FE218DF1980A">
       <requiredInput href="#_76088C6A-EE2B-4C75-8840-225CDEA3974B" />
     </informationRequirement>
-    <literalExpression id="_D4F4CD0A-642D-4E1B-8C10-FE1024FA98D3" typeRef="number" label="numOfLiveTrades">
-      <text>
-sum(
-  for t in (if Applicant.tbl_tradelines = null then [] else Applicant.tbl_tradelines)
-  return
-    if (t.tl_closed_date = &quot;01/01/1900 00:00:00&quot;
-        or t.tl_closed_date = &quot;null&quot;
-        or t.tl_closed_date = &quot;&quot;
-        or t.tl_closed_date = null)
-    then 1
-    else 0
-)
-</text>
-    </literalExpression>
+    <context id="_2DFDFDB6-5E8B-4789-8767-F60D37301E46" typeRef="number" label="numOfLiveTrades">
+      <contextEntry id="_C48E9C74-3C04-4A12-8CF7-3BEFA3184FB2">
+        <variable id="_CD3E725F-4BC1-4900-BB1D-8243147FB130" name="numOfTradeline" typeRef="number" />
+        <for id="_79E59998-C970-4721-9897-E09597002632" typeRef="number" label="numOfTradeline">
+          <in id="_4E137F60-DAE5-4AAF-8971-183F3B0C98B7" />
+          <return id="_E6E12C29-ECB5-4013-AF23-572A1A974819" />
+        </for>
+      </contextEntry>
+    </context>
   </decision>
   <inputData name="Applicant" id="_76088C6A-EE2B-4C75-8840-225CDEA3974B">
     <variable name="Applicant" id="_2095F144-8083-4DAE-AD48-4BC405C95055" typeRef="applicant" />
@@ -104,8 +99,8 @@ sum(
     <dmndi:DMNDiagram id="_AE39B66D-FF56-4F6E-B89A-DD07C52BEF8B" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_D4F4CD0A-642D-4E1B-8C10-FE1024FA98D3">
-            <kie:width>549</kie:width>
+          <kie:ComponentWidths dmnElementRef="_2DFDFDB6-5E8B-4789-8767-F60D37301E46">
+            <kie:width>120</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
