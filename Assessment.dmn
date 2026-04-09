@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_1B74E78D-FBC4-4409-AF4E-C95E93503B6D" id="_0A749F11-B712-4222-8F8F-636596C20396" name="DMN_B5FC457E-9559-4182-BFA9-F0FAE545CC14" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_3BBE4D29-7484-4C3E-AFEC-74FDB74519B0" name="tradelines_obj" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_34320FB8-C53D-4B8F-98A5-FCA6F66C054F" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date and time</typeRef>
+    </itemComponent>
+    <itemComponent id="_C04C06AF-3026-4D43-952E-1DA79605D854" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_DC6C6220-031D-48A9-A94D-7C998C33F712" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_227DAC20-FF41-40F8-9368-D023E2ACFE92" name="tl_acct_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date and time</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_2DB57106-C931-4D9A-9CD5-89D31D82BC2B" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_2C6B354C-2CE7-40CD-BA20-04E5C7901AA3" name="Tradeline_List" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>tbl_tradelines</typeRef>
+  </itemDefinition>
   <itemDefinition id="_9CB452FF-E94A-4CD1-B4BE-FEA16E8544BE" name="raw_input" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_FE67DB80-A9A1-4E33-9561-6F21C7A38499" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>applicant</typeRef>
@@ -56,16 +74,8 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_DF18F637-0A47-480E-87BC-A46C04F11621" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_F90B6F50-E5D4-4C1E-914A-45680E75725D" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>date and time</typeRef>
-    </itemComponent>
-    <itemComponent id="_67B18A6E-F102-4AF4-B975-3093E6C1D0FD" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>string</typeRef>
-    </itemComponent>
-    <itemComponent id="_3A66A72A-31FB-4B7A-99E4-91AC556A0492" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>number</typeRef>
-    </itemComponent>
+  <itemDefinition id="_DF18F637-0A47-480E-87BC-A46C04F11621" name="tbl_tradelines" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>tradelines_obj</typeRef>
   </itemDefinition>
   <decision name="numOfLiveTrades" id="_128C5AD2-131F-45BD-9E42-F48C519D97B5">
     <variable name="numOfLiveTrades" id="_907EEACD-DC6F-4B40-A3CC-D2DAE68ED782" typeRef="number" />
