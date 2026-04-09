@@ -6,11 +6,6 @@
       <typeRef>applicant</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_E2831443-C147-4938-8EF4-DE4185ECE652" name="Perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_90D8F265-4672-48E9-962D-665C56E37501" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>ScoringDetails</typeRef>
-    </itemComponent>
-  </itemDefinition>
   <itemDefinition id="_1EAACD90-7140-4874-88A4-039841F5EA07" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_77426153-36CC-4D65-92C1-7D8C65CC62F3" name="Detail" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>Detail</typeRef>
