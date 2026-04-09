@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8937B8BF-2E81-4746-8A93-41849E864DE1" id="_EBDE8AEF-D0CB-4EAB-BDAF-47B74663EA96" name="DMN_083D042D-9950-4B3B-956E-B3103F0EBF93" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8937B8BF-2E81-4746-8A93-41849E864DE1" id="_EBDE8AEF-D0CB-4EAB-BDAF-47B74663EA96" name="DMN_083D042D-9950-4B3B-956E-B3103F0EBF93">
   <itemDefinition id="_E2831443-C147-4938-8EF4-DE4185ECE652" name="Perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_90D8F265-4672-48E9-962D-665C56E37501" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>ScoringDetails</typeRef>
@@ -7,13 +7,13 @@
   </itemDefinition>
   <itemDefinition id="_1EAACD90-7140-4874-88A4-039841F5EA07" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_77426153-36CC-4D65-92C1-7D8C65CC62F3" name="Detail" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>Detail</typeRef>
+      <typeRef>perfios</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_F6A518FD-2F00-4FAB-BEC7-8B24FFE20ED9" name="Detail" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <typeRef>detail_obj</typeRef>
+  <itemDefinition id="_F6A518FD-2F00-4FAB-BEC7-8B24FFE20ED9" name="perfios" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>perfios_obj</typeRef>
   </itemDefinition>
-  <itemDefinition id="_3009D5CF-9BB2-4A15-A450-E267E4E37453" name="detail_obj" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_3009D5CF-9BB2-4A15-A450-E267E4E37453" name="perfios_obj" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_D0CFBB77-94E1-461C-B7FF-0816B8400E36" name="variable" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
@@ -33,9 +33,9 @@
     </itemComponent>
   </itemDefinition>
   <itemDefinition id="_1C064F26-90F5-497E-913A-6A21AF3E26D6" name="tbl_tradelines" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <typeRef>tradelines_obj</typeRef>
+    <typeRef>tradelines_object</typeRef>
   </itemDefinition>
-  <itemDefinition id="_001F8E22-A754-4720-BB7C-21CB7CBDE7F1" name="tradelines_obj" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_001F8E22-A754-4720-BB7C-21CB7CBDE7F1" name="tradelines_object" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_C1292E7A-DF38-4E49-95B3-782A322BAEB2" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>date</typeRef>
     </itemComponent>
