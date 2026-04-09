@@ -68,8 +68,8 @@
     </informationRequirement>
     <context id="_4EB3C5D1-342A-4454-B7A0-F6CBA91B8EC3" typeRef="number" label="overdue">
       <contextEntry id="_0BE6C56A-EAC2-4EDA-B897-0970D5398469">
-        <variable id="_A12F7072-E518-43E4-9973-7FC394014111" name="ContextEntry-1" />
-        <for id="_6D321A76-05B6-41C4-8006-08539B9B7D36" label="ContextEntry-1" iteratorVariable="i">
+        <variable id="_A12F7072-E518-43E4-9973-7FC394014111" name="tlover" typeRef="trade" />
+        <for id="_6D321A76-05B6-41C4-8006-08539B9B7D36" label="tlover" iteratorVariable="i" typeRef="trade">
           <in id="_529B5CD2-3699-4C89-B813-7B427E27EC13">
             <literalExpression id="_2609B759-2D92-4526-9E78-74F3190E7B37" label="Expression Name">
               <text>tbltradelines</text>
@@ -88,9 +88,6 @@
         </literalExpression>
       </contextEntry>
     </context>
-  </decision>
-  <decision name="New Decision" id="_4181D2EB-182D-4618-9960-39F24174A89E">
-    <variable name="New Decision" id="_E02940C1-0187-4FF8-B57F-D28DA00BE4F2" />
   </decision>
   <inputData name="tbltradelines" id="_D138C403-E2F1-44C8-91DA-918CBB2B56DF">
     <variable name="tbltradelines" id="_AECDDDE1-57AE-478A-9F95-0F08BEBD8EF8" typeRef="tradeline_list" />
@@ -138,10 +135,7 @@
         <dc:Bounds x="160" y="-160" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_3D95BA80-DF7C-4D96-B999-80BAFEB3BF67" dmnElementRef="_EEB4B1CC-3729-46B5-A6CA-CC0CD6DC1072" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="580" y="-320" width="160" height="80" />
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="_A5B1577C-3E53-4B68-8B8E-4F2E9A5CC1C6" dmnElementRef="_4181D2EB-182D-4618-9960-39F24174A89E" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="580" y="-100" width="160" height="80" />
+        <dc:Bounds x="420" y="-160" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_E2C66258-1AD2-4821-9A02-2C985F07837B" dmnElementRef="_57A2FCDF-F778-4429-BFBC-F6BF8E51F2D7" sourceElement="_6EDE20F1-8F69-47BC-AB13-BDE5C5D1FFF1" targetElement="_8EF7B6AD-5C27-4D44-9294-B63BC9677627">
         <di:waypoint x="380" y="-280" />
@@ -149,7 +143,7 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_70FE73A9-9453-42A2-B36E-5C3EB65A4BD1" dmnElementRef="_7484B3FB-5FCB-498B-AF40-0FD23CD806CB" sourceElement="_6EDE20F1-8F69-47BC-AB13-BDE5C5D1FFF1" targetElement="_3D95BA80-DF7C-4D96-B999-80BAFEB3BF67">
         <di:waypoint x="380" y="-280" />
-        <di:waypoint x="660" y="-280" />
+        <di:waypoint x="500" y="-120" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
