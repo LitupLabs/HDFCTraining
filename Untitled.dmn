@@ -108,8 +108,8 @@
     </informationRequirement>
     <context id="_EDF511FF-85CB-40A0-A2C3-5941F2069B76" typeRef="number" label="totalBureauOverDue">
       <contextEntry id="_D0411604-3A75-48FA-9678-1918E7CD0291">
-        <variable id="_66B4A141-0AD9-40FA-94AE-CC6BF8D11D51" name="for_loop" typeRef="overdue" />
-        <for id="_9C6A3B62-A874-4635-81D1-BD9647A3488E" typeRef="overdue" label="for_loop" iteratorVariable="o">
+        <variable id="_66B4A141-0AD9-40FA-94AE-CC6BF8D11D51" name="for_loop" typeRef="trade" />
+        <for id="_9C6A3B62-A874-4635-81D1-BD9647A3488E" typeRef="trade" label="for_loop" iteratorVariable="o">
           <in id="_D33DCC2B-1978-4F20-A53C-7D2AE52EA8E4">
             <literalExpression id="_1F636FC8-E7B9-40A9-85AB-B5952B6981D6" label="Expression Name">
               <text>tradeline</text>
