@@ -32,13 +32,13 @@
       <typeRef>Perfios</typeRef>
     </itemComponent>
     <itemComponent id="_F6256B06-F3A0-4BEF-8955-FDDC1D5DFAFF" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>tradelines_list</typeRef>
+      <typeRef>tbl_tradelines</typeRef>
     </itemComponent>
     <itemComponent id="_EA0C1A32-C0C4-47F0-994F-A58F6E421878" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>date</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_AB21E6BA-4985-4670-9D30-1EFB8D636166" name="tradelines_list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_AB21E6BA-4985-4670-9D30-1EFB8D636166" name="tbl_tradelines" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>tradelines</typeRef>
   </itemDefinition>
   <itemDefinition id="_2DC7F20C-000D-46F5-9B3B-505DECC01847" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -105,9 +105,31 @@
     <informationRequirement id="_4809CF00-6B43-4562-B182-FFB9B690028F">
       <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
     </informationRequirement>
+    <context id="_707F1DC3-8AFF-4082-9187-00EFD210F13E" typeRef="number" label="cntOfUnSecureLiveLoans">
+      <contextEntry id="_4BAA5392-79B3-4B01-BF0A-5C723DEA3562">
+        <variable id="_0A4865BD-E42F-4089-AA82-2748D9D109A8" name="ContextEntry-1" typeRef="trade" />
+        <for id="_9C9F15AB-12BF-4E3A-BF9F-A225041B00BC" typeRef="trade" label="ContextEntry-1" iteratorVariable="i">
+          <in id="_F108808A-97BA-490D-9AB5-F4DFACB7FFC5">
+            <literalExpression id="_71D89BA8-CA31-4AF2-AD44-A9CB2AAD7860" label="Expression Name">
+              <text>tbl_tradelines</text>
+            </literalExpression>
+          </in>
+          <return id="_2CDFA5A3-FB44-42DC-990B-B6DBD1BC11F1">
+            <literalExpression id="_5577EFE5-FDF9-4310-AAB2-486269D2FE84" label="Expression Name">
+              <text>fnUnSecureLiveLoanCheck(i)</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_35D53469-AC1B-4384-98DE-97E05CBC9DA3">
+        <literalExpression id="_20A4F5E8-241F-486A-958A-178279A92A98" typeRef="number" label="cntOfUnSecureLiveLoans">
+          <text>count(lst_UnSecLoan)</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
   </decision>
   <inputData name="tradelines" id="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08">
-    <variable name="tradelines" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="tradelines_list" />
+    <variable name="tradelines" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="tbl_tradelines" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_CC545C0F-2B38-4D9C-85FC-CD435DF1DBFE" name="Default DRD" useAlternativeInputDataShape="false">
@@ -130,6 +152,18 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_6E4492E3-D9D3-40A0-888B-6421DB5C363D">
             <kie:width>547</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_707F1DC3-8AFF-4082-9187-00EFD210F13E">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_71D89BA8-CA31-4AF2-AD44-A9CB2AAD7860">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5577EFE5-FDF9-4310-AAB2-486269D2FE84">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_20A4F5E8-241F-486A-958A-178279A92A98">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>

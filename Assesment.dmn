@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_8937B8BF-2E81-4746-8A93-41849E864DE1" id="_EBDE8AEF-D0CB-4EAB-BDAF-47B74663EA96" name="DMN_083D042D-9950-4B3B-956E-B3103F0EBF93">
+  <itemDefinition id="_3C822B55-B792-4555-A92D-3560E203BC7B" name="lstTrades" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_58EA8553-1D14-4D77-8FFD-B26320C73E41" name="raw_input" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_70F418E7-44C7-4BA1-906E-164B22F7387B" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>applicant</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_E2831443-C147-4938-8EF4-DE4185ECE652" name="Perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_90D8F265-4672-48E9-962D-665C56E37501" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>ScoringDetails</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_1EAACD90-7140-4874-88A4-039841F5EA07" name="ScoringDetails" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_77426153-36CC-4D65-92C1-7D8C65CC62F3" name="Detail" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Detail</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_F6A518FD-2F00-4FAB-BEC7-8B24FFE20ED9" name="Detail" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>detail_obj</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_3009D5CF-9BB2-4A15-A450-E267E4E37453" name="detail_obj" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_D0CFBB77-94E1-461C-B7FF-0816B8400E36" name="variable" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_BFF14A62-11F2-40DD-AFD0-D6EEAD46FD70" name="value" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_11DABE7B-779B-45F6-AD71-092A3F143CB1" name="applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F6E3C1C0-A30E-4BCE-AE14-4D4025B08BC8" name="perfios" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Perfios</typeRef>
+    </itemComponent>
+    <itemComponent id="_CF46FF11-E863-4C53-9B34-37A34C79E36F" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>tbl_tradelines</typeRef>
+    </itemComponent>
+    <itemComponent id="_7CA94F77-99F7-41E9-A9F7-8E48229F5124" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_1C064F26-90F5-497E-913A-6A21AF3E26D6" name="tbl_tradelines" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <typeRef>tradelines_obj</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_001F8E22-A754-4720-BB7C-21CB7CBDE7F1" name="tradelines_obj" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_C1292E7A-DF38-4E49-95B3-782A322BAEB2" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+    <itemComponent id="_51F1DAC7-36EE-47C7-B922-C6D70EE20571" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_57BC9941-6CB8-4624-B1C8-485F7D1441D6" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_648BFFBE-0698-495C-B886-FA7C9D7C8D87" name="tl_acct_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="numOfLiveTrades" id="_BF916CA9-1FBC-4AFF-8217-50FE950B09EE">
+    <variable name="numOfLiveTrades" id="_D86D018A-5C90-4728-8A33-71EE8907766D" typeRef="number" />
+    <informationRequirement id="_326D29A0-3482-4012-9532-B0B643FC470D">
+      <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
+    </informationRequirement>
+    <context id="_5114DACB-AA5E-4656-853C-6D0BFF6F3C51" typeRef="number" label="numOfLiveTrades">
+      <contextEntry id="_8C64752A-E2DE-40A2-8B13-6DBE1D4DD3BD">
+        <variable id="_F335A368-4CA2-45D8-889B-24CC1D638E66" name="lst_Closeddates" typeRef="lstTrades" />
+        <for id="_B8759452-080B-427B-A177-234989D0CA9C" typeRef="lstTrades" label="lst_Closeddates" iteratorVariable="item">
+          <in id="_47E8CD7B-5301-4E84-B926-980E30B3B619">
+            <literalExpression id="_0DE2C69D-2554-4260-8C58-945581BAAE33" label="Expression Name">
+              <text>tbl_tradelines</text>
+            </literalExpression>
+          </in>
+          <return id="_297B7721-6F43-4745-BAD0-D7D34E12CD88">
+            <literalExpression id="_FA0870E4-BBF9-4598-ABD9-BC42CAF8F6C6" label="Expression Name">
+              <text>item.tl_closed_date</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_3636B966-EE95-49D8-A052-7FF29E3BF780">
+        <variable id="_F543269B-1D7B-441A-89F9-26A481AF1E2A" name="filtered_List_Closeddates" typeRef="lstTrades">
+          <description></description>
+        </variable>
+        <filter id="_3E17E54F-3F5F-4DCE-A9E9-109C80917130" typeRef="lstTrades" label="filtered_List_Closeddates">
+          <in id="_48A04A8B-76EB-404C-A6A4-EDCC9FE3721D">
+            <literalExpression id="_A165B06F-4A8D-4A91-8FEE-A78BB26B4149" label="Expression Name">
+              <text>lst_Closeddates</text>
+            </literalExpression>
+          </in>
+          <match id="_BD374D0F-6D4A-40CC-BC00-D406AAB9F791">
+            <literalExpression id="_899F6DBF-6F8B-4468-AE13-83A0F36070E3" label="Expression Name">
+              <text>not(item in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;)))</text>
+            </literalExpression>
+          </match>
+        </filter>
+      </contextEntry>
+      <contextEntry id="_B9B91FCE-F4D1-43D4-B0D6-DEC06CFFF444">
+        <literalExpression id="_394FBD17-2D54-494E-B421-E392E2271774" typeRef="number" label="num_Livetrades">
+          <text>count(filtered_List_Closeddates)</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
+  </decision>
+  <decision name="totalBureauOverDue" id="_6945DFE3-629A-40C5-BF86-A04FFA4DC0EF">
+    <variable name="totalBureauOverDue" id="_9AEC8EA9-C1E4-46EF-95F5-2F89BF5B7534" typeRef="number" />
+    <informationRequirement id="_9C875A26-430A-411C-9FB1-DBD44ED850FC">
+      <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
+    </informationRequirement>
+    <context id="_CFB4AF0B-A993-42ED-A17C-FE54F1BD6FF4" typeRef="number" label="totalBureauOverDue">
+      <contextEntry id="_F82633B7-5BD9-44ED-8D1D-E947CC862E18">
+        <variable id="_68E99FEB-9058-4BCF-9B40-7C0AF437556E" name="lstOverdue" typeRef="lstTrades" />
+        <for id="_622B10EB-7739-4B93-9F1F-D881C134041C" typeRef="lstTrades" label="lstOverdue" iteratorVariable="item">
+          <in id="_9E0D96B3-180D-4165-8B7B-17E0D6EEC975">
+            <literalExpression id="_9466D9FB-DF0B-4930-A535-3B60B32D56CD" label="Expression Name">
+              <text>tbl_tradelines</text>
+            </literalExpression>
+          </in>
+          <return id="_7014ABB5-EC48-4073-AFCA-739F8C381CF9">
+            <literalExpression id="_E83E2B34-555C-4B31-9325-FB9A56C18894" label="Expression Name">
+              <text>if item.tl_overdue_amount = null then 0 else item.tl_overdue_amount</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_C0FE80E3-6B59-4A7E-B67C-DCF6130393EC">
+        <literalExpression id="_687EB0F7-96CC-48C9-A19F-9A99D1E11335" typeRef="number" label="totalBureauOverDue">
+          <text>sum(lstOverdue)</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
+  </decision>
+  <decision name="cntOfUnSecureLiveLoan" id="_1D225224-B10D-46BE-9D89-54084AE17814">
+    <variable name="cntOfUnSecureLiveLoan" id="_C390EF96-B3F5-429C-86E2-81C44586129D" typeRef="number" />
+    <informationRequirement id="_EB0B3A57-179C-44FA-A7EF-53C9B54CD0DD">
+      <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
+    </informationRequirement>
+    <knowledgeRequirement id="_601704E6-2C29-4A21-AE6C-A5F15C2C1078">
+      <requiredKnowledge href="#_C72B97D3-93BD-4FC3-8879-E20CA262A173" />
+    </knowledgeRequirement>
+    <context id="_B176F49A-04F2-4322-81F2-192B6EF4F526" typeRef="number" label="cntOfUnSecureLiveLoan">
+      <contextEntry id="_DBCE8368-A257-4EE2-8381-B00AD821EF42">
+        <variable id="_CC0E957C-F131-4F70-B09C-58A711A29A30" name="lst_UnSecLoan" typeRef="lstTrades" />
+        <for id="_EFBF0D18-AD6A-44DE-9717-71FB84397FAD" typeRef="lstTrades" label="lst_UnSecLoan" iteratorVariable="item">
+          <in id="_CBBE47F1-4033-4F45-9962-5E386ED8C7CF">
+            <literalExpression id="_DDE6F284-60E0-40F8-978D-B421F03C1549" label="Expression Name">
+              <text>tbl_tradelines</text>
+            </literalExpression>
+          </in>
+          <return id="_1EFF89CA-BFA9-4BE8-8532-7AE41FD6009A">
+            <literalExpression id="_B15C370F-8663-4082-9DF1-88DE314DC6FF" label="Expression Name">
+              <text>fnUnSecureLiveLoanCheck(item)</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_C1AD8180-FD6B-46BF-9E5D-29A49FC5C2FD">
+        <literalExpression id="_BBE64BE8-D3D3-4B09-8881-9E013CAF3A34" typeRef="number" label="num_Livetrades">
+          <text>count(lst_UnSecLoan)</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
+  </decision>
+  <decision name="lst_UnSecLoan" id="_EBF8CCFC-878A-4762-A364-06B62FE7AF20">
+    <variable name="lst_UnSecLoan" id="_6FE377C5-0A2C-44C5-A55D-A5CC8F4F3A79" typeRef="lstTrades" />
+    <informationRequirement id="_849A6D85-94C3-4B0C-A467-7CB60D3814A3">
+      <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
+    </informationRequirement>
+    <knowledgeRequirement id="_4B996F5E-E174-4187-B01C-2C6913D9EBD1">
+      <requiredKnowledge href="#_C72B97D3-93BD-4FC3-8879-E20CA262A173" />
+    </knowledgeRequirement>
+  </decision>
+  <businessKnowledgeModel name="fnUnSecureLiveLoanCheck" id="_C72B97D3-93BD-4FC3-8879-E20CA262A173">
+    <variable name="fnUnSecureLiveLoanCheck" id="_F2B6EAF4-7A92-4414-9B0D-376C98FDEA0D" typeRef="number" />
+    <encapsulatedLogic label="fnUnSecureLiveLoanCheck" typeRef="number" id="_CD21F6EB-D0CF-4170-A55E-5F3B057EB9B0" kind="FEEL">
+      <formalParameter id="_F2B0E19D-1BD5-4CCF-BA52-84793342009E" name="tl" typeRef="tradelines_obj" />
+      <literalExpression id="_C3B5D5F8-79A2-49BE-91D0-2FB604B1C403" typeRef="number" label="Return">
+        <text>if (tl.tl_acct_type = null or upper case(replace(tl.tl_acct_type, &quot; &quot;, &quot;&quot;)) in [&quot;BUSINESSLOAN&quot;,&quot;CONSUMERLOAN&quot;,&quot;EDUCATIONLOAN&quot;,&quot;LOANONCREDITCARD&quot;,&quot;MICROFINANCEHOUSINGLOAN&quot;,&quot;PERSONALLOAN&quot;,&quot;MUDRALOANSSHISHUKISHORTARUN&quot;,&quot;OTHER&quot;,&quot;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&quot;])
+then 0
+else 1</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <inputData name="tbl_tradelines" id="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E">
+    <variable name="tbl_tradelines" id="_578AD899-6CE9-45BF-A4BF-2757A365ADDA" typeRef="tbl_tradelines" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_DCC63684-781B-410A-B55D-CE3447CD8DFA" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_5114DACB-AA5E-4656-853C-6D0BFF6F3C51">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0DE2C69D-2554-4260-8C58-945581BAAE33">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_FA0870E4-BBF9-4598-ABD9-BC42CAF8F6C6">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A165B06F-4A8D-4A91-8FEE-A78BB26B4149">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_899F6DBF-6F8B-4468-AE13-83A0F36070E3">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_394FBD17-2D54-494E-B421-E392E2271774">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CFB4AF0B-A993-42ED-A17C-FE54F1BD6FF4">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9466D9FB-DF0B-4930-A535-3B60B32D56CD">
+            <kie:width>620</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E83E2B34-555C-4B31-9325-FB9A56C18894">
+            <kie:width>620</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_687EB0F7-96CC-48C9-A19F-9A99D1E11335">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B176F49A-04F2-4322-81F2-192B6EF4F526">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DDE6F284-60E0-40F8-978D-B421F03C1549">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B15C370F-8663-4082-9DF1-88DE314DC6FF">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BBE64BE8-D3D3-4B09-8881-9E013CAF3A34">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C3B5D5F8-79A2-49BE-91D0-2FB604B1C403">
+            <kie:width>959</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" dmnElementRef="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="112" y="292" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7" dmnElementRef="_BF916CA9-1FBC-4AFF-8217-50FE950B09EE" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="-160" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_B37AF4A6-CCA5-4165-9D1A-B727597C8593" dmnElementRef="_6945DFE3-629A-40C5-BF86-A04FFA4DC0EF" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="420" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_AF7C487C-E0B9-4EE6-9D19-CAD63F601390" dmnElementRef="_1D225224-B10D-46BE-9D89-54084AE17814" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="120" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_721508EC-7986-45DA-A9F6-E0A43D43B0DB" dmnElementRef="_C72B97D3-93BD-4FC3-8879-E20CA262A173" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="120" y="-20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_F30ED4FC-D230-46BA-B59C-BEF9FEABB46C" dmnElementRef="_EBF8CCFC-878A-4762-A364-06B62FE7AF20" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="340" y="-20" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_732D46A6-C0E5-4ED7-B417-9ACD8A88A460" dmnElementRef="_326D29A0-3482-4012-9532-B0B643FC470D" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7">
+        <di:waypoint x="192" y="292" />
+        <di:waypoint x="-80" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_0CCDAE22-6DD5-4545-9C32-B850E4A58534" dmnElementRef="_9C875A26-430A-411C-9FB1-DBD44ED850FC" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_B37AF4A6-CCA5-4165-9D1A-B727597C8593">
+        <di:waypoint x="192" y="332" />
+        <di:waypoint x="500" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_A6F265AD-9765-4017-9354-B7D17E6637E9" dmnElementRef="_EB0B3A57-179C-44FA-A7EF-53C9B54CD0DD" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_AF7C487C-E0B9-4EE6-9D19-CAD63F601390">
+        <di:waypoint x="192" y="332" />
+        <di:waypoint x="200" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_AB8A3B88-A140-4958-90CC-EEB85AA8973D" dmnElementRef="_601704E6-2C29-4A21-AE6C-A5F15C2C1078" sourceElement="_721508EC-7986-45DA-A9F6-E0A43D43B0DB" targetElement="_AF7C487C-E0B9-4EE6-9D19-CAD63F601390">
+        <di:waypoint x="200" y="20" />
+        <di:waypoint x="200" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_EF7B2624-0B72-426F-B69E-BBD6A21443F9" dmnElementRef="_849A6D85-94C3-4B0C-A467-7CB60D3814A3" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_F30ED4FC-D230-46BA-B59C-BEF9FEABB46C">
+        <di:waypoint x="192" y="332" />
+        <di:waypoint x="420" y="-20" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_84CD4D94-335F-4E66-8E97-30B9BD6545E7" dmnElementRef="_4B996F5E-E174-4187-B01C-2C6913D9EBD1" sourceElement="_721508EC-7986-45DA-A9F6-E0A43D43B0DB" targetElement="_F30ED4FC-D230-46BA-B59C-BEF9FEABB46C">
+        <di:waypoint x="200" y="20" />
+        <di:waypoint x="420" y="20" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
