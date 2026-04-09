@@ -32,7 +32,7 @@
       <typeRef>Perfios</typeRef>
     </itemComponent>
     <itemComponent id="_F6256B06-F3A0-4BEF-8955-FDDC1D5DFAFF" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>tradelines</typeRef>
+      <typeRef>tradelines_list</typeRef>
     </itemComponent>
     <itemComponent id="_EA0C1A32-C0C4-47F0-994F-A58F6E421878" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>date</typeRef>
@@ -43,7 +43,7 @@
   </itemDefinition>
   <itemDefinition id="_2DC7F20C-000D-46F5-9B3B-505DECC01847" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_340AD8F8-93E8-4913-9AA9-CEAB64F11A75" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>string</typeRef>
+      <typeRef>date</typeRef>
     </itemComponent>
     <itemComponent id="_FF75FA5F-2337-4A20-A540-E4C9D12910D7" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>number</typeRef>
