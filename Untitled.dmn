@@ -116,13 +116,13 @@ Tradelist in (&quot;BUSINESS LOAN&quot;,&quot;CONSUMER LOAN&quot;, &quot;EDUCATI
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_3F9D5B7D-018E-4E2E-BA41-74067DED829D">
-            <kie:width>790</kie:width>
+            <kie:width>1180</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_1BBD12D7-D5C0-4C97-B473-8896B3E9F6C1">
-            <kie:width>190</kie:width>
+            <kie:width>1180</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_BB259B0A-4CCD-41C3-9057-F653252850DF">
-            <kie:width>190</kie:width>
+            <kie:width>1180</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
