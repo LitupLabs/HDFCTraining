@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_C8C60A91-8C59-452F-9ED9-E09DE53B4C0E" id="_E42AF6FE-50A2-46C1-A623-A9BBE304719F" name="DMN_8330F7FD-0AAD-4769-9DB5-6B22AF021245" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
-  <itemDefinition id="_9AD48882-3A0F-4952-B34B-8AC0F29550E4" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_C8C60A91-8C59-452F-9ED9-E09DE53B4C0E" id="_E42AF6FE-50A2-46C1-A623-A9BBE304719F" name="DMN_8330F7FD-0AAD-4769-9DB5-6B22AF021245">
+  <itemDefinition id="_9AD48882-3A0F-4952-B34B-8AC0F29550E4" name="tbl_tradelines" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_F6F71806-1E0C-4E60-8DEA-B0C9F1F4CCCF" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_C972DCCA-760E-407E-A751-6B786E858F4A" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
     <itemComponent id="_76BB598E-530A-4688-9937-1948BD5BC0D5" name="applicant_reference_number" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
@@ -8,36 +14,47 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_7592B296-4FD5-4B40-9D3E-FA07164DD956" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <decision name="numOfLiveTrades" id="_9260F595-F4B0-4DB2-AE13-C8DEB265FA55">
     <variable name="numOfLiveTrades" id="_70926F00-B26A-4C0F-9502-F059042E4E34" typeRef="number" />
     <informationRequirement id="_5BE7CD62-ACC0-41DC-9FC7-4B2195CE1849">
       <requiredInput href="#_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773" />
     </informationRequirement>
-    <filter id="_0DF48C34-5399-4449-90AC-5F1DE1AAEA99" typeRef="number" label="numOfLiveTrades">
-      <in id="_0496AED0-D58E-4717-864D-1EDF2E116D6C">
-        <literalExpression id="_60B6D85F-E512-4E6A-B93B-5A21E1253BFA" label="Expression Name">
-          <text>not(TardeLine.tl_closed_date in [&quot;0:00:00&quot;, &quot;null&quot;, null, &quot;&quot;] )</text>
-        </literalExpression>
-      </in>
-      <match id="_FF82503C-C813-4650-8B06-88B889CE781F">
-        <literalExpression id="_E6A4FEB7-159D-4819-9104-B4F167DE59A2" label="Expression Name">
-          <text>count(TardeLine.applicant_reference_number)</text>
-        </literalExpression>
-      </match>
-    </filter>
+    <literalExpression id="_4E0166FF-2DFE-40FB-87E2-D1A4736F732D" typeRef="number" label="numOfLiveTrades">
+      <text>count(not(TradeLine.tl_closed_date in [&quot;01/01/1900 00:00:00&quot;, &quot;null&quot;, null, &quot;&quot;] ))</text>
+    </literalExpression>
   </decision>
-  <inputData name="TardeLine" id="_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773">
-    <variable name="TardeLine" id="_82AA3E0C-31D4-4963-ADF4-28F55ADAB384" typeRef="tbl_tradelines" />
+  <decision name="cntOfUnSecureLiveLoan" id="_9D3FD60D-27EF-4999-AB49-B24FA0300811">
+    <variable name="cntOfUnSecureLiveLoan" id="_38C698F7-72DD-475A-A37C-771F441C6F3B" typeRef="number" />
+    <informationRequirement id="_AA32D30F-56AC-4C44-AA52-6B691D6F4290">
+      <requiredInput href="#_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773" />
+    </informationRequirement>
+    <literalExpression id="_337AB8FB-36E4-4F29-984A-FAD4D9BF6117" typeRef="number" label="cntOfUnSecureLiveLoan">
+      <text>count(TradeLine[not(TradeLine.tl_closed_date in [&quot;01/01/1900 00:00:00&quot;, &quot;null&quot;, null, &quot;&quot;] ) and TradeLine.tl_acct_type in [&apos;BUSINESSLOAN&apos;,&apos;CONSUMERLOAN&apos;, &apos;EDUCATIONLOAN&apos;, &apos;LOANONCREDITCARD&apos;, &apos;MICROFINANCEHOUSINGLOAN&apos;, &apos;PERSONALLOAN&apos;, &apos;MUDRALOANSSHISHUKISHORTARUN&apos;, &apos;OTHER&apos;, &apos;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&apos;]])</text>
+    </literalExpression>
+  </decision>
+  <decision name="totalBureauOverDue" id="_A76825A7-8742-43AE-AC35-DA650CCDC44D">
+    <variable name="totalBureauOverDue" id="_D82A4BF8-4400-4BDE-AA89-8A690ACB77B8" typeRef="number" />
+    <informationRequirement id="_09A10E7B-2689-460F-AFEF-5007DEBB4663">
+      <requiredInput href="#_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773" />
+    </informationRequirement>
+    <literalExpression id="_851EEA49-22F1-48C2-86D8-2C4C4C90AD25" typeRef="number" label="totalBureauOverDue">
+      <text>sum(TradeLine.tl_overdue_amount)</text>
+    </literalExpression>
+  </decision>
+  <inputData name="TradeLine" id="_C1D6CA4B-EF73-45C8-9915-8FEFE6A56773">
+    <variable name="TradeLine" id="_82AA3E0C-31D4-4963-ADF4-28F55ADAB384" typeRef="tbl_tradelines" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_4CF39306-4038-4696-831B-6EE6A872E042" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_60B6D85F-E512-4E6A-B93B-5A21E1253BFA">
-            <kie:width>1360</kie:width>
+          <kie:ComponentWidths dmnElementRef="_4E0166FF-2DFE-40FB-87E2-D1A4736F732D">
+            <kie:width>1805</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_E6A4FEB7-159D-4819-9104-B4F167DE59A2">
+          <kie:ComponentWidths dmnElementRef="_337AB8FB-36E4-4F29-984A-FAD4D9BF6117">
+            <kie:width>1963</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_851EEA49-22F1-48C2-86D8-2C4C4C90AD25">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
@@ -48,9 +65,23 @@
       <dmndi:DMNShape id="_15390610-60B3-4FBE-8E26-6331F2E4E89E" dmnElementRef="_9260F595-F4B0-4DB2-AE13-C8DEB265FA55" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="112" y="112" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_896C8145-4EDF-46B0-8260-B2F5973BF796" dmnElementRef="_9D3FD60D-27EF-4999-AB49-B24FA0300811" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="332" y="112" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_7DCF70E4-51C6-484D-9EEB-C12959D22ECF" dmnElementRef="_A76825A7-8742-43AE-AC35-DA650CCDC44D" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="660" y="160" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_F0F22026-29B0-48DB-A293-CB84F46FD308" dmnElementRef="_5BE7CD62-ACC0-41DC-9FC7-4B2195CE1849" sourceElement="_A7E98FD2-4669-4262-87C3-6A5757B51365" targetElement="_15390610-60B3-4FBE-8E26-6331F2E4E89E">
         <di:waypoint x="192" y="292" />
         <di:waypoint x="192" y="192" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_E9518B67-399A-4845-8815-D89BF101D6F4" dmnElementRef="_AA32D30F-56AC-4C44-AA52-6B691D6F4290" sourceElement="_A7E98FD2-4669-4262-87C3-6A5757B51365" targetElement="_896C8145-4EDF-46B0-8260-B2F5973BF796">
+        <di:waypoint x="192" y="332" />
+        <di:waypoint x="412" y="192" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_7A701D31-CDAD-43A4-82F3-7D0B8F837E4D" dmnElementRef="_09A10E7B-2689-460F-AFEF-5007DEBB4663" sourceElement="_A7E98FD2-4669-4262-87C3-6A5757B51365" targetElement="_7DCF70E4-51C6-484D-9EEB-C12959D22ECF">
+        <di:waypoint x="192" y="332" />
+        <di:waypoint x="740" y="240" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
