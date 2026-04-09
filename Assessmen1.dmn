@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_C8C60A91-8C59-452F-9ED9-E09DE53B4C0E" id="_E42AF6FE-50A2-46C1-A623-A9BBE304719F" name="DMN_8330F7FD-0AAD-4769-9DB5-6B22AF021245" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_C8C60A91-8C59-452F-9ED9-E09DE53B4C0E" id="_E42AF6FE-50A2-46C1-A623-A9BBE304719F" name="DMN_8330F7FD-0AAD-4769-9DB5-6B22AF021245">
   <itemDefinition id="_9AD48882-3A0F-4952-B34B-8AC0F29550E4" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_76BB598E-530A-4688-9937-1948BD5BC0D5" name="applicant_reference_number" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
@@ -8,7 +8,6 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_7592B296-4FD5-4B40-9D3E-FA07164DD956" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <decision name="numOfLiveTrades" id="_9260F595-F4B0-4DB2-AE13-C8DEB265FA55">
     <variable name="numOfLiveTrades" id="_70926F00-B26A-4C0F-9502-F059042E4E34" typeRef="number" />
     <informationRequirement id="_5BE7CD62-ACC0-41DC-9FC7-4B2195CE1849">
