@@ -164,6 +164,9 @@
     <informationRequirement id="_849A6D85-94C3-4B0C-A467-7CB60D3814A3">
       <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
     </informationRequirement>
+    <knowledgeRequirement id="_4B996F5E-E174-4187-B01C-2C6913D9EBD1">
+      <requiredKnowledge href="#_C72B97D3-93BD-4FC3-8879-E20CA262A173" />
+    </knowledgeRequirement>
   </decision>
   <businessKnowledgeModel name="fnUnSecureLiveLoanCheck" id="_C72B97D3-93BD-4FC3-8879-E20CA262A173">
     <variable name="fnUnSecureLiveLoanCheck" id="_F2B6EAF4-7A92-4414-9B0D-376C98FDEA0D" typeRef="number" />
@@ -267,6 +270,10 @@ else 1</text>
       <dmndi:DMNEdge id="_EF7B2624-0B72-426F-B69E-BBD6A21443F9" dmnElementRef="_849A6D85-94C3-4B0C-A467-7CB60D3814A3" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_F30ED4FC-D230-46BA-B59C-BEF9FEABB46C">
         <di:waypoint x="192" y="332" />
         <di:waypoint x="420" y="-20" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_84CD4D94-335F-4E66-8E97-30B9BD6545E7" dmnElementRef="_4B996F5E-E174-4187-B01C-2C6913D9EBD1" sourceElement="_721508EC-7986-45DA-A9F6-E0A43D43B0DB" targetElement="_F30ED4FC-D230-46BA-B59C-BEF9FEABB46C">
+        <di:waypoint x="200" y="20" />
+        <di:waypoint x="420" y="20" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
