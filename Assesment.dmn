@@ -43,7 +43,7 @@
   </itemDefinition>
   <itemDefinition id="_4F868D73-241F-497E-A8C8-19C576901099" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_1235AE60-5BB6-4082-9D28-AE79F11FBC11" name="tl_accnt_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>date</typeRef>
+      <typeRef>string</typeRef>
     </itemComponent>
     <itemComponent id="_943C14EF-DBFC-4D5A-BF85-DF19A236A96F" name="tl_accnt_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
@@ -52,7 +52,7 @@
       <typeRef>number</typeRef>
     </itemComponent>
     <itemComponent id="_BA6CCE4E-9055-4F42-83C5-CE84B87A1DFE" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>date</typeRef>
+      <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
   <decision name="numOfLiveTrades" id="_9B2BE6A9-AC9E-4856-8C6C-6FE714F29182">
