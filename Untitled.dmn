@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_E75B2253-9E89-426B-A040-8EFA19A3A1A3" id="_62FF6818-5529-497B-914F-B3FB74E45C19" name="DMN_C47324BD-1DF5-4A95-8B87-9E4F691001CD" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_B6BA6233-DE11-49E8-8CD6-5B0C756A9AE9" name="New data type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <decision name="New Decision" id="_A86E8AD6-C3F1-40E1-A855-B505357BD9F9">
+    <variable name="New Decision" id="_47FC0186-A945-4A3D-9091-841E808DFAEC" />
+  </decision>
+  <inputData name="request" id="_F56E7C3C-2AEB-4558-9E4F-E32CE96CEE28">
+    <variable name="request" id="_DA4D3F01-0D79-4297-81A0-9943F1D2B0FF" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_6743444B-D303-40C5-82F0-70697DAD7B90" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_42DA083C-4718-43AD-B337-E001CA10694A" dmnElementRef="_F56E7C3C-2AEB-4558-9E4F-E32CE96CEE28" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="200" y="-300" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_CA8E4A90-6A78-4FBF-8630-CE001306A35A" dmnElementRef="_A86E8AD6-C3F1-40E1-A855-B505357BD9F9" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="540" y="-260" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
