@@ -84,7 +84,7 @@
     </informationRequirement>
     <literalExpression id="_D4F4CD0A-642D-4E1B-8C10-FE1024FA98D3" typeRef="number" label="numOfLiveTrades">
       <text>sum(
-  for t in Raw Input.applicant.tbl_tradeline
+  for t in Raw Input.applicant.tbl_tradelines
   return
     if (t.tl_closed_date = &quot;01/01/1900 00:00:00&quot;
         or t.tl_closed_date = &quot;null&quot;
