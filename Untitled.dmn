@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_77F264DA-4518-47AC-A4D6-E7D9C522D330" id="_26039CA2-3EA8-4F58-9EE0-6F54D5749B12" name="DMN_1366F4BA-308E-461D-AD20-07590F28357F" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_EF31E8CC-2181-4607-80FF-A20C10F079C1" name="Trade" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
+  <itemDefinition id="_75B0206C-C97F-401E-8595-C6018AA17E36" name="rawInput" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_8E4AED3E-DA2A-4989-B750-F6BFF944F506" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Applicant</typeRef>
+    </itemComponent>
+    <itemComponent id="_9441E16F-08A7-4CCF-BBC4-C7038CCB82F2" name="workflowId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_A5060FCB-DCDA-4DCC-AEB4-C760DC89A0D3" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_592E9F9A-84FC-4F8D-89D9-C26B33051AC6" name="tradelines" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>tradelines</typeRef>
+    </itemComponent>
+    <itemComponent id="_6C188A26-BFF2-41AF-BF66-F4465AA9CAC2" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_742F7EAC-9152-4C97-9C88-7746138DD52A" name="tradelines" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_B918F69C-C43A-4A0A-BB88-C1E9E78FA515" name="applicant_reference_number" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_31619F4B-132E-46E3-B881-E4FFBA89C15B" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_8A788158-95ED-4415-933C-CC77AFB31133" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_89F3C7B1-5356-4923-8099-136F787C67EF" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="Tradelist" id="_4E34E68B-B296-431B-89BA-4758D476CADF">
+    <variable name="Tradelist" id="_F85701FC-ABD4-4252-A43D-E7FC00AA2591" typeRef="tradelines" />
+    <informationRequirement id="_E9B28B2A-8E6D-4520-A3D3-F42A690D251E">
+      <requiredInput href="#_573FC751-548B-473D-9307-C848411872D0" />
+    </informationRequirement>
+    <filter id="_02B0DE8F-AE2A-430E-8781-DF821988C290" typeRef="tradelines" label="Tradelist">
+      <in id="_5177811F-8592-4C1D-BFFD-8BAFEF375737">
+        <literalExpression id="_9768DCA4-7B8A-431F-AC87-D9F7F1EB0EA5" label="Expression Name">
+          <text>rawInput.Applicant.tradelines</text>
+        </literalExpression>
+      </in>
+      <match id="_03D8765F-4225-4972-9A1C-5B394E48D42A">
+        <literalExpression id="_A600ED5B-53B3-40D2-AB2C-4B2E399D4691" label="Expression Name">
+          <text>(item.tl_closed_date = &quot;01/01/1900 00:00:00&quot; or item.tl_closed_date=&quot;null&quot; or item.tl_closed_date= null or item.tl_closed_date= &quot;&quot;) and (item.tl_acct_type = &quot;BUSINESS LOAN&quot; or item.tl_acct_type =  &quot;CONSUMER LOAN&quot; or item.tl_acct_type = &quot;EDUCATION LOAN&quot; or item.tl_acct_type = &quot;LOAN ON CREDIT CARD&quot; or item.tl_closed_date = &quot;MICROFINANCE HOUSING LOAN&quot; or item.tl_acct_type = &quot;PERSONAL LOAN&quot; or item.tl_acct_type = &quot;MUDRA LOANS SHISHU KISHOR TARUN&quot; or item.tl_acct_type = &quot;OTHER&quot; or item.tl_acct_type = &quot;PRIMEMINISTER JAANDHAN YOJANA OVERDRAFT&quot;)</text>
+        </literalExpression>
+      </match>
+    </filter>
+  </decision>
+  <decision name="Live trade" id="_2027745F-CAEC-4C35-829C-FC74D57BE80E">
+    <variable name="Live trade" id="_AA079344-562C-4AE5-8C67-BC6AD922B2F0" typeRef="tradelines" />
+    <informationRequirement id="_5A27ABEF-CBA5-49EA-89EF-C130101CFD70">
+      <requiredInput href="#_573FC751-548B-473D-9307-C848411872D0" />
+    </informationRequirement>
+    <filter id="_4B678A82-316D-409A-8664-953A5F9B7C33" typeRef="tradelines" label="Live trade">
+      <in id="_B9C462A3-8959-43BF-98A2-90297AB3A7FB">
+        <literalExpression id="_BC9E9CA7-8767-41F0-A6FE-C92A4DE5E9D0" label="Expression Name">
+          <text>rawInput.Applicant.tradelines</text>
+        </literalExpression>
+      </in>
+      <match id="_5FD0023C-DD11-4BD0-8F81-DF5A8173AE7D">
+        <literalExpression id="_F03A5632-8FB9-4AB9-9B8A-3ADD71E4FD39" label="Expression Name">
+          <text>item.tl_closed_date = &quot;01/01/1900 00:00:00&quot; or item.tl_closed_date=&quot;null&quot; or item.tl_closed_date= null or item.tl_closed_date= &quot;&quot;</text>
+        </literalExpression>
+      </match>
+    </filter>
+  </decision>
+  <decision name="Live trade count" id="_6E44691C-96FB-427E-B0C4-BE2069551CDC">
+    <variable name="Live trade count" id="_FBB7A1E5-EB84-48EA-8E22-1A4A33C76F71" typeRef="number" />
+    <informationRequirement id="_1F1CB854-2505-451C-932F-CB21368587E4">
+      <requiredDecision href="#_2027745F-CAEC-4C35-829C-FC74D57BE80E" />
+    </informationRequirement>
+    <literalExpression id="_68A9482A-AE0F-4E0C-8249-BBAAA743934E" typeRef="number" label="Live trade count">
+      <text>count(Live trade)</text>
+    </literalExpression>
+  </decision>
+  <decision name="Unsec Live trade" id="_1496E953-9781-4DF6-B59E-5279AF5B3D1B">
+    <variable name="Unsec Live trade" id="_5F773A31-D263-4AF0-BAE2-6DD1C5878634" typeRef="number" />
+    <informationRequirement id="_78C5CBA1-BD58-4C96-80E9-54322AF7C61C">
+      <requiredDecision href="#_4E34E68B-B296-431B-89BA-4758D476CADF" />
+    </informationRequirement>
+    <literalExpression id="_43CA8965-B6C8-41D9-A746-444FE27CAF9F" typeRef="number" label="Unsec Live trade">
+      <text>count(Tradelist)</text>
+    </literalExpression>
+  </decision>
+  <decision name="Overdue amount" id="_E758ADA1-3F1D-4F59-A032-B926DA866544">
+    <variable name="Overdue amount" id="_272D7397-B023-43A8-B7C5-4B574629BB97" typeRef="Trade" />
+    <informationRequirement id="_C078646F-B943-4317-98A4-6A4B93AF70B8">
+      <requiredInput href="#_573FC751-548B-473D-9307-C848411872D0" />
+    </informationRequirement>
+    <literalExpression id="_FCC907C5-4EEA-42BC-9013-511EC573F491" typeRef="Trade" label="Overdue amount">
+      <text>for odamt in rawInput.Applicant.tradelines.tl_overdue_amount return odamt</text>
+    </literalExpression>
+  </decision>
+  <decision name="Total Overdue Amount" id="_28C2E68D-1F33-4C0E-A3D4-0729C057B164">
+    <variable name="Total Overdue Amount" id="_5365A926-EA27-490D-B6F7-FCF7022FCC28" typeRef="number" />
+    <informationRequirement id="_46FF7A7A-A276-4170-A255-1CAAB7396B45">
+      <requiredDecision href="#_E758ADA1-3F1D-4F59-A032-B926DA866544" />
+    </informationRequirement>
+    <literalExpression id="_58FEAFCC-8A80-4681-9200-7A1D59860679" typeRef="number" label="Total Overdue Amount">
+      <text>sum(Overdue amount)</text>
+    </literalExpression>
+  </decision>
+  <inputData name="rawInput" id="_573FC751-548B-473D-9307-C848411872D0">
+    <variable name="rawInput" id="_BF32C367-A724-4ABE-84B2-6F2F6C3065E2" typeRef="rawInput" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_37999408-BAA5-4DEC-96FF-97980C351AC7" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_BC9E9CA7-8767-41F0-A6FE-C92A4DE5E9D0">
+            <kie:width>828</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F03A5632-8FB9-4AB9-9B8A-3ADD71E4FD39">
+            <kie:width>788</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_68A9482A-AE0F-4E0C-8249-BBAAA743934E">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9768DCA4-7B8A-431F-AC87-D9F7F1EB0EA5">
+            <kie:width>1335</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A600ED5B-53B3-40D2-AB2C-4B2E399D4691">
+            <kie:width>1295</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_43CA8965-B6C8-41D9-A746-444FE27CAF9F">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_58FEAFCC-8A80-4681-9200-7A1D59860679">
+            <kie:width>501</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_FCC907C5-4EEA-42BC-9013-511EC573F491">
+            <kie:width>852</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_8C3FF88F-C3AC-4040-8798-24E43C09248A" dmnElementRef="_573FC751-548B-473D-9307-C848411872D0" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="120" y="40" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_8E4ED6FB-8266-4F5B-8FF2-162D4B96A778" dmnElementRef="_4E34E68B-B296-431B-89BA-4758D476CADF" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="420" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9E6F7A56-470C-417B-B59F-63FAF527077C" dmnElementRef="_2027745F-CAEC-4C35-829C-FC74D57BE80E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="480" y="0" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_8D2AA10C-E68B-4852-923C-C2F83BC81983" dmnElementRef="_6E44691C-96FB-427E-B0C4-BE2069551CDC" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="800" y="0" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_7D48A093-20BE-4816-B3BF-569F74E18AC1" dmnElementRef="_1496E953-9781-4DF6-B59E-5279AF5B3D1B" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="740" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_2CB2D286-4DFA-47B8-A785-D6073CDED746" dmnElementRef="_E758ADA1-3F1D-4F59-A032-B926DA866544" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="420" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_DC0F1233-76BE-4811-8BB1-4CC017209925" dmnElementRef="_28C2E68D-1F33-4C0E-A3D4-0729C057B164" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="700" y="220" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_D687E7CC-1473-4DF4-B3E1-BA54CF0F0B11" dmnElementRef="_E9B28B2A-8E6D-4520-A3D3-F42A690D251E" sourceElement="_8C3FF88F-C3AC-4040-8798-24E43C09248A" targetElement="_8E4ED6FB-8266-4F5B-8FF2-162D4B96A778">
+        <di:waypoint x="200" y="80" />
+        <di:waypoint x="500" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_896666BE-098F-46C9-8D6A-FE0F3974B337" dmnElementRef="_5A27ABEF-CBA5-49EA-89EF-C130101CFD70" sourceElement="_8C3FF88F-C3AC-4040-8798-24E43C09248A" targetElement="_9E6F7A56-470C-417B-B59F-63FAF527077C">
+        <di:waypoint x="200" y="80" />
+        <di:waypoint x="560" y="40" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_83AC80CB-A789-409C-966E-49BD8ED4BDF0" dmnElementRef="_1F1CB854-2505-451C-932F-CB21368587E4" sourceElement="_9E6F7A56-470C-417B-B59F-63FAF527077C" targetElement="_8D2AA10C-E68B-4852-923C-C2F83BC81983">
+        <di:waypoint x="560" y="40" />
+        <di:waypoint x="880" y="40" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_B6FE0A44-268F-4855-8254-87DB37ACC74D" dmnElementRef="_78C5CBA1-BD58-4C96-80E9-54322AF7C61C" sourceElement="_8E4ED6FB-8266-4F5B-8FF2-162D4B96A778" targetElement="_7D48A093-20BE-4816-B3BF-569F74E18AC1">
+        <di:waypoint x="500" y="160" />
+        <di:waypoint x="820" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_45C15E02-33D8-4274-876E-335C5A0B29F9" dmnElementRef="_C078646F-B943-4317-98A4-6A4B93AF70B8" sourceElement="_8C3FF88F-C3AC-4040-8798-24E43C09248A" targetElement="_2CB2D286-4DFA-47B8-A785-D6073CDED746">
+        <di:waypoint x="200" y="80" />
+        <di:waypoint x="500" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_1DC188F1-7718-4E13-A7E2-749E990C8DE4" dmnElementRef="_46FF7A7A-A276-4170-A255-1CAAB7396B45" sourceElement="_2CB2D286-4DFA-47B8-A785-D6073CDED746" targetElement="_DC0F1233-76BE-4811-8BB1-4CC017209925">
+        <di:waypoint x="500" y="260" />
+        <di:waypoint x="780" y="260" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
