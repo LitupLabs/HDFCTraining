@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_CC1300B9-FCB3-49EE-B868-046BCB33AAE1" id="_155905F7-C9BF-4593-9970-91B9E6AFD662" name="DMN_E4804DAA-0FE6-43D2-88E2-D5403DDCE1C1" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <itemDefinition id="_ADCB7A6A-8BFE-4DAA-9B13-7C286184DFC6" name="overdue" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_5D5A4CCE-C380-445D-843B-48E4875245FA" name="trade" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_BABA7F6E-2249-4CA5-A5A2-7DE4C6BEA199" name="tradelines_list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <typeRef>tradelines</typeRef>
@@ -25,16 +26,16 @@
     </informationRequirement>
     <context id="_FB40893A-B3F8-4438-BDFE-F87B798E385B" typeRef="number" label="totalBureauOverDue">
       <contextEntry id="_06856EE3-0906-4DBF-9980-05C07BDA24D2">
-        <variable id="_3E87F4F2-D37A-4637-BF5C-361BD7022D48" name="for_loop" typeRef="trade" />
-        <for id="_7EC470AF-5588-442B-8205-867DED580A56" typeRef="trade" label="for_loop" iteratorVariable="o">
+        <variable id="_3E87F4F2-D37A-4637-BF5C-361BD7022D48" name="for_loop" typeRef="overdue" />
+        <for id="_7EC470AF-5588-442B-8205-867DED580A56" typeRef="overdue" label="for_loop" iteratorVariable="o">
           <in id="_D1D87D6F-836F-44CA-9C71-DDE02D699151">
             <literalExpression id="_F3FC4B73-5B61-46FA-BC65-555BB91B53C4" label="Expression Name">
               <text>tradeline</text>
             </literalExpression>
           </in>
-          <return id="_BF8A9420-A0EB-4FD4-988E-C559611AFA2C">
+          <return id="_E07DFF93-D929-4C65-90F2-35D59A48246C">
             <literalExpression id="_B89A53FB-BA6D-49E6-A7CD-D84D5D0161AA" label="Expression Name">
-              <text>o.tl_overdue_amount</text>
+              <text>if o.tl_overdue_amount = null then 0 else o.tl_overdue_amount</text>
             </literalExpression>
           </return>
         </for>
