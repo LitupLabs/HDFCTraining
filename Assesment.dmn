@@ -133,6 +133,9 @@
     <informationRequirement id="_8AD1F9F7-537B-4FC9-AB1B-3F63988F1D3B">
       <requiredInput href="#_532304C2-97F7-4368-995B-3F90BA449C77" />
     </informationRequirement>
+    <knowledgeRequirement id="_01D3C033-A9BC-4D03-8496-B17146767FD7">
+      <requiredKnowledge href="#_5D3CFB38-F380-4949-B0EA-B6C2E5291E76" />
+    </knowledgeRequirement>
     <context id="_1EEB856C-AAE5-4876-ABD9-ABF060ACC32F" typeRef="number" label="cntOfUnSecureLiveLoan">
       <contextEntry id="_A9152C1A-B264-4FD5-A50E-79BB4D9E6993">
         <variable id="_AA2D45F2-52F1-435D-8103-B585C4010078" name="unsecLoan_fetch" typeRef="trade_table" />
@@ -151,7 +154,7 @@
       </contextEntry>
       <contextEntry id="_227CEBC1-A5D6-481F-A4E0-4B3C8A8F8B43">
         <literalExpression id="_7BB8FB74-FA54-4171-A3A6-68B590FD3B90" typeRef="number" label="cntOfUnSecureLiveLoan">
-          <text>sum(unsecLoan_fetch</text>
+          <text>sum(unsecLoan_fetch)</text>
         </literalExpression>
       </contextEntry>
     </context>
@@ -159,7 +162,14 @@
   <businessKnowledgeModel name="UnSecureLiveLoanCheck" id="_5D3CFB38-F380-4949-B0EA-B6C2E5291E76">
     <variable name="UnSecureLiveLoanCheck" id="_19403017-425D-4926-A806-6FACA3E91450" typeRef="number" />
     <encapsulatedLogic label="UnSecureLiveLoanCheck" typeRef="number" id="_5CE729EB-BB90-41D5-8A98-54A4A8FAC0B8" kind="FEEL">
-      <formalParameter id="_D2AF0781-8580-4993-B724-1D242027B1BB" name="trade" typeRef="raw_input" />
+      <formalParameter id="_D2AF0781-8580-4993-B724-1D242027B1BB" name="trade" typeRef="tradelines" />
+      <literalExpression id="_D992699D-29D3-49F2-A0C4-CD83EA48EAC3" typeRef="number" label="Return">
+        <text>
+if trade.tl_accnt_type = null then 0
+else if (upper case(replace(trade.tl_accnt_type, &quot; &quot;, &quot;&quot;)) in [&quot;BUSINESSLOAN&quot;,&quot;CONSUMERLOAN&quot;,&quot;EDUCATIONLOAN&quot;,&quot;LOANONCREDITCARD&quot;,&quot;MICROFINANCEHOUSINGLOAN&quot;,&quot;PERSONALLOAN&quot;,&quot;MUDRALOANSSHISHUKISHORTARUN&quot;,&quot;OTHER&quot;,&quot;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&quot;])
+then 1
+else 0</text>
+      </literalExpression>
     </encapsulatedLogic>
   </businessKnowledgeModel>
   <inputData name="tbl_tradelines" id="_532304C2-97F7-4368-995B-3F90BA449C77">
@@ -211,6 +221,9 @@
           <kie:ComponentWidths dmnElementRef="_7BB8FB74-FA54-4171-A3A6-68B590FD3B90">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D992699D-29D3-49F2-A0C4-CD83EA48EAC3">
+            <kie:width>616</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" dmnElementRef="_532304C2-97F7-4368-995B-3F90BA449C77" isCollapsed="false" isListedInputData="false">
@@ -239,6 +252,10 @@
       <dmndi:DMNEdge id="_29F35A99-66B2-4F9F-BC0D-06FD1CC4A54E" dmnElementRef="_8AD1F9F7-537B-4FC9-AB1B-3F63988F1D3B" sourceElement="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" targetElement="_9EC442CA-AAB6-4CB4-9153-CA434EE00E18">
         <di:waypoint x="320" y="220" />
         <di:waypoint x="320" y="360" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_8E5DB158-1311-41C3-B11D-867845379B59" dmnElementRef="_01D3C033-A9BC-4D03-8496-B17146767FD7" sourceElement="_A1D70EB5-82A3-411A-B978-A7639220E44B" targetElement="_9EC442CA-AAB6-4CB4-9153-CA434EE00E18">
+        <di:waypoint x="600" y="360" />
+        <di:waypoint x="400" y="360" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
