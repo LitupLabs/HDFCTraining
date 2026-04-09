@@ -42,6 +42,24 @@
       </literalExpression>
     </list>
   </decision>
+  <decision name="Live trade count" id="_2027745F-CAEC-4C35-829C-FC74D57BE80E">
+    <variable name="Live trade count" id="_AA079344-562C-4AE5-8C67-BC6AD922B2F0" typeRef="tradelines" />
+    <informationRequirement id="_5A27ABEF-CBA5-49EA-89EF-C130101CFD70">
+      <requiredInput href="#_573FC751-548B-473D-9307-C848411872D0" />
+    </informationRequirement>
+    <filter id="_4B678A82-316D-409A-8664-953A5F9B7C33" typeRef="tradelines" label="Live trade count">
+      <in id="_B9C462A3-8959-43BF-98A2-90297AB3A7FB">
+        <literalExpression id="_BC9E9CA7-8767-41F0-A6FE-C92A4DE5E9D0" label="Expression Name">
+          <text>Applicant.tradelines</text>
+        </literalExpression>
+      </in>
+      <match id="_5FD0023C-DD11-4BD0-8F81-DF5A8173AE7D">
+        <literalExpression id="_F03A5632-8FB9-4AB9-9B8A-3ADD71E4FD39" label="Expression Name">
+          <text>itemt.tl_closed_date!=&quot;&quot;</text>
+        </literalExpression>
+      </match>
+    </filter>
+  </decision>
   <inputData name="Applicant" id="_573FC751-548B-473D-9307-C848411872D0">
     <variable name="Applicant" id="_BF32C367-A724-4ABE-84B2-6F2F6C3065E2" typeRef="Applicant" />
   </inputData>
@@ -52,6 +70,12 @@
           <kie:ComponentWidths dmnElementRef="_7DE9EDF9-092F-4239-8310-E1CE3BDE96B0">
             <kie:width>625</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BC9E9CA7-8767-41F0-A6FE-C92A4DE5E9D0">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F03A5632-8FB9-4AB9-9B8A-3ADD71E4FD39">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_8C3FF88F-C3AC-4040-8798-24E43C09248A" dmnElementRef="_573FC751-548B-473D-9307-C848411872D0" isCollapsed="false" isListedInputData="false">
@@ -60,9 +84,16 @@
       <dmndi:DMNShape id="_8E4ED6FB-8266-4F5B-8FF2-162D4B96A778" dmnElementRef="_4E34E68B-B296-431B-89BA-4758D476CADF" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="200" y="20" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9E6F7A56-470C-417B-B59F-63FAF527077C" dmnElementRef="_2027745F-CAEC-4C35-829C-FC74D57BE80E" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="480" y="0" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_D687E7CC-1473-4DF4-B3E1-BA54CF0F0B11" dmnElementRef="_E9B28B2A-8E6D-4520-A3D3-F42A690D251E" sourceElement="_8C3FF88F-C3AC-4040-8798-24E43C09248A" targetElement="_8E4ED6FB-8266-4F5B-8FF2-162D4B96A778">
         <di:waypoint x="300" y="220" />
         <di:waypoint x="280" y="60" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_896666BE-098F-46C9-8D6A-FE0F3974B337" dmnElementRef="_5A27ABEF-CBA5-49EA-89EF-C130101CFD70" sourceElement="_8C3FF88F-C3AC-4040-8798-24E43C09248A" targetElement="_9E6F7A56-470C-417B-B59F-63FAF527077C">
+        <di:waypoint x="300" y="220" />
+        <di:waypoint x="560" y="40" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
