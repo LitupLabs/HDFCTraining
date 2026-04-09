@@ -84,7 +84,7 @@
       </contextEntry>
       <contextEntry id="_ABBE05C0-CFCF-4A94-BB5C-1525BB71FEFD">
         <literalExpression id="_E1A1295D-F3E0-44BE-A5FF-EEE5E67D3487" typeRef="number" label="overdue">
-          <text>sum(tl_overdue_amount)</text>
+          <text>sum(tlover)</text>
         </literalExpression>
       </contextEntry>
     </context>
