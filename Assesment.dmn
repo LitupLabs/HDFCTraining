@@ -128,6 +128,48 @@
       </contextEntry>
     </context>
   </decision>
+  <decision name="cntOfUnSecureLiveLoan" id="_1D225224-B10D-46BE-9D89-54084AE17814">
+    <variable name="cntOfUnSecureLiveLoan" id="_C390EF96-B3F5-429C-86E2-81C44586129D" typeRef="number" />
+    <informationRequirement id="_EB0B3A57-179C-44FA-A7EF-53C9B54CD0DD">
+      <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
+    </informationRequirement>
+    <knowledgeRequirement id="_601704E6-2C29-4A21-AE6C-A5F15C2C1078">
+      <requiredKnowledge href="#_C72B97D3-93BD-4FC3-8879-E20CA262A173" />
+    </knowledgeRequirement>
+    <context id="_B176F49A-04F2-4322-81F2-192B6EF4F526" typeRef="number" label="cntOfUnSecureLiveLoan">
+      <contextEntry id="_DBCE8368-A257-4EE2-8381-B00AD821EF42">
+        <variable id="_CC0E957C-F131-4F70-B09C-58A711A29A30" name="lst_UnSecLoan" typeRef="lstTrades" />
+        <for id="_EFBF0D18-AD6A-44DE-9717-71FB84397FAD" typeRef="lstTrades" label="lst_UnSecLoan" iteratorVariable="item">
+          <in id="_CBBE47F1-4033-4F45-9962-5E386ED8C7CF">
+            <literalExpression id="_DDE6F284-60E0-40F8-978D-B421F03C1549" label="Expression Name">
+              <text>tbl_tradelines</text>
+            </literalExpression>
+          </in>
+          <return id="_1EFF89CA-BFA9-4BE8-8532-7AE41FD6009A">
+            <literalExpression id="_B15C370F-8663-4082-9DF1-88DE314DC6FF" label="Expression Name">
+              <text>fnUnSecureLiveLoanCheck(item)</text>
+            </literalExpression>
+          </return>
+        </for>
+      </contextEntry>
+      <contextEntry id="_C1AD8180-FD6B-46BF-9E5D-29A49FC5C2FD">
+        <literalExpression id="_BBE64BE8-D3D3-4B09-8881-9E013CAF3A34" typeRef="number" label="num_Livetrades">
+          <text>count(lst_UnSecLoan)</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
+  </decision>
+  <businessKnowledgeModel name="fnUnSecureLiveLoanCheck" id="_C72B97D3-93BD-4FC3-8879-E20CA262A173">
+    <variable name="fnUnSecureLiveLoanCheck" id="_F2B6EAF4-7A92-4414-9B0D-376C98FDEA0D" typeRef="number" />
+    <encapsulatedLogic label="fnUnSecureLiveLoanCheck" typeRef="number" id="_CD21F6EB-D0CF-4170-A55E-5F3B057EB9B0" kind="FEEL">
+      <formalParameter id="_F2B0E19D-1BD5-4CCF-BA52-84793342009E" name="tl" typeRef="tradelines_obj" />
+      <literalExpression id="_C3B5D5F8-79A2-49BE-91D0-2FB604B1C403" typeRef="number" label="Return">
+        <text>if (tl.tl_acct_type = null or upper case(replace(tl.tl_acct_type, &quot; &quot;, &quot;&quot;)) in [&quot;BUSINESSLOAN&quot;,&quot;CONSUMERLOAN&quot;,&quot;EDUCATIONLOAN&quot;,&quot;LOANONCREDITCARD&quot;,&quot;MICROFINANCEHOUSINGLOAN&quot;,&quot;PERSONALLOAN&quot;,&quot;MUDRALOANSSHISHUKISHORTARUN&quot;,&quot;OTHER&quot;,&quot;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&quot;])
+then 0
+else 1</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <inputData name="tbl_tradelines" id="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E">
     <variable name="tbl_tradelines" id="_578AD899-6CE9-45BF-A4BF-2757A365ADDA" typeRef="tbl_tradelines" />
   </inputData>
@@ -165,24 +207,53 @@
           <kie:ComponentWidths dmnElementRef="_687EB0F7-96CC-48C9-A19F-9A99D1E11335">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B176F49A-04F2-4322-81F2-192B6EF4F526">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DDE6F284-60E0-40F8-978D-B421F03C1549">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B15C370F-8663-4082-9DF1-88DE314DC6FF">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_BBE64BE8-D3D3-4B09-8881-9E013CAF3A34">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C3B5D5F8-79A2-49BE-91D0-2FB604B1C403">
+            <kie:width>959</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" dmnElementRef="_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="112" y="292" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7" dmnElementRef="_BF916CA9-1FBC-4AFF-8217-50FE950B09EE" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="112" y="112" width="160" height="80" />
+        <dc:Bounds x="-160" y="120" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_B37AF4A6-CCA5-4165-9D1A-B727597C8593" dmnElementRef="_6945DFE3-629A-40C5-BF86-A04FFA4DC0EF" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="420" y="120" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_AF7C487C-E0B9-4EE6-9D19-CAD63F601390" dmnElementRef="_1D225224-B10D-46BE-9D89-54084AE17814" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="120" y="120" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_721508EC-7986-45DA-A9F6-E0A43D43B0DB" dmnElementRef="_C72B97D3-93BD-4FC3-8879-E20CA262A173" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="120" y="-20" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_732D46A6-C0E5-4ED7-B417-9ACD8A88A460" dmnElementRef="_326D29A0-3482-4012-9532-B0B643FC470D" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_21BC3C24-4D12-4A66-AC89-D4509B3A11C7">
         <di:waypoint x="192" y="292" />
-        <di:waypoint x="192" y="192" />
+        <di:waypoint x="-80" y="200" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_0CCDAE22-6DD5-4545-9C32-B850E4A58534" dmnElementRef="_9C875A26-430A-411C-9FB1-DBD44ED850FC" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_B37AF4A6-CCA5-4165-9D1A-B727597C8593">
         <di:waypoint x="192" y="332" />
         <di:waypoint x="500" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_A6F265AD-9765-4017-9354-B7D17E6637E9" dmnElementRef="_EB0B3A57-179C-44FA-A7EF-53C9B54CD0DD" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_AF7C487C-E0B9-4EE6-9D19-CAD63F601390">
+        <di:waypoint x="192" y="332" />
+        <di:waypoint x="200" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_AB8A3B88-A140-4958-90CC-EEB85AA8973D" dmnElementRef="_601704E6-2C29-4A21-AE6C-A5F15C2C1078" sourceElement="_721508EC-7986-45DA-A9F6-E0A43D43B0DB" targetElement="_AF7C487C-E0B9-4EE6-9D19-CAD63F601390">
+        <di:waypoint x="200" y="20" />
+        <di:waypoint x="200" y="160" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
