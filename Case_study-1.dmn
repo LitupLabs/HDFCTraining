@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_CC1300B9-FCB3-49EE-B868-046BCB33AAE1" id="_155905F7-C9BF-4593-9970-91B9E6AFD662" name="DMN_E4804DAA-0FE6-43D2-88E2-D5403DDCE1C1">
+  <itemDefinition id="_BC251E43-B332-408B-BBDE-9A4C1B7C76DE" name="list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_ADCB7A6A-8BFE-4DAA-9B13-7C286184DFC6" name="overdue" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_5D5A4CCE-C380-445D-843B-48E4875245FA" name="trade" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" />
   <itemDefinition id="_BABA7F6E-2249-4CA5-A5A2-7DE4C6BEA199" name="tradelines_list" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -80,7 +81,7 @@
           </in>
           <match id="_DE0B343D-F02F-4D20-A3DA-C5ECE5AEAFA8">
             <literalExpression id="_5EC25F42-54B0-484A-9D21-C4C12E8BF952" label="Expression Name">
-              <text>item in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;))</text>
+              <text>not(item in (null, &quot;null&quot;, &quot;&quot;,date(&quot;1900-01-01&quot;)))</text>
             </literalExpression>
           </match>
         </filter>
@@ -91,6 +92,15 @@
         </literalExpression>
       </contextEntry>
     </context>
+  </decision>
+  <decision name="New Decision" id="_3DF7B6C1-8265-405A-9890-E3015DD65508">
+    <variable name="New Decision" id="_2DE5D38E-36B2-456E-828B-3FCD6597CF52" typeRef="number" />
+    <informationRequirement id="_9E316B65-830A-4743-B9A4-38D556635230">
+      <requiredInput href="#_4E424C55-6A42-4349-84BC-84334D228350" />
+    </informationRequirement>
+    <literalExpression id="_5DC2D156-FB69-4BA6-936C-49D7DA674126" typeRef="number" label="New Decision">
+      <text>count(tradelines[not(tradelines.tl_closed_date in [&quot;01/01/1900 00:00:00&quot;, &quot;null&quot;, null, &quot;&quot;] ) and tradelines.tl_acct_type in [&apos;BUSINESSLOAN&apos;,&apos;CONSUMERLOAN&apos;, &apos;EDUCATIONLOAN&apos;, &apos;LOANONCREDITCARD&apos;, &apos;MICROFINANCEHOUSINGLOAN&apos;, &apos;PERSONALLOAN&apos;, &apos;MUDRALOANSSHISHUKISHORTARUN&apos;, &apos;OTHER&apos;, &apos;PRIMEMINISTERJAANDHANYOJANAOVERDRAFT&apos;]])</text>
+    </literalExpression>
   </decision>
   <inputData name="tradeline" id="_4E424C55-6A42-4349-84BC-84334D228350">
     <variable name="tradeline" id="_40BAD263-C26D-4188-B7F2-D52D90DB42FC" typeRef="tradelines_list" />
@@ -129,6 +139,9 @@
           <kie:ComponentWidths dmnElementRef="_6141BDFE-BCE2-4D7F-9739-07A155D912F5">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5DC2D156-FB69-4BA6-936C-49D7DA674126">
+            <kie:width>1410</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_E223AD92-D9C2-498B-AFA4-2E630CD27875" dmnElementRef="_2BC123F4-E253-4001-8764-48733A64FDEA" isCollapsed="false" isListedInputData="false">
@@ -138,7 +151,10 @@
         <dc:Bounds x="520" y="160" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_FAA26F62-7B5C-464C-BB19-DE7A1E6ECBA3" dmnElementRef="_FE9A31CE-5C45-4448-83BE-C07F26B46BD8" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="720" y="20" width="160" height="80" />
+        <dc:Bounds x="620" y="0" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_D57B7FBE-D62D-4654-B283-9E1D74D03139" dmnElementRef="_3DF7B6C1-8265-405A-9890-E3015DD65508" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="840" y="0" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_CECF9451-E6F6-4BB3-9037-1607FAAD5511" dmnElementRef="_6FC0CFB7-4E11-45AD-A815-7D614CD14041" sourceElement="_7497568A-293D-41D6-B9A9-1DAD13A3EDD7" targetElement="_E223AD92-D9C2-498B-AFA4-2E630CD27875">
         <di:waypoint x="600" y="200" />
@@ -146,7 +162,11 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_A99AF751-B53C-4204-BD84-BAD671324932" dmnElementRef="_E6A9FE53-6471-44AA-A155-55F8576044FB" sourceElement="_7497568A-293D-41D6-B9A9-1DAD13A3EDD7" targetElement="_FAA26F62-7B5C-464C-BB19-DE7A1E6ECBA3">
         <di:waypoint x="600" y="200" />
-        <di:waypoint x="800" y="100" />
+        <di:waypoint x="700" y="80" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_D0DFFCC9-2570-4341-A8FC-29DF16F178FF" dmnElementRef="_9E316B65-830A-4743-B9A4-38D556635230" sourceElement="_7497568A-293D-41D6-B9A9-1DAD13A3EDD7" targetElement="_D57B7FBE-D62D-4654-B283-9E1D74D03139">
+        <di:waypoint x="600" y="200" />
+        <di:waypoint x="920" y="80" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
