@@ -82,6 +82,11 @@
           </return>
         </for>
       </contextEntry>
+      <contextEntry id="_ABBE05C0-CFCF-4A94-BB5C-1525BB71FEFD">
+        <literalExpression id="_E1A1295D-F3E0-44BE-A5FF-EEE5E67D3487" typeRef="number" label="overdue">
+          <text>sum(tl_overdue_amount)</text>
+        </literalExpression>
+      </contextEntry>
     </context>
   </decision>
   <decision name="New Decision" id="_4181D2EB-182D-4618-9960-39F24174A89E">
@@ -120,6 +125,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A5B86B56-9303-4AA0-854C-4200720661B7">
             <kie:width>854</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E1A1295D-F3E0-44BE-A5FF-EEE5E67D3487">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
