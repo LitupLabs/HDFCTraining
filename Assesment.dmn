@@ -156,6 +156,12 @@
       </contextEntry>
     </context>
   </decision>
+  <businessKnowledgeModel name="UnSecureLiveLoanCheck" id="_5D3CFB38-F380-4949-B0EA-B6C2E5291E76">
+    <variable name="UnSecureLiveLoanCheck" id="_19403017-425D-4926-A806-6FACA3E91450" typeRef="number" />
+    <encapsulatedLogic label="UnSecureLiveLoanCheck" typeRef="number" id="_5CE729EB-BB90-41D5-8A98-54A4A8FAC0B8" kind="FEEL">
+      <formalParameter id="_D2AF0781-8580-4993-B724-1D242027B1BB" name="trade" typeRef="raw_input" />
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
   <inputData name="tbl_tradelines" id="_532304C2-97F7-4368-995B-3F90BA449C77">
     <variable name="tbl_tradelines" id="_E6323C6B-58EB-4970-8258-7F33470839A1" typeRef="tradeline_list" />
   </inputData>
@@ -218,6 +224,9 @@
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_9EC442CA-AAB6-4CB4-9153-CA434EE00E18" dmnElementRef="_FE4A242A-895C-45EE-82F2-1189CBB3B3DD" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="240" y="320" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_A1D70EB5-82A3-411A-B978-A7639220E44B" dmnElementRef="_5D3CFB38-F380-4949-B0EA-B6C2E5291E76" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="520" y="320" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9F7A668F-DB9B-479C-B981-8CC54AB2EAF6" dmnElementRef="_A376DE78-98F6-42E6-8F35-0E925734C594" sourceElement="_F3BED72B-3157-42CD-AC47-9BA2B3B264FE" targetElement="_D30C2145-9A4E-4B45-A45C-705A12BEA892">
         <di:waypoint x="320" y="220" />
