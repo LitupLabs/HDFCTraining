@@ -123,6 +123,28 @@
       </contextEntry>
     </context>
   </decision>
+  <decision name="totalBureauOverDue" id="_3B973174-10DB-4049-942B-7D2C2EF8743C">
+    <variable name="totalBureauOverDue" id="_75288FBE-C859-4C0C-AC94-F5A4E0DD7B67" typeRef="number" />
+    <informationRequirement id="_61742382-645F-40B9-992B-3B0565D79E49">
+      <requiredInput href="#_DB087796-1901-408A-A281-BE01DEB628C8" />
+    </informationRequirement>
+    <for id="_87F907E0-D81E-43BD-B760-A3DF7C757A8B" typeRef="number" label="totalBureauOverDue" iteratorVariable="t">
+      <in id="_E050FC7D-4DD0-4F91-BA4F-D4FB2288CF83">
+        <literalExpression id="_B85E9219-2AB6-45C6-94FF-02BEEA29F359" label="Expression Name">
+          <text>if Tradeline = null 
+then [] 
+else Tradeline</text>
+        </literalExpression>
+      </in>
+      <return id="_06846B4E-9EA1-44E0-B4AB-D5791A9F20AD">
+        <literalExpression id="_6C077E36-BB07-4A8F-89CF-A96F07333B26" label="Expression Name">
+          <text>if t.tl_overdue_amount &gt; 0 
+then 1 
+else 0</text>
+        </literalExpression>
+      </return>
+    </for>
+  </decision>
   <inputData name="Tradeline" id="_DB087796-1901-408A-A281-BE01DEB628C8">
     <variable name="Tradeline" id="_AC8C623E-4FA9-4A7D-B968-C8540E00057A" typeRef="Tradeline_List" />
   </inputData>
@@ -148,6 +170,12 @@
           <kie:ComponentWidths dmnElementRef="_337FFB40-75F5-4793-BF10-347CA7446A7F">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B85E9219-2AB6-45C6-94FF-02BEEA29F359">
+            <kie:width>329</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6C077E36-BB07-4A8F-89CF-A96F07333B26">
+            <kie:width>329</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_D0F335AB-868D-4E85-87FF-05D60AB6D46D" dmnElementRef="_DB087796-1901-408A-A281-BE01DEB628C8" isCollapsed="false" isListedInputData="false">
@@ -156,9 +184,16 @@
       <dmndi:DMNShape id="_17362852-91BE-43FE-B548-7C3E6234FC54" dmnElementRef="_F0D5A3E7-3F4B-4BF9-817D-CC1FE0D7FBBB" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="20" y="0" width="160" height="80" />
       </dmndi:DMNShape>
+      <dmndi:DMNShape id="_3660E781-21E9-42D5-B312-0788AFCD39BF" dmnElementRef="_3B973174-10DB-4049-942B-7D2C2EF8743C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="380" y="-20" width="160" height="80" />
+      </dmndi:DMNShape>
       <dmndi:DMNEdge id="_9EA41887-8DA3-400B-9BFF-189D9069AF54" dmnElementRef="_95E3404D-49B8-49EC-9CAC-A71128DCC139" sourceElement="_D0F335AB-868D-4E85-87FF-05D60AB6D46D" targetElement="_17362852-91BE-43FE-B548-7C3E6234FC54">
         <di:waypoint x="300" y="220" />
         <di:waypoint x="100" y="80" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_5D12F91A-5905-4699-A3B5-C72BB31372A6" dmnElementRef="_61742382-645F-40B9-992B-3B0565D79E49" sourceElement="_D0F335AB-868D-4E85-87FF-05D60AB6D46D" targetElement="_3660E781-21E9-42D5-B312-0788AFCD39BF">
+        <di:waypoint x="300" y="220" />
+        <di:waypoint x="460" y="60" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
