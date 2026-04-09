@@ -133,6 +133,9 @@
     <informationRequirement id="_EB0B3A57-179C-44FA-A7EF-53C9B54CD0DD">
       <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
     </informationRequirement>
+    <informationRequirement id="_AB1D09E6-1C75-42CB-8845-A8EDF5AD9A7B">
+      <requiredDecision href="#_F2F7C9CB-2EC7-4C03-AB25-461854E2A705" />
+    </informationRequirement>
     <context id="_B176F49A-04F2-4322-81F2-192B6EF4F526" typeRef="number" label="cntOfUnSecureLiveLoan">
       <contextEntry id="_DBCE8368-A257-4EE2-8381-B00AD821EF42">
         <variable id="_CC0E957C-F131-4F70-B09C-58A711A29A30" name="lst_UnSecLoan" typeRef="lstTrades" />
@@ -158,6 +161,9 @@
   </decision>
   <decision name="UnSecureLiveLoanCheck" id="_F2F7C9CB-2EC7-4C03-AB25-461854E2A705">
     <variable name="UnSecureLiveLoanCheck" id="_8C8501B5-FA0A-4EB6-B21F-66092D4054D2" typeRef="number" />
+    <informationRequirement id="_4F9E7205-7CAB-4709-902C-9A99E0542D7A">
+      <requiredInput href="#_F966A6C0-4D95-46F4-B0A5-1824E5C0293E" />
+    </informationRequirement>
     <literalExpression id="_DBF7F2CF-8130-4A4F-A0EB-41AE03263BE1" typeRef="number" label="UnSecureLiveLoanCheck">
       <text>count(
       tbl_tradelines[
@@ -233,7 +239,7 @@
         <dc:Bounds x="-160" y="120" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_B37AF4A6-CCA5-4165-9D1A-B727597C8593" dmnElementRef="_6945DFE3-629A-40C5-BF86-A04FFA4DC0EF" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="400" y="120" width="160" height="80" />
+        <dc:Bounds x="360" y="360" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_AF7C487C-E0B9-4EE6-9D19-CAD63F601390" dmnElementRef="_1D225224-B10D-46BE-9D89-54084AE17814" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="120" y="120" width="160" height="80" />
@@ -247,11 +253,19 @@
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_0CCDAE22-6DD5-4545-9C32-B850E4A58534" dmnElementRef="_9C875A26-430A-411C-9FB1-DBD44ED850FC" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_B37AF4A6-CCA5-4165-9D1A-B727597C8593">
         <di:waypoint x="200" y="360" />
-        <di:waypoint x="480" y="160" />
+        <di:waypoint x="440" y="400" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="_A6F265AD-9765-4017-9354-B7D17E6637E9" dmnElementRef="_EB0B3A57-179C-44FA-A7EF-53C9B54CD0DD" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_AF7C487C-E0B9-4EE6-9D19-CAD63F601390">
         <di:waypoint x="200" y="360" />
         <di:waypoint x="200" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_34D6EF08-5BED-4EDA-B4FC-824386E72F28" dmnElementRef="_AB1D09E6-1C75-42CB-8845-A8EDF5AD9A7B" sourceElement="_08CC9968-63DE-4ECF-B1F3-29908D99BD20" targetElement="_AF7C487C-E0B9-4EE6-9D19-CAD63F601390">
+        <di:waypoint x="780" y="200" />
+        <di:waypoint x="200" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_46C9A35E-9CE2-46B4-B91B-B82610D3C547" dmnElementRef="_4F9E7205-7CAB-4709-902C-9A99E0542D7A" sourceElement="_3B55872A-37A1-4CBF-98CA-126D15CAC7E1" targetElement="_08CC9968-63DE-4ECF-B1F3-29908D99BD20">
+        <di:waypoint x="200" y="360" />
+        <di:waypoint x="780" y="200" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
