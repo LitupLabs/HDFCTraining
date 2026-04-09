@@ -58,9 +58,9 @@
       <requiredInput href="#_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08" />
     </informationRequirement>
     <for id="_74A6F5E3-A58D-43A6-9999-D11DFBFE03C5" typeRef="tradelines_list" label="New Decision" iteratorVariable="t">
-      <in id="_1DF33428-F83C-4830-906C-381DD2244A84">
+      <in id="_18E6C96D-216C-42DD-A614-C6109D5FAD4C">
         <literalExpression id="_72F4D01F-8024-4BB1-82FF-2A450EF988F1" label="Expression Name">
-          <text>raw_input.applicant.tbl_tradelines</text>
+          <text>raw_data</text>
         </literalExpression>
       </in>
       <return id="_20D25A04-59A0-47A8-82F7-BBE04FCF9B56">
@@ -70,8 +70,8 @@
       </return>
     </for>
   </decision>
-  <inputData name="tradelines" id="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08">
-    <variable name="tradelines" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="raw_input" />
+  <inputData name="raw_data" id="_42E25DAD-D4C2-4FE5-B3E6-6B222E5E6A08">
+    <variable name="raw_data" id="_19BDADFD-8B54-4366-AA95-3B2CF19AFF79" typeRef="tradelines" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_CC545C0F-2B38-4D9C-85FC-CD435DF1DBFE" name="Default DRD" useAlternativeInputDataShape="false">
