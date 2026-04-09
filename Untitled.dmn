@@ -30,7 +30,7 @@
   <decision name="tradelineCount" id="_EEB4B1CC-3729-46B5-A6CA-CC0CD6DC1072">
     <variable name="tradelineCount" id="_3B6589CF-6579-43B6-B38D-16060FC8CC43" typeRef="tbl_tradelines" />
     <literalExpression id="_C4EAB1F5-0724-48F2-86AB-C5F6A2DA666C" typeRef="tbl_tradelines" label="tradelineCount">
-      <text>count(CreditRequest.tbl_tradelines)</text>
+      <text>[&quot;01/01/1900 00:00:00&quot;, &quot;null&quot;,&quot;null&quot;, &quot;&quot;]</text>
     </literalExpression>
   </decision>
   <inputData name="countoftrades" id="_D138C403-E2F1-44C8-91DA-918CBB2B56DF">
