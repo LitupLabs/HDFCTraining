@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_77F264DA-4518-47AC-A4D6-E7D9C522D330" id="_26039CA2-3EA8-4F58-9EE0-6F54D5749B12" name="DMN_1366F4BA-308E-461D-AD20-07590F28357F" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
-  <itemDefinition id="_4265CCC2-5153-4E51-B15A-AD9626AD7108" name="Tradelinelist" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <typeRef>tradelines</typeRef>
+  <itemDefinition id="_75B0206C-C97F-401E-8595-C6018AA17E36" name="rawInput" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_8E4AED3E-DA2A-4989-B750-F6BFF944F506" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>Applicant</typeRef>
+    </itemComponent>
+    <itemComponent id="_9441E16F-08A7-4CCF-BBC4-C7038CCB82F2" name="workflowId" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_A5060FCB-DCDA-4DCC-AEB4-C760DC89A0D3" name="Applicant" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_592E9F9A-84FC-4F8D-89D9-C26B33051AC6" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>tradelines</typeRef>
+    </itemComponent>
+    <itemComponent id="_6C188A26-BFF2-41AF-BF66-F4465AA9CAC2" name="app_signed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
   </itemDefinition>
   <itemDefinition id="_742F7EAC-9152-4C97-9C88-7746138DD52A" name="tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
     <itemComponent id="_B918F69C-C43A-4A0A-BB88-C1E9E78FA515" name="applicant_reference_number" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
@@ -17,4 +30,25 @@
       <typeRef>number</typeRef>
     </itemComponent>
   </itemDefinition>
+  <decision name="New Decision" id="_4E34E68B-B296-431B-89BA-4758D476CADF">
+    <variable name="New Decision" id="_F85701FC-ABD4-4252-A43D-E7FC00AA2591" />
+  </decision>
+  <inputData name="rawinput" id="_573FC751-548B-473D-9307-C848411872D0">
+    <variable name="rawinput" id="_BF32C367-A724-4ABE-84B2-6F2F6C3065E2" typeRef="rawInput" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_37999408-BAA5-4DEC-96FF-97980C351AC7" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_8C3FF88F-C3AC-4040-8798-24E43C09248A" dmnElementRef="_573FC751-548B-473D-9307-C848411872D0" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="220" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_8E4ED6FB-8266-4F5B-8FF2-162D4B96A778" dmnElementRef="_4E34E68B-B296-431B-89BA-4758D476CADF" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="500" y="80" width="160" height="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
