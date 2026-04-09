@@ -1,40 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_E75B2253-9E89-426B-A040-8EFA19A3A1A3" id="_62FF6818-5529-497B-914F-B3FB74E45C19" name="DMN_C47324BD-1DF5-4A95-8B87-9E4F691001CD" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
-  <itemDefinition id="_9B5DB34C-7A94-43FB-A500-67301D60C862" name="request" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_1ED6E0AA-E453-4AF2-BFB0-6904F7273940" name="tbl_tradelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-      <typeRef>number</typeRef>
+  <itemDefinition id="_28117F9E-FFD2-413F-A618-09BD351FF77E" name="listoftrandelines" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_090E3487-8B40-4B8A-B703-C990F4DC90CC" name="listoftradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>tradeline</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_B6BA6233-DE11-49E8-8CD6-5B0C756A9AE9" name="tbl_tradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
-    <itemComponent id="_2301D150-598D-42B7-B8A5-65072EB92851" name="tl_closed_date" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <itemDefinition id="_9B5DB34C-7A94-43FB-A500-67301D60C862" name="tradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_008EBDCD-0F6F-4DA1-B991-8240764DA36E" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_1ED6E0AA-E453-4AF2-BFB0-6904F7273940" name="tl_acct_type" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_B6BA6233-DE11-49E8-8CD6-5B0C756A9AE9" name="tbltradeline" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+    <itemComponent id="_E06E2FC5-B195-4D95-8E29-7B4D405747D2" name="tl_overdue_amount" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_3791897B-50D8-4BBA-9FB9-6FE8348981AD" name="tl_acct_open_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_2301D150-598D-42B7-B8A5-65072EB92851" name="tl_closed_date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
   <decision name="InvalidClosedDateCount" id="_A86E8AD6-C3F1-40E1-A855-B505357BD9F9">
-    <variable name="InvalidClosedDateCount" id="_47FC0186-A945-4A3D-9091-841E808DFAEC" typeRef="request" />
+    <variable name="InvalidClosedDateCount" id="_47FC0186-A945-4A3D-9091-841E808DFAEC" typeRef="number" />
     <informationRequirement id="_97D33483-5D2D-4001-AF61-0381E80457E3">
       <requiredInput href="#_F56E7C3C-2AEB-4558-9E4F-E32CE96CEE28" />
     </informationRequirement>
+    <literalExpression id="_B64E54AC-29BF-4DFE-8C3E-441D99CF2B91" typeRef="number" label="InvalidClosedDateCount">
+      <text>count(
+  tradelines.tbl tradelines[
+       tl_closed_date = &quot;01/01/1900 00:00:00&quot;
+    or tl_closed_date = &quot;null&quot;
+    or tl_closed_date = null
+    or tl_closed_date = &quot;&quot;
+  ]
+)</text>
+    </literalExpression>
   </decision>
-  <inputData name="request" id="_F56E7C3C-2AEB-4558-9E4F-E32CE96CEE28">
-    <variable name="request" id="_DA4D3F01-0D79-4297-81A0-9943F1D2B0FF" />
+  <inputData name="tradelines" id="_F56E7C3C-2AEB-4558-9E4F-E32CE96CEE28">
+    <variable name="tradelines" id="_DA4D3F01-0D79-4297-81A0-9943F1D2B0FF" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_6743444B-D303-40C5-82F0-70697DAD7B90" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths />
+          <kie:ComponentWidths dmnElementRef="_B64E54AC-29BF-4DFE-8C3E-441D99CF2B91">
+            <kie:width>1150</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="_42DA083C-4718-43AD-B337-E001CA10694A" dmnElementRef="_F56E7C3C-2AEB-4558-9E4F-E32CE96CEE28" isCollapsed="false" isListedInputData="false">
         <dc:Bounds x="200" y="-300" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_CA8E4A90-6A78-4FBF-8630-CE001306A35A" dmnElementRef="_A86E8AD6-C3F1-40E1-A855-B505357BD9F9" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="540" y="-260" width="160" height="80" />
+        <dc:Bounds x="520" y="-300" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_368FE337-8102-4AB3-BA9E-DB3209FD2FE0" dmnElementRef="_97D33483-5D2D-4001-AF61-0381E80457E3" sourceElement="_42DA083C-4718-43AD-B337-E001CA10694A" targetElement="_CA8E4A90-6A78-4FBF-8630-CE001306A35A">
         <di:waypoint x="280" y="-260" />
-        <di:waypoint x="620" y="-220" />
+        <di:waypoint x="600" y="-260" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
